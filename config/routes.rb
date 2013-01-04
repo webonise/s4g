@@ -1,4 +1,6 @@
 S4g::Application.routes.draw do
+  resources :causes
+  match '/create_cause' , to: 'causes#new'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -1,0 +1,21 @@
+<% provide(:title, 'Add Cause') %>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@cause) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :cause_name ,"causes Name" %>
+        <%= f.text_field :cause_name %>
+
+        <%= f.label :description_of_cause, "Brief about causes" %>
+        <%= f.text_field :description_of_cause %>
+
+        <%= f.label :url,"URL" %>
+        <%= f.password_field :url%>
+
+        <%= f.label :address, "Address" %>
+        <%= f.password_field :address %>
+
+        <%= f.submit "Create Cause", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
