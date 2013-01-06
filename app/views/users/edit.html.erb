@@ -1,0 +1,26 @@
+<h1>Update your profile</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@user) do |f| %>
+      
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+
+      <%= f.label :email %>
+      <%= f.field_for :person do |person_form| %>
+      <%= person_form.text_field :email %>
+      <% end %>
+
+      <%= f.label :password %>
+      <%= f.field_for :person do |person_form| %>
+      <%= person_form.text_field :password %>
+      <% end %>
+      
+      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div> 
+</div>   
