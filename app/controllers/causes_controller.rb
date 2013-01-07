@@ -9,7 +9,7 @@ class CausesController < ApplicationController
 
   def create
 
-    @cause=Cause.new(params[:cause])
+    @cause = Cause.new(params[:cause])
 
     if @cause.save
       flash[:success] = " cause Created successfully!"

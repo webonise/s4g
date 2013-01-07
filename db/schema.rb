@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130104132631) do
+ActiveRecord::Schema.define(:version => 20130107094506) do
 
   create_table "business_companies", :force => true do |t|
     t.string   "business_name"
@@ -37,8 +37,6 @@ ActiveRecord::Schema.define(:version => 20130104132631) do
   add_index "business_has_users", ["user_id"], :name => "index_business_has_users_on_user_id"
 
   create_table "business_users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -53,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130104132631) do
     t.string   "address"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "logo"
   end
 
   create_table "impressions", :force => true do |t|
@@ -67,11 +66,11 @@ ActiveRecord::Schema.define(:version => 20130104132631) do
   add_index "impressions", ["user_id"], :name => "index_impressions_on_user_id"
 
   create_table "people", :force => true do |t|
-    t.string   "email"
-    t.string   "password"
-    t.integer  "person_role"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "role"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|
@@ -93,8 +92,6 @@ ActiveRecord::Schema.define(:version => 20130104132631) do
   add_index "user_has_causes", ["user_id"], :name => "index_user_has_causes_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

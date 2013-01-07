@@ -3,16 +3,26 @@
   <div class="span6 offset3">
     <%= form_for(@cause) do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
+
         <%= f.label :cause_name ,"causes Name" %>
+
         <%= f.text_field :cause_name %>
 
+        <%= f.label :logo ,"Upload Logo" %>
+
+        <%= f.file_field :logo %>
+
         <%= f.label :description, "Brief about causes" %>
+
         <%= f.text_area :description %>
 
+
         <%= f.label :url,"URL" %>
+
         <%= f.text_field :url%>
 
         <%= f.label :address, "Address" %>
+
         <%= f.text_field :address %>
 
         <%= f.submit "Create Cause", class: "btn btn-large btn-primary" %>
