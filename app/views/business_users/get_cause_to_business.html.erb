@@ -1,0 +1,17 @@
+<h1>Select one cause form following list</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>Cause Name</th>
+    <th>Description</th>
+  </tr>
+  <% @causes.each do |cause|  %>
+  <tr>
+    <td><%= radio_button_tag 'cause', cause.id %></td>
+    <td><%= cause.cause_name %></td>
+    <td><%= cause.description %></td>
+  </tr>
+  <% end %>
+ </table>
+</br>

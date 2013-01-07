@@ -12,8 +12,8 @@
   <tr>
     <td>User <%= usr.person_id%></td>
     <td><%= link_to 'View', usr %></td>
-    <td><%= link_to 'Edit', edit_user_path(usr) %></td>
-    <td><%= link_to 'Delete', usr, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td> <% if current_user.admin? %> <%= link_to 'Edit', edit_user_path(usr) %> <% end %></td>
+    <td> <% if current_user.admin? %> <%= link_to 'Delete', usr, :confirm => 'Are you sure?', :method => :delete %> <% end %></td>
   </tr>
 <% end %>
 </table>

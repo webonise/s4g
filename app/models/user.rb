@@ -1,13 +1,18 @@
-class User < ActiveRecord::Base
-  belongs_to :person
-  #has_many :business_companies, :through => :business_has_users
-  has_and_belongs_to_many :business_companies
-  #has_many :causes, :through => :user_has_causes
-  has_and_belongs_to_many :causes
-  has_one :impression
-  has_many :user_has_causes, dependent:  :destroy
-  has_many :business_has_users, dependent:  :destroy
+class User < Person
+  # attr_accessible :title, :body
+  # Include default devise modules. Others available are:
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
 
-  accepts_nested_attributes_for :person
-  attr_accessible :first_name, :last_name, :person_attributes
+  # Setup accessible (or protected) attributes for your model
+  attr_accessible :email, :password, :password_confirmation, :remember_me
+  #belongs_to :person
+  has_many :business_companies, :through => :business_has_users
+  has_many :causes, :through => :user_has_causes
+  has_one :impression
+
+  attr_accessible :first_name, :last_name
+
 end

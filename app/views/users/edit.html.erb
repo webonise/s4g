@@ -11,16 +11,12 @@
       <%= f.text_field :last_name %>
 
       <%= f.label :email %>
-      <%= f.field_for :person do |person_form| %>
-      <%= person_form.text_field :email %>
-      <% end %>
+      <% f.text_field :email %>
 
       <%= f.label :password %>
-      <%= f.field_for :person do |person_form| %>
-      <%= person_form.text_field :password %>
-      <% end %>
+      <% f.text_field :password %>
       
-      <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+      <%= f.submit "Save changes", :class => "btn btn-large btn-primary" %>
     <% end %>
   </div> 
 </div>   

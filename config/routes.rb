@@ -1,7 +1,16 @@
 S4g::Application.routes.draw do
 
+  devise_for :people
+
   resources :users
-  resources :business_users
+  resources :business_users do
+    member do
+      get 'get_cause_to_business'
+      put 'save_business_cause'
+    end
+  end
+
+
 
   #match '/edit' to: 'users#edit'
   # The priority is based upon order of creation:

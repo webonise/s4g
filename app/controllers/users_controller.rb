@@ -9,12 +9,10 @@ class UsersController < ApplicationController
 
   def edit
   	@user = User.find(params[:id])
-  	@person = Person.find(params[:id])
   end
 
   def show
   	@user = User.find(params[:id])
-  	@person = Person.find(params[:id])
   end
 
   def destroy
