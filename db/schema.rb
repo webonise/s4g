@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130104144101) do
+ActiveRecord::Schema.define(:version => 20130107080827) do
 
   create_table "business_companies", :force => true do |t|
     t.string   "business_name"
@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(:version => 20130104144101) do
   add_index "business_has_users", ["user_id"], :name => "index_business_has_users_on_user_id"
 
   create_table "business_users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -68,14 +66,25 @@ ActiveRecord::Schema.define(:version => 20130104144101) do
   add_index "impressions", ["user_id"], :name => "index_impressions_on_user_id"
 
   create_table "people", :force => true do |t|
-    t.string   "email"
-    t.string   "password"
-    t.integer  "person_role"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "role"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
+  add_index "people", ["reset_password_token"], :name => "index_people_on_reset_password_token", :unique => true
 
   create_table "posts", :force => true do |t|
     t.string   "content"
@@ -97,13 +106,9 @@ ActiveRecord::Schema.define(:version => 20130104144101) do
   add_index "user_has_causes", ["user_id"], :name => "index_user_has_causes_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "users", ["person_id"], :name => "index_users_on_person_id"
 
 end

@@ -1,4 +1,14 @@
 S4g::Application.routes.draw do
+
+  devise_for :people
+  resources :users
+
+  match '/',  to: 'users#new'
+
+  #devise_for :people
+
+ # devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
