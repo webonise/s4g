@@ -3,9 +3,11 @@
  <% @causes.each do |cause| %>
       <li>
        <%= check_box_tag "cause_select[]",cause.id %>
+
         <%= link_to image_tag(cause.logo,:size => "50x50"),cause%>
         <%= link_to cause.cause_name, cause %>
       </li>
 
       <%end %>
+
 </ul>
