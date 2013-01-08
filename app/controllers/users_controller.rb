@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    logger.info("#################{@user.inspect}")
+    #logger.info("#################{@user.inspect}")
   end
 
   def create
