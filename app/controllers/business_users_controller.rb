@@ -13,7 +13,7 @@ class BusinessUsersController < ApplicationController
   end
 
   def create
-    @business_user = User.new(params[:business_user])
+    @business_user = BusinessUser.new(params[:business_user])
     if @business_user.save
       sign_in @business_user
       flash[:success] = "Welcome!"
