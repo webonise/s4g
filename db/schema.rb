@@ -11,8 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
-ActiveRecord::Schema.define(:version => 20130108063532) do
+ActiveRecord::Schema.define(:version => 20130107080827) do
 
   create_table "business_companies", :force => true do |t|
     t.string   "business_name"
@@ -67,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130108063532) do
   add_index "impressions", ["user_id"], :name => "index_impressions_on_user_id"
 
   create_table "people", :force => true do |t|
+
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130108063532) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "first_name"

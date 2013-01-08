@@ -2,11 +2,17 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
+gem "therubyracer"
+gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem "twitter-bootstrap-rails"
+
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
 gem 'dynamic_form'
+
 gem 'devise'
 
 # Gems used only for assets and not required

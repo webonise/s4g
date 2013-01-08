@@ -10,8 +10,9 @@ S4g::Application.routes.draw do
     end
   end
 
+  match '/user_signup',  to: 'users#new'
+  match '/business_signup', to: 'business_users#new'
 
-  #match '/edit' to: 'users#edit'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -62,7 +63,7 @@ S4g::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-   root :to => 'users#index'
+   #root :to => 'users#index'
 
   # See how all your routes lay out with "rake routes"
 
