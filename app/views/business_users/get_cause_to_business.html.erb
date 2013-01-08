@@ -7,7 +7,7 @@
     <th>Description</th>
   </tr>
   <%= form_tag save_business_cause_business_user_path(@business_user), :method => "put" do %>
-      <%= render 'shared/error_messages', flash[:error] %>
+      <%#= render 'shared/error_messages', flash[:error] %>
       <% @causes.each do |cause|  %>
           <tr>
             <td><%= radio_button_tag "cause", cause.id %></td>
