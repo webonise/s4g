@@ -1,8 +1,9 @@
 S4g::Application.routes.draw do
   # devise_for :people
-  resources :UsersController do
+  resources :Users do
     member do
       get :display_cause
+      put :save_causes
     end
   end
 
