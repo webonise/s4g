@@ -5,5 +5,5 @@ class BusinessCompany < ActiveRecord::Base
   has_and_belongs_to_many :users
   #has_one :cause
   #has_many :business_has_users
-  attr_accessible :address, :business_name, :contact, :description
+  attr_accessible :address, :business_name, :contact, :description, :business_user_id
 end

@@ -5,8 +5,8 @@ S4g::Application.routes.draw do
   resources :users
   resources :business_users do
     member do
-      get 'get_cause_to_business'
-      put 'save_business_cause'
+      get :get_cause_to_business
+      put :save_business_cause
     end
   end
 

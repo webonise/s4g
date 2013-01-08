@@ -8,12 +8,12 @@
     <th></th>
   </tr>
  
-<% @users.each do |usr| %>
+<% @users.each do |user| %>
   <tr>
-    <td>User <%= usr.person_id%></td>
+    <td>User <%= user.id%></td>
     <td><%= link_to 'View', usr %></td>
-    <td> <% if current_user.admin? %> <%= link_to 'Edit', edit_user_path(usr) %> <% end %></td>
-    <td> <% if current_user.admin? %> <%= link_to 'Delete', usr, :confirm => 'Are you sure?', :method => :delete %> <% end %></td>
+    <td> <% if current_user.admin? %> <%= link_to 'Edit', edit_user_path(user) %> <% end %></td>
+    <td> <% if current_user.admin? %> <%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %> <% end %></td>
   </tr>
 <% end %>
 </table>
