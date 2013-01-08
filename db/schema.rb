@@ -11,6 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+
 ActiveRecord::Schema.define(:version => 20130108063532) do
 
   create_table "business_companies", :force => true do |t|
@@ -80,6 +81,8 @@ ActiveRecord::Schema.define(:version => 20130108063532) do
     t.datetime "updated_at",                             :null => false
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "person_role"
+    t.boolean  "admin"
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
@@ -109,7 +112,5 @@ ActiveRecord::Schema.define(:version => 20130108063532) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "users", ["person_id"], :name => "index_users_on_person_id"
 
 end

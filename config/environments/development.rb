@@ -15,7 +15,11 @@ S4g::Application.configure do
 
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
+<<<<<<< HEAD
   #config.action_mailer.default_url_options = { :host => 'www.s4g.com' }
+=======
+  config.action_mailer.default_url_options = { :host => 'local.s4g.com' }
+>>>>>>> 7a847dfc4d502ace6b28f5d4ef61b1dd09a11119
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

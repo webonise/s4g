@@ -1,4 +1,5 @@
 <h1>Listing users</h1>
+<<<<<<< HEAD
 
 <table>
   <tr>
@@ -24,3 +25,25 @@
 <br />
 
 <%= link_to 'New User', new_user_path %>
+=======
+ 
+<table>
+  <tr>
+    <th>Users</th>
+    <th>Actions</th>
+    <th></th>
+    <th></th>
+  </tr>
+ 
+<% @users.each do |user| %>
+  <tr>
+    <td>User <%= user.id%></td>
+    <td><%= link_to 'View', usr %></td>
+    <td> <% if current_user.admin? %> <%= link_to 'Edit', edit_user_path(user) %> <% end %></td>
+    <td> <% if current_user.admin? %> <%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %> <% end %></td>
+  </tr>
+<% end %>
+</table>
+ 
+<br />
+>>>>>>> 7a847dfc4d502ace6b28f5d4ef61b1dd09a11119
