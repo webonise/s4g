@@ -5,8 +5,5 @@ class User < Person
   has_one :impression
   attr_accessible :first_name, :last_name
 
-  def self.user_causes
-    cause_ids = params[:cause_select].collect {|id| id.to_i}
 
- end
 end

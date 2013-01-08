@@ -3,7 +3,7 @@ S4g::Application.routes.draw do
   resources :Users do
     member do
       get :display_cause
-      put :save_causes
+      post :save_causes
     end
   end
 
