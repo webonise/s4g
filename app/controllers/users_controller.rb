@@ -27,12 +27,12 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    logger.info("#################{@user.inspect}")
   end
 
   def create
     @user = User.new(params[:user])
     # Handle a successful save.
+    logger.info "####################################################{@user.inspect}"
     if @user.save
       sign_in @user
       flash[:success] = "Welcome!"

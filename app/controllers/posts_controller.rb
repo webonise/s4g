@@ -11,4 +11,6 @@ class PostsController < ApplicationController
       redirect_to root_url
     else
     render
+    end
+    end
 end

@@ -5,9 +5,9 @@
   <div class="span5 offset2">
     <h1> User Sign up</h1>
 
-    <%= form_for @user, :html => { :class => 'form-horizontal' } do |f| %>
+    <%= form_for Users_path(@user), :method => :post, :html => { :class => 'form-horizontal' }  do |f| %>
 
-        <%= render 'error_messages', object: f.object %>
+        <%#= render 'error_messages', object: f.object %>
 
 
         <div class="control-group">

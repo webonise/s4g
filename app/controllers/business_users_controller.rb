@@ -21,7 +21,28 @@ class BusinessUsersController < ApplicationController
     end
     #logger.info "#################{@business_cause.inspect}"
   end
+  def new
+    @business_user = BusinessUser.new
+  end
+  def create
+    @business_user = BusinessUser.new(params[:business_user])
+    # Handle a successful save.
+    if @business_user.save
+      sign_in @business_user
+      flash[:success] = "Welcome!"
+      redirect_to @business_user
+    else
+      render 'new'
+    end
+  end
 
+  def show_post
+
+    @business_user = BusinessUser.find(params[:id])
+    @business_company = @business_user.business_company
+    @posts = @business_company.posts
+
+  end
 
 end
 
