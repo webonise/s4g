@@ -1,0 +1,30 @@
+<% provide(:title, 'Sign up') %>
+<h1> Please Enter your business details</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
+
+    <%= form_for(@business_user) do |f| %>
+        <%= render 'error_messages', object: f.object %>
+
+
+        <%= f.label :address %>
+        <%= f.text_field :address_line1, placeholder="Line1" %>
+        <br>
+        <%= f.text_field :address_line2, placeholder="Line2"%>
+        <br>
+        <%= f.text_field :city, placeholder="city" %>
+        <br>
+        <%= f.text_field :country, placeholder="country"%>
+
+        <%=  f.label :logo, "Upload Logo" %>
+        <%= f.file_field :logo %>
+
+        <%= f.label :brief_about_the_company %>
+        <%= f.text_area(:text, :size => '50x10') %>
+
+        <%= f.submit "Next", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
