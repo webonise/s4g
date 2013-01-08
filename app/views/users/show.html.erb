@@ -1,3 +1,4 @@
+
 <%- model_class = User -%>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human %></h1>
@@ -41,3 +42,28 @@
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' %>
 </div>
+
+<% if current_user.admin? %>
+    <table>
+      <tr>
+        <td><%= link_to 'Manage Cause' %></td>
+        <td><%= link_to 'Manage Bussiness' %></td>
+        <td><%= link_to 'Manage' %></td>
+      <tr>
+    </table>
+    <table>
+	<tr>
+		<th>Email</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+	</tr>
+	<tr>
+		<td><%= @user.email%></td>
+		<td><%= @user.first_name%></td>
+		<td><%= @user.last_name%></td>
+	</tr>
+  </table>
+<% else %>
+  Login as Admin
+<% end %>
+

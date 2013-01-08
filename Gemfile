@@ -10,8 +10,11 @@ gem "twitter-bootstrap-rails"
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-#em 'sqlite3'
 gem 'mysql2'
+<<<<<<< HEAD
+=======
+gem 'dynamic_form'
+>>>>>>> 7a847dfc4d502ace6b28f5d4ef61b1dd09a11119
 gem 'devise'
 
 # Gems used only for assets and not required
