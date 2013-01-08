@@ -6,7 +6,7 @@ class CreateBusinessCompanies < ActiveRecord::Migration
       t.string :description
       t.integer :contact
       t.references :business_user
-      t.references :cause
+      t.references :causes
       t.timestamps
     end
     add_index :business_companies, :business_user_id

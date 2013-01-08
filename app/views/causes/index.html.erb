@@ -1,0 +1,11 @@
+<% provide(:title, 'List of Cause') %>
+<h1>All users</h1>
+<ul>
+ <% @causes.each do |cause| %>
+    <li>
+    <%= link_to cause.cause_name, cause %>
+    <%= link_to image_tag(cause.logo,:size => "260x180"),cause%>
+    </li>
+  <% end %>
+</ul>-->
+

@@ -1,7 +1,7 @@
 class CreateBusinessHasUsers < ActiveRecord::Migration
   def change
     create_table :business_has_users do |t|
-      t.references :user
+      t.references :users
       t.references :business_company
 
       t.timestamps

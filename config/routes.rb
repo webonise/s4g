@@ -1,8 +1,19 @@
 S4g::Application.routes.draw do
 
+  match '/first', to: 'users#display_cause'
+  resources :causes
+  match '/create_cause' , to: 'causes#new'
+  match '/index' ,  to: 'causes#index'
+
   devise_for :people
 
-  resources :users
+
+  resources :Users do
+    member do
+      get :display_cause
+      post :save_causes
+    end
+  end
   resources :business_users do
     member do
       get :get_cause_to_business
