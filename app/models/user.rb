@@ -13,11 +13,7 @@ class User < Person
   has_many :causes, :through => :user_has_causes
   has_one :impression
 
-<<<<<<< HEAD
   attr_accessible :first_name, :last_name
-=======
-  #attr_accessible :first_name, :last_name
 
->>>>>>> 8fc4c5dfe0549312c9870438de7245e56c96da61
 end
 

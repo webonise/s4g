@@ -3,15 +3,18 @@ S4g::Application.routes.draw do
   devise_for :people
 
   resources :users
+
   resources :business_users do
     member do
       get :get_cause_to_business
       put :save_business_cause
+      get :get_business_details
     end
   end
 
   match '/user_signup',  to: 'users#new'
   match '/business_signup', to: 'business_users#new'
+  #match '/business_details', to: 'business_users#business_details'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -63,7 +66,7 @@ S4g::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-   #root :to => 'users#index'
+   root :to => 'users#new'
 
   # See how all your routes lay out with "rake routes"
 

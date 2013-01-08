@@ -1,35 +1,4 @@
 <% provide(:title, 'Sign up') %>
-<<<<<<< HEAD
-<h1> User Sign up</h1>
-
-<div class="row">
-  <div class="span6 offset3">
-
-
-    <%= form_for(@user) do |f| %>
-        <%= render 'error_messages', object: f.object %>
-
-
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name %>
-
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name %>
-
-        <%= f.label :email %>
-        <%= f.text_field :email %>  For E.g. someone@example.com
-
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-
-        <%= f.label :password_confirmation, "Confirmation" %>
-        <%= f.password_field :password_confirmation %>
-
-        <%= f.submit "Sign Up", class: "btn btn-large btn-primary" %>
-    <% end %>
-  </div>
-=======
-
 
 <div class="row">
   <div class="span5 offset2">
@@ -39,52 +8,11 @@
 
         <%= render 'error_messages', object: f.object %>
 
+        <%= render 'shared/sign_up', object: f.object %>
 
-        <div class="control-group">
-          <%= f.label :first_name, :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :first_name , :class => 'text_field'%>
-         </div>
-          </div>
-
-
-        <div class="control-group">
-          <%= f.label :last_name, :class => 'control-label'  %>
-          <div class="controls">
-            <%= f.text_field :last_name, :class => 'text_field' %>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <%= f.label :email, :class => 'control-label'  %>
-          <div class="controls">
-            <%= f.text_field :email , :class => 'text_field' %>
-          </div>
-        </div>
-
-        <div class="control-group">
-          <%= f.label :password, :class => 'control-label'  %>
-          <div class="controls">
-            <%= f.password_field :password, :class => 'text_field' %>
-          </div>
-        </div>
-
-
-        <div class="control-group">
-          <%= f.label :password_confirmation, "Confirmation", :class => 'control-label'  %>
-          <div class="controls">
-            <%= f.password_field :password_confirmation , :class => 'text_field'%>
-          </div>
-        </div>
-
-        <!--<div class="form-actions">-->
-        <br>
         <%= f.submit "Sign Up", class: "btn btn-large btn-primary" %>
 
-
-         <!--</div>-->
     <% end %>
   </div>
 
->>>>>>> 8fc4c5dfe0549312c9870438de7245e56c96da61
 </div>
