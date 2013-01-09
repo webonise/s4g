@@ -57,8 +57,8 @@
         <ul class="nav pull-right">
           <li><%= link_to "Home", root_path %></li>
           <% if signed_in? %>
-              <li><%= link_to " Hi Users", users_path %></li>
-             <li> <%= link_to "Sign out", signout_path, method: "delete" %><li>
+              <li><%#= link_to " Hi Users", users_path %></li>
+             <li> <%#= link_to "Sign out", signout_path, method: "delete" %><li>
           <% else %>
               <form class="navbar-form pull-right" >
                 <input class="span2" placeholder="Email" type="text">

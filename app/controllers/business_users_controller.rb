@@ -51,7 +51,7 @@ class BusinessUsersController < ApplicationController
     @business_user = BusinessUser.find(params[:id])
     @business_company = @business_user.business_company
     @post = @business_company.posts.new
-    @posts = @business_company.posts.paginate(page: params[:page])
+    @posts = @business_company.posts.order("created_at desc").paginate(page: params[:page])
   end
 
   def get_business_details
