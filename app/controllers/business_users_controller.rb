@@ -16,12 +16,13 @@ class BusinessUsersController < ApplicationController
   def create
     @business_user = BusinessUser.new(params[:business_user])
 
-     @business_user.save
+     if @business_user.save
       sign_in @business_user
       flash[:success] = "Welcome!"
-      redirect_to get_business_details_business_user_path
-
-
+      redirect_to get_business_details
+     #else
+     #  render 'new'
+     end
   end
 
    def get_cause_to_business
@@ -47,18 +48,15 @@ class BusinessUsersController < ApplicationController
    end
 
   def get_business_details
-       @business_user = BusinessUser.find(params[:id])
-       @business_company = @business_user.business_company
-
+       #@business_user = BusinessUser.find(params[:id])
+       #@business_company = BusinessCompany.new
+       #@business_company = @business_user.BusinessCompany
+       #
        #if @business_company.save!
        #  flash[:success] = "company added"
-       #
+       #  #Todo: Take the B_User_Id for business company & save it
+       #  #Todo: redirecting to Business User select only one cause
        #end
-
-  end
-
-  def put_business_details
-
   end
 
 end

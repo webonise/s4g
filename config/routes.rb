@@ -12,9 +12,9 @@ S4g::Application.routes.draw do
     end
   end
 
-  match '/user_signup',  to: 'users#new'
-  match '/business_signup', to: 'business_users#new'
-  #match '/business_details', to: 'business_users#business_details'
+  match '/user_signup',  to: 'users#new', :as => 'user_sign_up'
+  match '/business_user_signup', to: 'business_users#new', :as => 'business_user_sign_up'
+  match '/business_details', to: 'business_users#get_business_details', :as => 'business_details'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

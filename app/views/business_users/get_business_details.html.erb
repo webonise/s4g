@@ -2,10 +2,10 @@
 
 <div class="row">
   <div class="span5 offset2">
-    <h1> Please Enter your business details</h1>
+    <h3> Please Enter your business details</h3>
 
     <%= form_for business_details_path(@business_company), :html => { :class => 'form-horizontal' } do |f| %>
-        <%= render 'error_messages', object: f.object %>
+        <%#= render 'error_messages', object: f.object %>
 
         <div class="control-group">
           <%= f.label :business_name, "Business Name", :class => 'control-label' %>
@@ -17,24 +17,35 @@
         <div class="control-group">
           <%= f.label :address, "Address", :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :address , :class => 'text_field'%>
+            <%= f.text_field :address_line1 , :class => 'text_field' %>
+          </div>
+          <br />
+          <div class="controls">
+            <%= f.text_field :address_line2 , :class => 'text_field' %>
+          </div>
+          <br />
+          <div class="controls">
+            <%= f.text_field :city , :class => 'text_field' %>
+          </div>
+          <br />
+          <div class="controls">
+            <%= f.text_field :country , :class => 'text_field' %>
           </div>
         </div>
 
-        <%#= f.label :address %>
-        <%#= f.text_field :address, placeholder="Line1" %>
-        <br>
-        <%#= f.text_field :address, placeholder="Line2"%>
-        <br>
-        <%#= f.text_field :address, placeholder="city" %>
-        <br>
-        <%#= f.text_field :address, placeholder="country"%>
+        <div class="control-group">
+          <%= f.label :logo, "Upload Logo", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.file_field :logo , :class => 'file_field' %>
+          </div>
+        </div>
 
-        <%#=  f.label :logo, "Upload Logo" %>
-        <%#= f.file_field :logo %>
-
-        <%#= f.label :description %>
-        <%#= f.text_area(:text, :size => '50x10') %>
+        <div class="control-group">
+          <%= f.label :description, "Brief about the company", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_area :description, :size => "40x10" %>
+          </div>
+        </div>
 
         <%= f.submit "Next", class: "btn btn-large btn-primary" %>
     <% end %>
