@@ -2,14 +2,15 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
+
 gem 'bootstrap-sass', '2.1'
 
 gem 'carrierwave'
 
-
-gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -18,6 +19,9 @@ gem 'mysql2'
 gem 'dynamic_form'
 
 gem 'devise'
+#gem 'libv8', '3.11.8.3'
+#gem "therubyracer"
+gem 'therubyracer', '0.10.2', :platforms => :ruby
 
 # Gems used only for assets and not required
 # in production environments by default.

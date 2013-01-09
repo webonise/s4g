@@ -7,7 +7,7 @@ class CreateImpressions < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :impressions, :user_id
-    add_index :impressions, :post_id
+   # add_index :impressions, :user_id
+   # add_index :impressions, :post_id
   end
 end

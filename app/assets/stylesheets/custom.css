@@ -1,0 +1,97 @@
+/* forms */
+
+input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+@include box_sizing;
+}
+
+input {
+    height: auto !important;
+}
+
+/* posts */
+
+.posts {
+    list-style: none;
+    margin: 10px 0 0 0;
+
+li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+}
+    }
+.posts li {
+    line-height: 20px;
+}
+.content {
+    display: block;
+    font-size: 18px;
+    color: #08C;
+
+}
+.timestamp {
+    color: $grayLight;
+    font-size: 10px;
+}
+
+textarea {
+    height: 50px;
+    margin-bottom: 5px;
+}
+.posts li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid #EEE;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+}
+
+h1
+{
+    text-align: center;
+}
+.hero-unit
+{
+    text-align: center;
+    margin-top: 40px;
+}
+a
+{
+
+}
+.navbar .brand
+{
+    font-size: 40px;
+    color: #00FF00;
+    height: 5px;
+}
+
+.mrng-top {
+    margin-top: 100px;
+}
+
+
+#customText input {
+    width: 94px;
+}
+
+
+a.headerLogo  {
+    font-size: 15px;
+    color: black;
+    display: block;
+    height: 50px;
+    width: 100px;
+
+}
+

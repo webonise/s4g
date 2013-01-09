@@ -1,0 +1,19 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= render 'posts/post_form' %>
+    </section>
+  </aside>
+</div>
+
+<div class="span8">
+  <% if @business_company.posts.any? %>
+      <h3>Posts (<%= @business_company.posts.count %>)</h3>
+      <div class="pagination">
+      <ol class="posts">
+        <%= render @posts %>
+      </ol>
+      <%= will_paginate @posts %>
+      </div>
+  <% end %>
+</div>
