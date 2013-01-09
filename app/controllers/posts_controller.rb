@@ -4,10 +4,15 @@ class PostsController < ApplicationController
   #BusinessUser.current_user = @current_user
 
   def create
-
+    #@post = Post.build(params[:post])
     #@post = current_user.posts.build(params[:post])
-      if @post.save
+
+      @post = Post.new(params[:post])
+      @post.business_company_id = 1
+      logger.info("###############################{@post.inspect}")
+      if @post.save!
         flash[:success] = "Post created!"
+        redirect_to show_post_business_user_path(@post.business_company_id)
         #TODO: redirecting to business user dashboard redirect_to root_url
       else
         flash[:error] = "Post failed!"

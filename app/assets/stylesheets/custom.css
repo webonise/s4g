@@ -1,0 +1,36 @@
+/* forms */
+
+input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+@include box_sizing;
+}
+
+input {
+    height: auto !important;
+}
+
+/* posts */
+
+.posts {
+    list-style: none;
+    margin: 10px 0 0 0;
+
+li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+}
+    }
+.content {
+    display: block;
+}
+.timestamp {
+    color: $grayLight;
+}
+
+textarea {
+    height: 50px;
+    margin-bottom: 5px;
+}
