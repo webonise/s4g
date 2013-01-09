@@ -1,0 +1,25 @@
+h1
+{
+    text-align: center;
+}
+.hero-unit
+{
+    text-align: center;
+    margin-top: 40px;
+}
+a
+{
+
+}
+.navbar .brand
+{
+    font-size: 40px;
+    color: #FF0125;
+    height: 5px;
+}
+.mrng-top {
+    margin-top: 100px;
+}
+.custom-text {
+    width: 100px;;
+}
