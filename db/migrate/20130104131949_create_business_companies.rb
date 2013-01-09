@@ -9,7 +9,7 @@ class CreateBusinessCompanies < ActiveRecord::Migration
       t.references :causes
       t.timestamps
     end
-    add_index :business_companies, :business_user_id
-    add_index :business_companies, :cause_id
+    #add_index :business_companies, :business_user_id
+    #add_index :business_companies, :cause_id
   end
 end
