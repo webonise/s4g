@@ -13,26 +13,16 @@ class BusinessUsersController < ApplicationController
      #logger.info("#################{@business_user.inspect}")
   end
 
-
-  def show_post
-    @business_user = BusinessUser.find(params[:id])
-    @business_company = @business_user.business_company
-    @post = @business_company.posts.new
-    @posts = @business_company.posts.paginate(page: params[:page])
-  end
-
-
   def create
     @business_user = BusinessUser.new(params[:business_user])
-
-     if @business_user.save
+    # Handle a successful save.
+    if @business_user.save
       sign_in @business_user
       flash[:success] = "Welcome!"
       redirect_to @business_user
      else
        render 'new'
      end
-
   end
 
    def get_cause_to_business
@@ -56,6 +46,13 @@ class BusinessUsersController < ApplicationController
      end
      #logger.info "#################{@business_cause.inspect}"
    end
+
+  def show_post
+    @business_user = BusinessUser.find(params[:id])
+    @business_company = @business_user.business_company
+    @post = @business_company.posts.new
+    @posts = @business_company.posts.paginate(page: params[:page])
+  end
 
   def get_business_details
        #@business_user = BusinessUser.find(params[:id])
