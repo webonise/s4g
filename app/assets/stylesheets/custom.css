@@ -72,13 +72,26 @@ a
 .navbar .brand
 {
     font-size: 40px;
-    color: #FF0125;
+    color: #00FF00;
     height: 5px;
 }
 
 .mrng-top {
     margin-top: 100px;
 }
-.custom-text {
-    width: 100px;;
+
+
+#customText input {
+    width: 94px;
 }
+
+
+a.headerLogo  {
+    font-size: 15px;
+    color: black;
+    display: block;
+    height: 50px;
+    width: 100px;
+
+}
+
