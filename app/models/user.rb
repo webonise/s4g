@@ -1,4 +1,5 @@
 class User < Person
+
   # attr_accessible :title, :body
 
   # Include default devise modules. Others available are:

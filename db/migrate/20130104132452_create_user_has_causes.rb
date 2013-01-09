@@ -1,8 +1,8 @@
 class CreateUserHasCauses < ActiveRecord::Migration
   def change
     create_table :user_has_causes do |t|
-      t.references :user
-      t.references :cause
+      t.references :users
+      t.references :causes
 
       t.timestamps
     end

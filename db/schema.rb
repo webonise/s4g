@@ -19,13 +19,12 @@ ActiveRecord::Schema.define(:version => 20130107080827) do
     t.string   "description"
     t.integer  "contact"
     t.integer  "business_user_id"
-    t.integer  "cause_id"
+    t.integer  "causes_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
   end
 
   add_index "business_companies", ["business_user_id"], :name => "index_business_companies_on_business_user_id"
-  add_index "business_companies", ["cause_id"], :name => "index_business_companies_on_cause_id"
 
   create_table "business_has_users", :force => true do |t|
     t.integer  "user_id"
@@ -52,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130107080827) do
     t.string   "address"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "logo"
   end
 
   create_table "impressions", :force => true do |t|
@@ -100,12 +100,11 @@ ActiveRecord::Schema.define(:version => 20130107080827) do
 
   create_table "user_has_causes", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "cause_id"
+    t.integer  "causes_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "user_has_causes", ["cause_id"], :name => "index_user_has_causes_on_cause_id"
   add_index "user_has_causes", ["user_id"], :name => "index_user_has_causes_on_user_id"
 
   create_table "users", :force => true do |t|
