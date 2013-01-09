@@ -1,10 +1,16 @@
 class PostsController < ApplicationController
   #before_filter :signed_in_user, only: [:create, :destroy]
   #before_filter :correct_user,   only: :destroy
+  #BusinessUser.current_user = @current_user
+
   def create
-    @post = current_user.posts.build(params[:post])
+
+    #@post = current_user.posts.build(params[:post])
       if @post.save
         flash[:success] = "Post created!"
+        #TODO: redirecting to business user dashboard redirect_to root_url
+      else
+        flash[:error] = "Post failed!"
         #TODO: redirecting to business user dashboard redirect_to root_url
       end
   end

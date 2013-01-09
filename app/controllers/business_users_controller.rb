@@ -22,6 +22,16 @@ class BusinessUsersController < ApplicationController
     #logger.info "#################{@business_cause.inspect}"
   end
 
+  def show_post
+    @business_user = BusinessUser.find(params[:id])
+    @business_company = @business_user.business_company
+    @post = @business_company.posts.new
+    @posts = @business_company.posts.paginate(page: params[:page])
+  end
+
+  def feed
+    posts
+  end
 
 end
 

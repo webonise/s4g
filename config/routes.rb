@@ -7,8 +7,11 @@ S4g::Application.routes.draw do
     member do
       get :get_cause_to_business
       put :save_business_cause
+      get :show_post
     end
   end
+
+  resources :posts, only: [:create, :destroy]
 
   match '/',  to: 'users#new'
 
