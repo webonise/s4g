@@ -1,0 +1,21 @@
+<% provide(:title, 'Home') %>
+
+<% if signed_in? %>
+
+    <div class="row">
+      <aside class="span4">
+        <section>
+          <%= render display_cause_User %>
+        </section>
+      </aside>
+    </div>
+<% else %>
+
+    <div class="center hero-unit">
+      <h2>Welcome to the Sharing for good</h2>
+
+      <%= link_to "Sign up now for User!", user_sign_up_path,class: "btn btn-large btn-info" %>
+
+      <%= link_to "Sign up now for Business User!", business_user_sign_up_path,class: "btn btn-large btn-info" %>
+    </div>
+<% end %>
