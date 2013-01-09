@@ -19,17 +19,20 @@ S4g::Application.routes.draw do
       get :get_cause_to_business
       put :save_business_cause
       get :get_business_details
+      get :show_post
     end
   end
 
-
-
+  resources :posts, only: [:create, :destroy]
+  match '/',  to: 'users#new'
+  match '/user_signup',  to: 'users#new', :as => 'user_sign_up'
+  match '/business_user_signup', to: 'business_users#new', :as => 'business_user_sign_up'
+  match '/business_details', to: 'business_users#get_business_details', :as => 'business_details'
   match '/', to: 'static_pages#home'
 
 
-  match '/user_signup',  to: 'users#new', :as => 'user_sign_up'
-  match '/business_user_signup', to: 'business_users#new', :as => 'business_user_sign_up'
-  match '/business_details', to: 'business_users#get_business_details', :as => 'business_company_details'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -80,7 +83,6 @@ S4g::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-
 
    root :to => 'users#new'
 

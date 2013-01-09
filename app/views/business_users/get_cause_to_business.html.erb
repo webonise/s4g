@@ -1,22 +1,51 @@
 <h1>Select one cause form following list</h1>
+<%= form_tag( save_business_cause_business_user_path(@business_user), :method => "put", :html => { :class => "bs-docs-example form-horizontal"}) do %>
 
-<table>
-  <tr>
-    <th></th>
-    <th>Cause Name</th>
-    <th>Description</th>
-  </tr>
-  <%= form_tag save_business_cause_business_user_path(@business_user), :method => "put" do %>
+    <table class="table table-hover">
+
+      <tr>
+        <th></th>
+        <th>Cause Name</th>
+        <th>Description</th>
+      </tr>
+
       <%#= render 'shared/error_messages', flash[:error] %>
       <% @causes.each do |cause|  %>
           <tr>
-            <td><%= radio_button_tag "cause", cause.id %></td>
-            <td><%= cause.cause_name %></td>
-            <td><%= cause.description %></td>
+
+              <td>
+                <div class="control-group">
+                  <%= radio_button_tag "cause", cause.id, :class => "radio" %>
+                </div>
+              </td>
+
+              <td>
+                <div class="control-group">
+                  <%= cause.cause_name %>
+                </div>
+              </td>
+
+
+              <td>
+                <div class="control-group">
+                 <%= cause.description %>
+                </div>
+              </td>
+
       <% end %>
-      <td><%= submit_tag("Next")%></td>
+      <tr>
+        <td></td>
+        <td></td>
+        <td>
+        <div class="control-group">
+          <%= submit_tag 'Next', :class => "btn" %>
+        </div>
+        </td>
       </tr>
-  <% end %>
+
+
+      </tr>
+<% end %>
 </table>
 </br>
 

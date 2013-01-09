@@ -8,4 +8,5 @@ class BusinessCompany < ActiveRecord::Base
 
   #has_many :business_has_users
   attr_accessible :address, :business_name, :contact, :description, :business_user_id
+ # has_many :posts, :dependent => destroy
 end
