@@ -83,12 +83,9 @@ S4g::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-<<<<<<< HEAD
-  root :to => 'users#new'
-=======
 
    root :to => 'users#new'
->>>>>>> 976eed19b9fbbe26f807105aa3111424db0b69af
+
 
   # See how all your routes lay out with "rake routes"
 
