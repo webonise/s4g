@@ -1,25 +1,16 @@
 class BusinessUsersController < ApplicationController
 
-  def get_cause_to_business
-    @causes = Cause.all
-    @business_user = BusinessUser.find(params[:id])
-    #logger.info("#################{@causes.inspect}")
+  def index
+    @business_users = BusinessUser.all
   end
 
-  def save_business_cause
-    if params[:cause].nil?
-      flash[:error] = "Please make a selection"
-      redirect_to get_cause_to_business_business_user_path
-    else
-      @business_cause = BusinessCompany.find(params[:id])
-      @business_cause.cause_id = params[:cause]
+  def show
+    @business_user = BusinessUser.find(params[:id])
+  end
 
-      if @business_cause.save!
-        flash[:success] = "cause added"
-        #TODO: redirecting to Business User Dashboard
-      end
-    end
-    #logger.info "#################{@business_cause.inspect}"
+  def new
+    @business_user = BusinessUser.new
+     #logger.info("#################{@business_user.inspect}")
   end
   def new
     @business_user = BusinessUser.new
@@ -44,10 +35,45 @@ class BusinessUsersController < ApplicationController
 
   end
 
-end
 
+   def get_cause_to_business
+     @causes = Cause.all
+     @business_user = BusinessUser.find(params[:id])
+     #logger.info("#################{@causes.inspect}")
+   end
+
+   def save_business_cause
+     if params[:cause].nil?
+       flash[:error] = "Please make a selection"
+       redirect_to get_cause_to_business_business_user_path
+     else
+       @business_cause = BusinessCompany.find(params[:id])
+       @business_cause.cause_id = params[:cause]
+
+       if @business_cause.save!
+         flash[:success] = "cause added"
+         #TODO: redirecting to Business User Dashboard
+       end
+     end
+     #logger.info "#################{@business_cause.inspect}"
+   end
+
+  def get_business_details
+       #@business_user = BusinessUser.find(params[:id])
+       #@business_company = BusinessCompany.new
+       #@business_company = @business_user.BusinessCompany
+       #
+       #if @business_company.save!
+       #  flash[:success] = "company added"
+       #  #Todo: Take the B_User_Id for business company & save it
+       #  #Todo: redirecting to Business User select only one cause
+       #end
+  end
+
+end
 
 #if params[:answer].nil?
 # flash[:error] = "Please make a selection"
 #redirect_to selections_path
 #end
+

@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
 
+  def index
+    @users = User.all
+  end
 
   def display_cause
     @user = User.find(params[:id])
@@ -27,12 +30,16 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+
+  end
+
+  def show
+    @user = User.find(params[:id])
+
   end
 
   def create
     @user = User.new(params[:user])
-    # Handle a successful save.
-    @user.role = "user"
     logger.info "####################################################{@user.inspect}"
     if @user.save
       sign_in @user
@@ -43,15 +50,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
-    @users = User.all
-  end
-
   def edit
-    @user = User.find(params[:id])
-  end
-
-  def show
     @user = User.find(params[:id])
   end
 
