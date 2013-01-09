@@ -1,0 +1,17 @@
+<% provide(:title, 'Sign up') %>
+
+<div class="row">
+  <div class="span5 offset2">
+    <h1> Business User Sign up</h1>
+
+        <%= form_for @business_user, :html => { :class => 'form-horizontal' } do |f| %>
+
+        <%#= render 'error_messages', object: f.object %>
+
+        <%= render 'shared/sign_up', object: f.object %>
+
+        <%= link_to "Sign Up", business_details_path, class: "btn btn-large btn-primary" %>
+
+    <% end %>
+  </div>
+</div>

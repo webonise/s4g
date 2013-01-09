@@ -3,7 +3,7 @@ class CreateImpressions < ActiveRecord::Migration
     create_table :impressions do |t|
       t.float :fund_raise
       t.references :post
-      t.references :user
+      t.references :users
 
       t.timestamps
     end

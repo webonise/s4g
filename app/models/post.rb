@@ -3,6 +3,6 @@ class Post < ActiveRecord::Base
   has_one :impression
   attr_accessible :content, :business_company_id
   #cattr_accessor :current_user
- # validates :business_company_id, :presence => true
-  #validates :content, :presence => true, :length => { :maximum => 200 }
+ validates :business_company_id, :presence => true
+ validates :content, :presence => true, :length => { :maximum => 200 }
 end
