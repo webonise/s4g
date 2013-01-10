@@ -17,7 +17,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 
 gem 'mysql2'
 gem 'dynamic_form'
-gem 'therubyracer', '0.11.1', :platforms => :ruby
+gem 'therubyracer', '0.10.2', :platforms => :ruby
 gem 'devise'
 
 # Gems used only for assets and not required
