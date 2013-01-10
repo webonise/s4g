@@ -3,9 +3,11 @@
     <%#= render 'users/error_messages', object: f.object %>
 
     <div class="field">
-      <%= f.text_area :content, placeholder:  "Compose new post..." %>
+
+      <%= f.text_area :content,:class => "textarea_me", :placeholder => "Compose new post..." %>
+
     </div>
 
-    <%= f.submit "Post", class: "btn btn-primary" %>
+    <%= f.submit "Post", :class => "btn btn-primary" %>
 
 <% end %>

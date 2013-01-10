@@ -8,14 +8,42 @@
 
         <%#= render 'error_messages', object: f.object %>
 
-        <%= render 'shared/sign_up', object: f.object %>
+        <div class="control-group" id="customText">
+          <%= label :name, "Name", :class => 'control-label' %>
+          <div class="controls">
+            <%= text_field :first_name , :class => 'custom_text' %>
+
+            <%= text_field :last_name, :class => 'custom_text' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= label :email, "Email ID", :class => 'control-label'  %>
+          <div class="controls">
+            <%= text_field :email , :class => 'text_field' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= label :password, "Password", :class => 'control-label'  %>
+          <div class="controls">
+            <%= password_field :password, :class => 'text_field' %>
+          </div>
+        </div>
+
+
+        <div class="control-group">
+          <%= label :password_confirmation, "Confirm Password", :class => 'control-label'  %>
+          <div class="controls">
+            <%= password_field :password_confirmation , :class => 'text_field'%>
+          </div>
+        </div>
 
         <div class="control-group">
           <div class="controls">
             <%= f.submit "Sign Up", class: "btn btn-large btn-primary" %>
           </div>
         </div>
-
 
     <% end %>
   </div>

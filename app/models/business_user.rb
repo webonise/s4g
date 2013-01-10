@@ -1,5 +1,6 @@
 class BusinessUser < Person
-  #belongs_to :person
+  belongs_to :person
   has_one :business_company
-  attr_accessible :first_name, :last_name
+  has_one :cause
+  attr_accessible :first_name, :last_name, :role
 end

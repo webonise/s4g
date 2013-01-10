@@ -37,7 +37,7 @@ li {
     font-size: 10px;
 }
 
-textarea {
+.textarea_me {
     height: 50px;
     margin-bottom: 5px;
 }
@@ -72,16 +72,33 @@ a
 .navbar .brand
 {
     font-size: 40px;
-    color: #FF0125;
+    color: #00FF00;
     height: 5px;
 }
 
 .mrng-top {
     margin-top: 100px;
 }
-.custom-text {
-    width: 100px;;
+
+
+#customText input {
+    width: 94px;
 }
+
 
 /* get cause to business*/
 
+a.headerLogo  {
+    font-size: 15px;
+    color: black;
+    display: block;
+    height: 50px;
+    width: 100px;
+
+}
+
+/*alert adjustment*/
+.alertadjust{
+padding-top: 10px;
+margin-top: 25px;
+}

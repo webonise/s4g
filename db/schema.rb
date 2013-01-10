@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107080827) do
+ActiveRecord::Schema.define(:version => 20130109154123) do
 
   create_table "business_companies", :force => true do |t|
     t.string   "business_name"
@@ -19,12 +19,10 @@ ActiveRecord::Schema.define(:version => 20130107080827) do
     t.string   "description"
     t.integer  "contact"
     t.integer  "business_user_id"
-    t.integer  "causes_id"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.integer  "cause_id"
   end
-
-  add_index "business_companies", ["business_user_id"], :name => "index_business_companies_on_business_user_id"
 
   create_table "business_has_users", :force => true do |t|
     t.integer  "user_id"
@@ -33,16 +31,11 @@ ActiveRecord::Schema.define(:version => 20130107080827) do
     t.datetime "updated_at",          :null => false
   end
 
-  add_index "business_has_users", ["business_company_id"], :name => "index_business_has_users_on_business_company_id"
-  add_index "business_has_users", ["user_id"], :name => "index_business_has_users_on_user_id"
-
   create_table "business_users", :force => true do |t|
     t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "business_users", ["person_id"], :name => "index_business_users_on_person_id"
 
   create_table "causes", :force => true do |t|
     t.string   "cause_name"
@@ -57,16 +50,17 @@ ActiveRecord::Schema.define(:version => 20130107080827) do
   create_table "impressions", :force => true do |t|
     t.float    "fund_raise"
     t.integer  "post_id"
-    t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
   end
 
-  add_index "impressions", ["post_id"], :name => "index_impressions_on_post_id"
-  add_index "impressions", ["user_id"], :name => "index_impressions_on_user_id"
-
   create_table "people", :force => true do |t|
-
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "role"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "email",                  :default => "", :null => false
     t.string   "encrypted_password",     :default => "", :null => false
     t.string   "reset_password_token"
@@ -77,12 +71,6 @@ ActiveRecord::Schema.define(:version => 20130107080827) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "person_role"
     t.boolean  "admin"
   end
 
@@ -100,12 +88,10 @@ ActiveRecord::Schema.define(:version => 20130107080827) do
 
   create_table "user_has_causes", :force => true do |t|
     t.integer  "user_id"
-    t.integer  "causes_id"
+    t.integer  "cause_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
-
-  add_index "user_has_causes", ["user_id"], :name => "index_user_has_causes_on_user_id"
 
   create_table "users", :force => true do |t|
     t.integer  "person_id"
