@@ -4,16 +4,16 @@
   <div class="span5 offset2">
     <h1> Business User Sign up</h1>
 
-        <%= form_for @business_user, :method => 'post', :html => { :class => 'form-horizontal' } do |f| %>
+    <%= form_for @business_user, :method => "post", :html => { :class => 'form-horizontal' } do |f| %>
 
-        <%#= render 'error_messages', object: f.object %>
+        <%= render 'error_messages', object: f.object %>
 
         <div class="control-group">
           <%= f.label :name, "Name", :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :first_name , :class => 'text_field custom-text'%>
+            <%= f.text_field :first_name , :class => 'text_field custom-text' %>
 
-            <%= f.text_field :last_name, :class => 'text_field custom-text'%>
+            <%= f.text_field :last_name, :class => 'text_field custom-text' %>
           </div>
         </div>
 
@@ -41,7 +41,8 @@
 
         <div class="control-group">
           <div class="controls">
-            <%= f.submit 'Sign Up', :class =>"btn btn-large btn-primary" %>
+
+            <%= f.submit 'Sign Up', :class => "btn btn-large btn-primary" %>
           </div>
         </div>
 

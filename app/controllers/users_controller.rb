@@ -60,10 +60,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+
     # Handle a successful save.
     @user.person_role ="user"
 
     if @user.save
+
       sign_in @user
       flash[:success] = "Welcome!"
       redirect_to @user
