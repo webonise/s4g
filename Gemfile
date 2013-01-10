@@ -4,7 +4,6 @@ gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
-gem 'therubyracer' '~>0.11.1'
 gem 'sqlite3'
 gem 'libv8', '~> 3.11.8.13'
 gem 'newrelic_rpm'
