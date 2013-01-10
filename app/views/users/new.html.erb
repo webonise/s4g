@@ -4,7 +4,7 @@
   <div class="span5 offset2">
     <h1> User Sign up</h1>
 
-    <%= form_for(user_sign_up_path(@user), :method => :post, :html => { :class => 'form-horizontal' })  do |f| %>
+    <%= form_for @user, :method => :post, :html => { :class => 'form-horizontal' }  do |f| %>
 
         <%#= render 'error_messages', object: f.object %>
 

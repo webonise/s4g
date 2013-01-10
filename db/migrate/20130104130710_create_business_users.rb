@@ -5,6 +5,6 @@ class CreateBusinessUsers < ActiveRecord::Migration
       t.references :person
       t.timestamps
     end
-    add_index :business_users, :person_id
+    #add_index :business_users, :person_id
   end
 end

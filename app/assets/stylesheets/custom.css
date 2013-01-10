@@ -74,8 +74,11 @@ a
     font-size: 40px;
     color: #00FF00;
     height: 5px;
+margin-left:100px;
 }
-
+.brand{
+padding-bottom:100px;
+}
 .mrng-top {
     margin-top: 100px;
 }
@@ -87,10 +90,11 @@ a
 
 
 a.headerLogo  {
+margin-top:20px;
     font-size: 15px;
     color: black;
     display: block;
-    height: 50px;
+    height: 40px;
     width: 100px;
 
 }

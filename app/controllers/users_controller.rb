@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+
   def index
     @users = User.all
   end
@@ -42,11 +43,11 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     # Handle a successful save.
     @user.person_role ="user"
-
+    logger.info "##################################{@user.inspect}"
     if @user.save
-      sign_in @user
-      flash[:success] = "Welcome!"
-      redirect_to @user
+      sign_in(@user)
+      #flash[:success] = "Welcome!"
+      redirect_to display_cause_user_path(@user)
     else
       render 'new'
 
