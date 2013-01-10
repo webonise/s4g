@@ -10,10 +10,10 @@
   <% if @business_company.posts.any? %>
       <h3>Posts (<%= @business_company.posts.count %>)</h3>
       <div class="pagination">
-      <ol class="posts">
-        <%= render @posts %>
-      </ol>
-      <%= will_paginate @posts %>
+        <ol class="posts">
+          <%= render @posts %>
+        </ol>
+        <%= will_paginate @posts %>
       </div>
   <% end %>
 </div>

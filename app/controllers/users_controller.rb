@@ -32,7 +32,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     logger.info("################################{params[:business_ids]}")
     @business_companies=BusinessCompany.find(params[:business_ids])
-
   end
 
   def save_business
@@ -48,14 +47,13 @@ class UsersController < ApplicationController
       end
     end
   end
+
   def new
     @user = User.new
-
   end
 
   def show
     @user = User.find(params[:id])
-
   end
 
   def create
@@ -65,13 +63,11 @@ class UsersController < ApplicationController
     @user.person_role ="user"
 
     if @user.save
-
       sign_in @user
       flash[:success] = "Welcome!"
       redirect_to @user
     else
       render 'new'
-
     end
   end
 

@@ -17,6 +17,5 @@ class User < Person
   has_many :business_has_users
 
   attr_accessible :first_name, :last_name
-
 end
 

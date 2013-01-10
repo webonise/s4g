@@ -3,21 +3,20 @@ class CausesController < ApplicationController
   def index
     @causes=Cause.all
   end
+
   def new
     @cause=Cause.new
   end
 
   def create
-
     @cause = Cause.new(params[:cause])
 
     if @cause.save
       flash[:success] = " cause Created successfully!"
-     redirect_to '/index'
+      redirect_to '/index'
     else
       render 'new'
     end
-
   end
 
   def edit
@@ -32,9 +31,9 @@ class CausesController < ApplicationController
       redirect_to @cause
     else
       render 'edit'
-
     end
   end
+
   def show
     @cause=Cause.find(params[:id])
   end
