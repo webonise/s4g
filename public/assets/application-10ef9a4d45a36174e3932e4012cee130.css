@@ -15,8 +15,7 @@
  */
 
 
-/* forms */
-
+,/* forms */
 
 input, textarea, select, .uneditable-input {
     border: 1px solid #bbb;
@@ -35,12 +34,13 @@ input {
 .posts {
     list-style: none;
     margin: 10px 0 0 0;
+}
 
 li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
 }
-    }
+
 .posts li {
     line-height: 20px;
 }
@@ -51,7 +51,7 @@ li {
 
 }
 .timestamp {
-    color: $grayLight;
+    color: #d3d3d3;
     font-size: 10px;
 }
 
@@ -94,13 +94,13 @@ a
     font-size: 40px;
     color: #00FF00;
     height: 5px;
-margin-left:100px;
+    margin-left:100px;
 }
 .brand{
-padding-bottom:100px;
+    padding-bottom:100px;
 }
 .mrng-top {
-    margin-top: 100px;
+    margin-top: 200px;
 }
 
 
@@ -112,7 +112,7 @@ padding-bottom:100px;
 /* get cause to business*/
 
 a.headerLogo  {
-margin-top:20px;
+    margin-top:20px;
     font-size: 15px;
     color: black;
     display: block;
@@ -123,8 +123,8 @@ margin-top:20px;
 
 /*alert adjustment*/
 .alertadjust{
-padding-top: 10px;
-margin-top: 25px;
+    padding-top: 10px;
+    margin-top: 25px;
 }
 article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
 audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
