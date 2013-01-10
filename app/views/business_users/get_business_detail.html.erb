@@ -19,14 +19,16 @@
           <div class="controls">
             <%= f.text_field :address, :class => 'text_field' %>
             <br />
+            <br />
             <%= f.text_field :city, :class => 'text_field' %>
+            <br />
             <br />
             <%= f.text_field :country, :class => 'text_field' %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= f.label :business_logo, :class => 'control-label' %>
+          <%= f.label :business_logo, "Upload Logo", :class => 'control-label' %>
           <div class="controls">
             <%= f.file_field :business_logo, :class => 'file_field' %>
           </div>
