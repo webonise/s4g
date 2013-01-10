@@ -4,7 +4,7 @@
       <% @businesses.each do |business| %>
           <li>
             <%= check_box_tag "business_select[]", business.id %>
-            <%= link_to business.business_name , business %>
+            <%= link_to business.business_name , "#" %>
 
           </li>
       <%end %>

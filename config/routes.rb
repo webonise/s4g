@@ -11,6 +11,9 @@ S4g::Application.routes.draw do
     member do
       get :display_cause
       post :save_causes
+      get :display_businesses_of_causes
+      post :save_business
+      get :display_post
     end
   end
 
@@ -25,8 +28,8 @@ S4g::Application.routes.draw do
 
   resources :posts, only: [:create, :destroy]
   match '/',  to: 'users#new'
-  match '/user_signup',  to: 'users#new', :as => 'user_sign_up'
-  match '/business_user_signup', to: 'business_users#new', :as => 'business_user_sign_up'
+  #match '/user_signup',  to: 'users#new', :as => 'user_sign_up'
+  #match '/business_user_signup', to: 'business_users#new', :as => 'business_user_sign_up'
   match '/business_details', to: 'business_users#get_business_details', :as => 'business_details'
   match '/', to: 'static_pages#home'
 
