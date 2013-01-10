@@ -67,9 +67,8 @@ class BusinessUsersController < ApplicationController
     @business_company.attributes = params[:business_company]
 
     if @business_company.save!
-      logger.info("#################{@business_company.inspect}")
       flash[:success] = "company added"
-      redirect_to get_cause_to_business_business_user_path(params[:id])
+      redirect_to get_cause_to_business_business_user_path(@business_user)
     end
   end
 end
