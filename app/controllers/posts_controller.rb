@@ -32,5 +32,4 @@ class PostsController < ApplicationController
     @post.destroy
     #TODO: redirecting redirect_to root_url
   end
-
 end

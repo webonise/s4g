@@ -3,7 +3,6 @@ class PeopleController < ApplicationController
   def check_user
     @person = Person.find(params[:email])
 
-
     user = Person.find_by_email(params[:session][:email])
     if person && person.authenticate(params[:session][:password])
       sign_in user

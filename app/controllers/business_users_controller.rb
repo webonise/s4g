@@ -28,7 +28,6 @@ class BusinessUsersController < ApplicationController
   def get_cause_to_business
     @causes = Cause.all
     @business_user = BusinessUser.find(params[:id])
-    #logger.info("###########################{@business_user.inspect}")
   end
 
   def save_business_cause
@@ -49,9 +48,7 @@ class BusinessUsersController < ApplicationController
 
   def show_post
     @business_user = BusinessUser.find(params[:id])
-    #logger.info("###########################{@business_user.inspect}"
     @business_company = @business_user.business_company
-    logger.info("###########################{@business_company.inspect}")
     @post = @business_company.posts.new
     @posts = @business_company.posts.order("created_at desc").paginate(page: params[:page])
   end
@@ -70,12 +67,10 @@ class BusinessUsersController < ApplicationController
     @business_company.attributes = params[:business_company]
 
     if @business_company.save!
-      logger.info("#################{@business_company.inspect}")
       flash[:success] = "company added"
-      redirect_to get_cause_to_business_business_user_path(params[:id])
+      redirect_to get_cause_to_business_business_user_path(@business_user)
     end
   end
-
 end
 
 #if params[:answer].nil?
