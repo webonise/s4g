@@ -23,31 +23,28 @@ class UsersController < ApplicationController
 
         if @user_has_cause.save
           flash[:success] = "cause submitted!"
-          #redirect_to  display_businesses_of_causes_User
+
         end
 
       end
 
     end
+    redirect_to  display_businesses_of_causes_User_path(@user)
   end
 
   def display_businesses_of_causes
     @user = User.find(params[:id])
-    @causes=@user.causes
-    @causes.each do |cause|
-      @cause=@causes.find(cause.id) rescue nil
-      logger.info("################################{@cause.inspect}")
-      @businesses = @cause.business_companies rescue nil
-      logger.info("################################{@businesses.inspect}")
-    end
-
+    @user_causes=@user.causes
+    #@business_user=@user.business_companies
   end
 
   def save_business
     @user = User.find(params[:id])
-    logger.info("################################{params[:business_select].inspect}")
+    #logger.info("################################{params[:business_select].inspect}")
+    @user_causes=@user.causes
 
     params[:business_select].each do |i|
+
       @business_has_user = BusinessHasUser.new
       @business_has_user.user_id = @user.id
       @business_has_user.business_company_id = i.to_i

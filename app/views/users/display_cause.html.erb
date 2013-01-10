@@ -3,11 +3,14 @@
     <ul>
       <% @causes.each do |cause| %>
           <li>
-            <%= check_box_tag "cause_select[]", cause.id %>
-            <%= link_to image_tag(cause.logo,:size => "50x50"), cause %>
-            <%= link_to cause.cause_name, cause %>
+            <table>
+              <tr> <td> <%= check_box_tag "cause_select[]", cause.id %></td>
+                <%#= link_to image_tag(cause.logo,:size => "50x50"), cause %>
+                <td> <%= link_to cause.cause_name, cause %> </td>
+                <td> <%= label_tag count_businesses(cause) %> <td> </tr>
+            </table>
           </li>
       <%end %>
     </ul>
-    <td><%= submit_tag 'Submit Causes' %></td>
+    <td><%= submit_tag 'Submit Causes' ,  class: "btn btn-large btn-primary" %></td>
 <%end %>
