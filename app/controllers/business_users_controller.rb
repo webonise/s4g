@@ -38,22 +38,14 @@ class BusinessUsersController < ApplicationController
       @business_company = BusinessCompany.find_by_business_user_id(params[:id])
       @business_company.cause_id = params[:cause]
 
-      if @business_company.save!
+      if @business_company.save
         flash[:success] = "cause added"
-        redirect_to show_post_business_user_path(params[:id])
+        redirect_to show_post_business_company_path
         #TODO: redirecting to Business User Dashboard
       end
     end
   end
 
-  def show_post
-    @business_user = BusinessUser.find(params[:id])
-    #logger.info("###########################{@business_user.inspect}"
-    @business_company = @business_user.business_company
-    logger.info("###########################{@business_company.inspect}")
-    @post = @business_company.posts.new
-    @posts = @business_company.posts.order("created_at desc").paginate(page: params[:page])
-  end
 
   def get_business_detail
     @business_user = BusinessUser.find(params[:id])

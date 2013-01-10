@@ -1,9 +1,9 @@
 S4g::Application.routes.draw do
 
-  match '/first', to: 'users#display_cause'
+  match '/first', :to => 'users#display_cause'
   resources :causes
-  match '/create_cause' , to: 'causes#new'
-  match '/index' ,  to: 'causes#index'
+  match '/create_cause' , :to => 'causes#new'
+  match '/index' ,  :to => 'causes#index'
 
   devise_for :people
 
@@ -22,24 +22,29 @@ S4g::Application.routes.draw do
       get :get_cause_to_business
       put :save_business_cause
       get :get_business_detail
-      get :show_post
       post :save_business_detail
     end
   end
 
-  resources :posts, only: [:create, :destroy]
+  resources :business_companies do
+    resources :posts, :only => [:create, :destroy]
+    member do
+      get :show_post
+    end
+  end
 
-  match '/',  to: 'users#new'
+
+  match '/',  :to => 'users#new'
   #match '/user_signup',  to: 'users#new', :as => 'user_sign_up'
   #match '/business_user_signup', to: 'business_users#new', :as => 'business_user_sign_up'
-  match '/business_details', to: 'business_users#get_business_details', :as => 'business_details'
+  match '/business_details', :to => 'business_users#get_business_details', :as => 'business_details'
 
 
-  match '/user_signup',  to: 'users#new', :as => 'user_sign_up'
+  match '/user_signup',  :to => 'users#new', :as => 'user_sign_up'
   #match '/business_user_signup', to: 'business_users#new', :as => 'business_user_sign_up'
   #match '/business_details', to: 'business_users#get_business_detail', :as => 'business_details'
 
-  match '/', to: 'static_pages#home'
+  match '/', :to => 'static_pages#home'
 
 
 
@@ -95,7 +100,7 @@ S4g::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-   #root :to => 'users#new'
+  #root :to => 'users#new'
 
 
   # See how all your routes lay out with "rake routes"
