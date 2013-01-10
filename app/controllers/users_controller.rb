@@ -86,7 +86,7 @@ class UsersController < ApplicationController
     if @user.save
 
       sign_in(@user)
-      #flash[:success] = "Welcome!"
+      flash[:success] = "Welcome!"
       redirect_to display_cause_user_path(@user)
     else
       render 'new'
