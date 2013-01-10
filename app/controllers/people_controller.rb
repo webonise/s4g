@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+
   def check_user
     @person = Person.find(params[:email])
 

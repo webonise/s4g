@@ -22,40 +22,42 @@ class UsersController < ApplicationController
 
         if @user_has_cause.save
           flash[:success] = "cause submitted!"
-          #redirect_to  display_businesses_of_causes_User
+
         end
 
       end
 
     end
+    redirect_to  display_businesses_of_causes_User_path(@user)
   end
 
   def display_businesses_of_causes
     @user = User.find(params[:id])
-
-    @causes=@user.causes
-    @causes.each do |cause|
-      @cause=@causes.find(cause.id) rescue nil
-      logger.info("################################{@cause.inspect}")
-      @businesses = @cause.business_companies rescue nil
-      logger.info("################################{@businesses.inspect}")
-    end
+    @user_causes=@user.causes
+    #@business_user=@user.business_companies
   end
 
   def save_business
     @user = User.find(params[:id])
-    logger.info("################################{params[:business_select].inspect}")
+    @user_causes=@user.causes
+    logger.info("##########################################{@user_causes.inspect}")
+    logger.info("##########################################{params[:business_select].inspect}")
+    if params[:business_select].nil?
 
-    params[:business_select].each do |i|
-      @business_has_user = BusinessHasUser.new
-      @business_has_user.user_id = @user.id
-      @business_has_user.business_company_id = i.to_i
+      params[:business_select].each do |i|
+        @business_has_user = BusinessHasUser.new
+        @business_has_user.user_id = @user.id
+        @business_has_user.business_company_id = i.to_i
 
-      if @business_has_user.save
-        flash[:success] = "Businesses submitted!"
-        #redirect_to  display_post_User
+        if @business_has_user.save!
+          flash[:success] = "Businesses submitted!"
+          #redirect_to  display_post_User
+        end
+
       end
-
+    else
+      flash[:success] = "Please select busineses"
+      render  display_businesses_of_causes_User_path
     end
   end
 
@@ -81,12 +83,12 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     # Handle a successful save.
-    @user.person_role ="user"
-
+    #@user.person_role ="user"
+    logger.info "##################################{@user.inspect}"
     if @user.save
-      sign_in @user
+      sign_in(@user)
       flash[:success] = "Welcome!"
-      redirect_to @user
+      redirect_to display_cause_user_path(@user)
     else
       render 'new'
     end
