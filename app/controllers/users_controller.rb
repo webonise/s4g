@@ -40,6 +40,8 @@ class UsersController < ApplicationController
   def save_business
     @user = User.find(params[:id])
     @user_causes=@user.causes
+    logger.info("##########################################{@user_causes.inspect}")
+    logger.info("##########################################{params[:business_select].inspect}")
     if params[:business_select].nil?
 
       params[:business_select].each do |i|
@@ -47,7 +49,7 @@ class UsersController < ApplicationController
         @business_has_user.user_id = @user.id
         @business_has_user.business_company_id = i.to_i
 
-        if @business_has_user.save
+        if @business_has_user.save!
           flash[:success] = "Businesses submitted!"
           #redirect_to  display_post_User
         end

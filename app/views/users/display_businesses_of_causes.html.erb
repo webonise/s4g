@@ -3,6 +3,7 @@
     <ul>
       <%= @user_causes.each do |user_cause| %>
           <% user_cause.business_companies.each do |business| %>
+              <%= logger.info("####################################{business.inspect}")%>
               <li>
                 <tabel>
                   <tr>
