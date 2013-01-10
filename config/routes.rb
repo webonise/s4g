@@ -5,7 +5,7 @@ S4g::Application.routes.draw do
   match '/create_cause' , to: 'causes#new'
   match '/index' ,  to: 'causes#index'
 
-  devise_for :people , :controllers => { :sessions => "sessions" }
+  devise_for :people,  :controllers => { :sessions => "sessions" }
 
   resources :users do
     member do

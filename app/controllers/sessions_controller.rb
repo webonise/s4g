@@ -1,9 +1,12 @@
 class SessionsController < Devise::SessionsController
 
   def create
-    @user = User.find_by_email(params[:user][:email])
+    logger.info "======================#{params.inspect}"
+    binding.remote_pry
+
+    @user = Person.find_by_email(params[:person][:email])
     if @user.nil?
-      render '/people/sign_in'
+      redirect_to new_person_session_path
     end
      @user.valid_password?(params[:user][:password])
     ############logger.info(@user.inspect)

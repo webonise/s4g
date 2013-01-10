@@ -84,7 +84,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     # Handle a successful save.
-    @user.person_role ="user"
+    #@user.person_role ="user"
     logger.info "##################################{@user.inspect}"
     if @user.save
 
