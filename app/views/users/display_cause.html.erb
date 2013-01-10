@@ -1,5 +1,5 @@
 <h1> Select Causes </h1>
-<%= form_tag save_causes_User_path(@user), :method => :post do %>
+<%= form_tag save_causes_user_path(@user), :method => :post do %>
     <ul>
       <% @causes.each do |cause| %>
           <li>
@@ -12,5 +12,5 @@
           </li>
       <%end %>
     </ul>
-    <td><%= submit_tag 'Submit Causes' ,  class: "btn btn-large btn-primary" %></td>
+    <%= submit_tag 'Submit Causes' ,  class: "btn btn-large btn-primary" %>
 <%end %>
