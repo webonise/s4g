@@ -6,48 +6,70 @@ class UsersController < ApplicationController
 
   def display_cause
     @user = User.find(params[:id])
-    logger.info "##################################{@user.inspect}"
     @causes = Cause.all
-    logger.info "##################################{@causes.inspect}"
   end
 
   def save_causes
-
     if params[:cause_select]
       @user = User.find(params[:id])
+
       params[:cause_select].each do |i|
+
         @user_has_cause=UserHasCause.new
         @user_has_cause.user_id = @user.id
-        @user_has_cause.causes_id = i.to_i
-        c_id = @user_has_cause.causes_id
+        @user_has_cause.cause_id = i.to_i
+        c_id = @user_has_cause.cause_id
+
         if @user_has_cause.save
           flash[:success] = "cause submitted!"
-          #redirect_to
+          #redirect_to  display_businesses_of_causes_User
         end
+
       end
+
     end
   end
 
   def display_businesses_of_causes
     @user = User.find(params[:id])
-    logger.info("################################{params[:business_ids]}")
-    @business_companies=BusinessCompany.find(params[:business_ids])
+    @causes=@user.causes
+    @causes.each do |cause|
+      @cause=@causes.find(cause.id) rescue nil
+      logger.info("################################{@cause.inspect}")
+      @businesses = @cause.business_companies rescue nil
+      logger.info("################################{@businesses.inspect}")
+    end
 
   end
 
   def save_business
     @user = User.find(params[:id])
+    logger.info("################################{params[:business_select].inspect}")
 
     params[:business_select].each do |i|
-      @business_has_user=BusinessHasUser.new
-      @business_has_user.user_id=@user.id
-      @business_has_user.business_company_id= i.to_i
+      @business_has_user = BusinessHasUser.new
+      @business_has_user.user_id = @user.id
+      @business_has_user.business_company_id = i.to_i
+
       if @business_has_user.save
         flash[:success] = "Businesses submitted!"
-        #redirect_to
+        #redirect_to  display_post_User
       end
+
     end
   end
+
+  def display_post
+    @user = User.find(params[:id])
+    @businesses=@user.business_has_users
+
+    @businesses.each do |business|
+      @business=@businesses.find(business.id) rescue nil
+      @posts = @business.posts  rescue nil
+    end
+
+  end
+
   def new
     @user = User.new
 
@@ -60,7 +82,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-
     # Handle a successful save.
     @user.person_role ="user"
 

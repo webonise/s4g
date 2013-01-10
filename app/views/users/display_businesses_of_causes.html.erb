@@ -1,15 +1,15 @@
 <h1> Select Businesses associated with causes </h1>
 <%= form_tag save_business_User_path(@user), :method => :post do %>
     <ul>
-      <% @business_companies.each do |business| %>
+      <% @businesses.each do |business| %>
           <li>
             <%= check_box_tag "business_select[]", business.id %>
-
-            <%#= link_to image_tag(cause.logo,:size => "50x50"), business %>
-            <%= link_to business.business_name, business %>
+            <%= link_to business.business_name , "#" %>
 
           </li>
       <%end %>
     </ul>
-    <td><%= submit_tag 'Submit Causes' %></td>
+    <td><%= submit_tag 'Submit Businesses' %></td>
 <%end %>
+
+
