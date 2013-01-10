@@ -39,20 +39,23 @@ class UsersController < ApplicationController
 
   def save_business
     @user = User.find(params[:id])
-    #logger.info("################################{params[:business_select].inspect}")
     @user_causes=@user.causes
+    if params[:business_select].nil?
 
-    params[:business_select].each do |i|
+      params[:business_select].each do |i|
+        @business_has_user = BusinessHasUser.new
+        @business_has_user.user_id = @user.id
+        @business_has_user.business_company_id = i.to_i
 
-      @business_has_user = BusinessHasUser.new
-      @business_has_user.user_id = @user.id
-      @business_has_user.business_company_id = i.to_i
+        if @business_has_user.save
+          flash[:success] = "Businesses submitted!"
+          #redirect_to  display_post_User
+        end
 
-      if @business_has_user.save
-        flash[:success] = "Businesses submitted!"
-        #redirect_to  display_post_User
       end
-
+    else
+      flash[:success] = "Please select busineses"
+      render  display_businesses_of_causes_User_path
     end
   end
 
