@@ -18,8 +18,8 @@ class UsersController < ApplicationController
       params[:cause_select].each do |i|
         @user_has_cause=UserHasCause.new
         @user_has_cause.user_id = @user.id
-        @user_has_cause.causes_id = i.to_i
-        c_id = @user_has_cause.causes_id
+        @user_has_cause.cause_id = i.to_i
+        c_id = @user_has_cause.cause_id
         if @user_has_cause.save
           flash[:success] = "cause submitted!"
           #redirect_to
@@ -30,8 +30,15 @@ class UsersController < ApplicationController
 
   def display_businesses_of_causes
     @user = User.find(params[:id])
-    logger.info("################################{params[:business_ids]}")
-    @business_companies=BusinessCompany.find(params[:business_ids])
+
+    @causes=@user.causes
+    logger.info("################################{@causes}")
+    @causes.each do |cause|
+      @cause=@causes.find(cause.id)
+      logger.info("################################{@cause}")
+      @businesses=@cause.business_companies
+      logger.info("################################{@businesses}")
+  end
 
   end
 
