@@ -32,13 +32,13 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     @causes=@user.causes
-    logger.info("################################{@causes}")
+    logger.info("################################{@causes.inspect}")
     @causes.each do |cause|
-      @cause=@causes.find(cause.id)
-      logger.info("################################{@cause}")
-      @businesses=@cause.business_companies
-      logger.info("################################{@businesses}")
-  end
+      @cause=@causes.find(cause.id) rescue nil
+      logger.info("################################{@cause.inspect}")
+      @businesses = @cause.business_companies rescue nil
+      logger.info("################################{@businesses.inspect}")
+    end
 
   end
 
@@ -49,6 +49,7 @@ class UsersController < ApplicationController
       @business_has_user=BusinessHasUser.new
       @business_has_user.user_id=@user.id
       @business_has_user.business_company_id= i.to_i
+
       if @business_has_user.save
         flash[:success] = "Businesses submitted!"
         #redirect_to
