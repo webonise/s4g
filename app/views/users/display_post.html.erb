@@ -1,0 +1,12 @@
+<h1> Select Causes </h1>
+<%= form_tag display_post_User_path(@user), :method => :get do %>
+    <ul>
+      <% @posts.each do |post| %>
+          <li>
+            <%= label_tag post.content %>
+            <%= label_tag @business.business_name%>
+            <%= label_tag post.created_at%>
+          </li>
+      <%end %>
+    </ul>
+<%end %>
