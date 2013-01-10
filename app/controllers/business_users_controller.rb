@@ -40,7 +40,7 @@ class BusinessUsersController < ApplicationController
 
       if @business_company.save
         flash[:success] = "cause added"
-        redirect_to show_post_business_company_path
+        redirect_to show_post_business_company_path(@business_company.id)
         #TODO: redirecting to Business User Dashboard
       end
     end
