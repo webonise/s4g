@@ -37,6 +37,9 @@ li {
     font-size: 10px;
 }
 
+.span9 h1{
+    font-size: 12px;
+}
 textarea {
     height: 50px;
     margin-bottom: 5px;
