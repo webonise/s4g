@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-
   def index
     @users = User.all
   end
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
       end
 
     end
-    redirect_to  display_businesses_of_causes_User_path(@user)
+    redirect_to  display_businesses_of_causes_user_path(@user)
   end
 
   def display_businesses_of_causes
@@ -40,20 +39,21 @@ class UsersController < ApplicationController
 
   def save_business
     @user = User.find(params[:id])
-    #logger.info("################################{params[:business_select].inspect}")
     @user_causes=@user.causes
+    if params[:business_select].present?
 
-    params[:business_select].each do |i|
-
-      @business_has_user = BusinessHasUser.new
-      @business_has_user.user_id = @user.id
-      @business_has_user.business_company_id = i.to_i
-
-      if @business_has_user.save
-        flash[:success] = "Businesses submitted!"
-        #redirect_to  display_post_User
+      params[:business_select].each do |i|
+        @business_has_user = BusinessHasUser.new
+        @business_has_user.user_id = @user.id
+        @business_has_user.business_company_id = i.to_i
+        if @business_has_user.save!
+          flash[:success] = "Businesses submitted!"
+        end
       end
-
+      redirect_to '/'
+    else
+      flash[:success] = "Please select busineses"
+      redirect_to display_businesses_of_causes_user_path
     end
   end
 
@@ -70,12 +70,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-
   end
 
   def show
     @user = User.find(params[:id])
-
   end
 
   def create
@@ -84,13 +82,11 @@ class UsersController < ApplicationController
     #@user.person_role ="user"
     logger.info "##################################{@user.inspect}"
     if @user.save
-
       sign_in(@user)
       flash[:success] = "Welcome!"
       redirect_to display_cause_user_path(@user)
     else
       render 'new'
-
     end
   end
 

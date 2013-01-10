@@ -1,0 +1,28 @@
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%=render :partial => 'posts/post_form', :locals => {:business_company => @business_company}%>
+      <%#= redirect_to new_post_path(@business_company) %>
+    </section>
+  </aside>
+</div>
+
+<div class="span8">
+  <% if @business_company.posts.any? %>
+      <h3>Posts (<%= @business_company.posts.count %>)</h3>
+      <div class="pagination">
+        <ol class="posts">
+          <% @posts.each do |post|  %>
+              <li>
+                <span class="content"><%= post.content %></span>
+                <span class="timestamp">
+                    Posted <%= time_ago_in_words(post.created_at) %> ago.
+                </span>
+              </li>
+          <% end %>
+          <%#= render :partial => "posts/post", :locals => {:posts => @posts} %>
+        </ol>
+        <%= will_paginate @posts %>
+      </div>
+  <% end %>
+</div>

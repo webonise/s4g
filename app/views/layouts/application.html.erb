@@ -62,13 +62,13 @@
           <li> <%= link_to "Sign out", destroy_person_session_path, :method => :delete %><li>
           <li> <%= current_person.first_name %><li>
       <% else %>
-            <%= link_to "Sign in" ,person_session_path, :class => "btn" %>
+          <%= link_to "Sign in" ,person_session_path, :class => "btn" %>
       <% end %>
     </ul>
     </ul>
   </div>
 </div>
-S
+
 <div class="container mrng-top">
   <div class="row">
     <div class="span9">
@@ -76,15 +76,12 @@ S
       <%= yield %>
     </div>
 
-
-
   </div><!--/row-->
 
   <footer>
     <p>&copy; Company 2012</p>
   </footer>
-
-</div> <!-- /container -->
+ </div> <!-- /container -->
 
 <!-- Javascripts
 ================================================== -->

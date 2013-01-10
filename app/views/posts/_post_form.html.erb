@@ -1,11 +1,16 @@
-<%= form_for(@post) do |f| %>
+<%#= business_company_id %>
+<%= form_for @post, :url => business_company_posts_path(@business_company.id), :method => :post do |f| %>
 
     <%#= render 'users/error_messages', object: f.object %>
 
     <div class="field">
-      <%= f.text_area :content, placeholder:  "Compose new post..." %>
+
+      <%= f.text_area :content,:class => "textarea_me", :placeholder => "Compose new post..." %>
+      <%#= f.hidden_field_tag "business_company_id", business_company_id %>
+
     </div>
 
-    <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+    <%= f.submit "Post", :class => "btn btn-primary" %>
 
 <% end %>
+<%#= hidden_field_tag 'entry[user_id]', current_user.id  %>

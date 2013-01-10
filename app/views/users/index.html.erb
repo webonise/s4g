@@ -4,26 +4,26 @@
 </div>
 <table class="table table-striped">
   <thead>
-    <tr>
-      <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:first_name) %></th>
-      <th><%= model_class.human_attribute_name(:last_name) %></th>
-      <th><%= model_class.human_attribute_name(:role) %></th>
-      <th><%= model_class.human_attribute_name(:email) %></th>
-      <th><%= model_class.human_attribute_name(:encrypted_password) %></th>
-      <th><%= model_class.human_attribute_name(:reset_password_token) %></th>
-      <th><%= model_class.human_attribute_name(:reset_password_sent_at) %></th>
-      <th><%= model_class.human_attribute_name(:remember_created_at) %></th>
-      <th><%= model_class.human_attribute_name(:current_sign_in_at) %></th>
-      <th><%= model_class.human_attribute_name(:last_sign_in_at) %></th>
-      <th><%= model_class.human_attribute_name(:current_sign_in_ip) %></th>
-      <th><%= model_class.human_attribute_name(:last_sign_in_ip) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
-      <th><%=t '.actions', :default => t("helpers.actions") %></th>
-    </tr>
+  <tr>
+    <th><%= model_class.human_attribute_name(:id) %></th>
+    <th><%= model_class.human_attribute_name(:first_name) %></th>
+    <th><%= model_class.human_attribute_name(:last_name) %></th>
+    <th><%= model_class.human_attribute_name(:role) %></th>
+    <th><%= model_class.human_attribute_name(:email) %></th>
+    <th><%= model_class.human_attribute_name(:encrypted_password) %></th>
+    <th><%= model_class.human_attribute_name(:reset_password_token) %></th>
+    <th><%= model_class.human_attribute_name(:reset_password_sent_at) %></th>
+    <th><%= model_class.human_attribute_name(:remember_created_at) %></th>
+    <th><%= model_class.human_attribute_name(:current_sign_in_at) %></th>
+    <th><%= model_class.human_attribute_name(:last_sign_in_at) %></th>
+    <th><%= model_class.human_attribute_name(:current_sign_in_ip) %></th>
+    <th><%= model_class.human_attribute_name(:last_sign_in_ip) %></th>
+    <th><%= model_class.human_attribute_name(:created_at) %></th>
+    <th><%=t '.actions', :default => t("helpers.actions") %></th>
+  </tr>
   </thead>
   <tbody>
-    <% @users.each do |user| %>
+  <% @users.each do |user| %>
       <tr>
         <td><%= link_to user.id, user_path(user) %></td>
         <td><%= user.first_name %></td>
@@ -49,7 +49,7 @@
                       :class => 'btn btn-mini btn-danger' %>
         </td>
       </tr>
-    <% end %>
+  <% end %>
   </tbody>
 </table>
 
@@ -67,16 +67,16 @@
     <th></th>
     <th></th>
   </tr>
- 
-<% @users.each do |user| %>
-  <tr>
-    <td>User <%= user.id%></td>
-    <td><%= link_to 'View', user %></td>
-    <td> <% if current_user.admin? %> <%= link_to 'Edit', edit_user_path(user) %> <% end %></td>
-    <td> <% if current_user.admin? %> <%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %> <% end %></td>
-  </tr>
-<% end %>
+
+  <% @users.each do |user| %>
+      <tr>
+        <td>User <%= user.id%></td>
+        <td><%= link_to 'View', user %></td>
+        <td> <% if current_user.admin? %> <%= link_to 'Edit', edit_user_path(user) %> <% end %></td>
+        <td> <% if current_user.admin? %> <%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %> <% end %></td>
+      </tr>
+  <% end %>
 </table>
- 
+
 <br />
 
