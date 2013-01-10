@@ -13,8 +13,8 @@
           <div class="controls">
             <%= f.text_field :first_name , :class => 'custom_text'%>
 
-            <%= f.text_field :last_name, :class => 'custom_text'%>
 
+            <%= f.text_field :last_name, :class => 'custom_text'%>
           </div>
         </div>
 
@@ -34,9 +34,9 @@
 
 
         <div class="control-group">
-          <%= label :password_confirmation, "Confirm Password", :class => 'control-label'  %>
+          <%= f.label :password_confirmation, "Confirm Password", :class => 'control-label'  %>
           <div class="controls">
-            <%= password_field :password_confirmation , :class => 'text_field'%>
+            <%= f.password_field :password_confirmation , :class => 'text_field'%>
           </div>
         </div>
 
