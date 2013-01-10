@@ -4,30 +4,31 @@
   <div class="span5 offset2">
     <h1> User Sign up</h1>
 
-    <%= form_for Users_path(@user), :method => :post, :html => { :class => 'form-horizontal' }  do |f| %>
+    <%= form_for @user, :method => :post, :html => { :class => 'form-horizontal' }  do |f| %>
 
-        <%#= render 'error_messages', object: f.object %>
+        <%= render 'error_messages', object: f.object %>
 
         <div class="control-group" id="customText">
-          <%= label :name, "Name", :class => 'control-label' %>
+          <%= f.label :name, "Name", :class => 'control-label' %>
           <div class="controls">
-            <%= text_field :first_name , :class => 'custom_text', :colspan => 2 %>
+            <%= f.text_field :first_name , :class => 'custom_text'%>
 
-            <%= text_field :last_name, :class => 'custom_text', :rowspan => 4 %>
+            <%= f.text_field :last_name, :class => 'custom_text'%>
+
           </div>
         </div>
 
         <div class="control-group">
-          <%= label :email, "Email ID", :class => 'control-label'  %>
+          <%= f.label :email, "Email ID", :class => 'control-label'  %>
           <div class="controls">
-            <%= text_field :email , :class => 'text_field' %>
+            <%= f.text_field :email , :class => 'text_field' %>
           </div>
         </div>
 
         <div class="control-group">
-          <%= label :password, "Password", :class => 'control-label'  %>
+          <%= f.label :password, "Password", :class => 'control-label'  %>
           <div class="controls">
-            <%= password_field :password, :class => 'text_field' %>
+            <%= f.password_field :password, :class => 'text_field' %>
           </div>
         </div>
 
@@ -41,7 +42,7 @@
 
         <div class="control-group">
           <div class="controls">
-            <%= f.submit "Sign Up", class: "btn btn-large btn-primary" %>
+            <%= f.submit 'Sign Up', class: "btn btn-large btn-primary" %>
           </div>
         </div>
 

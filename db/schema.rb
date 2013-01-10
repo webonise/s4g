@@ -72,7 +72,6 @@ ActiveRecord::Schema.define(:version => 20130110062222) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "person_role"
     t.boolean  "admin"
   end
 
