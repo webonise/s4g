@@ -16,4 +16,9 @@
 /.idea/*
 /config/database.yml
 /.idea
+
 /Gemfile.lock
+
+
+/Gemfile.lock
+/public/uploads

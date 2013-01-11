@@ -24,7 +24,10 @@ li {
     border-top: 1px solid #e8e8e8;
 }
 
+
 .posts li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
     line-height: 20px;
 }
 .content {
@@ -114,8 +117,29 @@ a.headerLogo  {
     padding-top: 10px;
     margin-top: 25px;
 }
+
+
+/*dispaly_cause*/
+
+#nextbtn{
+    margin-left: 100px;
+}
+img
+{
+height :50px;
+width  :50px;
+}
+
+.td1{
+    width: 10px ;
+}
+.td2{
+    width :50px;
+}
+
 /*footer */
 .footer .footer-text
 {
     margin-bottom: 20px;
+
 }

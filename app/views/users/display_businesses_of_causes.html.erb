@@ -1,22 +1,54 @@
-<h1> Select Businesses associated with causes </h1>
-<%= form_tag save_business_user_path(@user), :method => :post do %>
-    <ul>
-      <%= @user_causes.each do |user_cause| %>
+<div class="row">
+  <div class="code span14 offset 13"><h1>Select one cause form following list</h1></div>
+</div>
+ <br>
+<%= form_tag save_business_user_path(@user), :method => :post,:html => { :class => "bs-docs-example form-horizontal"} do %>
+    <table class="table table-hover">
+
+
+      <% @user_causes.each do |user_cause| %>
           <% user_cause.business_companies.each do |business| %>
-              <li>
-                <table>
-                  <tr>
-                    <td width=50> <%= check_box_tag "business_select[]", business.id %> </td>
-                     <%#= link_to image_tag(business.logo,:size => "50x50"), "#" %>
-                    <td width=50><%= link_to business.business_name , "#" %> </td>
-                    <td width=50><%= label_tag count_users_of_businesses(business) %> </td>
-                  </tr>
-                </table>
-              </li>
+              <tr>
+
+                <td class = "td1">
+                  <div class="control-group">
+                    <%= check_box_tag "business_select[]", business.id %>
+                  </div>
+                </td>
+
+                <td class= "td2" >
+                  <div class="control-group">
+                    <%= link_to image_tag(business.logo,:class=>"img"), business%>
+                  </div>
+                </td>
+                <td>
+                  <div class="control-group">
+                    <%= link_to business.business_name %>
+                    <span>( <%= count_users_of_businesses(business) %> )</span>
+                  </div>
+                </td>
+
           <%end %>
       <%end %>
-    </ul>
-    <%= submit_tag 'Next' , class: "btn btn-large btn-primary" %>
+      <tr>
+        <td></td>
+        <td></td>
+         <td>
+        <div class="control-group">
+          <%= submit_tag 'Next' , class: "btn" %>
+        </div>
+
+        </td>
+      </tr>
+
+    </table>
 <%end %>
+
+
+
+
+
+
+
 
 

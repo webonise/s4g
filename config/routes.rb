@@ -5,7 +5,7 @@ S4g::Application.routes.draw do
   match '/create_cause' , :to => 'causes#new'
   match '/index' ,  :to => 'causes#index'
 
-  devise_for :people
+  devise_for :people,  :controllers => { :sessions => "sessions" }
 
   resources :users do
     member do
@@ -34,11 +34,13 @@ S4g::Application.routes.draw do
     end
   end
 
+
   match '/user_signup',  :to => 'users#new', :as => 'user_sign_up'
   match '/business_user_signup', :to => 'business_users#new', :as => 'business_user_sign_up'
   match '/business_details', to: 'business_users#get_business_detail', :as => 'business_details'
 
-  match '/', :to => 'static_pages#home'
+
+  #match '/', :to => 'static_pages#home'
 
 
   # The priority is based upon order of creation:
