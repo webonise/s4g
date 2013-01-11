@@ -16,7 +16,7 @@ class BusinessUsersController < ApplicationController
     @business_user = BusinessUser.new(params[:business_user])
 
     if @business_user.save
-      #sign_in @business_user
+      sign_in @business_user
       flash[:success] = "Welcome!"
       redirect_to get_business_detail_business_user_path(@business_user)
       #redirect_to get_business_detail_business_user_path(:id => @business_user.id)
@@ -40,7 +40,7 @@ class BusinessUsersController < ApplicationController
 
       if @business_company.save
         flash[:success] = "cause added"
-        redirect_to show_post_business_company_path
+        redirect_to show_post_business_company_path(@business_company.id)
         #TODO: redirecting to Business User Dashboard
       end
     end
