@@ -15,7 +15,7 @@ gem 'bootstrap-will_paginate', '0.0.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'libv8', '~> 3.11.8.13'
+#gem 'libv8', '~> 3.11.8.13'
 
 
 gem 'mysql2'

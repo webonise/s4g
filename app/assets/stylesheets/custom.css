@@ -19,19 +19,12 @@ input {
     margin: 10px 0 0 0;
 }
 
-<<<<<<< HEAD
-/*li {*/
-    /*padding: 10px 0;*/
-    /*border-top: 1px solid #e8e8e8;*/
-/*}*/
-    }
-=======
 li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
 }
 
->>>>>>> feature
+
 .posts li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
@@ -118,4 +111,15 @@ a.headerLogo  {
 .alertadjust{
     padding-top: 10px;
     margin-top: 25px;
+}
+
+/*dispaly_cause*/
+
+#nextbtn{
+    margin-left: 100px;
+}
+img
+{
+height :50px;
+width  :50px;
 }
