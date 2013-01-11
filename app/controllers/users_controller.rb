@@ -103,7 +103,7 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_url
   end
-  def display_dash_board
+  def display_dash_board_user
 
   end
 
