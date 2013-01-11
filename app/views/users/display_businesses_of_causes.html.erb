@@ -1,0 +1,22 @@
+<h1> Select Businesses associated with causes </h1>
+<%= form_tag save_business_user_path(@user), :method => :post do %>
+    <ul>
+      <%= @user_causes.each do |user_cause| %>
+          <% user_cause.business_companies.each do |business| %>
+              <li>
+                <table>
+                  <tr>
+                    <td width=50> <%= check_box_tag "business_select[]", business.id %> </td>
+                     <%#= link_to image_tag(business.logo,:size => "50x50"), "#" %>
+                    <td width=50><%= link_to business.business_name , "#" %> </td>
+                    <td width=50><%= label_tag count_users_of_businesses(business) %> </td>
+                  </tr>
+                </table>
+              </li>
+          <%end %>
+      <%end %>
+    </ul>
+    <%= submit_tag 'Next' , class: "btn btn-large btn-primary" %>
+<%end %>
+
+
