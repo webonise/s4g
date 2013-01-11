@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
-
+#gem "mail", "2.1.3"
 #gem 'bootstrap-sass', '2.1'
 #gem 'pry-remote'
 

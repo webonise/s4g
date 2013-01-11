@@ -99,4 +99,8 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_url
   end
+  def display_dash_board
+
+  end
+  UserMailer.welcome_email(@user).deliver
 end

@@ -5,7 +5,7 @@ S4g::Application.routes.draw do
   match '/create_cause' , :to => 'causes#new'
   match '/index' ,  :to => 'causes#index'
 
-  devise_for :people,  :controllers => { :sessions => "sessions" }
+  devise_for :people
 
   resources :users do
     member do
@@ -14,6 +14,7 @@ S4g::Application.routes.draw do
       get :display_businesses_of_causes
       post :save_business
       get :display_post
+      get :display_dash_board_user
     end
   end
 
