@@ -84,7 +84,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     # Handle a successful save.
     #@user.person_role ="user"
-    logger.info "##################################{@user.inspect}"
+     # logger.info "##################################{@user.inspect}"
     if @user.save
       sign_in(@user)
       flash[:success] = "Welcome!"
@@ -106,5 +106,5 @@ class UsersController < ApplicationController
   def display_dash_board
 
   end
-  UserMailer.welcome_email(@user).deliver
+
 end
