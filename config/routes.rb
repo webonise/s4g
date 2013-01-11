@@ -5,7 +5,7 @@ S4g::Application.routes.draw do
   match '/create_cause' , :to => 'causes#new'
   match '/index' ,  :to => 'causes#index'
 
-  devise_for :people,  :controllers => { :sessions => "sessions" }
+  devise_for :people
 
   resources :users do
     member do
@@ -14,6 +14,7 @@ S4g::Application.routes.draw do
       get :display_businesses_of_causes
       post :save_business
       get :display_post
+      get :display_dash_board_user
     end
   end
 
@@ -34,16 +35,10 @@ S4g::Application.routes.draw do
   end
 
 
+  match '/user_signup',  :to => 'users#new', :as => 'user_sign_up'
+  match '/business_user_signup', :to => 'business_users#new', :as => 'business_user_sign_up'
+  match '/business_details', to: 'business_users#get_business_detail', :as => 'business_details'
 
-  match '/user_signup',  to: 'users#new', :as => 'user_sign_up'
-  match '/business_user_signup', to: 'business_users#new', :as => 'business_user_sign_up'
-  match '/business_details', :to => 'business_users#get_business_details', :as => 'business_details'
-
-
- # match '/user_signup',  :to => 'users#new', :as => 'user_sign_up'
-  #match '/business_user_signup', to: 'business_users#new', :as => 'business_user_sign_up'
-
-  #match '/business_details', to: 'business_users#get_business_detail', :as => 'business_details'
 
   #match '/', :to => 'static_pages#home'
 

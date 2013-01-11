@@ -16,7 +16,7 @@ class BusinessUsersController < ApplicationController
     @business_user = BusinessUser.new(params[:business_user])
 
     if @business_user.save
-      #sign_in @business_user
+      sign_in @business_user
       flash[:success] = "Welcome!"
       redirect_to get_business_detail_business_user_path(@business_user)
       #redirect_to get_business_detail_business_user_path(:id => @business_user.id)

@@ -16,5 +16,9 @@
 /.idea/*
 /config/database.yml
 /.idea
+<<<<<<< HEAD
 /Gemfile.lock
 
+=======
+/Gemfile.lock
+>>>>>>> 925979777b785c0101743f54341432d82ac4eb96

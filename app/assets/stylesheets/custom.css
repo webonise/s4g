@@ -78,7 +78,7 @@ a
 .navbar .brand
 {
     font-size: 40px;
-    color: #00FF00;
+    color: green;
     height: 5px;
     margin-left:100px;
 }
@@ -113,6 +113,7 @@ a.headerLogo  {
     margin-top: 25px;
 }
 
+
 /*dispaly_cause*/
 
 #nextbtn{
@@ -129,4 +130,11 @@ width  :50px;
 }
 .td2{
     width :50px;
+}
+
+/*footer */
+.footer .footer-text
+{
+    margin-bottom: 20px;
+
 }

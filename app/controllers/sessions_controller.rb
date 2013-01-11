@@ -1,6 +1,7 @@
 class SessionsController < Devise::SessionsController
 
   def create
+    super
     #logger.info "======================#{params.inspect}"
     #binding.remote_pry
 
@@ -17,7 +18,7 @@ class SessionsController < Devise::SessionsController
 
 
 
-      redirect_to hello_path
+      redirect_to display_dash_board_user_path
     #end
   end
   end

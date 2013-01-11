@@ -40,32 +40,7 @@
 </head>
 <body>
 
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a href="/" class="headerLogo">
-        <img src="/assets/b7x.gif" class="img-polaroid" alt="header img problem in loading" width="100" height="50"/>
-      </a>
-      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="#">Sharing for good</a>
-
-    </div>
-    <ul class="nav pull-right">
-      <li><%= link_to "Home", root_path %></li>
-      <% if current_person.present? %>
-          <li> Hi <%#= @user.first_name %></li>
-          <li> <%= link_to "Sign out", destroy_person_session_path, :method => :delete %><li>
-          <li> <%= current_person.first_name %><li>
-      <% else %>
-          <%= link_to "Sign in" ,person_session_path, :class => "btn" %>
-      <% end %>
-    </ul>
-  </div>
-</div>
+<%= render 'layouts/header' %>
 
 <div class="container mrng-top">
   <div class="row">
@@ -73,13 +48,9 @@
       <%= bootstrap_flash %>
       <%= yield %>
     </div>
-
-  </div><!--/row-->
-
-  <footer>
-    <p>&copy; Company 2012</p>
-  </footer>
-</div> <!-- /container -->
+    </div><!--/row-->
+  <%= render 'layouts/footer' %>
+ </div> <!-- /container -->
 
 <!-- Javascripts
 ================================================== -->
