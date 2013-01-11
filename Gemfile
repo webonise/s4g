@@ -7,7 +7,7 @@ gem 'rails', '3.2.9'
 #gem 'pry-remote'
 
 gem 'carrierwave'
-
+gem 'newrelic_rpm'
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem "twitter-bootstrap-rails"
 gem 'will_paginate', '3.0.3'
