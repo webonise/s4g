@@ -12,12 +12,13 @@
             <a class="brand" href="#">Sharing for good</a>
 
         </div>
-        <ul class="nav pull-right">
+        <ul class="nav pull-right inline">
            <!--<li><%= link_to "Home", root_path %></li>-->
             <% if current_person.present? %>
-            <!--<li> Hi <%#= @user.first_name %></li>-->
-            <li> Hello,  <%= current_person.first_name %><li>
-            <li> <%= link_to "Sign out", destroy_person_session_path, :method => :delete %><li>
+
+            <li class="hello"> Hello,  <%= current_person.first_name %><li>
+            <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
+            <!--<li> <%= link_to "Sign out", destroy_person_session_path, :method => :delete %><li>-->
 
             <% else %>
             <%= link_to "Sign in" ,person_session_path, :class => "btn" %>

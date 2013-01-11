@@ -57,6 +57,11 @@ body {
     line-height: 20px;
     margin: 0;
 }
+.nav pull-right .li .hello
+{
+    padding: 5px 0;
+    top-margin: 25px
+}
 
 h1
 {
