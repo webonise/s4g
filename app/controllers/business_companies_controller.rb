@@ -5,7 +5,7 @@ class BusinessCompaniesController < ApplicationController
     #logger.info("###########################{@business_user.inspect}")
     #@business_company = @business_user.business_company
     #logger.info("###########################{@business_company.inspect}")
-    @posts = @business_company.posts.paginate(:page =>1)
+    @posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
     logger.info("###########################{@posts.inspect}")
     @post = @business_company.posts.new
   end

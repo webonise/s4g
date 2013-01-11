@@ -5,7 +5,7 @@ class BusinessCompany < ActiveRecord::Base
   has_many :business_has_users
   has_many :posts
 
-  attr_accessible :address, :city, :country, :business_name, :business_logo, :contact, :description, :business_user_id, :causes_id
+  attr_accessible :address, :city, :country, :business_name, :business_logo, :contact, :description, :business_user_id, :cause_id
 
   belongs_to :cause
 

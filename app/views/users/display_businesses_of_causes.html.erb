@@ -1,7 +1,7 @@
 <div class="row">
   <div class="code span14 offset 13"><h1>Select one cause form following list</h1></div>
 </div>
- <br></br>
+ <br>
 <%= form_tag save_business_user_path(@user), :method => :post,:html => { :class => "bs-docs-example form-horizontal"} do %>
     <table class="table table-hover">
 
@@ -10,13 +10,13 @@
           <% user_cause.business_companies.each do |business| %>
               <tr>
 
-                <td>
+                <td class = "td1">
                   <div class="control-group">
-                    <%= check_box_tag "business_select[]", business.id, :class => "checkbox" %>
+                    <%= check_box_tag "business_select[]", business.id %>
                   </div>
                 </td>
 
-                <td>
+                <td class= "td2" >
                   <div class="control-group">
                     <%= link_to image_tag(business.logo,:class=>"img"), business%>
                   </div>
@@ -24,15 +24,9 @@
                 <td>
                   <div class="control-group">
                     <%= link_to business.business_name %>
+                    <span>( <%= count_users_of_businesses(business) %> )</span>
                   </div>
                 </td>
-
-                <td>
-                  <div class="control-group">
-                    <%= count_users_of_businesses(business) %>
-                  </div>
-                </td>
-              </tr>
 
           <%end %>
       <%end %>
