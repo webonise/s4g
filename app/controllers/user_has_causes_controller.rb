@@ -1,0 +1,4 @@
+class UserHasCausesController < ApplicationController
+
+
+end

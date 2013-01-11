@@ -1,0 +1,121 @@
+,/* forms */
+
+input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+@include box_sizing;
+}
+
+input {
+    height: auto !important;
+}
+
+/* posts */
+
+.posts {
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+
+<<<<<<< HEAD
+/*li {*/
+    /*padding: 10px 0;*/
+    /*border-top: 1px solid #e8e8e8;*/
+/*}*/
+    }
+=======
+li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+}
+
+>>>>>>> feature
+.posts li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    line-height: 20px;
+}
+.content {
+    display: block;
+    font-size: 18px;
+    color: #08C;
+
+}
+.timestamp {
+    color: #d3d3d3;
+    font-size: 10px;
+}
+
+
+.textarea_me {
+    height: 50px;
+    margin-bottom: 5px;
+}
+.posts li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid #EEE;
+}
+
+body {
+    background-color: #FFFFFF;
+    color: #333333;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0;
+}
+
+h1
+{
+    text-align: center;
+    margin-top: 30px;
+}
+.hero-unit
+{
+    text-align: center;
+    margin-top: 40px;
+}
+a
+{
+
+}
+.navbar .brand
+{
+    font-size: 40px;
+    color: #00FF00;
+    height: 5px;
+    margin-left:100px;
+}
+.brand{
+    padding-bottom:100px;
+}
+.mrng-top {
+    margin-top: 200px;
+}
+
+
+#customText input {
+    width: 94px;
+}
+
+
+/* get cause to business*/
+
+a.headerLogo  {
+    margin-top:20px;
+    font-size: 15px;
+    color: black;
+    display: block;
+    height: 40px;
+    width: 100px;
+
+}
+
+/*alert adjustment*/
+.alertadjust{
+    padding-top: 10px;
+    margin-top: 25px;
+}

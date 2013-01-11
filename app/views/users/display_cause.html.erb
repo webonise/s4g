@@ -1,0 +1,16 @@
+<h1> Select Causes </h1>
+<%= form_tag save_causes_user_path(@user), :method => :post do %>
+    <ul>
+      <% @causes.each do |cause| %>
+          <li>
+            <table>
+              <tr> <td> <%= check_box_tag "cause_select[]", cause.id %></td>
+                <%= link_to image_tag(cause.logo,:size => "30x30"), cause %>
+                <td> <%= link_to cause.cause_name, cause %> </td>
+                <td> <%= label_tag count_businesses(cause) %> <td> </tr>
+            </table>
+          </li>
+      <%end %>
+    </ul>
+    <%= submit_tag 'Next' ,  class: "btn btn-large btn-primary" %>
+<%end %>
