@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_person! , :only => [:display_cause, :display_businesses_of_causes]
+  before_filer :authenticate_person! , :only => [:display_cause, :display_businesses_of_causes]
   def index
     @users = User.all
   end
@@ -32,8 +32,6 @@ class UsersController < ApplicationController
       end
 
     end
-
-
 
   def display_businesses_of_causes
     @user = User.find(params[:id])
@@ -84,8 +82,6 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     # Handle a successful save.
     @user.role = "user"
-     # logger.info "##################################{@user.inspect}"
-
     if @user.save
       UserMailer.registration_confirmation(@user).deliver
       sign_in(@user)
