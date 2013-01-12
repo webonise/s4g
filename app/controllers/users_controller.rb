@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  before_filter :authenticate_person! , :only => [:display_cause, :display_businesses_of_causes]
   def index
     @users = User.all
   end
@@ -83,9 +83,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     # Handle a successful save.
-    #@user.person_role ="user"
+    @user.role = "user"
      # logger.info "##################################{@user.inspect}"
+
     if @user.save
+      UserMailer.registration_confirmation(@user).deliver
       sign_in(@user)
       flash[:success] = "Welcome!"
       redirect_to display_cause_user_path(@user)

@@ -14,8 +14,9 @@ class BusinessUsersController < ApplicationController
 
   def create
     @business_user = BusinessUser.new(params[:business_user])
-
+    @business_user.role = "business_user"
     if @business_user.save
+      UserMailer.registration_confirmation(@business_user).deliver
       sign_in @business_user
       flash[:success] = "Welcome!"
       redirect_to get_business_detail_business_user_path(@business_user)

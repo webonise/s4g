@@ -1,5 +1,5 @@
 class BusinessCompaniesController < ApplicationController
-
+  before_filter :authenticate_person!
   def show_post
     @business_company = BusinessCompany.find(params[:id])
     #logger.info("###########################{@business_user.inspect}")
