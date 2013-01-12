@@ -1,6 +1,5 @@
 <% provide(:title, 'Home') %>
 <% if signed_in? %>
-
     <div class="row">
       <aside class="span4">
         <section>
@@ -9,11 +8,48 @@
       </aside>
     </div>
 <% else %>
-    <div class="center hero-unit">
-      <h2>Welcome to the Sharing for good</h2>
+    <form>
+      <table>
+        <tr>
+          <td>
+            <div class="sfg_body_left">
+              <%= field_set_tag 'SIGN UP' do %>
+              <!--<fieldset>-->
+                <!--<legend class="sfg_legend_home_page">SIGN-UP</legend>-->
+                <table>
+                  <tr>
+                    <td>
+                      <div class="sfg_home_business_btn">
+                        <%= link_to "I OWN A BUSINESS!", new_business_user_path,class: "btn btn-large btn-info sfg_btn_large_home" %>
+                      </div>
+                    </td>
+                    <td>
+                      <div class="sfg_home_user_btn">
+                        <%= link_to "I'M A USER!", new_user_path, :class => "btn btn-large btn-info sfg_btn_large_home" %>
+                      </div>
+                    </td>
+                  </tr>
+                </table>
+              <% end %>
+              <!--</fieldset>-->
+            </div>
+          </td>
+          <td>
+            <div class="sfg_body_right">
+              <fieldset>
+                <legend class="sfg_legend_home_page">SIGN-IN</legend>
+              </fieldset>
+            </div>
+          </td>
+        </tr>
+      </table>
+      <div class="clearfix"></div>
+    </form>
+    <!--<div class="center hero-unit">-->
+    <!--<h2>Welcome to the Sharing for good</h2>-->
 
-      <%= link_to "Sign up now for User!", new_user_path, :class => "btn btn-large btn-info" %>
+    <!--<%#= link_to "Sign up now for User!", new_user_path, :class => "btn btn-large btn-info" %>-->
 
-      <%= link_to "Sign up now for Business User!", new_business_user_path,class: "btn btn-large btn-info" %>
-    </div>
+    <!--<%#= link_to "Sign up now for Business User!", new_business_user_path,class: "btn btn-large btn-info" %>-->
+    <!--</div>-->
 <% end %>
