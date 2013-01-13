@@ -23,7 +23,7 @@
             <li class="hello"> Hello,  <%= current_person.first_name %><li>
             <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
             <% else %>
-            <%= link_to "Sign in" ,person_session_path, :class => "" %>
+            <%#= link_to "Sign in" ,person_session_path, :class => "" %>
             <% end %>
         </ul>
     </div>

@@ -1,6 +1,6 @@
 S4g::Application.routes.draw do
 
-  devise_for :people,  :controllers => { :sessions => "sessions" }
+  devise_for :people,  :controllers => { :sessions => "sessions"}
 
   resources :causes
 

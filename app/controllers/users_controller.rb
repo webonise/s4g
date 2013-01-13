@@ -53,10 +53,10 @@ class UsersController < ApplicationController
           flash[:success] = "Businesses submitted!"
         end
       end
-      redirect_to '/'
+      redirect_to  display_dash_board_user_user_path(@user)
     else
-      flash[:error] = "Please select busineses"
-      render display_businesses_of_causes_user_path
+      #flash[:error] = "Please select busineses"
+      redirect_to display_businesses_of_causes_user_path(@user)
     end
   end
 

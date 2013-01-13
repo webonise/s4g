@@ -6,14 +6,14 @@
     <th></th>
   </tr>
 
-  <% @business_users.each do |business_user| %>
+  <%# @business_users.each do |business_user| %>
       <tr>
-        <td>User <%= business_user.id%></td>
-        <td><%= link_to 'View', business_user %></td>
-        <td> <% if current_user.admin? %> <%= link_to 'Edit', edit_user_path(business_user) %> <% end %></td>
-        <td> <% if current_user.admin? %> <%= link_to 'Delete', business_user, :confirm => 'Are you sure?', :method => :delete %> <% end %></td>
+        <td>User <%#= business_user.id%></td>
+        <td><%#= link_to 'View', business_user %></td>
+        <td> <%# if current_user.admin? %> <%=# link_to 'Edit', edit_user_path(business_user) %> <%# end %></td>
+        <td> <%# if current_user.admin? %> <%=# link_to 'Delete', business_user, :confirm => 'Are you sure?', :method => :delete %> <%# end %></td>
       </tr>
-  <% end %>
+  <%# end %>
 </table>
 
 <br />

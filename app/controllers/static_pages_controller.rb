@@ -1,6 +1,7 @@
 class StaticPagesController < ApplicationController
-  def hello
+    def hello
 
   end
+
 
 end

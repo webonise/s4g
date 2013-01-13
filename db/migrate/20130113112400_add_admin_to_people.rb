@@ -6,5 +6,4 @@ class AddAdminToPeople < ActiveRecord::Migration
   def self.down
     remove_column :people, :admin
   end
-
 end

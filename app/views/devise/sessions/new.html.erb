@@ -5,8 +5,8 @@
   <div class="span5 offset2">
     <h1>  Sign in </h1>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => { :class => 'form-horizontal' }) do |f| %>
-
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => { :class => 'form-horizontal sfg_sign_in' }) do |f| %>
+<%#= form_for(person, :as => person_name, :url => person_session_path(person_name),:html => { :class => 'form-horizontal sfg_sign_in' }) do |f| %>
    <div class="control-group">
       <%= f.label :email, "Email ID", :class => 'control-label'  %>
       <div class="controls">

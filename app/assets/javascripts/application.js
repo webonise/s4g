@@ -12,4 +12,103 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.min
+//= require jquery.validate
+//= require jquery.validate.min
 //= require_tree .
+
+$(document).ready(function() {
+    $(".sfg_sign_in").validate({
+        rules: {
+            "person[email]": {
+                required:true,
+                email:true
+            },
+            "person[password]": {
+                required:true,
+                minlength: 6
+            }
+        }
+    });
+
+    $(".sfg_user_sign_up").validate({
+        rules: {
+            "user[first_name]": {
+                required: true
+            },
+            "user[email]": {
+                required: true,
+                email: true
+            },
+            "user[password]": {
+                required:true,
+                minlength: 6
+            },
+            "user[password_confirmation]": {
+                equalTo: "#pass_confirm"
+            }
+        }
+    });
+
+    $(".sfg_business_user_sign_up").validate({
+       rules: {
+           "business_user[first_name]": {
+               required: true
+           },
+           "business_user[email]": {
+               required: true,
+               email: true
+           },
+           "business_user[password]":{
+               required:true,
+               minlength: 6
+           },
+           "business_user[password_confirmation]": {
+               equalTo: "#pass_confirm"
+           }
+       }
+    });
+});
+
+//$("#new_person").validate();
+//$("#new_person").validate({
+//    rules: {
+//        person[email]: "required"
+//},
+//messages: {
+//    person[email]:"Please enter your firstname"
+//},
+//submitHandler: function(form) {
+//    form.submit();
+//}
+//
+//});
+
+//$("#register-form").validate({
+//    rules: {
+//        firstname: "required",
+//        lastname: "required",
+//        email: {
+//            required: true,
+//            email: true
+//        },
+//        password: {
+//            required: true,
+//            minlength: 5
+//        },
+//        agree: "required"
+//    },
+//    messages: {
+//        firstname: "Please enter your firstname",
+//        lastname: "Please enter your lastname",
+//        password: {
+//            required: "Please provide a password",
+//            minlength: "Your password must be at least 5 characters long"
+//        },
+//        email: "Please enter a valid email address",
+//        agree: "Please accept our policy"
+//    },
+//    submitHandler: function(form) {
+//        form.submit();
+//    }
+//});
