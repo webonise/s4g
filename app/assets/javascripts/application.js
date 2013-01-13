@@ -28,6 +28,9 @@ $(document).ready(function() {
                 required:true,
                 minlength: 6
             }
+        },
+        submitHandler: function(form) {
+            form.submit();
         }
     });
 
@@ -47,6 +50,9 @@ $(document).ready(function() {
             "user[password_confirmation]": {
                 equalTo: "#user_password"
             }
+        },
+        submitHandler: function(form) {
+            form.submit();
         }
     });
 
@@ -66,6 +72,9 @@ $(document).ready(function() {
             "business_user[password_confirmation]": {
                 equalTo: "#business_user_password"
             }
+        },
+        submitHandler: function(form) {
+            form.submit();
         }
     });
 
@@ -103,7 +112,6 @@ $(document).ready(function() {
 //}
 //
 //});
-
 //$("#register-form").validate({
 //    rules: {
 //        firstname: "required",
