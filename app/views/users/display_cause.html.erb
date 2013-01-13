@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="code span14 offset 13"><h1>Select Causes form following list</h1></div>
+  <div class="code span14 offset 13"><h1>Select Causes from following list</h1></div>
 </div>
 <br>
 <div>
@@ -24,7 +24,7 @@
                 <div class="control-group">
                   <%= link_to cause.cause_name %>
                   <span> ( <%= count_businesses(cause) %> ) </span>
-                  <div>Businesses sponsering your causes... <span><%= link_to businesses_of_causes(cause)rescue nil %></span></div>
+                  <div>Businesses sponsoring your causes... <span><%= link_to businesses_of_causes(cause)rescue nil %></span></div>
                 </div>
             </td>
 
@@ -42,7 +42,7 @@
           <td>
             <div class="control-group">
               <div class="controls" >
-                <%= submit_tag 'Next', :class => "btn" %>
+                <%= submit_tag 'Next', :class => "btn" ,  :onsubmit => "this.disabled = true" %>
               </div>
             </div>
           </td>

@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
       if params[:cause_select].present?
+
       params[:cause_select].each do |i|
 
         @user_has_cause = UserHasCause.new
@@ -22,13 +23,13 @@ class UsersController < ApplicationController
         c_id = @user_has_cause.cause_id
 
         if @user_has_cause.save
-          flash[:success] = "cause submitted!"
+          flash[:success] = "Causes Submitted!"
 
         end
       end
       redirect_to  display_businesses_of_causes_user_path(@user)
       else
-        flash[:error] = "Please select atleast one clause"
+        flash[:error] = "Please select atleast one Clause"
         redirect_to display_cause_user_path(@user)
       end
 
@@ -55,7 +56,7 @@ class UsersController < ApplicationController
       end
       redirect_to  display_dash_board_user_user_path(@user)
     else
-      #flash[:error] = "Please select busineses"
+      flash[:error] = "Please select atleast one Business"
       redirect_to display_businesses_of_causes_user_path(@user)
     end
   end

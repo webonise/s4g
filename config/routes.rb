@@ -31,6 +31,12 @@ S4g::Application.routes.draw do
     end
   end
 
+  #resource :static_pages do
+  #  member do
+  #    get :home
+  #  end
+  #end
+
   match '/user_signup',  :to => 'users#new', :as => 'user_sign_up'
   match '/first', :to => 'users#display_cause'
 
