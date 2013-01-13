@@ -15,6 +15,7 @@
 //= require jquery.min
 //= require jquery.validate
 //= require jquery.validate.min
+// require bootstrap-alert
 //= require_tree .
 
 $(document).ready(function() {

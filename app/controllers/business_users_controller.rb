@@ -1,5 +1,5 @@
 class BusinessUsersController < ApplicationController
-
+  before_filter :authenticate_person! , :only => [:get_cause_to_business, :get_business_detail]
   def index
     @business_users = BusinessUser.all
   end

@@ -1,5 +1,7 @@
 class BusinessCompaniesController < ApplicationController
-  before_filter :authenticate_person!
+
+  before_filter :authenticate_person! , :only => [:show_post]
+
   def show_post
     @business_company = BusinessCompany.find(params[:id])
     #logger.info("###########################{@business_user.inspect}")
@@ -9,4 +11,5 @@ class BusinessCompaniesController < ApplicationController
     #logger.info("###########################{@posts.inspect}")
     @post = @business_company.posts.new
   end
+
 end
