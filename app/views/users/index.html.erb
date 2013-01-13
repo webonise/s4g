@@ -68,15 +68,14 @@
     <th></th>
   </tr>
 
-  <% @users.each do |user| %>
+  <%# @users.each do |user| %>
       <tr>
         <td>User <%= user.id%></td>
         <td><%= link_to 'View', user %></td>
-        <td> <% if current_user.admin? %> <%= link_to 'Edit', edit_user_path(user) %> <% end %></td>
-        <td> <% if current_user.admin? %> <%= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %> <% end %></td>
+        <td> <%# if current_user.admin? %> <%#= link_to 'Edit', edit_user_path(user) %> <%# end %></td>
+        <td> <%# if current_user.admin? %> <%#= link_to 'Delete', user, :confirm => 'Are you sure?', :method => :delete %> <%# end %></td>
       </tr>
-  <% end %>
+  <%# end %>
 </table>
 
 <br />
-

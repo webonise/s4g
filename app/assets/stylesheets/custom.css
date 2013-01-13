@@ -90,15 +90,15 @@
 /*.brand{*/
 /*padding-bottom:100px;*/
 /*}*/
-/*sign_up form priyanka*/
-/*.mrng-top {*/
-/*margin-top: 200px;*/
-/*}*/
+/*sign_up form priyanka */
+.mrng-top {
+margin-top: 120px;
+}
 
 
-/*#customText input {*/
-/*width: 94px;*/
-/*}*/
+#customText input {
+width: 84px;
+}
 
 
 /* get cause to business*/
@@ -211,7 +211,22 @@
     border-radius: 7px;
     font-size: 14px;
 }
-
+/* clearfix */
 .clearfix {
     clear: both;
+}
+
+/*form validation*/
+label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+
+
+/* Fieldset For Sign-In */
+.fieldset_sign-in {
+    margin-left: 50px;
+}
+
+
+/* For Hello, User in header */
+.hello{
+    color:#08C;
 }
