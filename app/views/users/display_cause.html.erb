@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="code span14 offset 13"><h1>Select Causes form following list</h1></div>
+  <div class="code span14 offset 13"><h2>Select Causes form following list</h2></div>
 </div>
 <br>
 <div>
@@ -24,13 +24,9 @@
                 <div class="control-group">
                   <%= link_to cause.cause_name %>
                   <span> ( <%= count_businesses(cause) %> ) </span>
-                  <div>Businesses sponsering your causes... <span><%= link_to businesses_of_causes(cause)rescue nil %></span></div>
+                  <div>Businesses sponsor your causes... <span><%= link_to businesses_of_causes(cause)rescue nil %></span></div>
                 </div>
-            </td>
-
-
-
-
+              </td>
             </tr>
         <%end %>
         <tr></tr>
@@ -48,6 +44,6 @@
           </td>
         </tr>
 
-        </table>
+      </table>
   <%end%>
-  </div>
+</div>

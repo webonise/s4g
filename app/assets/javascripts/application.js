@@ -45,29 +45,49 @@ $(document).ready(function() {
                 minlength: 6
             },
             "user[password_confirmation]": {
-                equalTo: "#pass_confirm"
+                equalTo: "#user_password"
             }
         }
     });
 
     $(".sfg_business_user_sign_up").validate({
+        rules: {
+            "business_user[first_name]": {
+                required: true
+            },
+            "business_user[email]": {
+                required: true,
+                email: true
+            },
+            "business_user[password]":{
+                required:true,
+                minlength: 6
+            },
+            "business_user[password_confirmation]": {
+                equalTo: "#business_user_password"
+            }
+        }
+    });
+
+    $(".sfg_get_business_details").validate({
+        rules: {
+            "business_company[business_name]":{
+                required: true
+            },
+            "business_company[description]": {
+                minlength: 50
+            }
+        }
+    });
+
+    $("#new_post").validate({
        rules: {
-           "business_user[first_name]": {
-               required: true
-           },
-           "business_user[email]": {
-               required: true,
-               email: true
-           },
-           "business_user[password]":{
-               required:true,
-               minlength: 6
-           },
-           "business_user[password_confirmation]": {
-               equalTo: "#pass_confirm"
+           "post[content]":{
+               maxlength: 140
            }
        }
     });
+
 });
 
 //$("#new_person").validate();

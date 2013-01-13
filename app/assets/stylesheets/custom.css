@@ -41,11 +41,6 @@
 /*font-size: 10px;*/
 /*}*/
 
-
-/*.textarea_me {*/
-/*height: 50px;*/
-/*margin-bottom: 5px;*/
-/*}*/
 /*.posts li {*/
 /*overflow: auto;*/
 /*padding: 10px 0;*/
@@ -154,6 +149,26 @@ width: 84px;
 /*margin: 0 auto;*/
 /*padding: 5px;*/
 /*}*/
+/* home */
+.sfg_signup{
+    padding: 43px 19px
+}
+
+.sfg_signin{
+    padding:70px;
+}
+
+.sfg_home_btn{
+    text-decoration: none;
+    color: #ffffff;
+}
+.btn_signin{
+    height: 110px;
+    width: 140px
+}
+.sfg_herounit{
+    border: solid 2px;
+}
 /*Header*/
 
 .sfg_brand_home_link{
@@ -229,4 +244,16 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 /* For Hello, User in header */
 .hello{
     color:#08C;
+}
+
+/*error_messages*/
+
+#error_explanation ul li {
+    float: none; color: red; padding-left: .5em;
+}
+
+/*post_form_business_user*/
+.sfg_post_form_text_area {
+height: 50px;
+margin-bottom: 5px;
 }
