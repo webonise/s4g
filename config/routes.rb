@@ -39,6 +39,7 @@ S4g::Application.routes.draw do
 
   match '/create_cause' , :to => 'causes#new'
   match '/index' ,  :to => 'causes#index'
+  match '/admin_dashboard' , :to => 'people#show_admin_dashboard'
 
   root :to => 'static_pages#home'
 

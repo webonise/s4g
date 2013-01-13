@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filer :authenticate_person! , :only => [:display_cause, :display_businesses_of_causes]
+  before_filter :authenticate_person! , :only => [:display_cause, :display_businesses_of_causes]
   def index
     @users = User.all
   end

@@ -21,4 +21,7 @@ class PeopleController < ApplicationController
       render 'new'
     end
   end
+  def show_admin_dashboard
+
+  end
 end
