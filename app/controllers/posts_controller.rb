@@ -5,9 +5,7 @@ class PostsController < ApplicationController
   #BusinessUser.current_user = @current_user
 
   def create
-
     @post = Post.create(:content => params[:post][:content], :business_company_id => params[:business_company_id])
-    #logger.info("###############################{@post.inspect}")
 
     if @post.content==""
 

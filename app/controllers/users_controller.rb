@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   def save_causes
     @user = User.find(params[:id])
 
-      if params[:cause_select].present?
+    if params[:cause_select].present?
 
       params[:cause_select].each do |i|
 
@@ -28,12 +28,12 @@ class UsersController < ApplicationController
         end
       end
       redirect_to  display_businesses_of_causes_user_path(@user)
-      else
-        flash[:error] = "Please select atleast one Clause"
-        redirect_to display_cause_user_path(@user)
-      end
-
+    else
+      flash[:error] = "Please select atleast one Clause"
+      redirect_to display_cause_user_path(@user)
     end
+
+  end
 
   def display_businesses_of_causes
     @user = User.find(params[:id])
@@ -103,6 +103,7 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_url
   end
+
   def display_dash_board_user
 
   end

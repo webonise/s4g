@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="code span14 offset 13">Select at most one cause from following list</div>
+  <div class="code span14 offset 13"><h3>Select at most one cause from following list</h3></div>
 </div>
 <%= form_tag( save_business_cause_business_user_path(@business_user), :method => "put", :html => { :class => "bs-docs-example form-horizontal"}) do %>
 
@@ -11,8 +11,6 @@
         <th>Cause Name</th>
         <th>Description</th>
       </tr>
-
-      <%= render 'shared/error_messages', flash[:error] %>
       <% @causes.each do |cause|  %>
           <tr>
 
@@ -38,20 +36,19 @@
                 <%= cause.description %>
               </div>
             </td>
-
+          </tr>
       <% end %>
       <tr>
         <td></td>
         <td></td>
+        <td></td>
         <td>
           <div class="control-group">
-            <%= submit_tag 'Next', :class => "btn" %>
+            <%= submit_tag 'Next', :class => "btn btn-primary" %>
           </div>
         </td>
       </tr>
 
-
-      </tr>
 <% end %>
 </table>
 </br>
