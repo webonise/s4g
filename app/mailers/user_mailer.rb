@@ -6,6 +6,7 @@ class UserMailer < ActionMailer::Base
 
   def registration_confirmation(user)
     @user = user
+
     mail(:to => user.email, :subject => "Welcome Sharing for good Site" )
   end
 end
