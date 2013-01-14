@@ -3,30 +3,24 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.9'
 
 
+#gem "mail", "2.1.3"
 #gem 'bootstrap-sass', '2.1'
 #gem 'pry-remote'
 
 gem 'carrierwave'
-
+gem 'newrelic_rpm'
 #gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem "twitter-bootstrap-rails"
+
+#gem "twitter-bootstrap-rails"
 gem 'will_paginate', '3.0.3'
-gem 'bootstrap-will_paginate', '0.0.6'
-
-gem 'simple_form'
-gem 'client_side_validations'
-gem 'client_side_validations-simple_form'
-
+#gem 'bootstrap-will_paginate', '0.0.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
 gem 'dynamic_form'
-
+#gem 'therubyracer', '0.10.2', :platforms => :ruby
 gem 'devise'
-#gem 'libv8', '3.11.8.3'
-#gem "therubyracer"
-gem 'therubyracer', '0.10.2', :platforms => :ruby
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -35,13 +29,11 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
 
 gem 'jquery-rails'
-gem "jquery-validation-rails"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

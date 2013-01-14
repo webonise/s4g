@@ -15,22 +15,23 @@
   <![endif]-->
 
   <%= stylesheet_link_tag "application", :media => "all" %>
+  <%= stylesheet_link_tag 'custom', :media => 'screen' %>
 
 </head>
 <body>
 
 <%= render 'layouts/header' %>
-
 <div class="container mrng-top">
   <div class="row">
-    <div class="span9">
-      <%= bootstrap_flash %>
+    <!--<div class="span7">-->
+    <!--<div class="span9">-->
+      <%= render 'layouts/flash_messages' %>
+      <%#= bootstrap_flash %>
       <%= yield %>
-    </div>
-    </div><!--/row-->
-  <%= render 'layouts/footer' %>
- </div> <!-- /container -->
-
+    <!--</div>-->
+  </div><!--/row-->
+</div> <!-- /container -->
+<%= render 'layouts/footer' %>
 <!-- Javascripts
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->

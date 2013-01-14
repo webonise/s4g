@@ -1,15 +1,6 @@
-/**
- * jQuery Validation Plugin 1.11.0pre
- *
- * http://bassistance.de/jquery-plugins/jquery-plugin-validation/
- * http://docs.jquery.com/Plugins/Validation
- *
- * Copyright (c) 2012 Jörn Zaefferer
- *
- * Dual licensed under the MIT and GPL licenses:
- *   http://www.opensource.org/licenses/mit-license.php
- *   http://www.gnu.org/licenses/gpl.html
- */
+/*! jQuery Validation Plugin - v1.10.0 - 9/7/2012
+* https://github.com/jzaefferer/jquery-validation
+* Copyright (c) 2012 Jörn Zaefferer; Licensed MIT, GPL */
 
 (function($) {
 
@@ -148,9 +139,15 @@ $.extend($.fn, {
 		var data = $.validator.normalizeRules(
 		$.extend(
 			{},
+<<<<<<< HEAD
 			$.validator.classRules(element),
 			$.validator.attributeRules(element),
 			$.validator.dataRules(element),
+=======
+			$.validator.metadataRules(element),
+			$.validator.classRules(element),
+			$.validator.attributeRules(element),
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 			$.validator.staticRules(element)
 		), element);
 
@@ -236,7 +233,11 @@ $.extend($.validator, {
 		onkeyup: function(element, event) {
 			if ( event.which === 9 && this.elementValue(element) === '' ) {
 				return;
+<<<<<<< HEAD
 			} else if ( element.name in this.submitted || element === this.lastElement ) {
+=======
+			} else if ( element.name in this.submitted || element === this.lastActive ) {
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 				this.element(element);
 			}
 		},
@@ -307,10 +308,14 @@ $.extend($.validator, {
 
 			var groups = (this.groups = {});
 			$.each(this.settings.groups, function(key, value) {
+<<<<<<< HEAD
 				if (typeof value === "string") {
 					value = value.split(/\s/);
 				}
 				$.each(value, function(index, name) {
+=======
+				$.each(value.split(/\s/), function(index, name) {
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 					groups[name] = key;
 				});
 			});
@@ -575,6 +580,19 @@ $.extend($.validator, {
 		},
 
 		// return the custom message for the given element and validation method
+<<<<<<< HEAD
+=======
+		// specified in the element's "messages" metadata
+		customMetaMessage: function(element, method) {
+			if (!$.metadata) {
+				return;
+			}
+			var meta = this.settings.meta ? $(element).metadata()[this.settings.meta] : $(element).metadata();
+			return meta && meta.messages && meta.messages[method];
+		},
+
+		// return the custom message for the given element and validation method
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 		// specified in the element's HTML5 data attribute
 		customDataMessage: function(element, method) {
 			return $(element).data('msg-' + method.toLowerCase()) || (element.attributes && $(element).attr('data-msg-' + method.toLowerCase()));
@@ -600,6 +618,10 @@ $.extend($.validator, {
 			return this.findDefined(
 				this.customMessage( element.name, method ),
 				this.customDataMessage( element, method ),
+<<<<<<< HEAD
+=======
+				this.customMetaMessage( element, method ),
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 				// title is never undefined, so handle empty string as undefined
 				!this.settings.ignoreTitle && element.title || undefined,
 				$.validator.messages[method],
@@ -693,7 +715,11 @@ $.extend($.validator, {
 					if ( this.settings.errorPlacement ) {
 						this.settings.errorPlacement(label, $(element) );
 					} else {
+<<<<<<< HEAD
 						label.insertAfter(element);
+=======
+					label.insertAfter(element);
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 					}
 				}
 			}
@@ -869,6 +895,7 @@ $.extend($.validator, {
 		return rules;
 	},
 
+<<<<<<< HEAD
 	dataRules: function(element) {
 		var method, value,
 			rules = {}, $element = $(element);
@@ -879,6 +906,17 @@ $.extend($.validator, {
 			}
 		}
 		return rules;
+=======
+	metadataRules: function(element) {
+		if (!$.metadata) {
+			return {};
+		}
+
+		var meta = $.data(element.form, 'validator').settings.meta;
+		return meta ?
+			$(element).metadata()[meta] :
+			$(element).metadata();
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 	},
 
 	staticRules: function(element) {
@@ -901,12 +939,21 @@ $.extend($.validator, {
 			if (val.param || val.depends) {
 				var keepRule = true;
 				switch (typeof val.depends) {
+<<<<<<< HEAD
 				case "string":
 					keepRule = !!$(val.depends, element.form).length;
 					break;
 				case "function":
 					keepRule = val.depends.call(element, element);
 					break;
+=======
+					case "string":
+						keepRule = !!$(val.depends, element.form).length;
+						break;
+					case "function":
+						keepRule = val.depends.call(element, element);
+						break;
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 				}
 				if (keepRule) {
 					rules[prop] = val.param !== undefined ? val.param : true;
@@ -928,6 +975,7 @@ $.extend($.validator, {
 			}
 		});
 		$.each(['rangelength', 'range'], function() {
+<<<<<<< HEAD
 			var parts;
 			if (rules[this]) {
 				if ($.isArray(rules[this])) {
@@ -936,6 +984,10 @@ $.extend($.validator, {
 					parts = rules[this].split(/[\s,]+/);
 					rules[this] = [Number(parts[0]), Number(parts[1])];
 				}
+=======
+			if (rules[this]) {
+				rules[this] = [Number(rules[this][0]), Number(rules[this][1])];
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 			}
 		});
 
@@ -953,6 +1005,14 @@ $.extend($.validator, {
 			}
 		}
 
+<<<<<<< HEAD
+=======
+		// To support custom messages in metadata ignore rule methods titled "messages"
+		if (rules.messages) {
+			delete rules.messages;
+		}
+
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 		return rules;
 	},
 
@@ -1011,6 +1071,12 @@ $.extend($.validator, {
 
 			param = typeof param === "string" && {url:param} || param;
 
+<<<<<<< HEAD
+=======
+			if ( this.pending[element.name] ) {
+				return "pending";
+			}
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 			if ( previous.old === value ) {
 				return previous.valid;
 			}
@@ -1092,12 +1158,20 @@ $.extend($.validator, {
 		// http://docs.jquery.com/Plugins/Validation/Methods/url
 		url: function(value, element) {
 			// contributed by Scott Gonzalez: http://projects.scottsplayground.com/iri/
+<<<<<<< HEAD
 			return this.optional(element) || /^(https?|s?ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(value);
+=======
+			return this.optional(element) || /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(value);
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 		},
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/date
 		date: function(value, element) {
+<<<<<<< HEAD
 			return this.optional(element) || !/Invalid|NaN/.test(new Date(value).toString());
+=======
+			return this.optional(element) || !/Invalid|NaN/.test(new Date(value));
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 		},
 
 		// http://docs.jquery.com/Plugins/Validation/Methods/dateISO
@@ -1201,9 +1275,46 @@ $.format = $.validator.format;
 	}
 }(jQuery));
 
+<<<<<<< HEAD
 // provides delegate(type: String, delegate: Selector, handler: Callback) plugin for easier event delegation
 // handler is only called when $(event.target).is(delegate), in the scope of the jquery-object for event.target
 (function($) {
+=======
+// provides cross-browser focusin and focusout events
+// IE has native support, in other browsers, use event caputuring (neither bubbles)
+
+// provides delegate(type: String, delegate: Selector, handler: Callback) plugin for easier event delegation
+// handler is only called when $(event.target).is(delegate), in the scope of the jquery-object for event.target
+(function($) {
+	// only implement if not provided by jQuery core (since 1.4)
+	// TODO verify if jQuery 1.4's implementation is compatible with older jQuery special-event APIs
+	if (!jQuery.event.special.focusin && !jQuery.event.special.focusout && document.addEventListener) {
+		$.each({
+			focus: 'focusin',
+			blur: 'focusout'
+		}, function( original, fix ){
+			$.event.special[fix] = {
+				setup:function() {
+					this.addEventListener( original, handler, true );
+				},
+				teardown:function() {
+					this.removeEventListener( original, handler, true );
+				},
+				handler: function(e) {
+					var args = arguments;
+					args[0] = $.event.fix(e);
+					args[0].type = fix;
+					return $.event.handle.apply(this, args);
+				}
+			};
+			function handler(e) {
+				e = $.event.fix(e);
+				e.type = fix;
+				return $.event.handle.call(this, e);
+			}
+		});
+	}
+>>>>>>> 7217a161651decb21f420c1a8864965f7ca53abd
 	$.extend($.fn, {
 		validateDelegate: function(delegate, type, handler) {
 			return this.bind(type, function(event) {
