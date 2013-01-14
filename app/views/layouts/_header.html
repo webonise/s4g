@@ -1,27 +1,62 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top sfg_header_size">
     <div class="navbar-inner">
         <div class="container">
-            <a href="/" class="headerLogo">
-                <img src="/assets/b7x.gif" class="img-polaroid" alt="header img problem in loading" width="100" height="50"/>
-            </a>
-            <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <a class="brand" href="#">Sharing for good</a>
-
+            <!--<a class="brand" href="#">Sharing For Good!</a>-->
+            <%= link_to "SHARING FOR GOOD!", root_path, :class => "sfg_brand_home_link" %>
+            <!--<div class="nav-collapse collapse">-->
+            <!--<ul class="nav">-->
+            <!--<li class="active"><a href="#">Home</a></li>-->
+            <!--<li><a href="#about">About</a></li>-->
+            <!--<li><a href="#contact">Contact</a></li>-->
+            <!--</ul>-->
+            <!--</div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
         </div>
-        <ul class="nav pull-right">
-           <!--<li><%= link_to "Home", root_path %></li>-->
+        <ul class="pull-right inline">
+            <li><%#= link_to "Home", root_path %></li>
             <% if current_person.present? %>
-            <!--<li> Hi <%#= @user.first_name %></li>-->
-            <li> Hello,  <%= current_person.first_name %><li>
-            <li> <%= link_to "Sign out", destroy_person_session_path, :method => :delete %><li>
 
+            <li class="hello"> Hello,  <%= current_person.first_name %><li>
+            <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
             <% else %>
-            <%= link_to "Sign in" ,person_session_path, :class => "btn" %>
+            <%#= link_to "Sign in" ,person_session_path, :class => "" %>
             <% end %>
         </ul>
     </div>
 </div>
+
+
+
+
+<!--<div class="navbar navbar-fixed-top">-->
+<!--<div class="navbar-inner">-->
+<!--<div class="container">-->
+<!--<a href="/" class="headerLogo">-->
+<!--<img src="/assets/b7x.gif" class="img-polaroid" alt="header img problem in loading" width="100" height="50"/>-->
+<!--</a>-->
+<!--<a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">-->
+<!--<span class="icon-bar"></span>-->
+<!--<span class="icon-bar"></span>-->
+<!--<span class="icon-bar"></span>-->
+<!--</a>-->
+<!--<a class="brand" href="#">Sharing for good</a>-->
+
+<!--</div>-->
+<!--<ul class="nav pull-right inline">-->
+<!--<li><%#= link_to "Home", root_path %></li>-->
+<!--<% if current_person.present? %>-->
+
+<!--<li class="hello"> Hello,  <%= current_person.first_name %><li>-->
+<!--<%= link_to "Sign out", destroy_person_session_path, :method => :delete %>-->
+
+
+<!--<% else %>-->
+<!--<%= link_to "Sign in" ,person_session_path, :class => "btn" %>-->
+<!--<% end %>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->

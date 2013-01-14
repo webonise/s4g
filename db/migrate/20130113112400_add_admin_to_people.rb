@@ -1,8 +1,4 @@
-class AddAdminToPerson < ActiveRecord::Migration
-  def change
-    add_column :people, :admin, :boolean
-  end
-
+class AddAdminToPeople < ActiveRecord::Migration
   def self.up
     add_column :people, :admin, :boolean, :default => false
   end

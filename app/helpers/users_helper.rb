@@ -7,7 +7,8 @@ module UsersHelper
   end
   def businesses_of_causes(cause)
     businesses = cause.business_companies
-    @business_first=businesses.first.business_name
+    #@business_first=businesses.first.business_name
+    @business_first=businesses.all.business_name
     #@business_name = []
     #"#{businesses.limit(2).each do |i|
      # @business_name.push(i.business_name)

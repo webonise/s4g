@@ -1,25 +1,26 @@
 class SessionsController < Devise::SessionsController
 
   def create
-    super
-    #logger.info "======================#{params.inspect}"
-    #binding.remote_pry
 
+    resource = warden.authenticate!(:scope => resource_name)
+    sign_in(resource_name, resource)
 
-    #@user = Person.find_by_email(params[:person][:email])
-    #if @user.nil?
-      #redirect_to new_person_session_path
-   # end
-    # @user.valid_password?(params[:user][:password])
-    #############logger.info(@user.inspect)
-    #logger.info "################################################{@user.inspect}"
-    #if sign_in(@user)
-      #logger.info "################################################{@user.inspect}"
+    if current_person.admin?
 
+      redirect_to admin_dashboard_path(resource)
 
+    else
 
-      redirect_to display_dash_board_user_path
-    #end
+      if current_person.role.include?("business_user")
+        @business_company = BusinessCompany.find_by_business_user_id(resource.id)
+        redirect_to show_post_business_company_path(@business_company)
+      else
+        @user = User.find(resource.id)
+        redirect_to  display_dash_board_user_user_path(@user)
+      end
+
+    end
+
   end
-  end
+end
 

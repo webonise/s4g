@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_filter :authenticate_person! , :only => [:display_cause, :display_businesses_of_causes, :display_dash_board_user]
 
   def index
     @users = User.all
@@ -12,8 +13,10 @@ class UsersController < ApplicationController
   def save_causes
     @user = User.find(params[:id])
 
-      if params[:cause_select].present?
-       # @user_has_causes=@user.user_has_causes.build(params[:cause_select])
+
+
+    if params[:cause_select].present?
+      # @user_has_causes=@user.user_has_causes.build(params[:cause_select])
       params[:cause_select].each do |i|
 
         @user_has_cause = UserHasCause.new
@@ -22,19 +25,17 @@ class UsersController < ApplicationController
         c_id = @user_has_cause.cause_id
 
         if @user_has_cause.save
-          flash[:success] = "cause submitted!"
+          flash[:success] = "Causes Submitted!"
 
         end
       end
       redirect_to  display_businesses_of_causes_user_path(@user)
-      else
-        flash[:error] = "Please select atleast one clause"
-        redirect_to display_cause_user_path(@user)
-      end
-
+    else
+      flash[:error] = "Please select atleast one Clause"
+      redirect_to display_cause_user_path(@user)
     end
 
-
+  end
 
   def display_businesses_of_causes
     @user = User.find(params[:id])
@@ -54,10 +55,10 @@ class UsersController < ApplicationController
           flash[:success] = "Businesses submitted!"
         end
       end
-      redirect_to '/'
+      redirect_to  display_dash_board_user_user_path(@user)
     else
-      flash[:error] = "Please select busineses"
-      render display_businesses_of_causes_user_path
+      flash[:error] = "Please select atleast one Business"
+      redirect_to display_businesses_of_causes_user_path(@user)
     end
   end
 
@@ -83,9 +84,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     # Handle a successful save.
-    #@user.person_role ="user"
-     # logger.info "##################################{@user.inspect}"
+    @user.role = "user"
     if @user.save
+      UserMailer.registration_confirmation(@user).deliver
       sign_in(@user)
       flash[:success] = "Welcome!"
       redirect_to display_cause_user_path(@user)
@@ -103,7 +104,8 @@ class UsersController < ApplicationController
     flash[:success] = "User destroyed."
     redirect_to users_url
   end
-  def display_dash_board
+
+  def display_dash_board_user
 
   end
 
