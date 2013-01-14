@@ -1,8 +1,6 @@
 development:
   adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  database: s4g_development
+  database: sfg_development
   pool: 5
   username: root
-  password: admin
+  password: password

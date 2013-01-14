@@ -1,8 +1,5 @@
 class User < Person
 
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
   has_many :business_companies, :through => :business_has_users
   has_many :causes, :through => :user_has_causes
   has_one :impression
