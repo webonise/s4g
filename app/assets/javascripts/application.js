@@ -100,6 +100,31 @@ $(document).ready(function() {
 
 });
 
+
+$(function ()
+{ $("#business_popup").modal('show');
+});
+
+
+//$(document).ready(function(){
+//  $("btn").click(function(){
+//        $.get("/helpers/users_helper/list_businesses()",function(data,status){
+//            alert("Data: " + data + "\nStatus: " + status);
+//        });
+//    });
+//});
+
+
+//$(function() {
+  //  $(document).on('click', '.btn', function () {
+  //      var myBookcaseItemId = $(this).data('id');
+        // send an AJAX request to fetch the data
+  //      $.get(this.href, { id: myBookcaseItemId }, function(data) {
+  //          $('#business_popup').html('data').modal('show');
+     //   });
+   //     return false;
+    //});
+//});
 //$("#new_person").validate();
 //$("#new_person").validate({
 //    rules: {

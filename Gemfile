@@ -21,6 +21,7 @@ gem 'mysql2'
 gem 'dynamic_form'
 #gem 'therubyracer', '0.10.2', :platforms => :ruby
 gem 'devise'
+gem 'hirb'
 
 # Gems used only for assets and not required
 # in production environments by default.

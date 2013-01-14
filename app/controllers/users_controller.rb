@@ -7,7 +7,8 @@ class UsersController < ApplicationController
 
   def display_cause
     @user = User.find(params[:id])
-    @causes = Cause.all
+    @causes = Cause.includes(:business_companies).all
+    logger.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#{@causes.inspect}")
   end
 
   def save_causes
@@ -110,4 +111,7 @@ class UsersController < ApplicationController
 
   end
 
+  def get_businesses(cause)
+    @businesses = cause.business_companies
+  end
 end

@@ -1,5 +1,7 @@
 class CausesController < ApplicationController
 
+  before_filter :current_person.admin? , :only[:create, :edit , :update, :destroy,:show]
+
   def index
     @causes=Cause.all
   end
@@ -36,5 +38,10 @@ class CausesController < ApplicationController
 
   def show
     @cause=Cause.find(params[:id])
+  end
+  def destroy
+    Cause.find(params[:id]).destroy
+    flash[:success] = "Cause Deleted Successfully"
+   # redirect_to
   end
 end
