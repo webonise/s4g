@@ -1,4 +1,5 @@
 class BusinessUsersController < ApplicationController
+  before_filter :authenticate_person! , :only => [:get_cause_to_business, :get_business_detail]
 
   def index
     @business_users = BusinessUser.all
@@ -14,12 +15,12 @@ class BusinessUsersController < ApplicationController
 
   def create
     @business_user = BusinessUser.new(params[:business_user])
-
+    @business_user.role = "business_user"
     if @business_user.save
-      #sign_in @business_user
+      UserMailer.registration_confirmation(@business_user).deliver
+      sign_in @business_user
       flash[:success] = "Welcome!"
       redirect_to get_business_detail_business_user_path(@business_user)
-      #redirect_to get_business_detail_business_user_path(:id => @business_user.id)
     else
       render 'new'
     end
@@ -41,7 +42,6 @@ class BusinessUsersController < ApplicationController
       if @business_company.save
         flash[:success] = "cause added"
         redirect_to show_post_business_company_path(@business_company.id)
-        #TODO: redirecting to Business User Dashboard
       end
     end
   end
@@ -52,11 +52,8 @@ class BusinessUsersController < ApplicationController
   end
 
   def save_business_detail
-    #@business_company = BusinessCompany.build(@business_company.business_user_id)
-    #@business_company = BusinessCompany.create(params[:business_company])
     @business_user = BusinessUser.find(params[:id])
     @business_company = BusinessCompany.new(:business_user_id => @business_user.id)
-    #@business_company = @business_user.business_company
     @business_company.attributes = params[:business_company]
 
     if @business_company.save!

@@ -4,16 +4,16 @@
   <div class="span5 offset2">
     <h1> User Sign up</h1>
 
-    <%= form_for @user, :method => :post, :html => { :class => 'form-horizontal' }  do |f| %>
+    <%= form_for @user, :method => :post, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
 
         <%= render 'error_messages', :object => f.object %>
 
         <div class="control-group" id="customText">
           <%= f.label :name, "Name", :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :first_name , :class => 'custom_text'%>
+            <%= f.text_field :first_name, :placeholder => "First Name", :class => 'custom_text'%>
 
-            <%= f.text_field :last_name, :class => 'custom_text'%>
+            <%= f.text_field :last_name, :placeholder => "Last Name", :class => 'custom_text'%>
           </div>
         </div>
 
@@ -35,7 +35,7 @@
         <div class="control-group">
           <%= f.label :password_confirmation, "Confirm Password", :class => 'control-label'  %>
           <div class="controls">
-            <%= f.password_field :password_confirmation , :class => 'text_field'%>
+            <%= f.password_field :password_confirmation , :class => 'text_field', :id => 'pass_confirm'%>
           </div>
         </div>
 

@@ -1,20 +1,19 @@
 <% provide(:title, 'Sign up') %>
 
 <div class="row">
-  <div class="span5 offset2">
-    <h1> Business User Sign up</h1>
+  <div class="span5 offset3">
+    <h2 id="b_user_sign_up_nm"> Business User Sign up</h2>
 
-    <%= form_for @business_user, :method => "post", :html => { :class => 'form-horizontal' } do |f| %>
+    <%= form_for @business_user, :method => "post", :html => { :class => 'form-horizontal sfg_business_user_sign_up' } do |f| %>
 
         <%= render 'error_messages', object: f.object %>
 
-        <div class="control-group">
+        <div class="control-group" id="customText">
           <%= f.label :name, "Name", :class => 'control-label' %>
           <div class="controls">
-            <%= f.text_field :first_name , :class => 'text_field custom-text' %>
-            <br />
-            <br />
-            <%= f.text_field :last_name, :class => 'text_field custom-text' %>
+            <%= f.text_field :first_name, :placeholder => "First Name", :class => 'text_field custom-text' %>
+
+            <%= f.text_field :last_name, :placeholder => "Last Name", :class => 'text_field custom-text' %>
           </div>
         </div>
 
@@ -36,7 +35,7 @@
         <div class="control-group">
           <%= f.label :password_confirmation, "Confirm Password", :class => 'control-label'  %>
           <div class="controls">
-            <%= f.password_field :password_confirmation , :class => 'text_field'%>
+            <%= f.password_field :password_confirmation , :class => 'text_field', :id => 'pass_confirm' %>
           </div>
         </div>
 
