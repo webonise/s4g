@@ -2,7 +2,7 @@
 
     <%#= render 'users/error_messages', object: f.object %>
     <div class="field">
-      <%= f.text_area :content,:class => "sfg_post_form_text_area",:size => "80x5", :placeholder => "Compose new post..." %>
+      <%= f.text_area :content,:class => "sfg_post_form_text_area",:size => "80x5", :placeholder => "<Would you like to post something new?>" %>
     </div>
     <%= f.submit "Post", :class => "btn btn-primary sfg_btn_post_submit" %>
 
@@ -14,14 +14,19 @@
   <!--<button class="btn">3</button>-->
 <!--</div>-->
 
-<ul class="nav nav-pills">
-  <li class="active">
-    <%= link_to "Text" %>
-  </li>
-  <li><%= link_to "Video" %></li>
-  <li><%= link_to "Image" %></li>
-</ul>
+<!--<ul class="nav nav-pills">-->
+  <!--<li class="active">-->
+    <!--<%#= link_to "Text" %>-->
+  <!--</li>-->
+  <!--<li><%#= link_to "Video" %></li>-->
+  <!--<li><%#= link_to "Image" %></li>-->
+<!--</ul>-->
 
-<%=render :partial => 'posts/post_form', :locals => {:business_company => @business_company}%>
-
+<%#=render :partial => 'posts/post_form', :locals => {:business_company => @business_company}%>
+<!--<div class="control-group">-->
+  <!--<%#= f.label :business_logo, "Upload Logo", :class => 'control-label' %>-->
+  <!--<div class="controls">-->
+    <!--<%#= f.file_field :business_logo, :class => 'file_field' %>-->
+  <!--</div>-->
+<!--</div>-->
 

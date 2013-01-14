@@ -36,17 +36,20 @@ margin-bottom: 15px;
 .posts .content {
     display: block;
     font-size: 18px;
-    color: #08C;
+    color: #09C;
 
 }
 .posts .timestamp {
     color: #d3d3d3;
-    font-size: 10px;
+    font-size: 13px;
+    float: right;
+    margin-right: 25px;
 }
 
 /* Post form*/
 .sfg_btn_post_submit{
     float: right;
+    margin-right: -21px;
 }
 
 /*body {*/
@@ -242,6 +245,30 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 .sfg_post_form_text_area {
     height: 50px;
     margin-bottom: 5px;
+    margin-top: 32px
+}
+
+#heading_recent_post{
+
+}
+
+/*legend*/
+.the-legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 0;
+}
+.the-fieldset {
+    border: 2px groove threedface #444;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+    box-shadow:  0px 0px 0px 0px #000;
+    border-radius: 32px;
+}
+
+.well{
+    background-color: #FDFCFC;
 }
 
 /*get business details*/
