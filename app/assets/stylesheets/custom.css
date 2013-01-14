@@ -44,6 +44,11 @@ margin-bottom: 15px;
     font-size: 10px;
 }
 
+/* Post form*/
+.sfg_btn_post_submit{
+    float: right;
+}
+
 /*body {*/
 /*background-color: #FFFFFF;*/
 /*color: #333333;*/
