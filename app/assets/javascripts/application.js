@@ -15,9 +15,12 @@
 //= require jquery.min
 //= require jquery.validate
 //= require jquery.validate.min
+//= require jquery.colorbox.js
+//= require jquery.colorbox-min.js
 // require bootstrap-alert
 //= require_tree .
 
+/* VALIDATION*/
 $(document).ready(function() {
     $(".sfg_sign_in").validate({
         rules: {
@@ -100,44 +103,15 @@ $(document).ready(function() {
 
 });
 
-//$("#new_person").validate();
-//$("#new_person").validate({
-//    rules: {
-//        person[email]: "required"
-//},
-//messages: {
-//    person[email]:"Please enter your firstname"
-//},
-//submitHandler: function(form) {
-//    form.submit();
-//}
-//
+   /* for lightbox */
+
+//$(function ()
+//{ $("#").modal('show');
 //});
-//$("#register-form").validate({
-//    rules: {
-//        firstname: "required",
-//        lastname: "required",
-//        email: {
-//            required: true,
-//            email: true
-//        },
-//        password: {
-//            required: true,
-//            minlength: 5
-//        },
-//        agree: "required"
-//    },
-//    messages: {
-//        firstname: "Please enter your firstname",
-//        lastname: "Please enter your lastname",
-//        password: {
-//            required: "Please provide a password",
-//            minlength: "Your password must be at least 5 characters long"
-//        },
-//        email: "Please enter a valid email address",
-//        agree: "Please accept our policy"
-//    },
-//    submitHandler: function(form) {
-//        form.submit();
-//    }
-//});
+
+
+$(document).ready(function() {
+
+   $('.colorbox').colorbox();
+
+});
