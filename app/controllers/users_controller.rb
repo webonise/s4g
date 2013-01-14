@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
       if params[:cause_select].present?
+       # @user_has_causes=@user.user_has_causes.build(params[:cause_select])
       params[:cause_select].each do |i|
 
         @user_has_cause = UserHasCause.new
@@ -38,7 +39,6 @@ class UsersController < ApplicationController
   def display_businesses_of_causes
     @user = User.find(params[:id])
     @user_causes = @user.causes
-    #@business_user=@user.business_companies
   end
 
   def save_business
