@@ -13,20 +13,18 @@ class UsersController < ApplicationController
   def save_causes
     @user = User.find(params[:id])
 
-
-
     if params[:cause_select].present?
       # @user_has_causes=@user.user_has_causes.build(params[:cause_select])
-      params[:cause_select].each do |i|
-
-        @user_has_cause = UserHasCause.new
-        @user_has_cause.user_id = @user.id
-        @user_has_cause.cause_id = i.to_i
-        c_id = @user_has_cause.cause_id
-
-        if @user_has_cause.save
-          flash[:success] = "Causes Submitted!"
-
+      if @user.user_has_causes.present?
+        flash[:error] = "Causes already submitted"
+      else
+        params[:cause_select].each do |i|
+          @user_has_cause = UserHasCause.new
+          @user_has_cause.user_id = @user.id
+          @user_has_cause.cause_id = i.to_i
+          if @user_has_cause.save
+            flash[:success] = "Causes Submitted!"
+          end
         end
       end
       redirect_to  display_businesses_of_causes_user_path(@user)
@@ -34,7 +32,6 @@ class UsersController < ApplicationController
       flash[:error] = "Please select atleast one Clause"
       redirect_to display_cause_user_path(@user)
     end
-
   end
 
   def display_businesses_of_causes
@@ -46,14 +43,18 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_causes=@user.causes
     if params[:business_select].present?
-
-      params[:business_select].each do |i|
-        @business_has_user = BusinessHasUser.new
-        @business_has_user.user_id = @user.id
-        @business_has_user.business_company_id = i.to_i
-        if @business_has_user.save!
-          flash[:success] = "Businesses submitted!"
+      if @user.business_has_users.present?
+        flash[:error] = "Businesses already submitted"
+      else
+        params[:business_select].each do |i|
+          @business_has_user = BusinessHasUser.new
+          @business_has_user.user_id = @user.id
+          @business_has_user.business_company_id = i.to_i
+          if @business_has_user.save!
+            flash[:success] = "Businesses submitted!"
+          end
         end
+
       end
       redirect_to  display_dash_board_user_user_path(@user)
     else
