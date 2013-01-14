@@ -36,6 +36,10 @@ GEM
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    client_side_validations (3.2.1)
+    client_side_validations-simple_form (2.0.1)
+      client_side_validations (~> 3.2.0)
+      simple_form (~> 2.0.3)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -58,6 +62,8 @@ GEM
     jquery-rails (2.1.4)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-validation-rails (1.10.0)
+      thor (~> 0.14)
     json (1.7.6)
     libv8 (3.3.10.4)
     mail (2.4.4)
@@ -94,6 +100,9 @@ GEM
     rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
+    simple_form (2.0.4)
+      actionpack (~> 3.0)
+      activemodel (~> 3.0)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -124,12 +133,16 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-will_paginate (= 0.0.6)
   carrierwave
+  client_side_validations
+  client_side_validations-simple_form
   coffee-rails (~> 3.2.1)
   devise
   dynamic_form
   jquery-rails
+  jquery-validation-rails
   mysql2
   rails (= 3.2.9)
+  simple_form
   therubyracer (= 0.10.2)
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

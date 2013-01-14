@@ -12,6 +12,26 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.min
 //= require twitter/bootstrap
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 //= require_tree .
 //= require bootstrap
+
+//-----------------------------------------------------------------------------------------------------------------------
+
+$(document).ready(function() {
+    $("#business_user_sign_up").validate({
+        rules: {
+            "business_user_first_name" : "required"
+
+        },
+        messages:{
+            business_user_first_name:"Please enter name"
+        }
+    });
+});
+//$(document).ready(function(){
+//    $("#business_user_sign_up").validate();
+//});
