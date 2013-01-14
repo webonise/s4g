@@ -2,19 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 
-<<<<<<< HEAD
-gem 'bootstrap-sass', '2.1'
-#gem 'pry-remote'
-
-gem 'carrierwave'
-
-#gem "therubyracer"
-#gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-=======
-=======
-
-#gem "mail", "2.1.3"
->>>>>>> feature
 #gem 'bootstrap-sass', '2.1'
 #gem 'pry-remote'
 
