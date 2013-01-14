@@ -15,9 +15,12 @@
 //= require jquery.min
 //= require jquery.validate
 //= require jquery.validate.min
+//= require jquery.colorbox.js
+//= require jquery.colorbox-min.js
 // require bootstrap-alert
 //= require_tree .
 
+/* VALIDATION*/
 $(document).ready(function() {
     $(".sfg_sign_in").validate({
         rules: {
@@ -99,3 +102,17 @@ $(document).ready(function() {
     });
 
 });
+
+/* for lightbox */
+
+//$(function ()
+//{ $("#").modal('show');
+//});
+
+
+$(document).ready(function() {
+
+   $('.colorbox').colorbox();
+
+});
+

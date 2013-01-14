@@ -5,10 +5,10 @@
     <%= form_for(@business_user) do |f| %>
 
         <%= f.label :first_name %>
-        <%= f.text_field :first_name %>
+        <%= f.text_field :first_name, :placeholder => "First Name" %>
 
         <%= f.label :last_name %>
-        <%= f.text_field :last_name %>
+        <%= f.text_field :last_name, :placeholder => "Last Name" %>
 
         <%= f.label :email %>
         <% f.text_field :email %>
