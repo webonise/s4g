@@ -1,98 +1,35 @@
-<!-------------------------------------------------------->
-<!--------------Ketan ------------------------------------>
+<div class="span7">
+<legend><h2>SIGN-UP</h2></legend>
+<!-- <h2 class="form-signin-heading">Please sign in</h2> -->
+<div class='hero-unit sfg_herounit'>
+  <div class='row'>
+    <div class='span2'>
+      <!--<button class="btn btn-large btn-success sfg_signup" type="button">I OWN A BUSINESS</button>-->
+      <%= link_to "I OWN A BUSINESS", new_business_user_path, class: "btn btn-large btn-info sfg_signup" %>
+    </div>
+    <div class='span2 offset1'>
+      <!--<button class="btn btn-large btn-success sfg_signup" type="button">I AM A USER</button>-->
+      <%#= link_to "I AM A USER", new_user_path, :class => "btn btn-large btn-info sfg_signup " %>
 
-<!--<%# provide(:title, 'Home') %>-->
-<!--<%# if signed_in? %>-->
-    <!--<div class="row">-->
-      <!--<aside class="span4">-->
-        <!--<section>-->
-          <!--<h3>No posts for view on Dashboard</h3>-->
-        <!--</section>-->
-      <!--</aside>-->
+      <!--<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>-->
+      <%= link_to "I AM A USER", new_user_path, :class => "btn btn-large btn-info sfg_signup colorbox" %>
+    </div>
+  </div>
+</div>
+</div>
+<div class="span5">
+  <div class="span5 sfg-span">
+    <legend class="span4"><h2>SIGN-IN</h2></legend>
+    <!--<div class='hero-unit sfg_herounit'>-->
+      <!--<div class='row'>-->
+    <!--<div class='hero-unit sfg_herounit'>-->
+      <!--<div class='row'>-->
+        <!--<div class='span1'>-->
+
+    <%= render :partial =>"shared/login" %>
+
+     <!--</div>-->
+      <!--</div>-->
     <!--</div>-->
-<!--<%# else %>-->
-    <!--<div class="row">-->
-    <!--<form>-->
-      <!--<table>-->
-        <!--<tr>-->
-          <!--<td>-->
-            <!--<div class="sfg_body_left">-->
-              <!--<%#= field_set_tag 'SIGN UP' do %>-->
-              <!--<fieldset>-->
-                <!--<legend class="sfg_legend_home_page">SIGN-UP</legend>-->
-                <!--<table>-->
-                  <!--<tr>-->
-                    <!--<td>-->
-                      <!--<div class="sfg_home_business_btn">-->
-                        <!--<%#= link_to "I OWN A BUSINESS!", new_business_user_path,class: "btn btn-large btn-info sfg_btn_large_home" %>-->
-                      <!--</div>-->
-                    <!--</td>-->
-                    <!--<td>-->
-                      <!--<div class="sfg_home_user_btn">-->
-                        <!--<%#= link_to "I'M A USER!", new_user_path, :class => "btn btn-large btn-info sfg_btn_large_home" %>-->
-                      <!--</div>-->
-                    <!--</td>-->
-                  <!--</tr>-->
-                <!--</table>-->
-              <!--<%# end %>-->
-              <!--</fieldset>-->
-            <!--</div>-->
-          <!--</td>-->
-          <!--<td>-->
-            <!--<div class="sfg_body_right">-->
-              <!--<fieldset>-->
-                <!--<legend class="sfg_legend_home_page">SIGN-IN</legend>-->
-              <!--</fieldset>-->
-            <!--</div>-->
-          <!--</td>-->
-        <!--</tr>-->
-      <!--</table>-->
-      <!--<div class="clearfix"></div>-->
-    <!--</form>-->
-    <!--</div>-->
-    <!-------------------------------------------------------------->
-    <!-----------------Priyanka------------------------------------->
-    <!--<div class="center hero-unit">-->
-    <!--<h2>Welcome to the Sharing for good</h2>-->
-
-    <!--<%#= link_to "Sign up now for User!", new_user_path, :class => "btn btn-large btn-info" %>-->
-
-    <!--<%#= link_to "Sign up now for Business User!", new_business_user_path,class: "btn btn-large btn-info" %>-->
-    <!--</div>-->
-    <!---------------------------------------------------------------------->
-<!--<%# end %>-->
-
-<form>
-  <table>
-    <tr>
-      <td>
-        <fieldset>
-          <legend>SIGN-UP</legend>
-          <table>
-            <tr>
-              <td>
-                <%= link_to "I OWN A BUSINESS", new_business_user_path,class: "btn btn-large btn-info sfg_btn_large_home" %>
-              </td>
-              <td>
-                <%= link_to "I'M A USER", new_user_path, :class => "btn btn-large btn-info sfg_btn_large_home" %>
-              </td>
-            </tr>
-          </table>
-        </fieldset>
-      </td>
-      <td>
-        <fieldset class = "fieldset_sign-in">
-          <legend>SIGN-IN</legend>
-          <%= link_to "Sign in" ,person_session_path, :class => "btn btn-large btn-info sfg_btn_large_home" %>
-          <%#= render :template => 'devise/sessions/new' %>
-          <!--<legend>SIGN-IN</legend>-->
-          <!--EMAIL ID <input type="text"><br>-->
-          <!--PASSWORD <input type="text"><br>-->
-          <!--<button type="button" onclick="alert('Hello world!')">SIGN-IN</button>-->
-          <!--<br><a href="http://www.w3schools.com">I forgot my Password</a>-->
-        </fieldset>
-
-      </td>
-    </tr>
-  </table>
-</form>
+  </div>
+</div>

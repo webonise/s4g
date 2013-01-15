@@ -1,12 +1,19 @@
 /* forms */
 
-/*input, textarea, select, .uneditable-input {*/
-/*border: 1px solid #bbb;*/
-/*width: 100%;*/
-/*padding: 10px;*/
-/*margin-bottom: 15px;*/
-/*@include box_sizing;*/
-/*}*/
+/*.submit { margin-left: 125px; margin-top: 10px;}*/
+/*.label { display: block; float: left; width: 120px; text-align: right; margin-right: 5px; }*/
+/*.form-row { padding: 5px 0; clear: both; width: 700px; }*/
+/*label.error { width: 250px; display: block; float: left; color: red; padding-left: 10px; }*/
+/*input[type=text], textarea { width: 250px; float: left; }*/
+/*textarea { height: 50px; }*/
+
+input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+@include box_sizing;
+}
 
 /*input {*/
 /*height: auto !important;*/
@@ -14,43 +21,36 @@
 
 /* posts */
 
-/*.posts {*/
-/*list-style: none;*/
-/*margin: 10px 0 0 0;*/
-/*}*/
+.posts {
+    list-style: none;
+    margin: 10px 0 0 0;
+}
 
-/*li {*/
-/*padding: 10px 0;*/
-/*border-top: 1px solid #e8e8e8;*/
-/*}*/
+.posts li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    line-height: 20px;
+}
 
+.posts .content {
+    display: block;
+    font-size: 18px;
+    color: #09C;
 
-/*.posts li {*/
-/*padding: 10px 0;*/
-/*border-top: 1px solid #e8e8e8;*/
-/*line-height: 20px;*/
-/*}*/
-/*.content {*/
-/*display: block;*/
-/*font-size: 18px;*/
-/*color: #08C;*/
+}
+.posts .timestamp {
+    color: #d3d3d3;
+    font-size: 13px;
+    float: right;
+    margin-right: 25px;
+}
 
-/*}*/
-/*.timestamp {*/
-/*color: #d3d3d3;*/
-/*font-size: 10px;*/
-/*}*/
-
-
-/*.textarea_me {*/
-/*height: 50px;*/
-/*margin-bottom: 5px;*/
-/*}*/
-/*.posts li {*/
-/*overflow: auto;*/
-/*padding: 10px 0;*/
-/*border-top: 1px solid #EEE;*/
-/*}*/
+/* Post form*/
+.sfg_btn_post_submit{
+    float: right;
+    margin-right: -21px;
+}
 
 /*body {*/
 /*background-color: #FFFFFF;*/
@@ -92,39 +92,18 @@
 /*}*/
 /*sign_up form priyanka */
 .mrng-top {
-margin-top: 120px;
+    margin-top: 120px;
 }
-
 
 #customText input {
-width: 84px;
+    width: 84px;
 }
 
-
-/* get cause to business*/
-
-/*a.headerLogo  {*/
-/*margin-top:20px;*/
-/*font-size: 15px;*/
-/*color: black;*/
-/*display: block;*/
-/*height: 40px;*/
-/*width: 100px;*/
-
-/*}*/
-
 /*alert adjustment*/
-/*.alertadjust{*/
-/*padding-top: 10px;*/
-/*margin-top: 25px;*/
-/*}*/
-
-
-/*dispaly_cause*/
-
-/*#nextbtn{*/
-/*margin-left: 100px;*/
-/*}*/
+.alertadjust{
+    padding-top: 10px;
+    margin-top: 25px;
+}
 
 /*display cause Deepti*/
 /*img*/
@@ -133,12 +112,12 @@ width: 84px;
 /*width  :50px;*/
 /*}*/
 
-/*.td1{*/
-/*width: 10px ;*/
-/*}*/
-/*.td2{*/
-/*width :50px;*/
-/*}*/
+.td1{
+    width: 10px ;
+}
+.td2{
+    width :50px;
+}
 
 /*footer */
 /*.footer .footer-text*/
@@ -154,26 +133,55 @@ width: 84px;
 /*margin: 0 auto;*/
 /*padding: 5px;*/
 /*}*/
+
+
+/* home */
+.sfg_signup .sfg_business_user_sign_up{
+    padding: 43px 19px
+}
+
+.sfg_signin{
+    padding:70px;
+}
+
+.sfg_home_btn{
+    text-decoration: none;
+    color: #ffffff;
+}
+.btn_signin {
+    height: 20px;
+    width: 107px;
+}
+.sfg_herounit{
+    border: solid 2px;
+}
 /*Header*/
 
 .sfg_brand_home_link{
     display: block;
     float: left;
-    padding: 10px 20px 10px;
-    margin-left: -20px;
-    font-size: 20px;
+    padding: 16px 0px 10px;
+    margin-bottom: -8px;
+    font-size: 36px;
     font-weight: 200;
-    color: #777777;
-    text-shadow: 0 1px 0 #ffffff;
+    color:#000000;
 }
 .sfg_brand_home_link:hover {
     text-decoration: none;
 }
 
+/*.sfg_header_size{*/
+    /*background-color: #ffffff;*/
+/*}*/
+
 /*footer*/
 #sfg_footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background-color: #90ee90;
-    height: 40px;
+    height: 60px;
 }
 
 .sfg_footer_container  {
@@ -184,7 +192,7 @@ width: 84px;
     float: right;
     margin-right: 0px;
     color: #000000;
-    margin-top: 23px;
+    margin-top: 35px;
 }
 
 /*body_left_sign_up_link*/
@@ -228,5 +236,95 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 
 /* For Hello, User in header */
 .hello{
-    color:#08C;
+    color:#ffffff;
 }
+
+/*error_messages*/
+
+#error_explanation ul li {
+    float: none; color: red; padding-left: .5em;
+}
+
+/*post_form_business_user*/
+.sfg_post_form_text_area {
+    height: 50px;
+    margin-bottom: 5px;
+    margin-top: 32px
+}
+
+#heading_recent_post{
+
+}
+
+/*legend*/
+.the-legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 0;
+}
+.the-fieldset {
+    border: 2px groove threedface #444;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+    box-shadow:  0px 0px 0px 0px #000;
+    border-radius: 32px;
+}
+
+.well{
+    background-color: #FDFCFC;
+}
+
+/*get business details*/
+#sfg_submit_btn_get_b_details{
+    float: right;
+}
+#sfg_get_b_nm{
+    text-align: right;
+}
+
+/*business user sign up*/
+#b_user_sign_up_nm{
+    text-align: right;
+}
+
+
+
+#create_cause_btn  {
+    float: right;
+}
+#sfg_admin_manage_cause_table th{
+    border-top: medium none;
+}
+
+.manage_cause_span{
+    margin-right: 10px;
+}
+
+
+
+
+.skip_btn {
+    height: 112px;
+    width: 99px;
+    text-align: center;
+}
+.sfg_header_size
+{
+    color: #87cefa;
+}
+
+.sfg_color{
+    color: #87cefa;
+}
+
+.user_signup
+{
+    text-align: center;
+}
+.general_details
+{
+    display: block;
+    text-align: center;
+}
+

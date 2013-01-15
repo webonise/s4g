@@ -16,7 +16,15 @@ S4g::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+
+  #config.action_mailer.default_url_options = { :host => 'http://local.s4g.com/' }
+
+  config.action_mailer.default_url_options = { :host => 'www.s4g.com' }
+
+  #config.action_mailer.default_url_options = { :host => 'http://local.s4g.com' }
+
+
 
 
   # Print deprecation notices to the Rails logger
@@ -37,4 +45,12 @@ S4g::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  # Application credentials from Facebook
+  #APP_ID = 327682274009525
+  #APP_SECRET_KEY = dde14950ca90f9cea5d248075dcd3ac5
+
+
+  #config.routes.Admin = :admin
+
 end

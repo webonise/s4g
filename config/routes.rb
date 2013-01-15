@@ -2,7 +2,16 @@ S4g::Application.routes.draw do
 
   devise_for :people,  :controllers => { :sessions => "sessions"}
 
-  resources :causes
+  #scope :admin, :as => :admin, :constraints => { :subdomain => "admin" } do
+   # resources :admin ,:controller => 'admin'
+  #end
+
+  constraints(:subdomain => :admin) do
+    scope :module => "admin" do
+      resources :admins
+    end
+
+  end
 
   resources :users do
     member do
@@ -12,6 +21,13 @@ S4g::Application.routes.draw do
       post :save_business
       get :display_post
       get :display_dash_board_user
+
+      get :get_businesses
+
+      get :share_on_facebook
+      get :sign_up_facebook
+      get :sign_up
+      get :callback
     end
   end
 

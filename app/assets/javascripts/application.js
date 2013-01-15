@@ -15,9 +15,13 @@
 //= require jquery.min
 //= require jquery.validate
 //= require jquery.validate.min
+//= require jquery.colorbox.js
+//= require jquery.colorbox-min.js
 // require bootstrap-alert
+//= require bootstrap
 //= require_tree .
 
+/* VALIDATION*/
 $(document).ready(function() {
     $(".sfg_sign_in").validate({
         rules: {
@@ -29,6 +33,9 @@ $(document).ready(function() {
                 required:true,
                 minlength: 6
             }
+        },
+        submitHandler: function(form) {
+            form.submit();
         }
     });
 
@@ -46,31 +53,80 @@ $(document).ready(function() {
                 minlength: 6
             },
             "user[password_confirmation]": {
-                equalTo: "#pass_confirm"
+                equalTo: "#user_password"
             }
+        },
+        submitHandler: function(form) {
+            form.submit();
         }
     });
 
     $(".sfg_business_user_sign_up").validate({
+        rules: {
+            "business_user[first_name]": {
+                required: true
+            },
+            "business_user[email]": {
+                required: true,
+                email: true
+            },
+            "business_user[password]":{
+                required:true,
+                minlength: 6
+            },
+            "business_user[password_confirmation]": {
+                equalTo: "#business_user_password"
+            }
+        },
+        submitHandler: function(form) {
+            form.submit();
+        }
+    });
+
+    $(".sfg_get_business_details").validate({
+        rules: {
+            "business_company[business_name]":{
+                required: true
+            },
+            "business_company[description]": {
+                minlength: 50
+            }
+        }
+    });
+
+    $("#new_post").validate({
        rules: {
-           "business_user[first_name]": {
-               required: true
-           },
-           "business_user[email]": {
-               required: true,
-               email: true
-           },
-           "business_user[password]":{
-               required:true,
-               minlength: 6
-           },
-           "business_user[password_confirmation]": {
-               equalTo: "#pass_confirm"
+           "post[content]":{
+               maxlength: 140
            }
        }
     });
+
 });
 
+
+
+
+
+//$(document).ready(function(){
+//  $("btn").click(function(){
+//        $.get("/helpers/users_helper/list_businesses()",function(data,status){
+//            alert("Data: " + data + "\nStatus: " + status);
+//        });
+//    });
+//});
+
+
+//$(function() {
+  //  $(document).on('click', '.btn', function () {
+  //      var myBookcaseItemId = $(this).data('id');
+        // send an AJAX request to fetch the data
+  //      $.get(this.href, { id: myBookcaseItemId }, function(data) {
+  //          $('#business_popup').html('data').modal('show');
+     //   });
+   //     return false;
+    //});
+//});
 //$("#new_person").validate();
 //$("#new_person").validate({
 //    rules: {
@@ -84,7 +140,6 @@ $(document).ready(function() {
 //}
 //
 //});
-
 //$("#register-form").validate({
 //    rules: {
 //        firstname: "required",
@@ -112,4 +167,27 @@ $(document).ready(function() {
 //    submitHandler: function(form) {
 //        form.submit();
 //    }
+
+/* for lightbox */
+
+//$(function ()
+//{ $("#").modal('show');
+
 //});
+
+/*colorbox */
+$(document).ready(function() {
+
+   $('.colorbox').colorbox();
+
+});
+
+$(document).ready(function() {
+
+    $('.colorbox1').colorbox();
+
+});
+/* dropdown */
+$(document).ready(function() {
+$('.dropdown-toggle').dropdown()
+});

@@ -1,16 +1,32 @@
-<%#= business_company_id %>
 <%= form_for @post, :url => business_company_posts_path(@business_company.id), :method => :post do |f| %>
 
     <%#= render 'users/error_messages', object: f.object %>
-
     <div class="field">
-
-      <%= f.text_area :content,:class => "textarea_me", :placeholder => "Compose new post..." %>
-      <%#= f.hidden_field_tag "business_company_id", business_company_id %>
-
+      <%= f.text_area :content,:class => "sfg_post_form_text_area",:size => "80x5", :placeholder => "<Would you like to post something new?>" %>
     </div>
-
-    <%= f.submit "Post", :class => "btn btn-primary" %>
+    <%= f.submit "Post", :class => "btn btn-primary sfg_btn_post_submit" %>
 
 <% end %>
-<%#= hidden_field_tag 'entry[user_id]', current_user.id  %>
+
+<!--<div class="btn-group">-->
+  <!--<button><%#= link_to "Text", :partials => "posts/post_form", :class => "btn" %></button>-->
+  <!--<button><%#= link_to "Video", :class => "btn" %></button>-->
+  <!--<button class="btn">3</button>-->
+<!--</div>-->
+
+<!--<ul class="nav nav-pills">-->
+  <!--<li class="active">-->
+    <!--<%#= link_to "Text" %>-->
+  <!--</li>-->
+  <!--<li><%#= link_to "Video" %></li>-->
+  <!--<li><%#= link_to "Image" %></li>-->
+<!--</ul>-->
+
+<%#=render :partial => 'posts/post_form', :locals => {:business_company => @business_company}%>
+<!--<div class="control-group">-->
+  <!--<%#= f.label :business_logo, "Upload Logo", :class => 'control-label' %>-->
+  <!--<div class="controls">-->
+    <!--<%#= f.file_field :business_logo, :class => 'file_field' %>-->
+  <!--</div>-->
+<!--</div>-->
+
