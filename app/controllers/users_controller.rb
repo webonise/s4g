@@ -118,7 +118,7 @@ class UsersController < ApplicationController
     #@posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
   end
 
-  def sign_up_Facebook
+  def sign_up_facebook
     @user = User.find(params[:id])
     @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
                                          :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
@@ -134,12 +134,12 @@ class UsersController < ApplicationController
     redirect_to display_cause_user_path(@user)
   end
 
-  #def share_on_facebook
-  #  @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-  #                                       :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
-  #                                       :token => token)
-  #
-  #  @@client.authorize_url(:scope => 'publish_stream')
-  #  @@client.me.feed(:create, :message => 'Testing done on 1:37pm...')
-  #end
+  def share_on_facebook
+    @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
+                                         :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+                                         :token => token)
+
+    @@client.authorize_url(:scope => 'publish_stream')
+    @@client.me.feed(:create, :message => 'Testing done on 1:37pm...')
+  end
 end
