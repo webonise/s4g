@@ -9,11 +9,12 @@ class Admin::AdminsController < ApplicationController
   end
 
   def create
+
     @cause = Cause.new(params[:cause])
 
     if @cause.save
       flash[:success] = " cause Created successfully!"
-      redirect_to '/index'
+      redirect_to 'index'
     else
       render 'new'
     end

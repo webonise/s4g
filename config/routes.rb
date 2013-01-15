@@ -5,10 +5,12 @@ S4g::Application.routes.draw do
   #scope :admin, :as => :admin, :constraints => { :subdomain => "admin" } do
    # resources :admin ,:controller => 'admin'
   #end
-
+  resources :causes
   constraints(:subdomain => :admin) do
     scope :module => "admin" do
       resources :admins
+
+
     end
 
   end

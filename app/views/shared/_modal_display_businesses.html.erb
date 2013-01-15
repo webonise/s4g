@@ -4,9 +4,11 @@
     <h3>Businesses associated with Cause</h3>
   </div>
   <div class="modal-body">
-    <p>One fine body…</p>
+    <h5>Businesses supporting to this Cause</h5>
     <%  businesses.each do |business|%>
-        <%= business.business_name%>
+        <ol>
+          <%= business.business_name%>
+        </ol>
     <%end %>
   </div>
   <div class="modal-footer">
