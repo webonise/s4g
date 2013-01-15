@@ -88,7 +88,10 @@ class UsersController < ApplicationController
       UserMailer.registration_confirmation(@user).deliver
       sign_in(@user)
       flash[:success] = "Welcome!"
-      redirect_to share_on_Facebook_user_path(@user)
+      #redirect_to share_on_Facebook_user_path(@user)
+      #redirect_to display_cause_user_path(@user)
+      redirect_to sign_up_facebook_user_path(@user)
+
     else
       render 'new'
     end
@@ -138,4 +141,10 @@ class UsersController < ApplicationController
     #
     #redirect_to display_cause_user_path(@user)
   end
-end
+
+  def sign_up_facebook
+     @user=User.find(params[:id])
+  end
+
+  end
+

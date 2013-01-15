@@ -116,3 +116,8 @@ $(document).ready(function() {
 
 });
 
+$(document).ready(function() {
+
+    $('.colorbox1').colorbox();
+
+});
