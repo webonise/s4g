@@ -91,7 +91,7 @@ class UsersController < ApplicationController
       UserMailer.registration_confirmation(@user).deliver
       sign_in(@user)
       flash[:success] = "Welcome!"
-      redirect_to display_cause_user_path(@user)
+      redirect_to sign_up_user_path(@user)
     else
       render 'new'
     end
@@ -108,8 +108,28 @@ class UsersController < ApplicationController
   end
 
   def display_dash_board_user
+    @user = User.find(params[:id])
+    @user_causes = UserHasCause.find_all_by_user_id(@user.id)
 
+    @user_causes.each do |user_cause|
+      @business_company = BusinessCompany.find_all_by_cause_id(user_cause.cause_id)
+      @business_company.each do |business_company|
+        @posts = business_company.posts.order("created_at DESC").paginate(:page =>1)
+      end
+    end
+    #logger.info("#########################{@posts.inspect}")
+    #@posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
   end
+
+  def sign_up_facebook
+    @user = User.find(params[:id])
+    @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
+                                         :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+                                         :callback => 'http://local.s4g.com/users/'+@user.id.to_s+'/callback')
+    url = @@client.authorize_url
+    redirect_to url
+  end
+
 
   def get_businesses
     cause = Cause.find(params[:cause])
@@ -118,5 +138,25 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+  def sign_up
+    @user = User.find(params[:id])
+  end
+
+  def callback
+    @user = User.find(params[:id])
+    access_token = @@client.authorize(:code => params[:code])
+    token = access_token.token
+    redirect_to display_cause_user_path(@user)
+  end
+
+  def share_on_facebook
+    @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
+                                         :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+                                         :token => token)
+
+    @@client.authorize_url(:scope => 'publish_stream')
+    @@client.me.feed(:create, :message => 'Testing done on 1:37pm...')
+
   end
 end

@@ -17,9 +17,13 @@ S4g::Application.configure do
   config.action_mailer.raise_delivery_errors = false
 
 
+
   #config.action_mailer.default_url_options = { :host => 'http://local.s4g.com/' }
 
   config.action_mailer.default_url_options = { :host => 'www.s4g.com' }
+
+  #config.action_mailer.default_url_options = { :host => 'http://local.s4g.com' }
+
 
 
 

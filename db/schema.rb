@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130113112400) do
+ActiveRecord::Schema.define(:version => 20130115103019) do
 
   create_table "business_companies", :force => true do |t|
     t.string   "business_name"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(:version => 20130113112400) do
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.boolean  "admin",                  :default => false
+    t.string   "fb_token"
   end
 
   add_index "people", ["email"], :name => "index_people_on_email", :unique => true
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(:version => 20130113112400) do
     t.integer  "business_company_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
+    t.string   "post_type"
   end
 
   add_index "posts", ["business_company_id", "created_at"], :name => "index_posts_on_business_company_id_and_created_at"
@@ -101,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20130113112400) do
     t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "fb_token"
   end
 
 end

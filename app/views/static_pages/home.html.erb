@@ -9,20 +9,25 @@
     </div>
     <div class='span2 offset1'>
       <!--<button class="btn btn-large btn-success sfg_signup" type="button">I AM A USER</button>-->
-      <%= link_to "I AM A USER", new_user_path, :class => "btn btn-large btn-info sfg_signup" %>
+      <!--<%= link_to "I AM A USER", new_user_path, :class => "btn btn-large btn-info sfg_signup colorbox" %>-->
+
+      <!--<a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>-->
+      <%= link_to "I AM A USER", new_user_path, :class => "btn btn-large btn-info sfg_signup colorbox" %>
     </div>
   </div>
 </div>
 </div>
-<div class="span4">
-  <form class="form-signin">
-    <legend><h2>SIGN-IN</h2></legend>
-    <div class="hero-unit sfg_signin sfg_herounit">
-        <%= link_to "SIGN IN", person_session_path, :class => "sfg_home_btn btn btn-large btn-info sfg_signup btn_signin" %>
-      </button>
+<div class="span5">
+  <div class="span5">
+    <legend class="span4"><h2>SIGN-IN</h2></legend>
+    <!--<div class='hero-unit sfg_herounit'>-->
+      <!--<div class='row'>-->
+        <!--<div class='span2'>-->
 
-      <%#= link_to "Sign in" ,person_session_path, :class => "btn btn-large btn-success sfg_signup btn_sigin" %>
+    <%= render :partial =>"shared/login" %>
 
-    </div>
-  </form>
+     <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
 </div>

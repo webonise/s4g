@@ -5,3 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Cause.create(:cause_name => "WHO", :description => "Work health in world", :url => "www.who.com", :address => "New York")
+Cause.create(:cause_name => "CRY", :description => "Work for food in Afrika", :url => "www.cry.com", :address => "New York")
+

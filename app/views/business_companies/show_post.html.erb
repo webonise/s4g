@@ -1,5 +1,10 @@
 <div class="row">
-  <aside class="span8">
+  <div class="span9" id="sfg_show_post_note">
+    Note: For every post that is shared by a user, you would be donating 30 cents to your charity/cause
+  </div>
+</div>
+<div class="row">
+  <aside class="span7offset5">
     <section>
       <%=render :partial => 'posts/post_form', :locals => {:business_company => @business_company}%>
       <%#= redirect_to new_post_path(@business_company) %>
@@ -7,14 +12,21 @@
   </aside>
 </div>
 
-<div class="span8">
+<div class="span7offset5">
   <% if @business_company.posts.any? %>
-      <h3>Posts (<%= @business_company.posts.count %>)</h3>
+      <div class="well the-fieldset">
+      <div id="heading_recent_post">
+        <legend class="the-legend"> RECENT POSTS (<%= @business_company.posts.count %>)</legend>
+      </div>
       <div class="pagination">
         <ol class="posts">
           <% @posts.each do |post|  %>
               <li>
+                <% if (post.content =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]).nil?  %>
                 <span class="content"><%= post.content %></span>
+                <% else %>
+                    <span class="content"><%=link_to post.content, post.content, :target => '_blank'%></span>
+                <% end %>
                 <span class="timestamp">
                     Posted <%= time_ago_in_words(post.created_at) %> ago.
                 </span>
@@ -23,6 +35,7 @@
           <%#= render :partial => "posts/post", :locals => {:posts => @posts} %>
         </ol>
         <%= will_paginate @posts %>
+      </div>
       </div>
   <% end %>
 </div>
