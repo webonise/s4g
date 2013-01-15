@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="code span14 offset 13"><h2>Manage Cause</h2></div>
+</div>
+<br>
+<div>
+  <%= form_tag  :method => :get ,:html => { :class => "bs-docs-example form-horizontal"} do %>
+      <%= button_tag 'Create Cause', :class => "btn", :id => "create_cause_btn" %>
+      <br>
+      <br>
+      <br>
+      <table  class="table table-hover" id=" sfg_admin_manage_cause_table">
+        <tr>
+          <th>LOGOS</th>
+          <th>CAUSES</th>
+          <th>ACTIONS</th>
+        </tr>
+        <% @causes.each do |cause| %>
+            <tr>
+
+              <td class ="td1">
+                <div class="control-group">
+                  <%= link_to image_tag(cause.logo,:class=>"img")%>
+                </div>
+              </td>
+              <td class="td2">
+                <div class="control-group">
+                  <%=  cause.cause_name %>
+                </div>
+              </td>
+              <td class="td2">
+                <div class="control-group">
+                 <span class="manage_cause_span"><%=  link_to "view" %></span>
+                  <span class="manage_cause_span"> <%=  link_to "edit" %></span>
+                  <span class="manage_cause_span"><%=  link_to "delete" %></span>
+                </div>
+              </td>
+            </tr>
+        <%end %>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+      </table>
+  <%end%>
+</div>

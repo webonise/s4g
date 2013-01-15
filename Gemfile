@@ -20,6 +20,7 @@ gem 'mysql2'
 gem 'dynamic_form'
 #gem 'therubyracer', '0.10.2', :platforms => :ruby
 gem 'devise'
+gem 'hirb'
 
 # Gems used for Facebook
 gem 'facebook_oauth'

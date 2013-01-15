@@ -18,6 +18,8 @@ module UsersHelper
     #@business_first = businesses[0].business_name
     #@business_last = businesses[1].business_name
     #return @business_first, @business_last
-   end
+  end
+
+
   end
 
