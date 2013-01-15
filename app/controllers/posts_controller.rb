@@ -1,3 +1,4 @@
+require "uri"
 class PostsController < ApplicationController
 
   before_filter :authenticate_person! , :only => [:create, :destroy]
@@ -5,15 +6,18 @@ class PostsController < ApplicationController
   #BusinessUser.current_user = @current_user
 
   def create
-    @post = Post.create(:content => params[:post][:content], :business_company_id => params[:business_company_id])
-
-    if @post.content==""
-
+    check_post_content = params[:post][:content]
+    @post = Post.new
+        #logger.info("############################{check_post_content.inspect}");
+    if check_post_content==""
       flash[:error] = "Content can't be blank!"
       redirect_to show_post_business_company_path(@post.business_company_id)
-
     else
-
+      if (check_post_content =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]).nil?
+        @post = Post.create(:content => params[:post][:content], :business_company_id => params[:business_company_id], :post_type => "text")
+      else
+        @post = Post.create(:content => params[:post][:content], :business_company_id => params[:business_company_id], :post_type => "link")
+      end
       if @post.save!
 
         flash[:success] = "Post created!"
@@ -27,9 +31,7 @@ class PostsController < ApplicationController
         redirect_to show_post_business_company_path(@post.business_company_id)
 
       end
-
     end
-
   end
 
   def destroy

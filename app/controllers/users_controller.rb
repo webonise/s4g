@@ -88,7 +88,7 @@ class UsersController < ApplicationController
       UserMailer.registration_confirmation(@user).deliver
       sign_in(@user)
       flash[:success] = "Welcome!"
-      redirect_to display_cause_user_path(@user)
+      redirect_to share_on_Facebook_user_path(@user)
     else
       render 'new'
     end
@@ -113,4 +113,29 @@ class UsersController < ApplicationController
 
   end
 
+  def share_on_Facebook
+    client = FacebookOAuth::Client.new(:application_id => '327682274009525',
+                                       :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+                                       :callback => 'http://www.s4g.com')
+
+
+
+    url=client.authorize_url
+
+    redirect_to(url)
+    logger.info("##################{params[:code]}")
+    #access_token = client.authorize(:code => params[:code])
+    #
+    ##logger.info("##################{url.inspect}")
+    #
+    #client = FacebookOAuth::Client.new(:application_id => '327682274009525',
+    #                                   :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+    #                                   :token => access_token)
+    #
+    #client.authorize_url(:scope => 'publish_stream')
+    #
+    #client.me.feed(:create, :message => 'Testing Facebook app second time8.54pm...')
+    #
+    #redirect_to display_cause_user_path(@user)
+  end
 end
