@@ -1,16 +1,12 @@
-<div id="mymodal" class="modal" style="display: none; ">
+<div id="mymodal" class="modal hide fade in" aria-hidden="true" style = "display: none; ">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <h3>Businesses associated with Cause</h3>
   </div>
   <div class="modal-body">
     <p>One fine body…</p>
-    <%=cause.inspect%>
-    <%=cause.get_businesses.inspect%>
-    <h4>Hello World</h4>
-    <%  cause.business_companies.each do |b_name|%>
-        <h6>Inside do</h6>
-        <%= b_name.business_name%>
+    <%  businesses.each do |business|%>
+        <%= business.business_name%>
     <%end %>
   </div>
   <div class="modal-footer">

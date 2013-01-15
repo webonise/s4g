@@ -101,9 +101,6 @@ $(document).ready(function() {
 });
 
 
-$(function ()
-{ $("#business_popup").modal('show');
-});
 
 
 //$(document).ready(function(){
