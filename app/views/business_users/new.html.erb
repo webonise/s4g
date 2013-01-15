@@ -6,7 +6,7 @@
 
     <%= form_for @business_user, :method => "post", :html => { :class => 'form-horizontal sfg_business_user_sign_up' } do |f| %>
 
-        <%= render 'error_messages', object: f.object %>
+        <%#= render 'error_messages', object: f.object %>
 
         <div class="control-group" id="customText">
           <%= f.label :name, "Name", :class => 'control-label' %>
@@ -20,7 +20,7 @@
         <div class="control-group">
           <%= f.label :email, "Email ID", :class => 'control-label'  %>
           <div class="controls">
-            <%= f.text_field :email , :class => 'text_field' %>
+            <%= f.text_field :email , :class => 'text_field required email' %>
           </div>
         </div>
 

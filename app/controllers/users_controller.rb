@@ -105,6 +105,11 @@ class UsersController < ApplicationController
   end
 
   def display_dash_board_user
+    @user = User.find(params[:id])
+    @businesscompanies = @user.business_companies
+    @businesscompanies.each do |businesscompany|
+      @posts=businesscompany.posts
+    end
 
   end
 

@@ -103,7 +103,7 @@ $(document).ready(function() {
 
 });
 
-   /* for lightbox */
+/* for lightbox */
 
 //$(function ()
 //{ $("#").modal('show');
@@ -115,3 +115,4 @@ $(document).ready(function() {
    $('.colorbox').colorbox();
 
 });
+
