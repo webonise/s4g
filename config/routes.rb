@@ -12,7 +12,8 @@ S4g::Application.routes.draw do
       post :save_business
       get :display_post
       get :display_dash_board_user
-      get :share_on_Facebook
+      get :sign_up_Facebook
+      get :callback
     end
   end
 
