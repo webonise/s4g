@@ -114,9 +114,7 @@ class UsersController < ApplicationController
   def get_businesses
     cause = Cause.find(params[:cause])
     @businesses = cause.business_companies
-    logger.info("##########################{@businesses.inspect}")
     @businesses = cause.business_companies
-    logger.info("#######################{@businesses.inspect}")
     respond_to do |format|
       format.js
     end

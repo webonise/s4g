@@ -1,10 +1,10 @@
 /* forms */
 
 input, textarea, select, .uneditable-input {
-border: 1px solid #bbb;
-width: 100%;
-padding: 10px;
-margin-bottom: 15px;
+    border: 1px solid #bbb;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
 @include box_sizing;
 }
 
@@ -87,8 +87,8 @@ margin-bottom: 15px;
 
 /*alert adjustment*/
 .alertadjust{
-padding-top: 10px;
-margin-top: 25px;
+    padding-top: 10px;
+    margin-top: 25px;
 }
 
 /*display cause Deepti*/
@@ -98,12 +98,12 @@ margin-top: 25px;
 /*width  :50px;*/
 /*}*/
 
-/*.td1{*/
-/*width: 10px ;*/
-/*}*/
-/*.td2{*/
-/*width :50px;*/
-/*}*/
+.td1{
+    width: 10px ;
+}
+.td2{
+    width :50px;
+}
 
 /*footer */
 /*.footer .footer-text*/
@@ -245,3 +245,13 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
     text-align: right;
 }
 
+#create_cause_btn  {
+    float: right;
+}
+#sfg_admin_manage_cause_table th{
+    border-top: medium none;
+}
+
+.manage_cause_span{
+    margin-right: 10px;
+}
