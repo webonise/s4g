@@ -106,11 +106,11 @@ class UsersController < ApplicationController
 
   def display_dash_board_user
     @user = User.find(params[:id])
-    @businesscompanies = @user.business_companies
-    @businesscompanies.each do |businesscompany|
-      @posts=businesscompany.posts
-    end
-
+    @user_causes = UserHasCause.find_by_user_id(@user.id)
+    @business_company = BusinessCompany.find_by_cause_id(@user_causes.cause_id)
+    @posts = @business_company.posts.order("created_at DESC")
+    logger.info("#########################{@posts.inspect}")
+    #@posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
   end
 
   def share_on_Facebook
