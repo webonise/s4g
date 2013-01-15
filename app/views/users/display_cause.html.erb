@@ -15,14 +15,18 @@
               </td>
               <td class="td2">
                 <div class="control-group">
-                  <%= link_to image_tag(cause.logo,:class=>"img"), cause%>
+                  <%= link_to image_tag(cause.logo,:class=>"img")%>
                 </div>
               </td>
               <td>
                 <div class="control-group">
-                  <%= link_to cause.cause_name %>
-                  <span> ( <%= count_businesses(cause) %> ) </span>
-                  <div>Businesses sponsoring your causes... <span><%= link_to businesses_of_causes(cause)rescue nil %></span></div>
+                  <%=  cause.cause_name %>
+                  <div>
+                 <%= link_to "Businesses", get_businesses_user_path(@user, :cause => cause), :method => :get,"data-toggle" => "modal", :remote => true%>
+                  <span> ( <%= count_businesses(cause) %> ) </span> </div>
+                  <div id="test">
+
+                  </div>
                 </div>
               </td>
             </tr>
