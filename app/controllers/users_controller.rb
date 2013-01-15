@@ -106,36 +106,42 @@ class UsersController < ApplicationController
 
   def display_dash_board_user
     @user = User.find(params[:id])
-    @user_causes = UserHasCause.find_by_user_id(@user.id)
-    @business_company = BusinessCompany.find_by_cause_id(@user_causes.cause_id)
-    @posts = @business_company.posts.order("created_at DESC")
-    logger.info("#########################{@posts.inspect}")
+    @user_causes = UserHasCause.find_all_by_user_id(@user.id)
+
+    @user_causes.each do |user_cause|
+      @business_company = BusinessCompany.find_all_by_cause_id(user_cause.cause_id)
+
+      @business_company.each do |business_company|
+        @posts = business_company.posts.order("created_at DESC").paginate(:page =>1)
+      end
+    end
+    #logger.info("#########################{@posts.inspect}")
     #@posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
   end
 
-  def share_on_Facebook
-    client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-                                       :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
-                                       :callback => 'http://www.s4g.com')
+def share_on_Facebook
+  client = FacebookOAuth::Client.new(:application_id => '327682274009525',
+                                     :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+                                     :callback => 'http://www.s4g.com')
 
 
 
-    url=client.authorize_url
+  url=client.authorize_url
 
-    redirect_to(url)
-    logger.info("##################{params[:code]}")
-    #access_token = client.authorize(:code => params[:code])
-    #
-    ##logger.info("##################{url.inspect}")
-    #
-    #client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-    #                                   :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
-    #                                   :token => access_token)
-    #
-    #client.authorize_url(:scope => 'publish_stream')
-    #
-    #client.me.feed(:create, :message => 'Testing Facebook app second time8.54pm...')
-    #
-    #redirect_to display_cause_user_path(@user)
-  end
+  redirect_to(url)
+  logger.info("##################{params[:code]}")
+  #access_token = client.authorize(:code => params[:code])
+  #
+  ##logger.info("##################{url.inspect}")
+  #
+  #client = FacebookOAuth::Client.new(:application_id => '327682274009525',
+  #                                   :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+  #                                   :token => access_token)
+  #
+  #client.authorize_url(:scope => 'publish_stream')
+  #
+  #client.me.feed(:create, :message => 'Testing Facebook app second time8.54pm...')
+  #
+  #redirect_to display_cause_user_path(@user)
+end
 end
