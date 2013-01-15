@@ -159,16 +159,19 @@ margin-top: 25px;
 .sfg_brand_home_link{
     display: block;
     float: left;
-    padding: 10px 20px 10px;
-    margin-left: -20px;
-    font-size: 20px;
+    padding: 16px 0px 10px;
+    margin-bottom: -8px;
+    font-size: 36px;
     font-weight: 200;
-    color: #777777;
-    text-shadow: 0 1px 0 #ffffff;
+    color:#F7F705;
 }
 .sfg_brand_home_link:hover {
     text-decoration: none;
 }
+
+/*.sfg_header_size{*/
+    /*background-color: #ffffff;*/
+/*}*/
 
 /*footer*/
 #sfg_footer {
@@ -284,3 +287,7 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
     text-align: right;
 }
 
+
+.skip_btn {
+
+}
