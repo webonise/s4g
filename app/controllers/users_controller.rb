@@ -88,7 +88,7 @@ class UsersController < ApplicationController
       UserMailer.registration_confirmation(@user).deliver
       sign_in(@user)
       flash[:success] = "Welcome!"
-      redirect_to sign_up_Facebook_user_path(@user)
+      redirect_to sign_up_facebook_user_path(@user)
     else
       render 'new'
     end
