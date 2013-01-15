@@ -88,7 +88,7 @@ class UsersController < ApplicationController
       UserMailer.registration_confirmation(@user).deliver
       sign_in(@user)
       flash[:success] = "Welcome!"
-      redirect_to sign_up_facebook_user_path(@user)
+      redirect_to sign_up_user_path(@user)
     else
       render 'new'
     end
@@ -125,6 +125,10 @@ class UsersController < ApplicationController
                                          :callback => 'http://local.s4g.com/users/'+@user.id.to_s+'/callback')
     url = @@client.authorize_url
     redirect_to url
+  end
+
+  def sign_up
+    @user = User.find(params[:id])
   end
 
   def callback
