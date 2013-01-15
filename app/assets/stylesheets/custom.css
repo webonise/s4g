@@ -95,7 +95,6 @@ input, textarea, select, .uneditable-input {
     margin-top: 120px;
 }
 
-
 #customText input {
     width: 84px;
 }
@@ -134,8 +133,10 @@ input, textarea, select, .uneditable-input {
 /*margin: 0 auto;*/
 /*padding: 5px;*/
 /*}*/
+
+
 /* home */
-.sfg_signup{
+.sfg_signup .sfg_business_user_sign_up{
     padding: 43px 19px
 }
 
@@ -315,5 +316,15 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 
 .sfg_color{
     color: #87cefa;
+}
+
+.user_signup
+{
+    text-align: center;
+}
+.general_details
+{
+    display: block;
+    text-align: center;
 }
 

@@ -11,10 +11,14 @@ class BusinessUsersController < ApplicationController
 
   def new
     @business_user = BusinessUser.new
+   # @business_company = BusinessCompany.new
+    @business_company = @business_user.business_company
   end
 
   def create
     @business_user = BusinessUser.new(params[:business_user])
+   # @business_company = BusinessCompany.new(params[:business_company])
+
     @business_user.role = "business_user"
     if @business_user.save
       UserMailer.registration_confirmation(@business_user).deliver
