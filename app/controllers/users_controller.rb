@@ -117,29 +117,34 @@ class UsersController < ApplicationController
   end
 
   def share_on_Facebook
-    client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-                                       :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
-                                       :callback => 'http://www.s4g.com')
+    @user = User.find(params[:id])
+    @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
+                                         :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+                                         :callback => 'http://local.s4g.com/users/'+@user.id.to_s+'/callback')
 
+    url = @@client.authorize_url
 
+    redirect_to url
+  end
 
-    url=client.authorize_url
+  def callback
+    @user = User.find(params[:id])
+    logger.info("     I Am HERE                   ")
+    logger.info("##################{(params[:code]).inspect}")
+    access_token = @@client.authorize(:code => params[:code])
 
-    redirect_to(url)
-    logger.info("##################{params[:code]}")
-    #access_token = client.authorize(:code => params[:code])
-    #
-    ##logger.info("##################{url.inspect}")
-    #
-    #client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-    #                                   :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
-    #                                   :token => access_token)
-    #
-    #client.authorize_url(:scope => 'publish_stream')
-    #
-    #client.me.feed(:create, :message => 'Testing Facebook app second time8.54pm...')
-    #
-    #redirect_to display_cause_user_path(@user)
+    token = access_token.token
+    logger.info("##################{token.inspect}")
+
+    @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
+                                         :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+                                         :token => token)
+
+    @@client.authorize_url(:scope => 'publish_stream')
+
+    @@client.me.feed(:create, :message => 'Testing done on 1:37pm...')
+
+    redirect_to display_cause_user_path(@user)
   end
 
   def sign_up_facebook
@@ -147,4 +152,3 @@ class UsersController < ApplicationController
   end
 
   end
-
