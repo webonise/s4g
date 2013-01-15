@@ -6,7 +6,6 @@
     <h1>  Sign in </h1>
 
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => { :class => 'form-horizontal sfg_sign_in' }) do |f| %>
-<%#= form_for(person, :as => person_name, :url => person_session_path(person_name),:html => { :class => 'form-horizontal sfg_sign_in' }) do |f| %>
    <div class="control-group">
       <%= f.label :email, "Email ID", :class => 'control-label'  %>
       <div class="controls">
@@ -26,20 +25,26 @@
         <div class="control-group" id="customText">
     <div class="controls">
     <div><%= f.submit "log in" %></div>
+      </div>
+       </div>
+
+        <div class="control-group" id="customText">
+          <div class="controls">
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
 <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
 <% end -%>
      </div>
         </div>
 
-        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-            <div class="control-group">
-              <div class="controls">
-                <%= link_to "Don't have an account, click here to Sign up", root_path %><br/>
 
-              </div>
-            </div>
-        <% end -%>
+        <div class="control-group">
+          <div class="controls">
+        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+
+                <%= link_to "Don't have an account, click here to Sign up", root_path %><br/>
+            <% end -%>
+          </div>
+        </div>
 
 
 <!--<%= render "devise/shared/links" %>-->
