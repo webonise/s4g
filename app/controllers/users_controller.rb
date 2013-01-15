@@ -88,9 +88,10 @@ class UsersController < ApplicationController
       UserMailer.registration_confirmation(@user).deliver
       sign_in(@user)
       flash[:success] = "Welcome!"
+
       #redirect_to share_on_Facebook_user_path(@user)
       #redirect_to display_cause_user_path(@user)
-      redirect_to sign_up_facebook_user_path(@user)
+      redirect_to sign_up_user_path(@user)
 
     else
       render 'new'
@@ -109,46 +110,50 @@ class UsersController < ApplicationController
 
   def display_dash_board_user
     @user = User.find(params[:id])
-    @businesscompanies = @user.business_companies
-    @businesscompanies.each do |businesscompany|
-      @posts=businesscompany.posts
-    end
+    @user_causes = UserHasCause.find_all_by_user_id(@user.id)
 
+    @user_causes.each do |user_cause|
+      @business_company = BusinessCompany.find_all_by_cause_id(user_cause.cause_id)
+      @business_company.each do |business_company|
+        @posts = business_company.posts.order("created_at DESC").paginate(:page =>1)
+      end
+    end
+    #logger.info("#########################{@posts.inspect}")
+    #@posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
   end
 
-  def share_on_Facebook
+  def sign_up_facebook
     @user = User.find(params[:id])
     @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
                                          :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
                                          :callback => 'http://local.s4g.com/users/'+@user.id.to_s+'/callback')
-
     url = @@client.authorize_url
-
     redirect_to url
+  end
+
+  def sign_up
+    @user = User.find(params[:id])
   end
 
   def callback
     @user = User.find(params[:id])
-    logger.info("     I Am HERE                   ")
-    logger.info("##################{(params[:code]).inspect}")
     access_token = @@client.authorize(:code => params[:code])
-
     token = access_token.token
-    logger.info("##################{token.inspect}")
-
-    @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-                                         :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
-                                         :token => token)
-
-    @@client.authorize_url(:scope => 'publish_stream')
-
-    @@client.me.feed(:create, :message => 'Testing done on 1:37pm...')
-
     redirect_to display_cause_user_path(@user)
   end
 
-  def sign_up_facebook
-     @user=User.find(params[:id])
-  end
+ # def sign_up_facebook
+  #   @user=User.find(params[:id])
+  #end
 
-  end
+end
+
+
+  #def share_on_facebook
+  #  @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
+  #                                       :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+  #                                       :token => token)
+  #
+  #  @@client.authorize_url(:scope => 'publish_stream')
+  #  @@client.me.feed(:create, :message => 'Testing done on 1:37pm...')
+  #end
