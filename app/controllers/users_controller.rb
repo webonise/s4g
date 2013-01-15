@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       end
       redirect_to  display_businesses_of_causes_user_path(@user)
     else
-      flash[:error] = "Please select atleast one Clause"
+      flash[:error] = "Please select atleast one Cause"
       redirect_to display_cause_user_path(@user)
     end
 
