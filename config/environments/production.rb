@@ -64,4 +64,9 @@ S4g::Application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
+
+
+  # Application credentials from Facebook
+  #APP_ID = 327682274009525
+  #APP_SECRET_KEY = dde14950ca90f9cea5d248075dcd3ac5
 end

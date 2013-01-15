@@ -1,12 +1,13 @@
 <% provide(:title, 'Sign up') %>
 
-<div class="row">
-  <div class="span5 offset3">
-    <h2 id="b_user_sign_up_nm"> Business User Sign up</h2>
+<fieldset>
+  <legend><h2>Business User</h2></legend>
+  <div class="span6">
+    <h2 class="general_details">General Details</h2>
 
     <%= form_for @business_user, :method => "post", :html => { :class => 'form-horizontal sfg_business_user_sign_up' } do |f| %>
 
-        <%#= render 'error_messages', object: f.object %>
+        <%= render 'error_messages', object: f.object %>
 
         <div class="control-group" id="customText">
           <%= f.label :name, "Name", :class => 'control-label' %>
@@ -14,6 +15,13 @@
             <%= f.text_field :first_name, :placeholder => "First Name", :class => 'text_field custom-text' %>
 
             <%= f.text_field :last_name, :placeholder => "Last Name", :class => 'text_field custom-text' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :designation, "Designation", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.text_field :designation, :class => 'text_field required email' %>
           </div>
         </div>
 
@@ -39,6 +47,10 @@
           </div>
         </div>
 
+        <%= f.fields_for :business_company do |builder| %>
+            <%= render "get_business_detail", :f => builder %>
+        <% end %>
+
         <div class="control-group">
           <div class="controls">
 
@@ -48,4 +60,60 @@
 
     <% end %>
   </div>
-</div>
+
+  <div class="span5 offset1">
+    <h4>Select a cause</h4>
+  </div>
+
+</fieldset>
+
+
+<!--<div class ="span4">-->
+<!--<h2>General Details</h2>-->
+<!--<div class="span5 offset3">-->
+<!--<h2 id="b_user_sign_up_nm"> Business User Sign up</h2>-->
+
+<!--<%#= form_for @business_user, :method => "post", :html => { :class => 'form-horizontal sfg_business_user_sign_up' } do |f| %>-->
+
+<!--<%#= render 'error_messages', object: f.object %>-->
+
+<!--<div class="control-group" id="customText">-->
+<!--<%#= f.label :name, "Name", :class => 'control-label' %>-->
+<!--<div class="controls">-->
+<!--<%#= f.text_field :first_name, :placeholder => "First Name", :class => 'text_field custom-text' %>-->
+
+<!--<%#= f.text_field :last_name, :placeholder => "Last Name", :class => 'text_field custom-text' %>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="control-group">-->
+<!--<%#= f.label :email, "Email ID", :class => 'control-label'  %>-->
+<!--<div class="controls">-->
+<!--<%#= f.text_field :email , :class => 'text_field required email' %>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="control-group">-->
+<!--<%#= f.label :password, "Password", :class => 'control-label'  %>-->
+<!--<div class="controls">-->
+<!--<%#= f.password_field :password, :class => 'text_field' %>-->
+<!--</div>-->
+<!--</div>-->
+
+
+<!--<div class="control-group">-->
+<!--<%#= f.label :password_confirmation, "Confirm Password", :class => 'control-label'  %>-->
+<!--<div class="controls">-->
+<!--<%#= f.password_field :password_confirmation , :class => 'text_field', :id => 'pass_confirm' %>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<div class="control-group">-->
+<!--<div class="controls">-->
+
+<!--<%#= f.submit 'Sign Up', :class => "btn btn-large btn-primary" %>-->
+<!--</div>-->
+<!--</div>-->
+
+<!--<%# end %>-->
+<!--</div>-->
