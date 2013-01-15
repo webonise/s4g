@@ -18,6 +18,7 @@
 //= require jquery.colorbox.js
 //= require jquery.colorbox-min.js
 // require bootstrap-alert
+//= require bootstrap
 //= require_tree .
 
 /* VALIDATION*/
@@ -103,13 +104,78 @@ $(document).ready(function() {
 
 });
 
+
+
+
+
+//$(document).ready(function(){
+//  $("btn").click(function(){
+//        $.get("/helpers/users_helper/list_businesses()",function(data,status){
+//            alert("Data: " + data + "\nStatus: " + status);
+//        });
+//    });
+//});
+
+
+//$(function() {
+  //  $(document).on('click', '.btn', function () {
+  //      var myBookcaseItemId = $(this).data('id');
+        // send an AJAX request to fetch the data
+  //      $.get(this.href, { id: myBookcaseItemId }, function(data) {
+  //          $('#business_popup').html('data').modal('show');
+     //   });
+   //     return false;
+    //});
+//});
+//$("#new_person").validate();
+//$("#new_person").validate({
+//    rules: {
+//        person[email]: "required"
+//},
+//messages: {
+//    person[email]:"Please enter your firstname"
+//},
+//submitHandler: function(form) {
+//    form.submit();
+//}
+//
+//});
+//$("#register-form").validate({
+//    rules: {
+//        firstname: "required",
+//        lastname: "required",
+//        email: {
+//            required: true,
+//            email: true
+//        },
+//        password: {
+//            required: true,
+//            minlength: 5
+//        },
+//        agree: "required"
+//    },
+//    messages: {
+//        firstname: "Please enter your firstname",
+//        lastname: "Please enter your lastname",
+//        password: {
+//            required: "Please provide a password",
+//            minlength: "Your password must be at least 5 characters long"
+//        },
+//        email: "Please enter a valid email address",
+//        agree: "Please accept our policy"
+//    },
+//    submitHandler: function(form) {
+//        form.submit();
+//    }
+
 /* for lightbox */
 
 //$(function ()
 //{ $("#").modal('show');
+
 //});
 
-
+/*colorbox */
 $(document).ready(function() {
 
    $('.colorbox').colorbox();
@@ -120,4 +186,8 @@ $(document).ready(function() {
 
     $('.colorbox1').colorbox();
 
+});
+/* dropdown */
+$(document).ready(function() {
+$('.dropdown-toggle').dropdown()
 });

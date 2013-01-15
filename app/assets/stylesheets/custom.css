@@ -8,10 +8,10 @@
 /*textarea { height: 50px; }*/
 
 input, textarea, select, .uneditable-input {
-border: 1px solid #bbb;
-width: 100%;
-padding: 10px;
-margin-bottom: 15px;
+    border: 1px solid #bbb;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
 @include box_sizing;
 }
 
@@ -95,15 +95,14 @@ margin-bottom: 15px;
     margin-top: 120px;
 }
 
-
 #customText input {
     width: 84px;
 }
 
 /*alert adjustment*/
 .alertadjust{
-padding-top: 10px;
-margin-top: 25px;
+    padding-top: 10px;
+    margin-top: 25px;
 }
 
 /*display cause Deepti*/
@@ -113,12 +112,12 @@ margin-top: 25px;
 /*width  :50px;*/
 /*}*/
 
-/*.td1{*/
-/*width: 10px ;*/
-/*}*/
-/*.td2{*/
-/*width :50px;*/
-/*}*/
+.td1{
+    width: 10px ;
+}
+.td2{
+    width :50px;
+}
 
 /*footer */
 /*.footer .footer-text*/
@@ -134,8 +133,10 @@ margin-top: 25px;
 /*margin: 0 auto;*/
 /*padding: 5px;*/
 /*}*/
+
+
 /* home */
-.sfg_signup{
+.sfg_signup .sfg_business_user_sign_up{
     padding: 43px 19px
 }
 
@@ -163,7 +164,7 @@ margin-top: 25px;
     margin-bottom: -8px;
     font-size: 36px;
     font-weight: 200;
-    color:#F7F705;
+    color:#000000;
 }
 .sfg_brand_home_link:hover {
     text-decoration: none;
@@ -288,6 +289,42 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 }
 
 
-.skip_btn {
 
+#create_cause_btn  {
+    float: right;
 }
+#sfg_admin_manage_cause_table th{
+    border-top: medium none;
+}
+
+.manage_cause_span{
+    margin-right: 10px;
+}
+
+
+
+
+.skip_btn {
+    height: 112px;
+    width: 99px;
+    text-align: center;
+}
+.sfg_header_size
+{
+    color: #87cefa;
+}
+
+.sfg_color{
+    color: #87cefa;
+}
+
+.user_signup
+{
+    text-align: center;
+}
+.general_details
+{
+    display: block;
+    text-align: center;
+}
+
