@@ -8,12 +8,13 @@
         <!--<%#= link_to "sign in with facebook",share_on_Facebook_user_path(@user), class: "btn btn-large btn-info sfg_signup" %>-->
         <!--<a href="share_on_Facebook_user_path(@user)">-->
         <%#= image_tag("../assets/facebook.png") do %>
-        <%=  link_to image_tag("facebook.png"), sign_up_facebook_user_path(@user) %>
+        <%=  link_to image_tag("facebook.png"), sign_up_facebook_user_path(@user)  %>
        </div>
-        <div class='span5 offset3'>
+      <div class='span2 offset1'>
+        <!--<div class='span5 offset3'>-->
           <%=link_to "skip",display_cause_user_path(@user), class: "btn btn-large btn-info skip_btn"  %>
       </div>
-
+       </div>
 
     </div>
   </div>
