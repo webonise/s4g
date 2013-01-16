@@ -3,8 +3,8 @@
 </div>
 <br>
 <div>
-  <%= form_tag  :method => :get ,:html => { :class => "bs-docs-example form-horizontal"} do %>
-      <%= link_to 'Create Cause', new_admin_path,:class => "btn color_box_create_cause", :id => "create_cause_btn" %>
+  <%= form_tag  :method => :get, :html => { :class => "bs-docs-example form-horizontal"} do %>
+      <%= link_to 'Create Cause',  new_admin_cause_path(@admin), :class => "btn color_box_create_cause", :id => "create_cause_btn" %>
       <br>
       <br>
       <br>
@@ -29,7 +29,7 @@
               </td>
               <td class="td2">
                 <div class="control-group">
-                 <span class="manage_cause_span"><%=  link_to "view" %></span>
+                  <span class="manage_cause_span"><%=  link_to "view" %></span>
                   <span class="manage_cause_span"> <%=  link_to "edit" %></span>
                   <span class="manage_cause_span"><%=  link_to "delete" %></span>
                 </div>
