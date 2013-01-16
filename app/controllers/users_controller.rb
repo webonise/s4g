@@ -157,7 +157,7 @@ class UsersController < ApplicationController
     end
 
     if @@old_user == 1
-      redirect_to share_on_facebook_user_path(@user)
+      #redirect_to share_on_facebook_user_path(@user)
     else
       redirect_to display_cause_user_path(@user)
 
