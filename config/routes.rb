@@ -5,19 +5,22 @@ S4g::Application.routes.draw do
   #scope :admin, :as => :admin, :constraints => { :subdomain => "admin" } do
   # resources :admin ,:controller => 'admin'
   #end
-  resources :causes
+
+  #resources :causes
 
   constraints(:subdomain => :admin) do
     scope :module => "admin" do
       resources :admins  do
-        member do
+        collection  do
           get :show_admin_dashboard
+          get :show_admin_dashboard_business
+          resources :causes
+          resources :business_companies
         end
-        resources :causes
-
       end
     end
-  end
+    end
+
 
   resources :users do
     member do
@@ -29,7 +32,7 @@ S4g::Application.routes.draw do
       get :display_dash_board_user
 
       get :get_businesses
-
+      get :show_business
       get :share_on_facebook
       get :sign_up_facebook
       get :sign_up
@@ -64,10 +67,8 @@ S4g::Application.routes.draw do
 
   match '/business_user_signup', :to => 'business_users#new', :as => 'business_user_sign_up'
   match '/business_details', to: 'business_users#get_business_detail', :as => 'business_details'
-
-  match '/create_cause' , :to => 'causes#new'
   match '/index' ,  :to => 'causes#index'
-  match '/create_cause' , :to => 'admin/causes#new ' , :as =>'create_cause'
+  match '/admins/causes/new' , :to => 'admin/causes#new ' , :as =>'/admins/causes/new'
 
   root :to => 'static_pages#home'
 

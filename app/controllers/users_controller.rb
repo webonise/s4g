@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def display_cause
     @user = User.find(params[:id])
     @causes = Cause.includes(:business_companies).all
-    logger.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#{@causes.inspect}")
+    #logger.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#{@causes.inspect}")
   end
 
   def save_causes
@@ -109,14 +109,16 @@ class UsersController < ApplicationController
 
   def display_dash_board_user
     @user = User.find(params[:id])
-    @user_causes = UserHasCause.find_all_by_user_id(@user.id)
+    user_causes = @user.causes
+    @business_company = BusinessCompany.find_all_by_cause_id(user_causes)
 
-    @user_causes.each do |user_cause|
-      @business_company = BusinessCompany.find_all_by_cause_id(user_cause.cause_id)
-      @business_company.each do |business_company|
-        @posts = business_company.posts.order("created_at DESC")
-      end
-    end
+    #@user_causes = UserHasCause.find_all_by_user_id(@user.id)
+    #@user_causes.each do |user_cause|
+    #  @business_company = BusinessCompany.find_all_by_cause_id(user_cause.cause_id)
+      #@business_company.each do |business_company|
+      #  @posts = business_company.posts.order("created_at DESC")
+      #end
+    #end
     #logger.info("#########################{@posts.inspect}")
     #@posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
   end
@@ -145,6 +147,14 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.js
     end
+  end
+
+  def show_business
+     @business_company = BusinessCompany.find(params[:business_company])
+     respond_to do |format|
+       format.js
+     end
+
   end
   def sign_up
     @user = User.find(params[:id])

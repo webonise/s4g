@@ -191,9 +191,34 @@ $(document).ready(function() {
 
     $('.color_box_create_cause').colorbox();
 });
+$(document).ready(function() {
+
+    $('.color_box_edit_cause').colorbox();
+});
+$(document).ready(function() {
+
+    $('.color_box_view_cause').colorbox();
+});
 
 /* dropdown */
 $(document).ready(function() {
 $('.dropdown-toggle').dropdown()
 
+});
+
+function confirmDestroy() {var x;
+    var r=confirm("Are you sure?");
+    if (r==true)
+    {
+        x="You pressed Yes!";
+    }
+    else
+    {
+        x="You pressed Cancel!";
+    }
+}
+$(function(){
+    $('#destroy-business').click(function() {
+        return confirmDestroy();
+    });
 });
