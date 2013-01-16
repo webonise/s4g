@@ -187,3 +187,20 @@ $(document).ready(function() {
 $('.dropdown-toggle').dropdown()
 
 });
+
+function confirmDestroy() {var x;
+    var r=confirm("Are you sure?");
+    if (r==true)
+    {
+        x="You pressed Yes!";
+    }
+    else
+    {
+        x="You pressed Cancel!";
+    }
+}
+$(function(){
+    $('#destroy-business').click(function() {
+        return confirmDestroy();
+    });
+});

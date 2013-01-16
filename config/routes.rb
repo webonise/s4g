@@ -9,18 +9,16 @@ S4g::Application.routes.draw do
   constraints(:subdomain => :admin) do
     scope :module => "admin" do
       resources :admins  do
-        member do
+        collection  do
           get :show_admin_dashboard
+          get :show_admin_dashboard_business
+          resources :causes
+          resources :business_companies
         end
-        resources :causes
-
       end
-
-
-
+    end
     end
 
-  end
 
   resources :users do
     member do
@@ -34,7 +32,7 @@ S4g::Application.routes.draw do
       get :get_businesses
 
       get :share_on_facebook
-      #get :sign_up_facebook
+      get :sign_up_facebook
       get :sign_up
       get :callback
     end
