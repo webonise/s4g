@@ -164,7 +164,7 @@ input, textarea, select, .uneditable-input {
     margin-bottom: -8px;
     font-size: 36px;
     font-weight: 200;
-    color:#F7F705;
+    color:#000000;
 }
 .sfg_brand_home_link:hover {
     text-decoration: none;
@@ -289,6 +289,7 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 }
 
 
+
 #create_cause_btn  {
     float: right;
 }
@@ -301,8 +302,20 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 }
 
 
-.skip_btn {
 
+
+.skip_btn {
+    height: 112px;
+    width: 99px;
+    text-align: center;
+}
+.sfg_header_size
+{
+    color: #87cefa;
+}
+
+.sfg_color{
+    color: #87cefa;
 }
 
 .user_signup
