@@ -123,7 +123,12 @@ class UsersController < ApplicationController
 
   def sign_up_facebook
     @user = User.find(params[:id])
+    if params[:old_user].present?
     @@old_user = params[:old_user]
+    @@post = params[:post]
+    else
+    @@old_user = false
+    end
 
     @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
                                          :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
@@ -155,12 +160,10 @@ class UsersController < ApplicationController
     else
       flash[:error] = "Facebook Authentication Failed"
     end
-    logger.info("##################################{@@old_user.inspect}")
-    if @@old_user == 1
-      redirect_to share_on_facebook_user_path(@user)
+    if @@old_user
+      redirect_to share_on_facebook_user_path(@user, :post => @@post)
     else
       redirect_to display_cause_user_path(@user)
-
     end
   end
 
@@ -171,10 +174,7 @@ class UsersController < ApplicationController
     post = Post.find(params[:post])
     if token.nil?
       flash[:notice] = "You must be registered with Facebook to do that."
-      #respond_to do |format|
-        #format.html
-        redirect_to sign_up_facebook_user_path(@user, :old_user => 1)
-      #end
+      redirect_to sign_up_facebook_user_path(@user, :old_user => true, :post => post)
     else
       @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
                                            :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
