@@ -155,9 +155,9 @@ class UsersController < ApplicationController
     else
       flash[:error] = "Facebook Authentication Failed"
     end
-
+    logger.info("##################################{@@old_user.inspect}")
     if @@old_user == 1
-      #redirect_to share_on_facebook_user_path(@user)
+      redirect_to share_on_facebook_user_path(@user)
     else
       redirect_to display_cause_user_path(@user)
 
@@ -170,7 +170,11 @@ class UsersController < ApplicationController
     token = @user.fb_token
     post = Post.find(params[:post])
     if token.nil?
-      redirect_to sign_up_facebook_user_path(@user, :old_user => 1)
+      flash[:notice] = "You must be registered with Facebook to do that."
+      #respond_to do |format|
+        #format.html
+        redirect_to sign_up_facebook_user_path(@user, :old_user => 1)
+      #end
     else
       @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
                                            :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
@@ -179,7 +183,16 @@ class UsersController < ApplicationController
       @@client.authorize_url(:scope => 'publish_stream')
       @@client.me.feed(:create, :message => post.content)
       flash[:success] = "Shared on facebook successfully"
+      redirect_to display_dash_board_user_user_path(@user)
     end
   end
+
+  #flash[:notice] = "You must be registered with Twitter to do that."
+  #respond_to do |format|
+  #  format.js { render(:update) { |page| page.redirect_to authentications_url } }
+  #
+  #end
+  #
+  #format.js { render :js => "window.location.href = '#{some_path}'" }
 
 end
