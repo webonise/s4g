@@ -104,6 +104,16 @@ $(document).ready(function() {
 
 });
 
+///*hide and show selected cause sign up business user*/
+//$(document).ready(function() {
+////    $("#sfg_about_cause_b_sign_up").hide();
+//    $("#sfg_view_cause_btn").onclick(function(){
+//       $("#sfg_about_cause_b_sign_up").show();
+//    });
+//
+//});
+
+
 
 
 //$(function() {

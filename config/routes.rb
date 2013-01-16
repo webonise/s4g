@@ -31,7 +31,7 @@ S4g::Application.routes.draw do
       get :get_businesses
 
       get :share_on_facebook
-      #get :sign_up_facebook
+      get :sign_up_facebook
       get :sign_up
       get :callback
     end

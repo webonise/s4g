@@ -9,9 +9,16 @@
 <%#= render 'error_messages', object: f.object %>
 
 <div class="control-group">
-  <%= f.label :business_name, "Business Name", :class => 'control-label' %>
+  <%= f.label :business_name, "Company Name", :class => 'control-label' %>
   <div class="controls">
     <%= f.text_field :business_name , :class => 'text_field'%>
+  </div>
+</div>
+
+<div class="control-group">
+  <%= f.label :business_website, "Company Website", :class => 'control-label' %>
+  <div class="controls">
+    <%= f.text_field :business_website , :class => 'text_field'%>
   </div>
 </div>
 
@@ -29,14 +36,14 @@
 </div>
 
 <div class="control-group">
-  <%= f.label :business_logo, "Upload Logo", :class => 'control-label' %>
+  <%= f.label :business_logo, "Logo", :class => 'control-label' %>
   <div class="controls">
     <%= f.file_field :business_logo, :class => 'file_field' %>
   </div>
 </div>
 
 <div class="control-group">
-  <%= f.label :description, "Brief about the company", :class => 'control-label' %>
+  <%= f.label :description, "About the company", :class => 'control-label' %>
   <div class="controls">
     <%= f.text_area :description, :size => "25x5"%>
   </div>

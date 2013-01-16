@@ -12,7 +12,7 @@ class BusinessUsersController < ApplicationController
   def new
     @business_user = BusinessUser.new
     @business_user.build_business_company
-
+    @causes = Cause.all
   end
 
   def create
