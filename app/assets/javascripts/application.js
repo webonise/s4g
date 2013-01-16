@@ -18,6 +18,7 @@
 //= require jquery.colorbox.js
 //= require jquery.colorbox-min.js
 // require bootstrap-alert
+//= require bootstrap
 //= require_tree .
 
 /* VALIDATION*/
@@ -163,7 +164,7 @@ $(document).ready(function() {
 
 //});
 
-
+/*colorbox */
 $(document).ready(function() {
 
    $('.colorbox').colorbox();
@@ -175,8 +176,14 @@ $(document).ready(function() {
     $('.colorbox1').colorbox();
 
 });
+
 $(document).ready(function() {
 
     $('.color_box_create_cause').colorbox();
+});
+
+/* dropdown */
+$(document).ready(function() {
+$('.dropdown-toggle').dropdown()
 
 });
