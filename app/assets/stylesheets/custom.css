@@ -99,6 +99,12 @@ input, textarea, select, .uneditable-input {
     width: 84px;
 }
 
+/* Business User Name Field */
+
+#customText .name {
+    width: 124px;
+}
+
 /*alert adjustment*/
 .alertadjust{
     padding-top: 10px;
