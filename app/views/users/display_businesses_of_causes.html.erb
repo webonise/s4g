@@ -15,16 +15,15 @@
                     <%= check_box_tag "business_select[]", business.id %>
                   </div>
                 </td>
-
+                <!--
                 <td class= "td2" >
                   <div class="control-group">
-                    <%= link_to image_tag(business.logo,:class=>"img"), business%>
+                    <%#= link_to image_tag(business.logo,:class=>"img"), business%>
                   </div>
-                </td>
+                </td> -->
                 <td>
                   <div class="control-group">
                     <%= link_to business.business_name %>
-                    <span>( <%= count_users_of_businesses(business) %> )</span>
                   </div>
                 </td>
 
@@ -35,7 +34,7 @@
         <td></td>
          <td>
         <div class="control-group">
-        <%= submit_tag 'Take me to my dashboard' , class: "btn" ,   :onsubmit => "this.disabled = true" %>
+        <%= submit_tag 'Take me to my dashboard' , class: "btn ",id:"create_cause_btn" ,  :onsubmit => "this.disabled = true" %>
         </div>
 
         </td>

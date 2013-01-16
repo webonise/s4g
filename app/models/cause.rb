@@ -7,8 +7,4 @@ class Cause < ActiveRecord::Base
 
   attr_accessible :address, :cause_name, :description, :url, :logo
 
-  def get_businesses
-    puts "###$$$$$#{self.business_companies}"
-    self.business_companies
-  end
 end
