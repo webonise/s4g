@@ -15,6 +15,40 @@ input, textarea, select, .uneditable-input {
 @include box_sizing;
 }
 
+.s4g_container{
+    margin-bottom: 80px;
+}
+
+/*Business User Selects Cause */
+#sfg_select_cause_part{
+    margin-top: 32px;
+}
+
+.sfg_select_cause {
+    border: 1px solid #BBBBBB;
+    margin-left: 30px;
+    margin-top: 5px;
+    padding: 5px;
+    width: 35%;
+}
+
+#sfg_view_cause_btn{
+    margin-top: -10px;
+}
+
+#sfg_select_cause_header{
+    float: left;
+    margin-left: 10px;
+    text-align: left;
+    font-family: verdana,sans-serif;
+    font-size: 12px;
+}
+
+#sfg_about_cause_b_sign_up{
+
+}
+
+
 /*input {*/
 /*height: auto !important;*/
 /*}*/
@@ -33,17 +67,26 @@ input, textarea, select, .uneditable-input {
     line-height: 20px;
 }
 
+#sfg_post_link {
+    color:#424242;
+}
 .posts .content {
     display: block;
+    margin-top: 15px;
     font-size: 18px;
-    color: #09C;
+    color: #424242;
 
 }
 .posts .timestamp {
     color: #d3d3d3;
     font-size: 13px;
     float: right;
-    margin-right: 25px;
+    margin-right: 100px;
+}
+
+.posts .sponsor-tag-img{
+    float: right;
+
 }
 
 /* Post form*/
@@ -171,7 +214,7 @@ input, textarea, select, .uneditable-input {
 }
 
 /*.sfg_header_size{*/
-    /*background-color: #ffffff;*/
+/*background-color: #ffffff;*/
 /*}*/
 
 /*footer*/

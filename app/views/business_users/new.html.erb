@@ -1,9 +1,10 @@
 <% provide(:title, 'Sign up') %>
 
-<fieldset>
-  <legend><h2>Business User</h2></legend>
-  <div class="span6">
-    <h2 class="general_details">General Details</h2>
+<legend><h5>Business User</h5></legend>
+
+<div class="row">
+  <div class="span5">
+    <h4 class="general_details">General Details</h4>
 
     <%= form_for @business_user, :method => "post", :html => { :class => 'form-horizontal sfg_business_user_sign_up' } do |f| %>
 
@@ -18,12 +19,12 @@
           </div>
         </div>
 
-        <div class="control-group">
-          <%= f.label :designation, "Designation", :class => 'control-label'  %>
-          <div class="controls">
-            <%= f.text_field :designation, :class => 'text_field required email' %>
-          </div>
-        </div>
+        <!--<div class="control-group">-->
+        <!--<%#= f.label :designation, "Designation", :class => 'control-label'  %>-->
+        <!--<div class="controls">-->
+        <!--<%#= f.text_field :designation, :class => 'text_field required email' %>-->
+        <!--</div>-->
+        <!--</div>-->
 
         <div class="control-group">
           <%= f.label :email, "Email ID", :class => 'control-label'  %>
@@ -51,21 +52,80 @@
             <%= render "get_business_detail", :f => builder %>
         <% end %>
 
-        <div class="control-group">
-          <div class="controls">
-
-            <%= f.submit 'Sign Up', :class => "btn btn-large btn-primary" %>
-          </div>
-        </div>
-
     <% end %>
   </div>
 
-  <div class="span5 offset1">
-    <h4>Select a cause</h4>
-  </div>
+  <div class="span6 offset1" id="sfg_select_cause_part">
+    <div class="row">
+      <h6 id="sfg_select_cause_header">Select a cause</h6>
 
-</fieldset>
+      <select class="sfg_select_cause">
+        <option selected="selected">Please Select Cause</option>
+        <% @causes.each do |record| %>
+            <% @cause_name = record.cause_name %>
+            <% @cause_id = record.id %>
+            <option value="#{@cause_id}" ><%= @cause_name %></option>
+        <% end %>
+      </select>
+
+      <button class="btn" id="sfg_view_cause_btn">View Details</button>
+
+    </div>
+
+    <div class="row">
+      <div class="" id="sfg_about_cause_b_sign_up">
+        <legend>ABOUT THE CAUSE</legend>
+            <ul>
+                <li>Name of the cause</li>
+                <li>Brief of the cause</li>
+                <li>Website of the cause</li>
+            </ul>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+<script>
+//$(document).ready(function() {
+//    $("#sfg_about_cause_b_sign_up").hide();
+//    $("#sfg_view_cause_btn").click(function(){
+//    $("#sfg_about_cause_b_sign_up").show();
+//    });
+//
+//});
+
+$(document).ready(function(){
+
+   alert("hello")
+
+});
+</script>
+
+<!--<h4 id="sfg_select_cause_header">Select a cause</h4>-->
+
+<!--<select class="sfg_select_cause">-->
+<!--<option selected="selected">---Please Select Cause---</option>-->
+<!--<%# @causes.each do |record| %>-->
+<!--<%# @cause_name = record.cause_name %>-->
+<!--<option value="#{@cause_name}" ><%#= @cause_name %></option>-->
+<!--<%# end %>-->
+<!--</select>-->
+
+<!--<button class="btn">View Details</button>-->
+
+
+<!--<div class="control-group">-->
+<!--<div class="controls">-->
+<!--<%#= f.submit 'Sign Up', :class => "btn btn-large btn-primary" %>-->
+<!--<button type="submit" class="btn btn-large btn-primary">Sign Up</button>-->
+<!--</div>-->
+<!--</div>-->
+
+
+
 
 
 <!--<div class ="span4">-->
@@ -85,7 +145,6 @@
 <!--<%#= f.text_field :last_name, :placeholder => "Last Name", :class => 'text_field custom-text' %>-->
 <!--</div>-->
 <!--</div>-->
-
 <!--<div class="control-group">-->
 <!--<%#= f.label :email, "Email ID", :class => 'control-label'  %>-->
 <!--<div class="controls">-->

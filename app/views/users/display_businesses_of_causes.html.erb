@@ -1,7 +1,7 @@
 <div class="row">
   <div class="code span14 offset 13"><h2>Select Businesses associated with Causes........</h2></div>
 </div>
- <br>
+<br>
 <%= form_tag save_business_user_path(@user), :method => :post,:html => { :class => "bs-docs-example form-horizontal"} do %>
     <table class="table table-hover">
 
@@ -32,10 +32,10 @@
       <tr>
         <td></td>
         <td></td>
-         <td>
-        <div class="control-group">
-        <%= submit_tag 'Take me to my dashboard' , class: "btn ",id:"create_cause_btn" ,  :onsubmit => "this.disabled = true" %>
-        </div>
+        <td>
+          <div class="control-group">
+            <%= submit_tag 'Take me to my dashboard' , class: "btn ",id:"create_cause_btn" ,  :onsubmit => "this.disabled = true" %>
+          </div>
 
         </td>
       </tr>
