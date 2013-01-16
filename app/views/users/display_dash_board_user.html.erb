@@ -2,42 +2,45 @@
 
 <!--<div class="span7offset5">-->
 
-      <div class="well the-fieldset">
-        <div id="heading_recent_post">
-          <legend class="the-legend"> RECENT POSTS</legend>
-        </div>
-        <div class="pagination">
-          <ol class="posts">
-            <% @posts.each do |post|  %>
-                <li>
-                  <% if (post.content =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]).nil?  %>
-                      <span class="content"><%= post.content %></span>
-                  <% else %>
-                      <span class="content"><%=link_to post.content, post.content, :target => '_blank'%></span>
-                  <% end %>
+<div class="well the-fieldset" xmlns="http://www.w3.org/1999/html">
+  <div id="heading_recent_post">
+    <div id="sfg_business_popup"></div>
+    <legend class="the-legend"> RECENT POSTS</legend>
+  </div>
+  <div class="pagination">
 
-                  <span class="timestamp">
+      <%@business_company.each do |business_company|  %>
+        <ol class="posts">
+
+            <% business_company.posts.order("created_at DESC").each do |post|  %>
+              <li>
+
+                <span class="content">
+                  <%= link_to image_tag(business_company.business_logo, :size => "30x50",:class=>"img")%>
+
+                  <%= link_to business_company.business_name, show_business_user_path(:business_company => business_company), :method => :get,"data-toggle" => "modal", :remote => true %>
+
+                  <div class="">
+                    <%= link_to image_tag('http://i.stack.imgur.com/L8rHf.png', :size => "35x50" ) + "Share", share_on_facebook_user_path(@user.id,:post => post), :method => 'get', :class => 'sponsor-tag-img' %>
+                  </div>
+                </span>
+
+                <% if (post.content =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]).nil?  %>
+                    <span class="content "><%= post.content %></span>
+                <% else %>
+                    <span class="content"><%=link_to post.content, post.content, :target => '_blank', :id => 'sfg_post_link'%></span>
+                <% end %>
+
+                <span class="timestamp">
                     Posted <%= time_ago_in_words(post.created_at) %> ago.
                   </span>
-                  <div class="">
-                    <!--<a href="#" class="post-tag" title="" rel="tag">-->
 
-                    <%= link_to image_tag('http://i.stack.imgur.com/L8rHf.png') + "Share", share_on_facebook_user_path(@user.id,:post => post), :method => 'get', :class => 'sponsor-tag-img', :remote => true %>
-
-
-                    <%#= link_to (image_tag('image.png') + text,
-                                 url_for({:controller => 'controller_name', :action => 'action_name'}),
-                                 :remote => true) %>
-
-
-                      <!--<img src="http://i.stack.imgur.com/L8rHf.png" height="50" width="30" alt="" class="sponsor-tag-img">share-->
-                    <!--url_for({:controller => 'users', :action => 'share_on_facebook', :method => 'get'}),-->
-                    <!--</a>-->
-                  </div>
-                </li>
+            </li>
             <% end %>
-          </ol>
-          <%#= will_paginate @posts %>
-        </div>
-      </div>
+            </ol>
+      <% end %>
+
+    <%#= will_paginate @business_company %>
+  </div>
+</div>
 

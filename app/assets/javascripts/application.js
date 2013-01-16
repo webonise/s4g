@@ -104,17 +104,16 @@ $(document).ready(function() {
 
 });
 
-
-
-
-
-//$(document).ready(function(){
-//  $("btn").click(function(){
-//        $.get("/helpers/users_helper/list_businesses()",function(data,status){
-//            alert("Data: " + data + "\nStatus: " + status);
-//        });
+///*hide and show selected cause sign up business user*/
+//$(document).ready(function() {
+////    $("#sfg_about_cause_b_sign_up").hide();
+//    $("#sfg_view_cause_btn").onclick(function(){
+//       $("#sfg_about_cause_b_sign_up").show();
 //    });
+//
 //});
+
+
 
 
 //$(function() {
@@ -187,7 +186,39 @@ $(document).ready(function() {
     $('.colorbox1').colorbox();
 
 });
+
+$(document).ready(function() {
+
+    $('.color_box_create_cause').colorbox();
+});
+$(document).ready(function() {
+
+    $('.color_box_edit_cause').colorbox();
+});
+$(document).ready(function() {
+
+    $('.color_box_view_cause').colorbox();
+});
+
 /* dropdown */
 $(document).ready(function() {
 $('.dropdown-toggle').dropdown()
+
+});
+
+function confirmDestroy() {var x;
+    var r=confirm("Are you sure?");
+    if (r==true)
+    {
+        x="You pressed Yes!";
+    }
+    else
+    {
+        x="You pressed Cancel!";
+    }
+}
+$(function(){
+    $('#destroy-business').click(function() {
+        return confirmDestroy();
+    });
 });

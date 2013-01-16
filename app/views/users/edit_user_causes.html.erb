@@ -22,8 +22,8 @@
                 <div class="control-group">
                   <%=  cause.cause_name %>
                   <div>
-                 <%= link_to "Businesses", get_businesses_user_path(@user, :cause => cause), :method => :get,"data-toggle" => "modal", :remote => true%>
-                  <span> ( <%= count_businesses(cause) %> ) </span> </div>
+                    <%= link_to "Businesses", get_businesses_user_path(@user, :cause => cause), :method => :get,"data-toggle" => "modal", :remote => true%>
+                    <span> ( <%= count_businesses(cause) %> ) </span> </div>
                   <div id="test">
 
                   </div>

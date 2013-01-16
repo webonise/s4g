@@ -7,7 +7,7 @@ class SessionsController < Devise::SessionsController
 
     if current_person.admin?
 
-      redirect_to admin_dashboard_path(resource)
+      redirect_to show_admin_dashboard_admins_path(resource)
 
     else
 
