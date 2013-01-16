@@ -31,7 +31,7 @@ S4g::Application.routes.draw do
       post :save_business
       get :display_post
       get :display_dash_board_user
-
+      #get :show
       get :get_businesses
 
       get :share_on_facebook
