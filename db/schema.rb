@@ -38,9 +38,8 @@ ActiveRecord::Schema.define(:version => 20130116124547) do
 
   create_table "business_users", :force => true do |t|
     t.integer  "person_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-    t.string   "designation"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "causes", :force => true do |t|
