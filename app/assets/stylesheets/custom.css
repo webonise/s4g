@@ -33,17 +33,26 @@ input, textarea, select, .uneditable-input {
     line-height: 20px;
 }
 
+#sfg_post_link {
+    color:#424242;
+}
 .posts .content {
     display: block;
+    margin-top: 15px;
     font-size: 18px;
-    color: #09C;
+    color: #424242;
 
 }
 .posts .timestamp {
     color: #d3d3d3;
     font-size: 13px;
     float: right;
-    margin-right: 25px;
+    margin-right: 100px;
+}
+
+.posts .sponsor-tag-img{
+    float: right;
+
 }
 
 /* Post form*/

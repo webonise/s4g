@@ -32,9 +32,9 @@ S4g::Application.routes.draw do
       get :display_dash_board_user
 
       get :get_businesses
-
+      get :show_business
       get :share_on_facebook
-      #get :sign_up_facebook
+      get :sign_up_facebook
       get :sign_up
       get :callback
     end
