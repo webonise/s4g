@@ -3,15 +3,20 @@ S4g::Application.routes.draw do
   devise_for :people,  :controllers => { :sessions => "sessions"}
 
   #scope :admin, :as => :admin, :constraints => { :subdomain => "admin" } do
-   # resources :admin ,:controller => 'admin'
+  # resources :admin ,:controller => 'admin'
   #end
   resources :causes
 
   constraints(:subdomain => :admin) do
     scope :module => "admin" do
-      resources :admins
-    end
+      resources :admins  do
+        member do
+          get :show_admin_dashboard
+        end
+        resources :causes
 
+      end
+    end
   end
 
   resources :users do
@@ -26,7 +31,7 @@ S4g::Application.routes.draw do
       get :get_businesses
 
       get :share_on_facebook
-      get :sign_up_facebook
+      #get :sign_up_facebook
       get :sign_up
       get :callback
     end
@@ -62,7 +67,7 @@ S4g::Application.routes.draw do
 
   match '/create_cause' , :to => 'causes#new'
   match '/index' ,  :to => 'causes#index'
-  match '/admin_dashboard' , :to => 'people#show_admin_dashboard'
+  match '/create_cause' , :to => 'admin/causes#new ' , :as =>'create_cause'
 
   root :to => 'static_pages#home'
 

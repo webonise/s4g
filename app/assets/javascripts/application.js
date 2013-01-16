@@ -106,17 +106,6 @@ $(document).ready(function() {
 
 
 
-
-
-//$(document).ready(function(){
-//  $("btn").click(function(){
-//        $.get("/helpers/users_helper/list_businesses()",function(data,status){
-//            alert("Data: " + data + "\nStatus: " + status);
-//        });
-//    });
-//});
-
-
 //$(function() {
   //  $(document).on('click', '.btn', function () {
   //      var myBookcaseItemId = $(this).data('id');
@@ -187,7 +176,14 @@ $(document).ready(function() {
     $('.colorbox1').colorbox();
 
 });
+
+$(document).ready(function() {
+
+    $('.color_box_create_cause').colorbox();
+});
+
 /* dropdown */
 $(document).ready(function() {
 $('.dropdown-toggle').dropdown()
+
 });

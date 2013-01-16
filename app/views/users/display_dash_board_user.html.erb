@@ -8,6 +8,7 @@
         </div>
         <div class="pagination">
           <ol class="posts">
+
             <% @posts.each do |post|  %>
                 <li>
                   <% if (post.content =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]).nil?  %>
@@ -22,18 +23,10 @@
                   <div class="">
                     <!--<a href="#" class="post-tag" title="" rel="tag">-->
 
-                    <%= link_to image_tag('http://i.stack.imgur.com/L8rHf.png') + "Share", share_on_facebook_user_path(@user.id,:post => post), :method => 'get', :class => 'sponsor-tag-img', :remote => true %>
+                    <%= link_to image_tag('http://i.stack.imgur.com/L8rHf.png') + "Share", share_on_facebook_user_path(@user.id,:post => post), :method => 'get', :class => 'sponsor-tag-img' %>
 
-
-                    <%#= link_to (image_tag('image.png') + text,
-                                 url_for({:controller => 'controller_name', :action => 'action_name'}),
-                                 :remote => true) %>
-
-
-                      <!--<img src="http://i.stack.imgur.com/L8rHf.png" height="50" width="30" alt="" class="sponsor-tag-img">share-->
-                    <!--url_for({:controller => 'users', :action => 'share_on_facebook', :method => 'get'}),-->
-                    <!--</a>-->
                   </div>
+
                 </li>
             <% end %>
           </ol>
