@@ -22,7 +22,7 @@ class StaticPagesController < ApplicationController
     # redirect_to root_path
     #end
 
-
+   @user = Person.new
   end
 
 end

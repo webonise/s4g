@@ -1,6 +1,10 @@
 class BusinessUser < Person
   belongs_to :person
-  has_one :business_company
+  has_one :business_company #, :dependent => :destroy
   has_one :cause
-  attr_accessible :first_name, :last_name, :role
+
+  accepts_nested_attributes_for :business_company #, :reject_if => lambda { |a| a[:business_user_id].nil? }, :allow_destroy => true
+
+  attr_accessible :first_name, :last_name, :role, :designation, :business_company_attributes
+
 end

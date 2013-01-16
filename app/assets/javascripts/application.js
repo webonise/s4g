@@ -11,13 +11,14 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
-//= require jquery.min
 //= require jquery.validate
-//= require jquery.validate.min
+//= require jquery.colorbox
 // require bootstrap-alert
+//= require bootstrap
 //= require_tree .
+//= require_self
 
+/* VALIDATION*/
 $(document).ready(function() {
     $(".sfg_sign_in").validate({
         rules: {
@@ -100,6 +101,28 @@ $(document).ready(function() {
 
 });
 
+///*hide and show selected cause sign up business user*/
+//$(document).ready(function() {
+////    $("#sfg_about_cause_b_sign_up").hide();
+//    $("#sfg_view_cause_btn").onclick(function(){
+//       $("#sfg_about_cause_b_sign_up").show();
+//    });
+//
+//});
+
+
+
+
+//$(function() {
+  //  $(document).on('click', '.btn', function () {
+  //      var myBookcaseItemId = $(this).data('id');
+        // send an AJAX request to fetch the data
+  //      $.get(this.href, { id: myBookcaseItemId }, function(data) {
+  //          $('#business_popup').html('data').modal('show');
+     //   });
+   //     return false;
+    //});
+//});
 //$("#new_person").validate();
 //$("#new_person").validate({
 //    rules: {
@@ -140,4 +163,59 @@ $(document).ready(function() {
 //    submitHandler: function(form) {
 //        form.submit();
 //    }
+
+/* for lightbox */
+
+//$(function ()
+//{ $("#").modal('show');
+
 //});
+
+/*colorbox */
+$(document).ready(function() {
+
+   $('.colorbox').colorbox();
+
+});
+
+$(document).ready(function() {
+
+    $('.colorbox1').colorbox();
+
+});
+
+$(document).ready(function() {
+
+    $('.color_box_create_cause').colorbox();
+});
+$(document).ready(function() {
+
+    $('.color_box_edit_cause').colorbox();
+});
+$(document).ready(function() {
+
+    $('.color_box_view_cause').colorbox();
+});
+
+/* dropdown */
+$(document).ready(function() {
+$('.dropdown-toggle').dropdown()
+
+});
+
+function confirmDestroy() {var x;
+    var r=confirm("Are you sure?");
+    if (r==true)
+    {
+        x="You pressed Yes!";
+    }
+    else
+    {
+        x="You pressed Cancel!";
+    }
+}
+$(function(){
+    $('#destroy-business').click(function() {
+        return confirmDestroy();
+    });
+});

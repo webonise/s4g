@@ -1,0 +1,66 @@
+<% provide(:title, 'Edit Cause') %>
+
+<div class="row">
+  <div class="span5 offset2">
+    <h1> </h1>
+
+    <%= form_for @cause, :url=>cause_path , :method => :put, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
+
+        <%#= render 'error_messages', :object => f.object %>
+
+        <div class="control-group" id="customText">
+          <%= f.label :cause_name, "Name", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :cause_name, :class => 'text_field'%>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :description, "About the cause", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.text_area :description, :size => "5x5"  %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :location, "Office Location", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.text_field :location , :class => 'text_field' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :logo, "Upload Logo", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.file_field :logo, :class => 'file_field' %>
+          </div>
+        </div>
+
+
+        <div class="control-group">
+          <%= f.label :url, "Website of the Cause", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.url_field :url , :class => 'url_field'%>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :contact_no, "Contact_no", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.text_field :contact_no , :class => 'text_field'%>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit 'Update', :class => "btn btn-large btn-primary" %>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
+

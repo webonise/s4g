@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="code span14 offset 13"><h2>Select Causes from following list</h2></div>
+</div>
+<br>
+<div>
+  <%= form_tag save_causes_user_path(@user), :method => :post ,:html => { :class => "bs-docs-example form-horizontal"} do %>
+      <table  class="table table-hover" >
+        <% @causes.each do |cause| %>
+            <tr class="well the-fieldset">
+
+              <td class ="td1">
+                <div class="control-group">
+                  <%= check_box_tag "cause_select[]", cause.id %>
+                </div>
+              </td>
+              <td class="td2">
+                <div class="control-group">
+                  <%= link_to image_tag(cause.logo,:class=>"img")%>
+                </div>
+              </td>
+              <td>
+                <div class="control-group">
+                  <%=  cause.cause_name %>
+                  <div>
+                    <%= link_to "Businesses", get_businesses_user_path(@user, :cause => cause), :method => :get,"data-toggle" => "modal", :remote => true%>
+                    <span> ( <%= count_businesses(cause) %> ) </span> </div>
+                  <div id="test">
+
+                  </div>
+                </div>
+              </td>
+            </tr>
+        <%end %>
+        <tr></tr>
+        <tr></tr>
+        <tr></tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>
+            <div class="control-group">
+              <div class="controls" >
+                <%= submit_tag 'Next', :class => "btn" ,  :onsubmit => "this.disabled = true" %>
+              </div>
+            </div>
+          </td>
+        </tr>
+
+      </table>
+  <%end%>
+</div>

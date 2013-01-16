@@ -1,0 +1,63 @@
+<%# provide(:title, @cause.cause_name) %>
+<div class="row">
+  <div class="span5 offset2">
+    <h1> </h1>
+
+    <%= form_tag  :method => :get, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do %>
+
+        <div class="control-group" id="customText">
+          <%= label_tag  "Name: " %>
+          <span>  <%=  @cause.cause_name%> </span>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= label_tag  "About the cause: " %>
+            <span><%=  @cause.description  %></span>
+
+
+        </div>
+        <div class="control-group">
+          <%= label_tag "Office Location"  %>
+
+            <%=  @cause.location %>
+
+        </div>
+
+        <div class="control-group">
+          <%= label_tag "Logo"  %>
+
+            <%=  @cause.logo %>
+
+        </div>
+
+
+        <div class="control-group">
+          <%= label_tag "Website of the Cause"  %>
+
+            <%=  @cause.url %>
+
+        </div>
+
+        <div class="control-group">
+          <%= label_tag  "Contact_no" %>
+
+            <%=  @cause.contact_no %>
+
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%#= link_to "Ok" ,:class => "btn btn-large btn-primary" %>
+            <%= link_to "Ok", show_admin_dashboard_admins_path, :class => "btn btn-large btn-primary" %>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
+
