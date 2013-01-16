@@ -1,31 +1,57 @@
-<% provide(:title, 'Add Cause') %>
+<% provide(:title, 'Create Cause') %>
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@cause) do |f| %>
-        <%= render 'shared/error_messages', object: f.object %>
+  <div class="span5 offset2">
+    <h1> Create Cause</h1>
 
-        <%= f.label :cause_name ,"causes Name" %>
+    <%= form_for @user, :method => :post, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
 
-        <%= f.text_field :cause_name %>
+        <%= render 'error_messages', :object => f.object %>
 
-        <%= f.label :logo ,"Upload Logo" %>
+        <div class="control-group" id="customText">
+          <%= f.label :cause_name, "Name", :class => 'control-label' %>
+          <%= f.text_field :description, :class => 'text_field' %>
+        </div>
 
-        <%= f.file_field :logo %>
+        <div class="control-group">
+          <%= f.label :description, "About the cause", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.text_area :description, :class => 'text_area' %>
+          </div>
+        </div>
 
-        <%= f.label :description, "Brief about causes" %>
+        <div class="control-group" id="customText">
+          <%= f.label :location, "Office Location", :class => 'control-label' %>
+          <%= f.text_field :location, :class => 'text_field' %>
+        </div>
 
-        <%= f.text_area :description %>
+        <div class="control-group">
+          <%= f.label :logo, "Upload Logo", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.file_field :logo , :class => 'file_field' %>
+          </div>
+        </div>
 
+        <div class="control-group">
+          <%= f.label :url, "Website of the cause", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.text_field :url , :class => 'text_field' %>
+          </div>
+        </div>
 
-        <%= f.label :url,"URL" %>
+        <div class="control-group">
+          <%= f.label :contact_no, "Contact no", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.text_field :contact_no , :class => 'text_field' %>
+          </div>
+        </div>
 
-        <%= f.text_field :url%>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit 'ADD', :class => "btn btn-large btn-primary" %>
+          </div>
+        </div>
 
-        <%= f.label :address, "Address" %>
-
-        <%= f.text_field :address %>
-
-        <%= f.submit "Create Cause", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
+
 </div>

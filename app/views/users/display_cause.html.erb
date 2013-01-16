@@ -6,7 +6,7 @@
   <%= form_tag save_causes_user_path(@user), :method => :post ,:html => { :class => "bs-docs-example form-horizontal"} do %>
       <table  class="table table-hover" >
         <% @causes.each do |cause| %>
-            <tr>
+            <tr class="well the-fieldset">
 
               <td class ="td1">
                 <div class="control-group">
