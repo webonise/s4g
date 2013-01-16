@@ -4,7 +4,7 @@
 <br>
 <div>
   <%= form_tag  :method => :get, :html => { :class => "bs-docs-example form-horizontal"} do %>
-
+      <%= link_to 'Create Cause',  admins_causes_new_path, :method => :get,:class => "btn", :id => "create_cause_btn" %>
       <br>
       <br>
       <br>
@@ -29,9 +29,9 @@
               </td>
               <td class="td2">
                 <div class="control-group">
-                  <span class="manage_cause_span"><%=  link_to "view" %></span>
-                  <span class="manage_cause_span"> <%=  link_to "edit" %></span>
-                  <span class="manage_cause_span"><%=  link_to "delete" %></span>
+                  <span class="manage_cause_span "><%=  link_to "view"  ,cause_path(cause),:method => :get %></span>
+                  <span class="manage_cause_span"> <%=  link_to "edit" , edit_cause_path(cause), :method => :get%></span>
+                  <span class="manage_cause_span"><%=  link_to "delete"  ,cause_path(cause),:confirm => 'Are you sure you want to delete this cause?',:method => :delete,:id => "destroy-cause"%></span>
                 </div>
               </td>
             </tr>
