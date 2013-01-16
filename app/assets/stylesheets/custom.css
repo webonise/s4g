@@ -301,13 +301,20 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
     margin-right: 10px;
 }
 
+.btn-large {
+    font-size: 20.5px;
 
-
+}
 
 .skip_btn {
-    height: 112px;
-    width: 99px;
+    color: white;
+    font-family: 'Times New Roman';
+    font-size: 49px;
+    height: 89px;
+    margin-top: 7px;
+    padding-top: 19px;
     text-align: center;
+    width: 101px;
 }
 .sfg_header_size
 {
@@ -327,4 +334,15 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
     display: block;
     text-align: center;
 }
+.sfg-home-btn
+{
+    padding: 29px 19px;
+}
+.navbar-inner
+{
+    color: #87cefa;
+}
 
+.navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    width: 1385px;
+}
