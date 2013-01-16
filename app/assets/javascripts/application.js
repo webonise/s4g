@@ -181,6 +181,14 @@ $(document).ready(function() {
 
     $('.color_box_create_cause').colorbox();
 });
+$(document).ready(function() {
+
+    $('.color_box_edit_cause').colorbox();
+});
+$(document).ready(function() {
+
+    $('.color_box_view_cause').colorbox();
+});
 
 /* dropdown */
 $(document).ready(function() {
