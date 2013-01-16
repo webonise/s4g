@@ -35,9 +35,12 @@ S4g::Application.routes.draw do
       get :get_businesses
 
       get :share_on_facebook
-      #get :sign_up_facebook
+      get :sign_up_facebook
       get :sign_up
       get :callback
+      get :edit_user_causes
+      get :edit_businesses_of_user
+
     end
   end
 
@@ -69,7 +72,7 @@ S4g::Application.routes.draw do
   match '/business_user_signup', :to => 'business_users#new', :as => 'business_user_sign_up'
   match '/business_details', to: 'business_users#get_business_detail', :as => 'business_details'
   match '/index' ,  :to => 'causes#index'
-  match '/admins/causes/new' , :to => 'admin/causes#new ' , :as =>'/admins/causes/new'
+ #s match '/admins/causes/new' , :to => 'admin/causes#new ' , :as =>'/admins/causes/new'
 
   root :to => 'static_pages#home'
 

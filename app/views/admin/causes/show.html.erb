@@ -6,49 +6,49 @@
     <%= form_tag  :method => :get, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do %>
 
         <div class="control-group" id="customText">
-          <%= label_tag  "Name" %>
-          <div class="controls">
-            <%=  @cause.cause_name%>
+          <%= label_tag  "Name: " %>
+          <span>  <%=  @cause.cause_name%> </span>
           </div>
         </div>
 
         <div class="control-group">
-          <%= label_tag  "About the cause" %>
-          <div class="controls">
-            <%=  @cause.description  %>
-          </div>
+          <%= label_tag  "About the cause: " %>
+            <span><%=  @cause.description  %></span>
+
+
         </div>
         <div class="control-group">
           <%= label_tag "Office Location"  %>
-          <div class="controls">
+
             <%=  @cause.location %>
-          </div>
+
         </div>
 
         <div class="control-group">
           <%= label_tag "Logo"  %>
-          <div class="controls">
+
             <%=  @cause.logo %>
-          </div>
+
         </div>
 
 
         <div class="control-group">
           <%= label_tag "Website of the Cause"  %>
-          <div class="controls">
+
             <%=  @cause.url %>
-          </div>
+
         </div>
 
         <div class="control-group">
           <%= label_tag  "Contact_no" %>
-          <div class="controls">
+
             <%=  @cause.contact_no %>
-          </div>
+
         </div>
         <div class="control-group">
           <div class="controls">
-            <%= button_tag 'OK', :class => "btn btn-large btn-primary" %>
+            <%#= link_to "Ok" ,:class => "btn btn-large btn-primary" %>
+            <%= link_to "Ok", show_admin_dashboard_admins_path, :class => "btn btn-large btn-primary" %>
           </div>
         </div>
 

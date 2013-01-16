@@ -26,7 +26,7 @@
                     Welcome, <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-                    <li><%= link_to "Manage Cause" %></li>
+                    <li><%= link_to "Manage Cause",show_admin_dashboard_admins_path%></li>
                     <li class="divider"></li>
                     <li><%= link_to "Manage Business" %></li>
                     <li class="divider"></li>
@@ -45,6 +45,10 @@
                     Hello,  <%= current_person.first_name %> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
+                    <li><%= link_to "Edit Causes",edit_user_causes_user_path(current_person)%></li>
+                    <li class="divider"></li>
+                    <li><%= link_to "Edit Businesses", edit_businesses_of_user_user_path(current_person)%></li>
+                    <li class="divider"></li>
                     <!--<li class="divider"></li>-->
                     <li>
                         <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>

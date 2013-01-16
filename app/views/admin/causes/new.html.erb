@@ -4,7 +4,7 @@
   <div class="span5 offset2">
     <h1> </h1>
 
-    <%= form_for @cause, :url=> show_admin_dashboard_admins_path, :method => :post, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
+    <%= form_for @cause, :url=> causes_path, :method => :post, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
 
         <%#= render 'error_messages', :object => f.object %>
 
@@ -51,7 +51,8 @@
         </div>
         <div class="control-group">
           <div class="controls">
-            <%= f.submit 'Add', :class => "btn btn-large btn-primary" %>
+            <%= f.submit 'Add', :class => "btn" %>
+          <span> <%= link_to "Cancel", show_admin_dashboard_admins_path,:class =>"btn" %> </span>
           </div>
         </div>
 
