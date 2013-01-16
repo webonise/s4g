@@ -200,11 +200,15 @@ class UsersController < ApplicationController
 
   def edit_user_causes
     @user = User.find(params[:id])
-    @causes = @user.causes
+    @user_causes = @user.causes
+    @all_causes = Cause.all
+    @causes = @user_causes | @all_causes
+
  end
 
   def edit_businesses_of_user
-    @businesses = User.find(params[:id]).business_companies
+    @user = User.find(params[:id])
+    @businesses =@user .business_companies
   end
    def update_user_causes
 
