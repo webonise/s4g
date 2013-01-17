@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def display_cause
     @user = User.find(params[:id])
     @causes = Cause.includes(:business_companies).all
+    #@causes = Cause.paginate(page: params[:page])
   end
 
   def save_causes

@@ -1,66 +1,46 @@
 <div class="row">
-  <div class="span5 offset2">
-    <h1> </h1>
+  <div class="span5 offset2" id="cause_view">
+    <fieldset>
+      <legend>Cause-Details</legend>
+      <%= form_tag  :method => :get, :html => { :class => 'form-horizontal' }  do %>
 
-    <%= form_tag  :method => :get, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do %>
-        <table>
-          <tr>
-            <td>
-              <div class="control-group">
-                <%= label_tag  "Name: " %>
+          <table id="show_table">
 
-                <span><%=  @cause.cause_name%> </span>
+            <tr>
+              <td>Name</td>
+              <td><%=  @cause.cause_name%> </td>
+            </tr>
 
-              </div>
-            </td>  </tr>
+            <tr>
+              <td>About the cause </td>
+              <td><%=  @cause.description  %></td>
+            </tr>
 
-          <td>
-            <div class="control-group">
-              <%= label_tag  "About the cause: " %>
-              <div>
-                <span><%=  @cause.description  %></span>
-              </div>
-            </div>
-          </td>
+            <tr>
+              <td>Office Location</td>
+              <td><%=  @cause.location %></td>
+            </tr>
 
-          <div class="control-group">
-            <%= label_tag "Office Location"  %>
-            <span> <%=  @cause.location %> </span>
-          </div>
+            <tr>
+              <td>Logo</td>
+              <td><%=  image_tag(@cause.logo) %></td>
+            </tr>
 
-          <div class="control-group">
-            <%= label_tag "Logo"  %>
+            <tr>
+              <td>Website of the Cause </td>
+              <td><%=  @cause.url %></td>
+            </tr>
 
-            <span><%=  @cause.logo %> </span>
-
-          </div>
-
-
-          <div class="control-group">
-            <%= label_tag "Website of the Cause"  %>
-            <span><%=  @cause.url %></span>
-          </div>
-
-          <div class="control-group">
-            <%= label_tag  "Contact_no" %>
-            <span><%=  @cause.contact_no %></span>
-
-          </div>
-          <div class="control-group">
-            <div class="controls">
-
-              <%= link_to "Back", show_admin_dashboard_admins_path, :class => "btn btn-large btn-primary" %>
-            </div>
-          </div>
-
-    <% end %>
-
-    </table>
+            <tr>
+              <td>Contact_no</td>
+              <td><%=  @cause.contact_no %></td>
+            </tr>
+      <% end %>
+      </table>
+      <br>
+      <br>
+      <%= link_to "Back", show_admin_dashboard_admins_path, :class => "btn btn-large btn-primary" ,id:"create_cause_btn" %>
+    </fieldset>
   </div>
+
 </div>
-
-
-
-
-
-

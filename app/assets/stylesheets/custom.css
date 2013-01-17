@@ -422,3 +422,33 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 .show_admin_dashboard_td2{
     width :200px;
 }
+#show_table tr td:first-child{
+    font-weight: bold;
+}
+
+table#show_table {
+    border-collapse: separate;
+    border-spacing: 7px;
+}
+
+#cause_view fieldset {
+    border: 1px solid black;
+    margin: 0;
+    padding: 16px;
+}
+#cause_view fieldset legend {
+    moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-image: none;
+    border-style: none;
+    border-width: 0;
+    color: #333333;
+    display: block;
+    font-size: 15px;
+    line-height: 40px;
+    margin-bottom: 0;
+    padding: 0;
+    width: 100px;
+}
