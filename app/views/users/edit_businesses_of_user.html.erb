@@ -3,24 +3,17 @@
 </div>
 <br>
 <%= form_tag save_business_user_path(@user), :method => :post,:html => { :class => "bs-docs-example form-horizontal"} do %>
+
     <table class="table table-hover">
 
-
-      <% @user_causes.each do |user_cause| %>
-          <% user_cause.business_companies.each do |business| %>
+          <% @all_businesses.each do |business| %>
               <tr>
 
                 <td class = "td1">
                   <div class="control-group">
-                    <%= check_box_tag "business_select[]", business.id %>
+                  <%= check_box_tag "business_select[]", business.id %>
                   </div>
                 </td>
-                <!--
-                <td class= "td2" >
-                  <div class="control-group">
-                    <%#= link_to image_tag(business.logo,:class=>"img"), business%>
-                  </div>
-                </td> -->
                 <td>
                   <div class="control-group">
                     <%= link_to business.business_name %>
@@ -28,7 +21,7 @@
                 </td>
 
           <%end %>
-      <%end %>
+
       <tr>
         <td></td>
         <td></td>
