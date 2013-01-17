@@ -53,18 +53,17 @@
         <div class="row">
           <h5 id="sfg_select_cause_header">Select a cause</h5>
           <%= select_tag "cause", options_from_collection_for_select(@causes, "id", "cause_name"), :prompt => "Select cause", :id => "sf_cause_drop_down" %>
-
           <button type="button" class="btn" id="sfg_view_cause_btn">View Details</button>
 
         </div>
 
-        <div class="row">
-
-
+        <div id="sfg_see_cause">
+          <div class="" id="sfg_about_cause_b_sign_up">
           </div>
         </div>
-
       </div>
+
+    </div>
     </div>
     <div class="row">
       <div class="span1 offset9">
@@ -104,6 +103,12 @@
                 },
                 "business_user[business_company_attributes][description]": {
                     minlength: 50
+                },
+                "cause":{
+                    required: true
+                },
+                "business_user[business_company_attributes][business_website]": {
+                    required: true
                 }
             }
         });
@@ -112,7 +117,7 @@
         //hide and show activity of view details button
         $("#sfg_about_cause_b_sign_up").hide();
         $("#sfg_view_cause_btn").click(function(){
-        $("#sfg_about_cause_b_sign_up").show();
+            $("#sfg_about_cause_b_sign_up").show();
         });
 
         //ajax call for display cause

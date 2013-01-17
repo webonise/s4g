@@ -45,9 +45,9 @@ S4g::Application.routes.draw do
   end
 
   resource :causes do
-    #member do
-    #  get :display_cause_business_sign_up
-    #end
+    member do
+      get :display_cause_business_sign_up
+    end
   end
 
   resources :business_users do

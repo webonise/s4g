@@ -1,6 +1,7 @@
+<%= javascript_include_tag "jquery.validate"%>
 <div class="row">
   <div class="span9" id="sfg_show_post_note">
-    Note: For every post that is shared by a user, you would be donating 30 cents to your charity/cause
+    <b>Note:</b> For every post that is shared by a user, you would be donating 30 cents to your charity/cause
   </div>
 </div>
 <div class="row">
@@ -39,3 +40,15 @@
       </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+    $("#new_post").validate({
+        rules: {
+            "post[content]":{
+                required: true,
+                maxlength: 140
+            }
+        }
+    })
+</script>
+

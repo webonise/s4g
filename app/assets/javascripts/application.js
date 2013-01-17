@@ -16,20 +16,20 @@
 //= require jquery.validate.js
 //= require jquery.colorbox.js
 //= require bootstrap
-
+//= require_tree .
 
 /* VALIDATION*/
 $(document).ready(function() {
     $("#new_person").validate({
         rules: {
-                "person[email]": {
-                    required:true,
-                    email:true
-                },
-                "person[password]": {
-                    required:true,
-                    minlength: 6
-                }
+            "person[email]": {
+                required:true,
+                email:true
+            },
+            "person[password]": {
+                required:true,
+                minlength: 6
+            }
         }
     });
 
@@ -88,13 +88,13 @@ $(document).ready(function() {
 //        }
 //    });
 
-    $("#new_post").validate({
-        rules: {
-            "post[content]":{
-                maxlength: 140
-            }
-        }
-    });
+//    $("#new_post").validate({
+//        rules: {
+//            "post[content]":{
+//                maxlength: 140
+//            }
+//        }
+//    });
 
 
     $(".sfg_edit_cause").validate({
