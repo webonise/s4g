@@ -92,11 +92,11 @@ $(document).ready(function() {
     });
 
     $("#new_post").validate({
-       rules: {
-           "post[content]":{
-               maxlength: 140
-           }
-       }
+        rules: {
+            "post[content]":{
+                maxlength: 140
+            }
+        }
     });
 
 });
@@ -114,14 +114,14 @@ $(document).ready(function() {
 
 
 //$(function() {
-  //  $(document).on('click', '.btn', function () {
-  //      var myBookcaseItemId = $(this).data('id');
-        // send an AJAX request to fetch the data
-  //      $.get(this.href, { id: myBookcaseItemId }, function(data) {
-  //          $('#business_popup').html('data').modal('show');
-     //   });
-   //     return false;
-    //});
+//  $(document).on('click', '.btn', function () {
+//      var myBookcaseItemId = $(this).data('id');
+// send an AJAX request to fetch the data
+//      $.get(this.href, { id: myBookcaseItemId }, function(data) {
+//          $('#business_popup').html('data').modal('show');
+//   });
+//     return false;
+//});
 //});
 //$("#new_person").validate();
 //$("#new_person").validate({
@@ -174,7 +174,7 @@ $(document).ready(function() {
 /*colorbox */
 $(document).ready(function() {
 
-   $('.colorbox').colorbox();
+    $('.colorbox').colorbox();
 
 });
 
@@ -199,7 +199,7 @@ $(document).ready(function() {
 
 /* dropdown */
 $(document).ready(function() {
-$('.dropdown-toggle').dropdown()
+    $('.dropdown-toggle').dropdown()
 
 });
 
