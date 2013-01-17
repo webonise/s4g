@@ -14,6 +14,8 @@ S4g::Application.routes.draw do
         collection  do
           get :show_admin_dashboard
           get :show_admin_dashboard_business
+          get :view_donation
+          get :get_businesses_admin
           resources :causes
           resources :business_companies
         end
