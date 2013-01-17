@@ -6,11 +6,15 @@
   <div class="modal-body">
     <h5>Businesses supporting to this Cause</h5>
     <ol>
-    <%  businesses.each do |business|%>
+      <% if businesses.present? %>
+          <%  businesses.each do |business|%>
 
-          <li><%= business.business_name%></li>
+              <li><%= business.business_name%></li>
 
-    <%end %>
+          <%end %>
+      <% else %>
+          None
+      <% end %>
     </ol>
   </div>
   <div class="modal-footer">

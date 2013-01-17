@@ -21,13 +21,6 @@
           </div>
         </div>
 
-        <!--<div class="control-group">-->
-        <!--<%#= f.label :designation, "Designation", :class => 'control-label'  %>-->
-        <!--<div class="controls">-->
-        <!--<%#= f.text_field :designation, :class => 'text_field required email' %>-->
-        <!--</div>-->
-        <!--</div>-->
-
         <div class="control-group">
           <%= f.label :email, "Email ID", :class => 'control-label'  %>
           <div class="controls">
@@ -94,93 +87,15 @@
 
     });
 
-    jQuery(document).ready(function(){
-
-       $("#sfg_view_cause_btn").click(function(){
-            var cause_id = $(".sfg_select_cause").val();
-            $.ajax({
-               type: "get" ,
-               url: "..//causes/display_cause_business_sign_up"   ,
-               data: { id :cause_id}
-            }).done(function(response){
-                     $('#sfg_cause_details').html(response);
-                    });
-        });
-
+    $("#sfg_view_cause_btn").click(function(){
+        var cause_id = $("#sf_cause_drop_down").val();
+        $.ajax({
+            type: "get" ,
+            url: "../causes/display_cause_business_sign_up"   ,
+            data: { id :cause_id}
+        }).done(function(response){
+                    $('#sfg_cause_details').html(response);
+                });
     });
 
 </script>
-
-<!--<h4 id="sfg_select_cause_header">Select a cause</h4>-->
-
-<!--<select class="sfg_select_cause">-->
-<!--<option selected="selected">---Please Select Cause---</option>-->
-<!--<%# @causes.each do |record| %>-->
-<!--<%# @cause_name = record.cause_name %>-->
-<!--<option value="#{@cause_name}" ><%#= @cause_name %></option>-->
-<!--<%# end %>-->
-<!--</select>-->
-
-<!--<button class="btn">View Details</button>-->
-
-
-<!--<div class="control-group">-->
-<!--<div class="controls">-->
-<!--<%#= f.submit 'Sign Up', :class => "btn btn-large btn-primary" %>-->
-<!--<button type="submit" class="btn btn-large btn-primary">Sign Up</button>-->
-<!--</div>-->
-<!--</div>-->
-
-
-
-
-
-<!--<div class ="span4">-->
-<!--<h2>General Details</h2>-->
-<!--<div class="span5 offset3">-->
-<!--<h2 id="b_user_sign_up_nm"> Business User Sign up</h2>-->
-
-<!--<%#= form_for @business_user, :method => "post", :html => { :class => 'form-horizontal sfg_business_user_sign_up' } do |f| %>-->
-
-<!--<%#= render 'error_messages', object: f.object %>-->
-
-<!--<div class="control-group" id="customText">-->
-<!--<%#= f.label :name, "Name", :class => 'control-label' %>-->
-<!--<div class="controls">-->
-<!--<%#= f.text_field :first_name, :placeholder => "First Name", :class => 'text_field custom-text' %>-->
-
-<!--<%#= f.text_field :last_name, :placeholder => "Last Name", :class => 'text_field custom-text' %>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="control-group">-->
-<!--<%#= f.label :email, "Email ID", :class => 'control-label'  %>-->
-<!--<div class="controls">-->
-<!--<%#= f.text_field :email , :class => 'text_field required email' %>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div class="control-group">-->
-<!--<%#= f.label :password, "Password", :class => 'control-label'  %>-->
-<!--<div class="controls">-->
-<!--<%#= f.password_field :password, :class => 'text_field' %>-->
-<!--</div>-->
-<!--</div>-->
-
-
-<!--<div class="control-group">-->
-<!--<%#= f.label :password_confirmation, "Confirm Password", :class => 'control-label'  %>-->
-<!--<div class="controls">-->
-<!--<%#= f.password_field :password_confirmation , :class => 'text_field', :id => 'pass_confirm' %>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<div class="control-group">-->
-<!--<div class="controls">-->
-
-<!--<%#= f.submit 'Sign Up', :class => "btn btn-large btn-primary" %>-->
-<!--</div>-->
-<!--</div>-->
-
-<!--<%# end %>-->
-<!--</div>-->
-

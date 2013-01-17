@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_person! , :only => [:display_cause, :display_businesses_of_causes, :display_dash_board_user]
+  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user]
 
   def index
     @users = User.all
@@ -57,8 +57,6 @@ class UsersController < ApplicationController
           flash[:success] = "Businesses submitted!"
         end
       end
-
-
       redirect_to  display_dash_board_user_user_path(@user)
     else
       flash[:error] = "Please select atleast one Business"
@@ -71,7 +69,7 @@ class UsersController < ApplicationController
     @businesses=@user.business_has_users
 
     @businesses.each do |business|
-      @business=@businesses.find(business.id) rescue nil
+      @business = @businesses.find(business.id) rescue nil
       @posts = @business.posts  rescue nil
     end
 
@@ -145,8 +143,8 @@ class UsersController < ApplicationController
       @@old_user = false
     end
 
-    @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-                                         :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+    @@client = FacebookOAuth::Client.new(:application_id => APP_ID,
+                                         :application_secret => APP_SECRET_KEY,
                                          :callback => 'http://local.s4g.com/users/'+@user.id.to_s+'/callback')
     url = @@client.authorize_url
     redirect_to url
@@ -199,8 +197,8 @@ class UsersController < ApplicationController
       flash[:notice] = "You must be registered with Facebook to do that."
       redirect_to sign_up_facebook_user_path(@user, :old_user => true, :post => post)
     else
-      @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-                                           :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+      @@client = FacebookOAuth::Client.new(:application_id => APP_ID,
+                                           :application_secret => APP_SECRET_KEY,
                                            :token => token)
 
       @@client.authorize_url(:scope => 'publish_stream')
@@ -228,7 +226,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_causes = @user.causes
     @all_causes = Cause.all
-    @causes = @user_causes | @all_causes
+    @causes = @all_causes - @user_causes
 
   end
 
@@ -243,7 +241,7 @@ class UsersController < ApplicationController
       cause_businesses.push(cause.business_companies)
     end
 
-    @all_businesses = @user_businesses | cause_businesses.flatten
+    @all_businesses = cause_businesses.flatten - @user_businesses
 
   end
 

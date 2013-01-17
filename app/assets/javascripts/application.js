@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.validate
+//= require jquery.validate.js
 //= require jquery.colorbox
 //= require bootstrap
 //= require_tree .
@@ -88,13 +88,36 @@ $(document).ready(function() {
     });
 
     $("#new_post").validate({
-       rules: {
-           "post[content]":{
-               maxlength: 140
-           }
-       }
+        rules: {
+            "post[content]":{
+                maxlength: 140
+            }
+        }
     });
 
+
+    $(".sfg_edit_cause").validate({
+        rules: {
+            "cause[cause_name]":{
+                required: true,
+                maxlength:50
+            },
+            "cause[url]": {
+                url:true
+            },
+            "cause[logo]":{
+                required:true
+            },
+            "cause[contact_no]":{
+                required:true,
+                digits: true ,
+                minlength:10,
+                maxlength: 10
+            }
+
+        }
+    });
+    $('.color_box_create_cause').colorbox();
 });
 
 ///*hide and show selected cause sign up business user*/
@@ -110,14 +133,14 @@ $(document).ready(function() {
 
 
 //$(function() {
-  //  $(document).on('click', '.btn', function () {
-  //      var myBookcaseItemId = $(this).data('id');
-        // send an AJAX request to fetch the data
-  //      $.get(this.href, { id: myBookcaseItemId }, function(data) {
-  //          $('#business_popup').html('data').modal('show');
-     //   });
-   //     return false;
-    //});
+//  $(document).on('click', '.btn', function () {
+//      var myBookcaseItemId = $(this).data('id');
+// send an AJAX request to fetch the data
+//      $.get(this.href, { id: myBookcaseItemId }, function(data) {
+//          $('#business_popup').html('data').modal('show');
+//   });
+//     return false;
+//});
 //});
 //$("#new_person").validate();
 //$("#new_person").validate({
@@ -167,51 +190,47 @@ $(document).ready(function() {
 
 //});
 
-///*colorbox */
-//$(document).ready(function() {
-//
-//   $('.colorbox').colorbox();
-//
-//});
-//
-//$(document).ready(function() {
-//
-//    $('.colorbox1').colorbox();
-//
-//});
-//
-//$(document).ready(function() {
-//
-//    $('.color_box_create_cause').colorbox();
-//});
-//$(document).ready(function() {
-//
-//    $('.color_box_edit_cause').colorbox();
-//});
-//$(document).ready(function() {
-//
-//    $('.color_box_view_cause').colorbox();
-//});
-//
-///* dropdown */
-//$(document).ready(function() {
-//$('.dropdown-toggle').dropdown()
-//
-//});
+/*colorbox */
+$(document).ready(function() {
 
-//function confirmDestroy() {var x;
-//    var r=confirm("Are you sure you want to delete this business?");
-//    if (r==true)
-//    {
-//        x="You pressed Yes!";
-//    }
-//    else
-//    {
-//        x="You pressed NO!";
-//    }
-//}
-//$(function(){
-//    $('#destroy-business').click(function() {
-//        return confirmDestroy();
-//    });
-//});
+    $('.colorbox').colorbox();
+
+});
+
+$(document).ready(function() {
+
+    $('.colorbox1').colorbox();
+
+});
+
+/*$(document).ready(function() {
+
+ $('.color_box_create_cause').colorbox();
+ }); */
+$(document).ready(function() {
+
+    $('.color_box_view_cause').colorbox();
+});
+
+/* dropdown */
+$(document).ready(function() {
+    $('.dropdown-toggle').dropdown()
+
+});
+
+function confirmDestroy() {var x;
+    var r=confirm("Are you sure you want to delete this business?");
+    if (r==true)
+    {
+        x="You pressed Yes!";
+    }
+    else
+    {
+        x="You pressed NO!";
+    }
+}
+$(function(){
+    $('#destroy-business').click(function() {
+        return confirmDestroy();
+    });
+});

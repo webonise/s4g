@@ -1,5 +1,5 @@
 class Admin::CausesController < ApplicationController
-  # before_filter :authenticate_person! , :only => [:create, :edit, :update, :destroy]
+   before_filter :authenticate_person! , :only => [:create, :edit, :update, :destroy, :show]
 
   def new
     @cause = Cause.new
@@ -12,7 +12,7 @@ class Admin::CausesController < ApplicationController
       flash[:success] = " cause Created successfully!"
       redirect_to show_admin_dashboard_admins_path
     else
-      render '/new'
+      render 'new'
     end
   end
 
@@ -27,7 +27,7 @@ class Admin::CausesController < ApplicationController
       flash[:success]= "Cause Updated Successfully"
      redirect_to   show_admin_dashboard_admins_path
     else
-      render '/edit'
+      render 'edit'
     end
   end
 
@@ -41,7 +41,7 @@ class Admin::CausesController < ApplicationController
       redirect_to  show_admin_dashboard_admins_path
     else
       @cause.destroy
-      redirect_to show_admin_dashboard__admins_path
+      redirect_to show_admin_dashboard_admins_path
     end
   end
 end

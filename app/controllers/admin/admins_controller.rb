@@ -1,9 +1,8 @@
 class Admin::AdminsController < ApplicationController
-
+  before_filter :authenticate_person! , :only => [:show_admin_dashboard, :show_admin_dashboard_business ]
   def show_admin_dashboard
     if current_person.admin?
       @admin=Person.find(current_person.id)
-      #logger.info("###############################{@admin.id}")
       @causes=Cause.all
     end
   end
@@ -19,9 +18,9 @@ class Admin::AdminsController < ApplicationController
   def view_donation
 
     causes = Cause.includes(:business_companies).all
-     cost_count = Array.new
-     @cause_list = Array.new
-     cause_fund_hash = Hash
+    cost_count = Array.new
+    @cause_list = Array.new
+    cause_fund_hash = Hash
     causes.each do |cause|
       businesses = cause.business_companies
       business_post = Post.find_all_by_business_company_id(businesses.collect{|i| i.id})
@@ -36,7 +35,6 @@ class Admin::AdminsController < ApplicationController
 
   def get_businesses_admin
     @business_cause_money = Array.new
-    #cost_count = Array.new
     cause = Cause.find(params[:cause])
     businesses = cause.business_companies
     imp_hash = Hash.new
@@ -56,10 +54,3 @@ class Admin::AdminsController < ApplicationController
 
   end
 end
-
-
-
-
-
-
-
