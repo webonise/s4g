@@ -1,12 +1,13 @@
 <div class="row">
-  <div class="code span14 offset 13"><h2>Select Causes from following list</h2></div>
+  <div class="code span14 offset 13"><h3>Select Causes from following list</h3></div>
 </div>
 <br>
 <div>
+
   <%= form_tag save_causes_user_path(@user), :method => :post ,:html => { :class => "bs-docs-example form-horizontal"} do %>
       <table  class="table table-hover" >
         <% @causes.each do |cause| %>
-            <tr class="well the-fieldset">
+            <tr>
 
               <td class ="td1">
                 <div class="control-group">
@@ -15,15 +16,15 @@
               </td>
               <td class="td2">
                 <div class="control-group">
-                  <%= link_to image_tag(cause.logo,:class=>"img")%>
+                  <%=  image_tag(cause.logo,:class => "logo_image")%>
                 </div>
               </td>
               <td>
                 <div class="control-group">
                   <%=  cause.cause_name %>
                   <div>
-                 <%= link_to "Businesses", get_businesses_user_path(@user, :cause => cause), :method => :get,"data-toggle" => "modal", :remote => true%>
-                  <span> ( <%= count_businesses(cause) %> ) </span> </div>
+                    <%= link_to "Businesses", get_businesses_user_path(@user, :cause => cause), :method => :get,"data-toggle" => "modal", :remote => true%>
+                    <span> ( <%= count_businesses(cause) %> ) </span> </div>
                   <div id="test">
 
                   </div>
@@ -40,7 +41,7 @@
           <td>
             <div class="control-group">
               <div class="controls" >
-                <%= submit_tag 'Next', :class => "btn" ,  :onsubmit => "this.disabled = true" %>
+                <%= submit_tag 'Next', :class => "btn" , id:"create_cause_btn", :onsubmit => "this.disabled = true" %>
               </div>
             </div>
           </td>
@@ -48,4 +49,5 @@
 
       </table>
   <%end%>
+
 </div>

@@ -1,0 +1,33 @@
+<<<<<<< HEAD
+=======
+<div class="span7 home_page_fields" >
+  <fieldset>
+    <legend>SIGN-UP</legend>
+
+    <div class='hero-unit'>
+      <div class='row'>
+        <div class='span2'>
+
+          <%= link_to "I OWN A BUSINESS", new_business_user_path, class: "btn btn-large btn-info sfg_signup sfg-home-btn" %>
+        </div>
+        <div class='span2 offset1'>
+
+          <%= link_to "I AM A USER", new_user_path, :class => "btn btn-large btn-info sfg_signup sfg-home-btn", :id => "sfg_color_box" %>
+        </div>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+<div class="span5 home_page_fields">
+  <fieldset>
+    <legend>SIGN-IN</legend>
+    <div class='hero-unit'>
+      <div class='row'>
+        <%= render :partial =>"shared/login" %>
+      </div>
+    </div>
+  </fieldset>
+</div>
+
+>>>>>>> f584885a797553ef6abfd9cb1a7b24254aa8622e

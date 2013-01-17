@@ -15,27 +15,27 @@
 <div class="span7offset5">
   <% if @business_company.posts.any? %>
       <div class="well the-fieldset">
-      <div id="heading_recent_post">
-        <legend class="the-legend"> RECENT POSTS (<%= @business_company.posts.count %>)</legend>
-      </div>
-      <div class="pagination">
-        <ol class="posts">
-          <% @posts.each do |post|  %>
-              <li>
-                <% if (post.content =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]).nil?  %>
-                <span class="content"><%= post.content %></span>
-                <% else %>
-                    <span class="content"><%=link_to post.content, post.content, :target => '_blank'%></span>
-                <% end %>
-                <span class="timestamp">
+        <div id="heading_recent_post">
+          <legend class="the-legend"> RECENT POSTS (<%= @business_company.posts.count %>)</legend>
+        </div>
+        <div class="pagination">
+          <ol class="posts">
+            <% @posts.each do |post|  %>
+                <li>
+                  <% if (post.content =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]).nil?  %>
+                      <span class="content"><%= post.content %></span>
+                  <% else %>
+                      <span class="content"><%=link_to post.content, post.content, :target => '_blank'%></span>
+                  <% end %>
+                  <span class="timestamp">
                     Posted <%= time_ago_in_words(post.created_at) %> ago.
                 </span>
-              </li>
-          <% end %>
-          <%#= render :partial => "posts/post", :locals => {:posts => @posts} %>
-        </ol>
-        <%= will_paginate @posts %>
-      </div>
+                </li>
+            <% end %>
+            <%#= render :partial => "posts/post", :locals => {:posts => @posts} %>
+          </ol>
+          <%= will_paginate @posts %>
+        </div>
       </div>
   <% end %>
 </div>

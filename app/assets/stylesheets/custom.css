@@ -1,0 +1,484 @@
+
+/* forms */
+
+/*.submit { margin-left: 125px; margin-top: 10px;}*/
+/*.label { display: block; float: left; width: 120px; text-align: right; margin-right: 5px; }*/
+/*.form-row { padding: 5px 0; clear: both; width: 700px; }*/
+/*label.error { width: 250px; display: block; float: left; color: red; padding-left: 10px; }*/
+/*input[type=text], textarea { width: 250px; float: left; }*/
+/*textarea { height: 50px; }*/
+
+
+
+.s4g_container{
+    margin-bottom: 80px;
+}
+
+/*Business User Selects Cause */
+#sfg_select_cause_part{
+    margin-top: 32px;
+}
+
+.sfg_select_cause {
+    border: 1px solid #BBBBBB;
+    margin-left: 30px;
+    margin-top: 5px;
+    padding: 5px;
+    width: 35%;
+}
+
+#sfg_cause_drop_down{
+
+    /*width: 30%;*/
+    /*margin-left: 30px;*/
+    /*padding: 6px;*/
+    margin-left: 20px;
+    margin-top: 5px;
+    width: 150px;
+}
+
+.display_cause{
+    margin-top: -70px;
+}
+
+select{
+    width: 149px;
+    margin-left: 55px;
+    background-color: white;
+    border: 1px solid #CCC;
+}
+
+#sfg_view_cause_btn{
+    margin-top: -2px;
+    margin-right: -5px;
+}
+
+
+#sfg_select_cause_header{
+    float: left;
+    margin-left: 10px;
+    text-align: left;
+    font-family: verdana,sans-serif;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+#sfg_about_cause_b_sign_up{
+
+}
+
+input, textarea,.uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+@include box_sizing;
+}
+/*input {*/
+/*height: auto !important;*/
+/*}*/
+
+/* posts */
+
+.posts {
+    list-style: none;
+    margin: 10px 0 0 0;
+}
+
+.posts li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+    line-height: 20px;
+}
+
+#sfg_post_link {
+    color:#424242;
+}
+.posts .content {
+    display: block;
+    margin-top: 15px;
+    font-size: 18px;
+    color: #424242;
+
+}
+.posts .timestamp {
+    color: #d3d3d3;
+    font-size: 13px;
+    float: right;
+    margin-right: 100px;
+}
+
+.posts .sponsor-tag-img{
+    float: right;
+
+}
+
+/* Post form*/
+.sfg_btn_post_submit{
+    float: right;
+    margin-right: -21px;
+}
+
+/*body {*/
+/*background-color: #FFFFFF;*/
+/*color: #333333;*/
+/*font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;*/
+/*font-size: 14px;*/
+/*line-height: 20px;*/
+/*margin: 0;*/
+/*}*/
+/*.nav pull-right .li .hello*/
+/*{*/
+/*padding: 5px 0;*/
+/*top-margin: 25px*/
+/*}*/
+
+/*h1*/
+/*{*/
+/*text-align: center;*/
+/*margin-top: 30px;*/
+/*}*/
+/*.hero-unit*/
+/*{*/
+/*text-align: center;*/
+/*margin-top: 40px;*/
+/*}*/
+/*a*/
+/*{*/
+
+/*}*/
+/*.navbar .brand*/
+/*{*/
+/*font-size: 40px;*/
+/*color: green;*/
+/*height: 5px;*/
+/*margin-left:100px;*/
+/*}*/
+/*.brand{*/
+/*padding-bottom:100px;*/
+/*}*/
+/*sign_up form priyanka */
+.mrng-top {
+    margin-top: 120px;
+}
+
+#customText input {
+    width: 84px;
+}
+
+/*alert adjustment*/
+.alertadjust{
+    padding-top: 10px;
+    margin-top: 25px;
+}
+
+/*display cause Deepti*/
+.img1
+{
+    height :30px;
+    width  :30px
+}
+
+.td1{
+    width: 10px ;
+}
+.td2{
+    width :50px;
+}
+
+/*footer */
+/*.footer .footer-text*/
+/*{*/
+/*margin-bottom: 20px;*/
+
+/*}*/
+
+/*---------------------------------------------------------------------------------------------------*/
+/*complete_page*/
+/*body{*/
+/*width: 940px;*/
+/*margin: 0 auto;*/
+/*padding: 5px;*/
+/*}*/
+
+
+/* home */
+.sfg_signup .sfg_business_user_sign_up{
+    padding: 43px 19px
+}
+
+.sfg_signin{
+    padding:70px;
+}
+
+.sfg_home_btn{
+    text-decoration: none;
+    color: #ffffff;
+}
+.btn_signin {
+    height: 20px;
+    width: 107px;
+}
+.sfg_herounit{
+    border: solid 2px;
+}
+/*Header*/
+
+.sfg_brand_home_link{
+    display: block;
+    float: left;
+    padding: 16px 0px 10px;
+    margin-bottom: -8px;
+    font-size: 36px;
+    font-weight: 200;
+    color:#000000;
+}
+.sfg_brand_home_link:hover {
+    text-decoration: none;
+}
+
+/*.sfg_header_size{*/
+/*background-color: #ffffff;*/
+/*}*/
+
+/*footer*/
+#sfg_footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #90ee90;
+    height: 60px;
+}
+
+.sfg_footer_container  {
+    display: block;
+}
+
+.sfg_muted{
+    float: right;
+    margin-right: 0px;
+    color: #000000;
+    margin-top: 35px;
+}
+
+/*body_left_sign_up_link*/
+.sfg_body_left{
+    float: left;
+    margin-top: 80px;
+    width: 500px;
+    padding: 5px;
+}
+
+.sfg_btn_large_home{
+}
+.sfg_body_right{
+    float: right;
+    margin-top: 80px;
+    width: 500px;
+    padding: 5px;
+
+}
+.sfg_legend_home_page{
+    padding: 3px;
+    border: 1px dotted #eaeaea;
+    background: #eee;
+    border-radius: 7px;
+    font-size: 14px;
+}
+/* clear_fix */
+.clearfix {
+    clear: both;
+}
+
+/*form validation*/
+label.error { float: none; color: red; padding-left: .5em; vertical-align: top; }
+
+
+/* Fieldset For Sign-In */
+.fieldset_sign-in {
+    margin-left: 50px;
+}
+
+
+/* For Hello, User in header */
+.hello{
+    color:#ffffff;
+}
+
+/*error_messages*/
+
+#error_explanation ul li {
+    float: none; color: red; padding-left: .5em;
+}
+
+/*post_form_business_user*/
+.sfg_post_form_text_area {
+    height: 50px;
+    margin-bottom: 5px;
+    margin-top: 32px
+}
+
+#heading_recent_post{
+
+}
+
+/*legend*/
+.the-legend {
+    border-style: none;
+    border-width: 0;
+    font-size: 18px;
+    line-height: 20px;
+    margin-bottom: 0;
+}
+.the-fieldset {
+    border: 2px groove threedface #444;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+    box-shadow:  0px 0px 0px 0px #000;
+    border-radius: 32px;
+}
+
+.well{
+    background-color: #FDFCFC;
+}
+
+/*get business details*/
+#sfg_submit_btn_get_b_details{
+    float: right;
+}
+#sfg_get_b_nm{
+    text-align: right;
+}
+
+/*business user sign up*/
+#b_user_sign_up_nm{
+    text-align: right;
+}
+
+
+
+#create_cause_btn  {
+    float: right;
+}
+#sfg_admin_manage_cause_table th{
+    border-top: medium none;
+}
+
+.manage_cause_span{
+    margin-right: 20px;
+}
+
+.btn-large {
+    font-size: 20.5px;
+
+}
+
+.skip_btn {
+    color: white;
+    font-family: 'Times New Roman';
+    font-size: 49px;
+    height: 89px;
+    margin-top: 7px;
+    padding-top: 19px;
+    text-align: center;
+    width: 101px;
+}
+.sfg_header_size
+{
+    color: #87cefa;
+}
+
+.sfg_color{
+    color: #87cefa;
+}
+
+.user_signup
+{
+    text-align: center;
+}
+.general_details
+{
+    display: block;
+    text-align: center;
+}
+.sfg-home-btn
+{
+    padding: 29px 19px;
+}
+.navbar-inner
+{
+    color: #87cefa;
+}
+
+.navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+    width: 1385px;
+}
+
+
+.navbar.navbar-color{
+    background-color: blue;
+    width: 100%;
+    height: 50px;
+}
+
+.show_admin_dashboard_td1{
+    width: 70px ;
+}
+
+.show_admin_dashboard_td2{
+    width :200px;
+}
+#show_table tr td:first-child{
+    font-weight: bold;
+}
+
+.skip_btn_text{
+    height: 10px;
+}
+.hero-unit_facebook{
+    height: 160px;
+}
+
+.home_page_fields fieldset {
+    border: 1px solid black;
+    margin: 0;
+    padding: 16px;
+}
+
+.home_page_fields fieldset legend {
+    moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-image: none;
+    border-style: none;
+    border-width: 0;
+    color: #333333;
+    display: block;
+    font-size: 21px;
+    line-height: 40px;
+    margin-bottom: 0;
+    padding: 0;
+    width: 87px;
+}
+
+table#show_table {
+    border-collapse: separate;
+    border-spacing: 7px;
+}
+
+#cause_view fieldset {
+    border: 1px solid black;
+    margin: 0;
+    padding: 16px;
+}
+
+#cause_view fieldset legend {
+    font-size: 15px;
+    line-height: 40px;
+    margin-bottom: 0;
+    padding: 0;
+    width: 100px;
+}
+

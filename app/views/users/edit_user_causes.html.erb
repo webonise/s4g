@@ -5,17 +5,46 @@
 <div>
   <%= form_tag save_causes_user_path(@user), :method => :post ,:html => { :class => "bs-docs-example form-horizontal"} do %>
       <table  class="table table-hover" >
-        <% @causes.each do |cause| %>
-            <tr class="well the-fieldset">
+
+        <% @user_causes.each do |user_cause| %>
+            <tr>
 
               <td class ="td1">
                 <div class="control-group">
+
+                  <%= check_box_tag "cause_select[]", user_cause.id,true %>
+                </div>
+              </td>
+              <td class="td2">
+                <div class="control-group">
+                  <%=  image_tag(user_cause.logo,:class=>"img")%>
+                </div>
+              </td>
+              <td>
+                <div class="control-group">
+                  <%=  user_cause.cause_name %>
+                  <div>
+                    <%= link_to "Businesses", get_businesses_user_path(@user, :cause => user_cause), :method => :get,"data-toggle" => "modal", :remote => true%>
+                    <span> ( <%= count_businesses(user_cause) %> ) </span> </div>
+                  <div id="test">
+
+                  </div>
+                </div>
+              </td>
+            </tr>
+        <%end %>
+        <% @causes.each do |cause| %>
+            <tr>
+
+              <td class ="td1">
+                <div class="control-group">
+
                   <%= check_box_tag "cause_select[]", cause.id %>
                 </div>
               </td>
               <td class="td2">
                 <div class="control-group">
-                  <%= link_to image_tag(cause.logo,:class=>"img")%>
+                  <%=  image_tag(cause.logo,:class=>"logo_image")%>
                 </div>
               </td>
               <td>
@@ -40,7 +69,7 @@
           <td>
             <div class="control-group">
               <div class="controls" >
-                <%= submit_tag 'Next', :class => "btn" ,  :onsubmit => "this.disabled = true" %>
+                <%= submit_tag 'Next', :class => "btn" , id:"create_cause_btn", :onsubmit => "this.disabled = true" %>
               </div>
             </div>
           </td>

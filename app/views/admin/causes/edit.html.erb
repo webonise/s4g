@@ -1,10 +1,11 @@
+<%= javascript_include_tag "jquery.validate"%>
 <% provide(:title, 'Edit Cause') %>
 
 <div class="row">
   <div class="span5 offset2">
     <h1> </h1>
 
-    <%= form_for @cause, :url=>cause_path , :method => :put, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
+    <%= form_for @cause, :url=>cause_path , :method => :put, :html => { :class => 'form-horizontal sfg_edit_cause' }  do |f| %>
 
         <%#= render 'error_messages', :object => f.object %>
 

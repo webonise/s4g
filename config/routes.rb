@@ -14,12 +14,14 @@ S4g::Application.routes.draw do
         collection  do
           get :show_admin_dashboard
           get :show_admin_dashboard_business
+          get :view_donation
+          get :get_businesses_admin
           resources :causes
           resources :business_companies
         end
       end
     end
-    end
+  end
 
 
   resources :users do
@@ -30,7 +32,6 @@ S4g::Application.routes.draw do
       post :save_business
       get :display_post
       get :display_dash_board_user
-
       get :get_businesses
       get :show_business
       get :share_on_facebook
@@ -43,12 +44,18 @@ S4g::Application.routes.draw do
     end
   end
 
+  resource :causes do
+    #member do
+    #  get :display_cause_business_sign_up
+    #end
+  end
+
   resources :business_users do
     member do
-      get :get_cause_to_business
-      put :save_business_cause
-      get :get_business_detail
-      post :save_business_detail
+      #get :get_cause_to_business
+      #put :save_business_cause
+      #get :get_business_detail
+      #post :save_business_detail
     end
   end
 
@@ -71,7 +78,7 @@ S4g::Application.routes.draw do
   match '/business_user_signup', :to => 'business_users#new', :as => 'business_user_sign_up'
   match '/business_details', to: 'business_users#get_business_detail', :as => 'business_details'
   match '/index' ,  :to => 'causes#index'
- #s match '/admins/causes/new' , :to => 'admin/causes#new ' , :as =>'/admins/causes/new'
+  #s match '/admins/causes/new' , :to => 'admin/causes#new ' , :as =>'/admins/causes/new'
 
   root :to => 'static_pages#home'
 
