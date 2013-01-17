@@ -50,6 +50,8 @@ S4g::Application.configure do
   APP_ID = '327682274009525'
   APP_SECRET_KEY = 'dde14950ca90f9cea5d248075dcd3ac5'
 
+  # Fixed share value for each share
+  FUND_SEND = 0.30
 
   #config.routes.Admin = :admin
 

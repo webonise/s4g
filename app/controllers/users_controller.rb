@@ -204,6 +204,12 @@ class UsersController < ApplicationController
 
       @@client.authorize_url(:scope => 'publish_stream')
       @@client.me.feed(:create, :message => post.content)
+
+      impression = Impression.new()
+      impression.post_id = post.id
+      impression.user_id = @user.id
+      impression.fund_raise = 30
+      impression.save
       flash[:success] = "Shared on facebook successfully"
       redirect_to display_dash_board_user_user_path(@user)
     end
