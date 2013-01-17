@@ -104,7 +104,7 @@
         var cause_id = $("#sf_cause_drop_down").val();
         $.ajax({
             type: "get" ,
-            url: "..//causes/display_cause_business_sign_up"   ,
+            url: "../causes/display_cause_business_sign_up"   ,
             data: { id :cause_id}
         }).done(function(response){
                     $('#sfg_cause_details').html(response);

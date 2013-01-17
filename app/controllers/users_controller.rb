@@ -143,8 +143,8 @@ class UsersController < ApplicationController
       @@old_user = false
     end
 
-    @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-                                         :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+    @@client = FacebookOAuth::Client.new(:application_id => APP_ID,
+                                         :application_secret => APP_SECRET_KEY,
                                          :callback => 'http://local.s4g.com/users/'+@user.id.to_s+'/callback')
     url = @@client.authorize_url
     redirect_to url
@@ -197,8 +197,8 @@ class UsersController < ApplicationController
       flash[:notice] = "You must be registered with Facebook to do that."
       redirect_to sign_up_facebook_user_path(@user, :old_user => true, :post => post)
     else
-      @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-                                           :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+      @@client = FacebookOAuth::Client.new(:application_id => APP_ID,
+                                           :application_secret => APP_SECRET_KEY,
                                            :token => token)
 
       @@client.authorize_url(:scope => 'publish_stream')
