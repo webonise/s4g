@@ -14,25 +14,21 @@
 //= require jquery_ujs
 //= require jquery.validate
 //= require jquery.colorbox
-// require bootstrap-alert
 //= require bootstrap
 //= require_tree .
 
 /* VALIDATION*/
 $(document).ready(function() {
-    $(".sfg_sign_in").validate({
+    $("#new_person").validate({
         rules: {
-            "person[email]": {
-                required:true,
-                email:true
-            },
-            "person[password]": {
-                required:true,
-                minlength: 6
-            }
-        },
-        submitHandler: function(form) {
-            form.submit();
+                "person[email]": {
+                    required:true,
+                    email:true
+                },
+                "person[password]": {
+                    required:true,
+                    minlength: 6
+                }
         }
     });
 
@@ -171,51 +167,51 @@ $(document).ready(function() {
 
 //});
 
-/*colorbox */
-$(document).ready(function() {
+///*colorbox */
+//$(document).ready(function() {
+//
+//   $('.colorbox').colorbox();
+//
+//});
+//
+//$(document).ready(function() {
+//
+//    $('.colorbox1').colorbox();
+//
+//});
+//
+//$(document).ready(function() {
+//
+//    $('.color_box_create_cause').colorbox();
+//});
+//$(document).ready(function() {
+//
+//    $('.color_box_edit_cause').colorbox();
+//});
+//$(document).ready(function() {
+//
+//    $('.color_box_view_cause').colorbox();
+//});
+//
+///* dropdown */
+//$(document).ready(function() {
+//$('.dropdown-toggle').dropdown()
+//
+//});
 
-   $('.colorbox').colorbox();
-
-});
-
-$(document).ready(function() {
-
-    $('.colorbox1').colorbox();
-
-});
-
-$(document).ready(function() {
-
-    $('.color_box_create_cause').colorbox();
-});
-$(document).ready(function() {
-
-    $('.color_box_edit_cause').colorbox();
-});
-$(document).ready(function() {
-
-    $('.color_box_view_cause').colorbox();
-});
-
-/* dropdown */
-$(document).ready(function() {
-$('.dropdown-toggle').dropdown()
-
-});
-
-function confirmDestroy() {var x;
-    var r=confirm("Are you sure you want to delete this business?");
-    if (r==true)
-    {
-        x="You pressed Yes!";
-    }
-    else
-    {
-        x="You pressed NO!";
-    }
-}
-$(function(){
-    $('#destroy-business').click(function() {
-        return confirmDestroy();
-    });
-});
+//function confirmDestroy() {var x;
+//    var r=confirm("Are you sure you want to delete this business?");
+//    if (r==true)
+//    {
+//        x="You pressed Yes!";
+//    }
+//    else
+//    {
+//        x="You pressed NO!";
+//    }
+//}
+//$(function(){
+//    $('#destroy-business').click(function() {
+//        return confirmDestroy();
+//    });
+//});
