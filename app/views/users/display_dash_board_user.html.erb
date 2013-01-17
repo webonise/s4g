@@ -9,10 +9,10 @@
   </div>
   <div class="pagination">
 
-      <%@business_company.each do |business_company|  %>
+    <%@business_company.each do |business_company|  %>
         <ol class="posts">
 
-            <% business_company.posts.order("created_at DESC").each do |post|  %>
+          <% business_company.posts.order("created_at DESC").each do |post|  %>
               <li>
 
                 <span class="content">
@@ -35,10 +35,10 @@
                     Posted <%= time_ago_in_words(post.created_at) %> ago.
                   </span>
 
-            </li>
-            <% end %>
-            </ol>
-      <% end %>
+              </li>
+          <% end %>
+        </ol>
+    <% end %>
 
     <%#= will_paginate @business_company %>
   </div>

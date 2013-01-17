@@ -9,6 +9,6 @@ class BusinessCompany < ActiveRecord::Base
 
   belongs_to :cause
 
- # has_many :posts, :dependent => destroy
+  # has_many :posts, :dependent => destroy
 
 end
