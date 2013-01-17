@@ -1,4 +1,10 @@
-<div class="navbar  navbar-fixed-top sfg_header_size">
+<!--<header class="navbar navbar-fixed-top navbar-color">-->
+
+<!--</header>-->
+
+
+
+<header class="navbar navbar-fixed-top sfg_header_size navbar-color">
     <div class="navbar-inner sfg_color">
         <div class="container">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -6,15 +12,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </a>
-            <!--<a class="brand" href="#">Sharing For Good!</a>-->
+
             <%= link_to "SHARING FOR GOOD!", root_path, :class => "sfg_brand_home_link" %>
-            <!--<div class="nav-collapse collapse">-->
-            <!--<ul class="nav">-->
-            <!--<li class="active"><a href="#">Home</a></li>-->
-            <!--<li><a href="#about">About</a></li>-->
-            <!--<li><a href="#contact">Contact</a></li>-->
-            <!--</ul>-->
-            <!--</div>&lt;!&ndash;/.nav-collapse &ndash;&gt;-->
+
         </div>
         <ul class="pull-right inline">
             <li><%#= link_to "Home", root_path %></li>
@@ -33,7 +33,7 @@
                     <li><%= link_to "View Donation" %></li>
                     <li class="divider"></li>
                     <li>
-                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
+                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %></li>
                 </ul>
 
             </li>
@@ -42,7 +42,7 @@
 
             <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data toggle="dropdown">
-                    Hello,  <%= current_person.first_name %> <b class="caret"></b>
+                    Hello, <%= current_person.first_name %> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
 
@@ -54,21 +54,18 @@
                     <li class="divider"></li>
 
                     <li>
-                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
+                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %> </li>
                 </ul>
             </li>
 
             <% end %>
 
             <% else %>
-               <%#= link_to "Sign in" ,person_session_path, :class => "" %>
+            <%#= link_to "Sign in" ,person_session_path, :class => "" %>
             <% end %>
 
 
 
         </ul>
     </div>
-</div>
-
-
-
+</header>
