@@ -118,6 +118,30 @@ $(document).ready(function() {
 
         }
     });
+
+    $(".sfg_admin_business").validate({
+        rules: {
+            "business_company[business_name]":{
+                required: true,
+                maxlength:50
+            },
+            "business_company[business_website]": {
+                url:true
+            },
+            "business_company[business_logo]":{
+                required:true
+            },
+            "business_company[contact]":{
+                required:true,
+                digits: true ,
+                minlength:10,
+                maxlength: 10
+            }
+
+        }
+    });
+
+
     $('#sfg_color_box').colorbox();
     $('.color_box_create_cause').colorbox();
     $('#sfg_view_popup').colorbox();

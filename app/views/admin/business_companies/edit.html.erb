@@ -1,10 +1,11 @@
+<%= javascript_include_tag "jquery.validate"%>
 <% provide(:title, 'Edit Business') %>
 
 <div class="row">
   <div class="span5 offset2">
     <h1> </h1>
 
-    <%= form_for @business, :url=>business_company_path , :method => :put, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
+    <%= form_for @business, :url=>business_company_path , :method => :put, :html => { :class => 'form-horizontal sfg_admin_business' }  do |f| %>
 
         <div class="control-group" id="customText">
           <%= f.label :business_name, "Name", :class => 'control-label' %>
@@ -14,7 +15,7 @@
         </div>
 
         <div class="control-group">
-          <%= f.label :description, "About the cause", :class => 'control-label'  %>
+          <%= f.label :description, "About the company ", :class => 'control-label'  %>
           <div class="controls">
             <%= f.text_area :description, :size => "5x5"  %>
           </div>
@@ -33,20 +34,20 @@
           </div>
         </div>
 
-
-        <!--<div class="control-group">-->
-        <!--<%#= f.label :url, "Website of the Cause", :class => 'control-label'  %>-->
-        <!--<div class="controls">-->
-        <!--<%#= f.url_field :url , :class => 'url_field'%>-->
-        <!--</div>-->
-        <!--</div>-->
-
         <div class="control-group">
           <%= f.label :contact, "Contact_no", :class => 'control-label'  %>
           <div class="controls">
             <%= f.text_field :contact , :class => 'text_field'%>
           </div>
         </div>
+
+        <div class="control-group">
+          <%= f.label :business_website, "Website of the Company", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.url_field :business_website , :class => 'url_field'%>
+          </div>
+        </div>
+
         <div class="control-group">
           <div class="controls">
             <%= f.submit 'Update', :class => "btn btn-large btn-primary" %>

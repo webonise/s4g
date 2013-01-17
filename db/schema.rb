@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(:version => 20130116124547) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "role"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20130116124547) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.boolean  "admin",                  :default => false
     t.string   "fb_token"
     t.string   "designation"
   end
@@ -106,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20130116124547) do
     t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "fb_token"
   end
 
 end
