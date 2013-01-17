@@ -40,39 +40,39 @@
 
         <%= f.fields_for :business_company do |builder|%>
 
-        <div class="control-group">
-          <%= builder.label :business_website, "Company Website", :class => 'control-label' %>
-          <div class="controls">
-            <%= builder.text_field :business_website , :class => 'text_field'%>
-          </div>
-        </div>
+            <div class="control-group">
+              <%= builder.label :business_website, "Company Website", :class => 'control-label' %>
+              <div class="controls">
+                <%= builder.url_field :business_website , :class => 'url_field'%>
+              </div>
+            </div>
 
-        <div class="control-group">
-          <%= builder.label :address, "Address", :class => 'control-label' %>
-          <div class="controls">
-            <%= builder.text_field :address, :placeholder => "Address", :class => 'text_field' %>
-            <br />
-            <br />
-            <%= builder.text_field :city, :placeholder => "City", :class => 'text_field' %>
-            <br />
-            <br />
-            <%= builder.text_field :country, :placeholder => "Country", :class => 'text_field' %>
-          </div>
-        </div>
+            <div class="control-group">
+              <%= builder.label :address, "Address", :class => 'control-label' %>
+              <div class="controls">
+                <%= builder.text_field :address, :placeholder => "Address", :class => 'text_field' %>
+                <br />
+                <br />
+                <%= builder.text_field :city, :placeholder => "City", :class => 'text_field' %>
+                <br />
+                <br />
+                <%= builder.text_field :country, :placeholder => "Country", :class => 'text_field' %>
+              </div>
+            </div>
 
-        <div class="control-group">
-          <%= builder.label :business_logo, "Logo", :class => 'control-label' %>
-          <div class="controls">
-            <%= builder.file_field :business_logo, :class => 'file_field' %>
-          </div>
-        </div>
+            <div class="control-group">
+              <%= builder.label :business_logo, "Logo", :class => 'control-label' %>
+              <div class="controls">
+                <%= builder.file_field :business_logo, :class => 'file_field' %>
+              </div>
+            </div>
 
-        <div class="control-group">
-          <%= builder.label :description, "About the company", :class => 'control-label' %>
-          <div class="controls">
-            <%= builder.text_area :description, :size => "25x5"%>
-          </div>
-        </div>
+            <div class="control-group">
+              <%= builder.label :description, "About the company", :class => 'control-label' %>
+              <div class="controls">
+                <%= builder.text_area :description, :size => "25x5"%>
+              </div>
+            </div>
         <% end %>
 
         <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>

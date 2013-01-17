@@ -6,34 +6,50 @@
 
     <table class="table table-hover">
 
-          <% @all_businesses.each do |business| %>
-              <tr>
+      <% @user_businesses.each do |business| %>
+          <tr>
 
-                <td class = "td1">
-                  <div class="control-group">
-                  <%= check_box_tag "business_select[]", business.id %>
-                  </div>
-                </td>
-                <td>
-                  <div class="control-group">
-                    <%= link_to business.business_name %>
-                  </div>
-                </td>
+            <td class = "td1">
+              <div class="control-group">
+                <%= check_box_tag "business_select[]", business.id , true %>
+              </div>
+            </td>
+            <td>
+              <div class="control-group">
+                <%=  business.business_name %>
+              </div>
+            </td>
 
-          <%end %>
+      <%end %>
+      <% @all_businesses.each do |business| %>
+          <tr>
+
+            <td class = "td1">
+              <div class="control-group">
+                <%= check_box_tag "business_select[]", business.id %>
+              </div>
+            </td>
+            <td>
+              <div class="control-group">
+                <%=  business.business_name %>
+              </div>
+            </td>
+
+      <%end %>
 
       <tr>
         <td></td>
         <td></td>
         <td>
           <div class="control-group">
-            <%= submit_tag 'Take me to my dashboard' , class: "btn ",id:"create_cause_btn" ,  :onsubmit => "this.disabled = true" %>
+            <%#= submit_tag 'Take me to my dashboard' , class: "btn ",id:"create_cause_btn" ,  :onsubmit => "this.disabled = true" %>
           </div>
 
         </td>
       </tr>
 
     </table>
+    <%= submit_tag 'Take me to my dashboard' , class: "btn ",id:"create_cause_btn" ,  :onsubmit => "this.disabled = true" %>
 <%end %>
 
 

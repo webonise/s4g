@@ -25,27 +25,33 @@
     padding: 5px;
     width: 35%;
 }
+
 #sfg_cause_drop_down{
 
     /*width: 30%;*/
     /*margin-left: 30px;*/
     /*padding: 6px;*/
-
-    margin-left: 30px;
-    width: 153px;
+    margin-left: 20px;
+    margin-top: 5px;
+    width: 150px;
 }
+
+.display_cause{
+    margin-top: -70px;
+}
+
 select{
     width: 149px;
     margin-left: 55px;
     background-color: white;
     border: 1px solid #CCC;
-
 }
 
 #sfg_view_cause_btn{
-    margin-top: -12px;
+    margin-top: -2px;
     margin-right: -5px;
 }
+
 
 #sfg_select_cause_header{
     float: left;
@@ -169,8 +175,8 @@ input, textarea,.uneditable-input {
 /*display cause Deepti*/
 .img1
 {
-height :30px;
-width  :30px
+    height :30px;
+    width  :30px
 }
 
 .td1{
@@ -422,7 +428,11 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 .show_admin_dashboard_td2{
     width :200px;
 }
+#show_table tr td:first-child{
+    font-weight: bold;
+}
 
+<<<<<<< HEAD
 .skip_btn_text{
     height: 10px;
 }
@@ -451,4 +461,23 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
     margin-bottom: 0;
     padding: 0;
     width: 87px;
+}
+
+table#show_table {
+    border-collapse: separate;
+    border-spacing: 7px;
+}
+
+#cause_view fieldset {
+    border: 1px solid black;
+    margin: 0;
+    padding: 16px;
+}
+
+#cause_view fieldset legend {
+    font-size: 15px;
+    line-height: 40px;
+    margin-bottom: 0;
+    padding: 0;
+    width: 100px;
 }
