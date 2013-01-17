@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="span5 offset2">
+    <h1> </h1>
+
+    <%= form_tag  :method => :get, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do %>
+
+        <div class="control-group" id="customText">
+          <%= label_tag  "Name" %>
+          <div class="controls">
+            <%=  @business.business_name%>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= label_tag  "About the cause" %>
+          <div class="controls">
+            <%=  @business.description  %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= label_tag "Office Location"  %>
+          <div class="controls">
+            <%=  @business.address %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= label_tag "Logo"  %>
+          <div class="controls">
+            <%=  @business.logo %>
+          </div>
+        </div>
+
+
+        <!--<div class="control-group">-->
+          <!--<%#= label_tag "Website of the Business Company"  %>-->
+          <!--<div class="controls">-->
+            <!--<%#=  @business.url %>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <div class="control-group">
+          <%= label_tag  "Contact_no" %>
+          <div class="controls">
+            <%=  @business.contact %>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= link_to "ok", show_admin_dashboard_business_admins_path, :class => "btn btn-large btn-primary" %>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+
+</div>
+
+
+
+
+

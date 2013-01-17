@@ -9,4 +9,9 @@ class UserMailer < ActionMailer::Base
 
     mail(:to => user.email, :subject => "Welcome Sharing for good Site" )
   end
+  def business_update(business_user)
+    @business_user = business_user
+
+    mail(:to => business_user.email, :subject => "Welcome Sharing for good Site" )
+  end
 end
