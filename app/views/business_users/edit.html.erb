@@ -1,8 +1,9 @@
-<h1>Update your profile</h1>
+<legend><h5>Business User</h5></legend>
 
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@business_user) do |f| %>
+  <div class="span5">
+    <h3>Update your profile</h3>
+    <%= form_for @business_user, :method => "put", :html => { :class => 'form-horizontal sfg_business_user_sign_up' } do |f| %>
 
         <div class="control-group" id="customText">
           <%= f.label :name, "Name", :class => 'control-label' %>

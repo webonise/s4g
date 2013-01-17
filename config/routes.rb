@@ -39,7 +39,6 @@ S4g::Application.routes.draw do
       get :edit_user_causes
       get :edit_businesses_of_user
 
-
     end
   end
 
@@ -50,7 +49,6 @@ S4g::Application.routes.draw do
       get :get_business_detail
       post :save_business_detail
       get :display_cause_business_sign_up
-      get :edit
     end
   end
 

@@ -15,7 +15,7 @@ class BusinessUsersController < ApplicationController
     @business_company = params[:business_company]
     @business_user = params[:business_user]
 
-    if @business_user.save!
+    if @business_user.save
       flash[:success] = "Your Profile is updated."
       redirect_to show_post_business_company_path(@business_company.id)
     end
