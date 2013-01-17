@@ -39,7 +39,6 @@ S4g::Application.routes.draw do
       get :edit_user_causes
       get :edit_businesses_of_user
 
-
     end
   end
 

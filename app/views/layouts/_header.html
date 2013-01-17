@@ -45,7 +45,7 @@
                     Hello,  <%= current_person.first_name %> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-
+                    <% if current_person.role == "user" %>
                     <li><%= link_to "Edit Details", edit_user_path(current_person) %> </li>
                     <li class="divider"></li>
                     <li><%= link_to "Edit Causes",edit_user_causes_user_path(current_person)%></li>
@@ -55,6 +55,13 @@
 
                     <li>
                         <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
+                    <% end %>
+                        <% if current_person.role == "business_user" %>
+                    <li><%= link_to "Edit Details", edit_business_user_path(current_person) %> </li>
+
+                    <li>
+                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
+                    <% end %>
                 </ul>
             </li>
 

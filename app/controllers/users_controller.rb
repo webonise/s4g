@@ -8,7 +8,6 @@ class UsersController < ApplicationController
   def display_cause
     @user = User.find(params[:id])
     @causes = Cause.includes(:business_companies).all
-    #logger.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#{@causes.inspect}")
   end
 
   def save_causes
@@ -16,7 +15,7 @@ class UsersController < ApplicationController
 
     if params[:cause_select].present?
       # @user_has_causes=@user.user_has_causes.build(params[:cause_select])
-      @user_causes=@user.user_has_causes
+      @user_causes = @user.user_has_causes  rescue nil
       @user_causes.each do |user_cause|
         user_cause.delete
       end
@@ -46,7 +45,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_causes=@user.causes
     if params[:business_select].present?
-      @businesses_users=@user.business_has_users
+      @businesses_users=@user.business_has_users rescue nil
       @businesses_users.each do |business_has_user|
         business_has_user.delete
       end
@@ -129,9 +128,9 @@ class UsersController < ApplicationController
     #@user_causes = UserHasCause.find_all_by_user_id(@user.id)
     #@user_causes.each do |user_cause|
     #  @business_company = BusinessCompany.find_all_by_cause_id(user_cause.cause_id)
-      #@business_company.each do |business_company|
-      #  @posts = business_company.posts.order("created_at DESC")
-      #end
+    #@business_company.each do |business_company|
+    #  @posts = business_company.posts.order("created_at DESC")
+    #end
     #end
     #logger.info("#########################{@posts.inspect}")
     #@posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
@@ -164,10 +163,10 @@ class UsersController < ApplicationController
   end
 
   def show_business
-     @business_company = BusinessCompany.find(params[:business_company])
-     respond_to do |format|
-       format.js
-     end
+    @business_company = BusinessCompany.find(params[:business_company])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def sign_up
@@ -231,16 +230,21 @@ class UsersController < ApplicationController
     @all_causes = Cause.all
     @causes = @user_causes | @all_causes
 
- end
+  end
 
   def edit_businesses_of_user
+
+    cause_businesses = Array.new
     @user = User.find(params[:id])
-    @businesses =@user .business_companies
-  end
-   def update_user_causes
+    @user_businesses = @user.business_companies
+    @causes = @user.causes
 
-   end
-  def update_businesses_of_user
+    @causes.each do |cause|
+      cause_businesses.push(cause.business_companies)
+    end
+
+    @all_businesses = @user_businesses | cause_businesses.flatten
 
   end
+
 end
