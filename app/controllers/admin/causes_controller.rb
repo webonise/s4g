@@ -1,5 +1,5 @@
 class Admin::CausesController < ApplicationController
-   before_filter :authenticate_person! , :only => [:create, :edit, :update, :destroy, :show]
+  before_filter :authenticate_person! , :only => [:create, :edit, :update, :destroy, :show]
 
   def new
     @cause = Cause.new
@@ -25,7 +25,7 @@ class Admin::CausesController < ApplicationController
     @cause = Cause.find(params[:id])
     if @cause.update_attributes(params[:cause])
       flash[:success]= "Cause Updated Successfully"
-     redirect_to   show_admin_dashboard_admins_path
+      redirect_to   show_admin_dashboard_admins_path
     else
       render 'edit'
     end

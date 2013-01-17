@@ -9,18 +9,18 @@
         <!--<a href="share_on_Facebook_user_path(@user)">-->
         <%#= image_tag("../assets/facebook.png") do %>
         <%=  link_to image_tag("facebook.png"), sign_up_facebook_user_path(@user)  %>
-       </div>
-      <div class='span2 offset1'>
-            <div class='btn btn-large btn-info facebook-btn'>
-              <div class='skip_btn'>
-          <%=link_to "skip",display_cause_user_path(@user), class:"skip_btn"  %>
-           </div>
-           </div>
       </div>
-       </div>
-
+      <div class='span2 offset1'>
+        <div class='btn btn-large btn-info facebook-btn'>
+          <div class='skip_btn'>
+            <%=link_to "skip",display_cause_user_path(@user), class:"skip_btn"  %>
+          </div>
+        </div>
+      </div>
     </div>
+
   </div>
+</div>
 </div>
 <div class="span5">
   <div class="span5">

@@ -15,10 +15,10 @@
   <![endif]-->
   <script type="text/javascript">
       if (window.location.hash == '#_=_') {
-      window.location.hash = ''; // for older browsers, leaves a # behind
-      history.pushState('', document.title, window.location.pathname); // nice and clean
-      e.preventDefault(); // no page reload
-  }
+          window.location.hash = ''; // for older browsers, leaves a # behind
+          history.pushState('', document.title, window.location.pathname); // nice and clean
+          e.preventDefault(); // no page reload
+      }
   </script>
 
   <%= stylesheet_link_tag "application", :media => "all" %>
@@ -33,9 +33,9 @@
   <div class="row">
     <!--<div class="span7">-->
     <!--<div class="span9">-->
-      <%= render 'layouts/flash_messages' %>
-      <%#= bootstrap_flash %>
-      <%= yield %>
+    <%= render 'layouts/flash_messages' %>
+    <%#= bootstrap_flash %>
+    <%= yield %>
     <!--</div>-->
   </div><!--/row-->
 </div> <!-- /container -->

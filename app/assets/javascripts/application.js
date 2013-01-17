@@ -208,8 +208,8 @@ $(document).ready(function() {
 
 /*$(document).ready(function() {
 
-    $('.color_box_create_cause').colorbox();
-}); */
+ $('.color_box_create_cause').colorbox();
+ }); */
 $(document).ready(function() {
 
     $('.color_box_view_cause').colorbox();
