@@ -20,9 +20,9 @@ S4g::Application.configure do
 
   #config.action_mailer.default_url_options = { :host => 'http://local.s4g.com/' }
 
-  config.action_mailer.default_url_options = { :host => 'www.s4g.com' }
+  #config.action_mailer.default_url_options = { :host => 'www.s4g.com' }
 
-  #config.action_mailer.default_url_options = { :host => 'http://local.s4g.com' }
+  config.action_mailer.default_url_options = { :host => 'http://local.s4g.com' }
 
 
 
@@ -47,9 +47,11 @@ S4g::Application.configure do
   config.assets.debug = true
 
   # Application credentials from Facebook
-  #APP_ID = 327682274009525
-  #APP_SECRET_KEY = dde14950ca90f9cea5d248075dcd3ac5
+  APP_ID = '327682274009525'
+  APP_SECRET_KEY = 'dde14950ca90f9cea5d248075dcd3ac5'
 
+  # Fixed share value for each share
+  FUND_SEND = 0.30
 
   #config.routes.Admin = :admin
 

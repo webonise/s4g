@@ -25,7 +25,8 @@ gem 'hirb'
 # Gems used for Facebook
 gem 'facebook_oauth'
 gem 'oauth','0.4.7'
-
+gem 'will_paginate', '3.0.3'
+gem 'bootstrap-will_paginate', '0.0.6'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -37,7 +38,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-#gem 'jquery-rails'
+gem 'jquery-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

@@ -1,51 +1,60 @@
+<!--
+<script>
+    $('#colorLink').click(function() {
+        $('#signup_colorbox').colorbox();
+//        $('.view_popup').colorbox();
+    });
+</script>
+-->
+
 <% provide(:title, 'Sign up') %>
 
-  <div class="span5 offset2">
-    <h1 class="user_signup"> User Sign up</h1>
+<div class="span5 offset2">
+  <h1 class="user_signup"> User Sign up</h1>
 
-    <%= form_for @user, :method => :post, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
+    <%= form_for @user, :method => :post, :html => { :class => 'form-horizontal sfg_user_sign_up colorbox', :id => "signup_colorbox" }  do |f| %>
 
-        <%= render 'error_messages', :object => f.object %>
+      <%= render 'error_messages', :object => f.object %>
 
-        <div class="control-group" id="customText">
-          <%= f.label :name, "Name", :class => 'control-label' %>
-          <div class="controls">
-            <%= f.text_field :first_name, :placeholder => "First Name", :class => 'custom_text'%>
+      <div class="control-group" id="customText">
+        <%= f.label :name, "Name", :class => 'control-label' %>
+        <div class="controls">
+          <%= f.text_field :first_name, :placeholder => "First Name", :class => 'custom_text'%>
 
-            <%= f.text_field :last_name, :placeholder => "Last Name", :class => 'custom_text'%>
-          </div>
+          <%= f.text_field :last_name, :placeholder => "Last Name", :class => 'custom_text'%>
         </div>
+      </div>
 
-        <div class="control-group">
-          <%= f.label :email, "Email ID", :class => 'control-label'  %>
-          <div class="controls">
-            <%= f.text_field :email , :class => 'text_field' %>
-          </div>
+      <div class="control-group">
+        <%= f.label :email, "Email ID", :class => 'control-label'  %>
+        <div class="controls">
+          <%= f.text_field :email , :class => 'text_field' %>
         </div>
+      </div>
 
-        <div class="control-group">
-          <%= f.label :password, "Password", :class => 'control-label'  %>
-          <div class="controls">
-            <%= f.password_field :password, :class => 'text_field' %>
-          </div>
+      <div class="control-group">
+        <%= f.label :password, "Password", :class => 'control-label'  %>
+        <div class="controls">
+          <%= f.password_field :password, :class => 'text_field' %>
         </div>
+      </div>
 
 
-        <div class="control-group">
-          <%= f.label :password_confirmation, "Confirm Password", :class => 'control-label'  %>
-          <div class="controls">
-            <%= f.password_field :password_confirmation , :class => 'text_field', :id => 'pass_confirm'%>
-          </div>
+      <div class="control-group">
+        <%= f.label :password_confirmation, "Confirm Password", :class => 'control-label'  %>
+        <div class="controls">
+          <%= f.password_field :password_confirmation , :class => 'text_field', :id => 'pass_confirm'%>
         </div>
+      </div>
 
-        <div class="control-group">
-          <div class="controls">
-            <%= f.submit 'Sign Up', :class => "btn btn-large btn-primary" %>
-          </div>
+      <div class="control-group">
+        <div class="controls">
+          <%= f.submit 'Sign Up', :class => "btn btn-large btn-primary" %>
         </div>
+      </div>
 
-    <% end %>
-  </div>
+  <% end %>
+</div>
 
 
 

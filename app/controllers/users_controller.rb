@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_person! , :only => [:display_cause, :display_businesses_of_causes, :display_dash_board_user]
+  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user]
 
   def index
     @users = User.all
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def display_cause
     @user = User.find(params[:id])
     @causes = Cause.includes(:business_companies).all
-    #logger.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#{@causes.inspect}")
+    #@causes = Cause.paginate(page: params[:page])
   end
 
   def save_causes
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
     if params[:cause_select].present?
       # @user_has_causes=@user.user_has_causes.build(params[:cause_select])
-      @user_causes=@user.user_has_causes
+      @user_causes = @user.user_has_causes  rescue nil
       @user_causes.each do |user_cause|
         user_cause.delete
       end
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_causes=@user.causes
     if params[:business_select].present?
-      @businesses_users=@user.business_has_users
+      @businesses_users=@user.business_has_users rescue nil
       @businesses_users.each do |business_has_user|
         business_has_user.delete
       end
@@ -58,8 +58,6 @@ class UsersController < ApplicationController
           flash[:success] = "Businesses submitted!"
         end
       end
-
-
       redirect_to  display_dash_board_user_user_path(@user)
     else
       flash[:error] = "Please select atleast one Business"
@@ -72,7 +70,7 @@ class UsersController < ApplicationController
     @businesses=@user.business_has_users
 
     @businesses.each do |business|
-      @business=@businesses.find(business.id) rescue nil
+      @business = @businesses.find(business.id) rescue nil
       @posts = @business.posts  rescue nil
     end
 
@@ -104,6 +102,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:success] = "Profile updated"
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
+
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User destroyed."
@@ -118,9 +127,9 @@ class UsersController < ApplicationController
     #@user_causes = UserHasCause.find_all_by_user_id(@user.id)
     #@user_causes.each do |user_cause|
     #  @business_company = BusinessCompany.find_all_by_cause_id(user_cause.cause_id)
-      #@business_company.each do |business_company|
-      #  @posts = business_company.posts.order("created_at DESC")
-      #end
+    #@business_company.each do |business_company|
+    #  @posts = business_company.posts.order("created_at DESC")
+    #end
     #end
     #logger.info("#########################{@posts.inspect}")
     #@posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
@@ -135,8 +144,8 @@ class UsersController < ApplicationController
       @@old_user = false
     end
 
-    @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-                                         :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+    @@client = FacebookOAuth::Client.new(:application_id => APP_ID,
+                                         :application_secret => APP_SECRET_KEY,
                                          :callback => 'http://local.s4g.com/users/'+@user.id.to_s+'/callback')
     url = @@client.authorize_url
     redirect_to url
@@ -153,10 +162,10 @@ class UsersController < ApplicationController
   end
 
   def show_business
-     @business_company = BusinessCompany.find(params[:business_company])
-     respond_to do |format|
-       format.js
-     end
+    @business_company = BusinessCompany.find(params[:business_company])
+    respond_to do |format|
+      format.js
+    end
   end
 
   def sign_up
@@ -189,12 +198,18 @@ class UsersController < ApplicationController
       flash[:notice] = "You must be registered with Facebook to do that."
       redirect_to sign_up_facebook_user_path(@user, :old_user => true, :post => post)
     else
-      @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
-                                           :application_secret => 'dde14950ca90f9cea5d248075dcd3ac5',
+      @@client = FacebookOAuth::Client.new(:application_id => APP_ID,
+                                           :application_secret => APP_SECRET_KEY,
                                            :token => token)
 
       @@client.authorize_url(:scope => 'publish_stream')
       @@client.me.feed(:create, :message => post.content)
+
+      impression = Impression.new()
+      impression.post_id = post.id
+      impression.user_id = @user.id
+      impression.fund_raise = 30
+      impression.save
       flash[:success] = "Shared on facebook successfully"
       redirect_to display_dash_board_user_user_path(@user)
     end
@@ -212,18 +227,23 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_causes = @user.causes
     @all_causes = Cause.all
-    @causes = @user_causes | @all_causes
+    @causes = @all_causes - @user_causes
 
- end
+  end
 
   def edit_businesses_of_user
+
+    cause_businesses = Array.new
     @user = User.find(params[:id])
-    @businesses =@user .business_companies
-  end
-   def update_user_causes
+    @user_businesses = @user.business_companies
+    @causes = @user.causes
 
-   end
-  def update_businesses_of_user
+    @causes.each do |cause|
+      cause_businesses.push(cause.business_companies)
+    end
+
+    @all_businesses = cause_businesses.flatten - @user_businesses
 
   end
+
 end
