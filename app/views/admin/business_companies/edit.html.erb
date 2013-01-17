@@ -1,0 +1,59 @@
+<% provide(:title, 'Edit Business') %>
+
+<div class="row">
+  <div class="span5 offset2">
+    <h1> </h1>
+
+    <%= form_for @business, :url=>business_company_path , :method => :put, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
+
+        <div class="control-group" id="customText">
+          <%= f.label :business_name, "Name", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :business_name, :class => 'text_field'%>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :description, "About the cause", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.text_area :description, :size => "5x5"  %>
+          </div>
+        </div>
+        <div class="control-group">
+          <%= f.label :address, "Office Location", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.text_field :address , :class => 'text_field' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :logo, "Upload Logo", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.file_field :logo, :class => 'file_field' %>
+          </div>
+        </div>
+
+
+        <!--<div class="control-group">-->
+          <!--<%#= f.label :url, "Website of the Cause", :class => 'control-label'  %>-->
+          <!--<div class="controls">-->
+            <!--<%#= f.url_field :url , :class => 'url_field'%>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <div class="control-group">
+          <%= f.label :contact, "Contact_no", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.text_field :contact , :class => 'text_field'%>
+          </div>
+        </div>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit 'Update', :class => "btn btn-large btn-primary" %>
+          </div>
+        </div>
+
+    <% end %>
+  </div>
+
+</div>

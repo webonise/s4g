@@ -7,13 +7,7 @@
 /*input[type=text], textarea { width: 250px; float: left; }*/
 /*textarea { height: 50px; }*/
 
-input, textarea, select, .uneditable-input {
-    border: 1px solid #bbb;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-@include box_sizing;
-}
+
 
 .s4g_container{
     margin-bottom: 80px;
@@ -31,9 +25,20 @@ input, textarea, select, .uneditable-input {
     padding: 5px;
     width: 35%;
 }
+#sfg_cause_drop_down{
+    margin-left: 30px;
+    width: 153px;
+}
+select{
+    width: 149px;
+    margin-left: 55px;
+    background-color: white;
+    border: 1px solid #CCC;
+}
 
 #sfg_view_cause_btn{
-    margin-top: -10px;
+    margin-top: -12px;
+    margin-right: -5px;
 }
 
 #sfg_select_cause_header{
@@ -41,14 +46,21 @@ input, textarea, select, .uneditable-input {
     margin-left: 10px;
     text-align: left;
     font-family: verdana,sans-serif;
-    font-size: 12px;
+    font-size: 16px;
+    margin-bottom: 24px;
 }
 
 #sfg_about_cause_b_sign_up{
 
 }
 
-
+input, textarea,.uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+@include box_sizing;
+}
 /*input {*/
 /*height: auto !important;*/
 /*}*/

@@ -12,11 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.min
 //= require jquery.validate
-//= require jquery.validate.min
-//= require jquery.colorbox.js
-//= require jquery.colorbox-min.js
+//= require jquery.colorbox
 // require bootstrap-alert
 //= require bootstrap
 //= require_tree .
@@ -207,14 +204,14 @@ $('.dropdown-toggle').dropdown()
 });
 
 function confirmDestroy() {var x;
-    var r=confirm("Are you sure?");
+    var r=confirm("Are you sure you want to delete this business?");
     if (r==true)
     {
         x="You pressed Yes!";
     }
     else
     {
-        x="You pressed Cancel!";
+        x="You pressed NO!";
     }
 }
 $(function(){

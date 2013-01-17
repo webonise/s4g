@@ -30,7 +30,6 @@ S4g::Application.routes.draw do
       post :save_business
       get :display_post
       get :display_dash_board_user
-
       get :get_businesses
       get :show_business
       get :share_on_facebook
@@ -40,16 +39,23 @@ S4g::Application.routes.draw do
       get :edit_user_causes
       get :edit_businesses_of_user
 
+
+    end
+  end
+
+  resource :causes do
+    member do
+      get :display_cause_business_sign_up
     end
   end
 
   resources :business_users do
     member do
-      get :get_cause_to_business
-      put :save_business_cause
-      get :get_business_detail
-      post :save_business_detail
-    end
+      #get :get_cause_to_business
+      #put :save_business_cause
+      #get :get_business_detail
+      #post :save_business_detail
+      end
   end
 
   resources :business_companies do

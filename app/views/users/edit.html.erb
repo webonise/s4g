@@ -1,32 +1,33 @@
 
-<%- model_class = User -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => t('helpers.titles.edit', :model => model_class.model_name.human,
-                                   :default => "Edit #{model_class.model_name.human}") %></h1>
-</div>
-<%= render :partial => 'form' %>
-
-<h1>Update your profile</h1>
-
 <div class="row">
-  <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+  <div class="span5 offset2">
+    <h1> </h1>
 
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name, :placeholder => "First Name" %>
+    <%= form_for @user, :method => :put, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
 
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name, :placeholder => "Last Name" %>
+        <div class="control-group" id="customText">
+          <%= f.label :name, "Name", :class => 'control-label' %>
+          <div class="controls">
+            <%= f.text_field :first_name, :placeholder => "First Name", :class => 'custom_text'%>
+            <%= f.text_field :last_name, :placeholder => "Last Name", :class => 'custom_text'%>
+          </div>
+        </div>
 
-        <%= f.label :email %>
-        <% f.text_field :email %>
+            <div class="control-group">
+          <%= f.label :password, "Password", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.password_field :password, :class => 'text_field' %>
+          </div>
+        </div>
 
-        <%= f.label :password %>
-        <% f.text_field :password %>
+        <div class="control-group">
+          <div class="controls">
+            <%= f.submit 'Update', :class => "btn btn-large btn-primary" %>
+          </div>
+        </div>
 
-        <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
-</div>
 
+</div>
 
