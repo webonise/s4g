@@ -117,9 +117,9 @@ $(document).ready(function() {
 
         }
     });
+    $('#sfg_color_box').colorbox();
     $('.color_box_create_cause').colorbox();
-    $('.colorbox').colorbox();
-    $('.view_popup').colorbox();
+    $('#sfg_view_popup').colorbox();
     $('.color_box_view_cause').colorbox();
     $('.dropdown-toggle').dropdown()
 });
