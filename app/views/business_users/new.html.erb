@@ -62,6 +62,7 @@
       <h6 id="sfg_select_cause_header">Select a cause</h6>
    <%#= collection_select @causes %>
 <%#= select ("Cause", "id", Cause.all.collect { |c| [ c.cause_name, c.id ] }, {:prompt => "Select cause"}) %>
+      <%= select_tag "cause", options_from_collection_for_select(@causes, "id", "cause_name"), :prompt => "Select cause", :id => "sf_cause_drop_down" %>
       <!--<select class="sfg_select_cause" id="sf_cause_drop_down">-->
         <!--<option selected="selected">Please Select Cause</option>-->
         <!--<%# @causes.each do |record| %>-->
@@ -93,7 +94,7 @@
   </div>
 </div>
 
-<script type="text/javascript" src="assets/jquery.js">
+<script type="text/javascript">
 //$(document).ready(function() {
 //    $("#sfg_about_cause_b_sign_up").hide();
 //    $("#sfg_view_cause_btn").click(function(){
@@ -102,20 +103,21 @@
 //
 //});
 
-jQuery(document).ready(function(){
+//jQuery(document).ready(function(){
+//
+//   $("#sfg_view_cause_btn").click(function(){
+//        var cause_id = $(".sfg_select_cause").val();
+//        $.ajax({
+//            type: "get" ,
+//           url: "../business_users/display_cause_business_sign_up"   ,
+//           data: { id :cause_id}
+//        }).done(function(response){
+//                 $('#sfg_cause_details').html(response);
+//                });
+//    });
+//
+//});
 
-   $("#sfg_view_cause_btn").click(function(){
-        var cause_id = $(".sfg_select_cause").val();
-        $.ajax({
-            type: "get" ,
-           url: "../business_users/display_cause_business_sign_up"   ,
-           data: { id :cause_id}
-        }).done(function(response){
-                 $('#sfg_cause_details').html(response);
-                });
-    });
-
-});
 </script>
 
 <!--<h4 id="sfg_select_cause_header">Select a cause</h4>-->

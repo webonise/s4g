@@ -7,13 +7,7 @@
 /*input[type=text], textarea { width: 250px; float: left; }*/
 /*textarea { height: 50px; }*/
 
-input, textarea, select, .uneditable-input {
-    border: 1px solid #bbb;
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-@include box_sizing;
-}
+
 
 .s4g_container{
     margin-bottom: 80px;
@@ -30,6 +24,11 @@ input, textarea, select, .uneditable-input {
     margin-top: 5px;
     padding: 5px;
     width: 35%;
+}
+#sfg_cause_drop_down{
+width: 30%;
+margin-left: 30px;
+padding: 6px;
 }
 
 #sfg_view_cause_btn{
@@ -48,7 +47,13 @@ input, textarea, select, .uneditable-input {
 
 }
 
-
+input, textarea, select, .uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+@include box_sizing;
+}
 /*input {*/
 /*height: auto !important;*/
 /*}*/

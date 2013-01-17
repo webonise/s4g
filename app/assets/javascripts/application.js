@@ -11,12 +11,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require jquery_ujs
 //= require jquery.validate
 //= require jquery.colorbox
 // require bootstrap-alert
 //= require bootstrap
 //= require_tree .
-//= require_self
 
 /* VALIDATION*/
 $(document).ready(function() {
