@@ -9,6 +9,18 @@ class BusinessUsersController < ApplicationController
     @business_user = BusinessUser.find(params[:id])
   end
 
+  def edit
+    @business_user = BusinessUser.find(params[:id])
+    @business_company = @business_user.business_company
+    @business_company = params[:business_company]
+    @business_user = params[:business_user]
+
+    if @business_user.save!
+      flash[:success] = "Your Profile is updated."
+      redirect_to show_post_business_company_path(@business_company.id)
+    end
+  end
+
   def new
     @business_user = BusinessUser.new
     @business_user.build_business_company
