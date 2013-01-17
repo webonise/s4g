@@ -161,11 +161,11 @@ input, textarea,.uneditable-input {
 }
 
 /*display cause Deepti*/
-/*img*/
-/*{*/
-/*height :50px;*/
-/*width  :50px;*/
-/*}*/
+img
+{
+height :30px;
+width  :30px
+}
 
 .td1{
     width: 10px ;
@@ -353,7 +353,7 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 }
 
 .manage_cause_span{
-    margin-right: 10px;
+    margin-right: 20px;
 }
 
 .btn-large {
@@ -401,3 +401,14 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
     width: 1385px;
 }
+
+
+.show_admin_dashboard_td1{
+    width: 70px ;
+}
+
+.show_admin_dashboard_td2{
+    width :200px;
+}
+
+
