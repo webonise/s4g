@@ -3,59 +3,56 @@
   <div class="span5 offset2">
     <h1> </h1>
 
-    <%= form_tag  :method => :get, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do %>
-
-        <div class="control-group" id="customText">
-          <%= label_tag  "Name: " %>
-          <span>  <%=  @cause.cause_name%> </span>
+    <%= form_tag @cause, :method => :get, :html => { :class => "form-horizontal sfg_user_sign_up" }  do %>
+        <table>
+        <div width="100px">
+          <%= label_tag  "Name:" %>
+          <div width="100px">
+            <span><%=  @cause.cause_name%> </span>
           </div>
         </div>
 
         <div class="control-group">
           <%= label_tag  "About the cause: " %>
+          <div>
             <span><%=  @cause.description  %></span>
-
-
+          </div>
         </div>
         <div class="control-group">
           <%= label_tag "Office Location"  %>
-
-            <%=  @cause.location %>
-
+          <span> <%=  @cause.location %> </span>
         </div>
 
         <div class="control-group">
           <%= label_tag "Logo"  %>
 
-            <%=  @cause.logo %>
+          <span><%=  @cause.logo %> </span>
 
         </div>
 
 
         <div class="control-group">
           <%= label_tag "Website of the Cause"  %>
-
-            <%=  @cause.url %>
-
+          <span><%=  @cause.url %></span>
         </div>
 
         <div class="control-group">
           <%= label_tag  "Contact_no" %>
-
-            <%=  @cause.contact_no %>
+          <span><%=  @cause.contact_no %></span>
 
         </div>
         <div class="control-group">
           <div class="controls">
             <%#= link_to "Ok" ,:class => "btn btn-large btn-primary" %>
-            <%= link_to "Ok", show_admin_dashboard_admins_path, :class => "btn btn-large btn-primary" %>
+            <%= link_to "Back", show_admin_dashboard_admins_path, :class => "btn btn-large btn-primary" %>
           </div>
         </div>
 
     <% end %>
+    </table>
   </div>
-
 </div>
+
 
 
 

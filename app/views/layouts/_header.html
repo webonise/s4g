@@ -1,10 +1,4 @@
-<!--<header class="navbar navbar-fixed-top navbar-color">-->
-
-<!--</header>-->
-
-
-
-<header class="navbar navbar-fixed-top sfg_header_size navbar-color">
+<div class="navbar  navbar-fixed-top sfg_header_size">
     <div class="navbar-inner sfg_color">
         <div class="container">
             <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -21,7 +15,7 @@
 
             <% if current_person.present? %>
             <% if current_person.admin? %>
-            <li id="fat-menu" class="dropdown">
+            <li id="fat-menu1" class="dropdown">
                 <a href="#" class="dropdown-toggle" data toggle="dropdown">
                     Welcome <b class="caret"></b>
                 </a>
@@ -33,7 +27,7 @@
                     <li><%= link_to "View Donation" %></li>
                     <li class="divider"></li>
                     <li>
-                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %></li>
+                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
                 </ul>
 
             </li>
@@ -42,10 +36,10 @@
 
             <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data toggle="dropdown">
-                    Hello, <%= current_person.first_name %> <b class="caret"></b>
+                    Hello,  <%= current_person.first_name %> <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu">
-
+                    <% if current_person.role == "user" %>
                     <li><%= link_to "Edit Details", edit_user_path(current_person) %> </li>
                     <li class="divider"></li>
                     <li><%= link_to "Edit Causes",edit_user_causes_user_path(current_person)%></li>
@@ -54,7 +48,14 @@
                     <li class="divider"></li>
 
                     <li>
-                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %> </li>
+                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
+                        <% end %>
+                        <% if current_person.role == "business_user" %>
+                    <li><%= link_to "Edit Details", edit_business_user_path(current_person) %> </li>
+
+                    <li>
+                        <%= link_to "Sign out", destroy_person_session_path, :method => :delete %>
+                        <% end %>
                 </ul>
             </li>
 
@@ -64,8 +65,8 @@
             <%#= link_to "Sign in" ,person_session_path, :class => "" %>
             <% end %>
 
-
-
         </ul>
     </div>
-</header>
+</div>
+
+

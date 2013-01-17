@@ -2,10 +2,10 @@
   <div class="span5 offset2">
     <h1> </h1>
 
-    <%= form_tag  :method => :get, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do %>
+    <%= form_tag  :method => :get, :html => { :class => 'form-horizontal form-inline' }  do  %>
 
         <div class="control-group" id="customText">
-          <%= label_tag  "Name" %>
+          <%= label_tag  "Name"  %>
           <div class="controls">
             <%=  @business.business_name%>
           </div>

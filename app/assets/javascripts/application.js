@@ -98,6 +98,32 @@ $(document).ready(function() {
         }
     });
 
+
+    $(".sfg_edit_cause").validate({
+        rules: {
+            "cause[cause_name]":{
+                required: true,
+                maxlength:50
+            },
+            "cause[url]": {
+                url:true
+            },
+            "cause[logo]":{
+                required:true
+            },
+            "cause[contact_no]":{
+                required:true,
+                digits: true ,
+                minlength:10,
+                maxlength: 10
+            }
+
+        }
+    });
+    $('.color_box_create_cause').colorbox();
+    $('.colorbox').colorbox();
+    $('.view_popup').colorbox();
+
 });
 
 ///*hide and show selected cause sign up business user*/
@@ -171,26 +197,14 @@ $(document).ready(function() {
 //});
 
 /*colorbox */
-$(document).ready(function() {
 
-    $('.colorbox').colorbox();
 
-});
 
-$(document).ready(function() {
 
-    $('.colorbox1').colorbox();
-
-});
-
-$(document).ready(function() {
+/*$(document).ready(function() {
 
     $('.color_box_create_cause').colorbox();
-});
-$(document).ready(function() {
-
-    $('.color_box_edit_cause').colorbox();
-});
+}); */
 $(document).ready(function() {
 
     $('.color_box_view_cause').colorbox();
@@ -205,11 +219,4 @@ $(document).ready(function() {
 
 
 
-$(document).ready(function() {
-
-    $('.view_popup').colorbox();
-
-
-
-});
 
