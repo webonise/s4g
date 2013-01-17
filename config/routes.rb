@@ -43,14 +43,19 @@ S4g::Application.routes.draw do
     end
   end
 
-  resources :business_users do
+  resource :causes do
     member do
-      get :get_cause_to_business
-      put :save_business_cause
-      get :get_business_detail
-      post :save_business_detail
       get :display_cause_business_sign_up
     end
+  end
+
+  resources :business_users do
+    member do
+      #get :get_cause_to_business
+      #put :save_business_cause
+      #get :get_business_detail
+      #post :save_business_detail
+      end
   end
 
   resources :business_companies do

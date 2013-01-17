@@ -26,13 +26,19 @@
     width: 35%;
 }
 #sfg_cause_drop_down{
-width: 30%;
-margin-left: 30px;
-padding: 6px;
+    margin-left: 30px;
+    width: 153px;
+}
+select{
+    width: 149px;
+    margin-left: 55px;
+    background-color: white;
+    border: 1px solid #CCC;
 }
 
 #sfg_view_cause_btn{
-    margin-top: -10px;
+    margin-top: -12px;
+    margin-right: -5px;
 }
 
 #sfg_select_cause_header{
@@ -40,14 +46,15 @@ padding: 6px;
     margin-left: 10px;
     text-align: left;
     font-family: verdana,sans-serif;
-    font-size: 12px;
+    font-size: 16px;
+    margin-bottom: 24px;
 }
 
 #sfg_about_cause_b_sign_up{
 
 }
 
-input, textarea, select, .uneditable-input {
+input, textarea,.uneditable-input {
     border: 1px solid #bbb;
     width: 100%;
     padding: 10px;
