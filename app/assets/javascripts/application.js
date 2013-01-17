@@ -16,7 +16,6 @@
 // require bootstrap-alert
 //= require bootstrap
 //= require_tree .
-//= require_self
 
 /* VALIDATION*/
 $(document).ready(function() {
