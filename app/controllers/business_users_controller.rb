@@ -11,22 +11,31 @@ class BusinessUsersController < ApplicationController
 
   def new
     @business_user = BusinessUser.new
-   # @business_company = BusinessCompany.new
-    @business_company = @business_user.business_company
+    @business_user.build_business_company
+    @causes = Cause.all
   end
 
   def create
     @business_user = BusinessUser.new(params[:business_user])
-   # @business_company = BusinessCompany.new(params[:business_company])
+    @business_company = @business_user.business_company
+    @business_company = params[:business_company]
 
     @business_user.role = "business_user"
     if @business_user.save
       UserMailer.registration_confirmation(@business_user).deliver
       sign_in @business_user
       flash[:success] = "Welcome!"
-      redirect_to get_business_detail_business_user_path(@business_user)
+      redirect_to get_cause_to_business_business_user_path(@business_user)
+      #redirect_to save_business_detail_business_user_path
     else
       render 'new'
+    end
+  end
+
+  def display_cause_business_sign_up
+    @cause = Cause.find(params[:id])
+    respond_to do |format|
+      format.html
     end
   end
 
@@ -50,19 +59,19 @@ class BusinessUsersController < ApplicationController
     end
   end
 
-  def get_business_detail
-    @business_user = BusinessUser.find(params[:id])
-    @business_company = BusinessCompany.new
-  end
+  #def get_business_detail
+  #  @business_user = BusinessUser.find(params[:id])
+  #  @business_company = BusinessCompany.new
+  #end
 
-  def save_business_detail
-    @business_user = BusinessUser.find(params[:id])
-    @business_company = BusinessCompany.new(:business_user_id => @business_user.id)
-    @business_company.attributes = params[:business_company]
-
-    if @business_company.save!
-      flash[:success] = "company added"
-      redirect_to get_cause_to_business_business_user_path(@business_user)
-    end
-  end
+  #def save_business_detail
+  #  @business_user = BusinessUser.find(params[:id])
+  #  @business_company = BusinessCompany.new(:business_user_id => @business_user.id)
+  #  @business_company.attributes = params[:business_company]
+  #
+  #  if @business_company.save
+  #    flash[:success] = "company added"
+  #    redirect_to get_cause_to_business_business_user_path(@business_user)
+  #  end
+  #end
 end

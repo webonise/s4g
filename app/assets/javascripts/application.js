@@ -12,11 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.min
 //= require jquery.validate
-//= require jquery.validate.min
-//= require jquery.colorbox.js
-//= require jquery.colorbox-min.js
+//= require jquery.colorbox
 // require bootstrap-alert
 //= require bootstrap
 //= require_tree .
@@ -103,6 +100,16 @@ $(document).ready(function() {
     });
 
 });
+
+///*hide and show selected cause sign up business user*/
+//$(document).ready(function() {
+////    $("#sfg_about_cause_b_sign_up").hide();
+//    $("#sfg_view_cause_btn").onclick(function(){
+//       $("#sfg_about_cause_b_sign_up").show();
+//    });
+//
+//});
+
 
 
 

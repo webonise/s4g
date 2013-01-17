@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20130115144827) do
     t.string   "city"
     t.string   "country"
     t.string   "business_logo"
+    t.string   "business_website"
   end
 
   create_table "business_has_users", :force => true do |t|
@@ -106,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20130115144827) do
     t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "fb_token"
   end
 
 end

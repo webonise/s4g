@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   def display_cause
     @user = User.find(params[:id])
     @causes = Cause.includes(:business_companies).all
-    logger.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#{@causes.inspect}")
+    #logger.info("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$#{@causes.inspect}")
   end
 
   def save_causes
@@ -16,18 +16,20 @@ class UsersController < ApplicationController
 
     if params[:cause_select].present?
       # @user_has_causes=@user.user_has_causes.build(params[:cause_select])
-      if @user.user_has_causes.present?
-        flash[:error] = "Causes already submitted"
-      else
-        params[:cause_select].each do |i|
-          @user_has_cause = UserHasCause.new
-          @user_has_cause.user_id = @user.id
-          @user_has_cause.cause_id = i.to_i
-          if @user_has_cause.save
-            flash[:success] = "Causes Submitted!"
-          end
+      @user_causes=@user.user_has_causes
+      @user_causes.each do |user_cause|
+        user_cause.delete
+      end
+
+      params[:cause_select].each do |i|
+        @user_has_cause = UserHasCause.new
+        @user_has_cause.user_id = @user.id
+        @user_has_cause.cause_id = i.to_i
+        if @user_has_cause.save
+          flash[:success] = "Causes Submitted!"
         end
       end
+
       redirect_to  display_businesses_of_causes_user_path(@user)
     else
       flash[:error] = "Please select atleast one Cause"
@@ -44,19 +46,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_causes=@user.causes
     if params[:business_select].present?
-      if @user.business_has_users.present?
-        flash[:error] = "Businesses already submitted"
-      else
-        params[:business_select].each do |i|
-          @business_has_user = BusinessHasUser.new
-          @business_has_user.user_id = @user.id
-          @business_has_user.business_company_id = i.to_i
-          if @business_has_user.save!
-            flash[:success] = "Businesses submitted!"
-          end
-        end
-
+      @businesses_users=@user.business_has_users
+      @businesses_users.each do |business_has_user|
+        business_has_user.delete
       end
+      params[:business_select].each do |i|
+        @business_has_user = BusinessHasUser.new
+        @business_has_user.user_id = @user.id
+        @business_has_user.business_company_id = i.to_i
+        if @business_has_user.save!
+          flash[:success] = "Businesses submitted!"
+        end
+      end
+
+
       redirect_to  display_dash_board_user_user_path(@user)
     else
       flash[:error] = "Please select atleast one Business"
@@ -120,14 +123,16 @@ class UsersController < ApplicationController
 
   def display_dash_board_user
     @user = User.find(params[:id])
-    @user_causes = UserHasCause.find_all_by_user_id(@user.id)
+    user_causes = @user.causes
+    @business_company = BusinessCompany.find_all_by_cause_id(user_causes)
 
-    @user_causes.each do |user_cause|
-      @business_company = BusinessCompany.find_all_by_cause_id(user_cause.cause_id)
-      @business_company.each do |business_company|
-        @posts = business_company.posts.order("created_at DESC")
-      end
-    end
+    #@user_causes = UserHasCause.find_all_by_user_id(@user.id)
+    #@user_causes.each do |user_cause|
+    #  @business_company = BusinessCompany.find_all_by_cause_id(user_cause.cause_id)
+      #@business_company.each do |business_company|
+      #  @posts = business_company.posts.order("created_at DESC")
+      #end
+    #end
     #logger.info("#########################{@posts.inspect}")
     #@posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
   end
@@ -135,10 +140,10 @@ class UsersController < ApplicationController
   def sign_up_facebook
     @user = User.find(params[:id])
     if params[:old_user].present?
-    @@old_user = params[:old_user]
-    @@post = params[:post]
+      @@old_user = params[:old_user]
+      @@post = params[:post]
     else
-    @@old_user = false
+      @@old_user = false
     end
 
     @@client = FacebookOAuth::Client.new(:application_id => '327682274009525',
@@ -157,6 +162,14 @@ class UsersController < ApplicationController
       format.js
     end
   end
+
+  def show_business
+     @business_company = BusinessCompany.find(params[:business_company])
+     respond_to do |format|
+       format.js
+     end
+  end
+
   def sign_up
     @user = User.find(params[:id])
   end
@@ -206,4 +219,22 @@ class UsersController < ApplicationController
   #
   #format.js { render :js => "window.location.href = '#{some_path}'" }
 
+  def edit_user_causes
+    @user = User.find(params[:id])
+    @user_causes = @user.causes
+    @all_causes = Cause.all
+    @causes = @user_causes | @all_causes
+
+ end
+
+  def edit_businesses_of_user
+    @user = User.find(params[:id])
+    @businesses =@user .business_companies
+  end
+   def update_user_causes
+
+   end
+  def update_businesses_of_user
+
+  end
 end
