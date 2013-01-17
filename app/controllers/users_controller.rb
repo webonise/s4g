@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_person! , :only => [:display_cause, :display_businesses_of_causes, :display_dash_board_user]
+  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user]
 
   def index
     @users = User.all
@@ -57,8 +57,6 @@ class UsersController < ApplicationController
           flash[:success] = "Businesses submitted!"
         end
       end
-
-
       redirect_to  display_dash_board_user_user_path(@user)
     else
       flash[:error] = "Please select atleast one Business"
@@ -71,7 +69,7 @@ class UsersController < ApplicationController
     @businesses=@user.business_has_users
 
     @businesses.each do |business|
-      @business=@businesses.find(business.id) rescue nil
+      @business = @businesses.find(business.id) rescue nil
       @posts = @business.posts  rescue nil
     end
 
@@ -222,7 +220,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @user_causes = @user.causes
     @all_causes = Cause.all
-    @causes = @user_causes | @all_causes
+    @causes = @all_causes - @user_causes
 
   end
 
@@ -237,7 +235,7 @@ class UsersController < ApplicationController
       cause_businesses.push(cause.business_companies)
     end
 
-    @all_businesses = @user_businesses | cause_businesses.flatten
+    @all_businesses = cause_businesses.flatten - @user_businesses
 
   end
 

@@ -167,7 +167,7 @@ input, textarea,.uneditable-input {
 }
 
 /*display cause Deepti*/
-img
+.logo_image
 {
 height :30px;
 width  :30px
@@ -416,5 +416,3 @@ label.error { float: none; color: red; padding-left: .5em; vertical-align: top; 
 .show_admin_dashboard_td2{
     width :200px;
 }
-
-

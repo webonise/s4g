@@ -5,6 +5,34 @@
 <div>
   <%= form_tag save_causes_user_path(@user), :method => :post ,:html => { :class => "bs-docs-example form-horizontal"} do %>
       <table  class="table table-hover" >
+
+        <% @user_causes.each do |user_cause| %>
+            <tr>
+
+              <td class ="td1">
+                <div class="control-group">
+
+                  <%= check_box_tag "cause_select[]", user_cause.id,true %>
+                </div>
+              </td>
+              <td class="td2">
+                <div class="control-group">
+                  <%=  image_tag(user_cause.logo,:class=>"img")%>
+                </div>
+              </td>
+              <td>
+                <div class="control-group">
+                  <%=  user_cause.cause_name %>
+                  <div>
+                    <%= link_to "Businesses", get_businesses_user_path(@user, :cause => user_cause), :method => :get,"data-toggle" => "modal", :remote => true%>
+                    <span> ( <%= count_businesses(user_cause) %> ) </span> </div>
+                  <div id="test">
+
+                  </div>
+                </div>
+              </td>
+            </tr>
+        <%end %>
         <% @causes.each do |cause| %>
             <tr>
 
@@ -16,7 +44,7 @@
               </td>
               <td class="td2">
                 <div class="control-group">
-                  <%= link_to image_tag(cause.logo,:class=>"img")%>
+                  <%=  image_tag(cause.logo,:class=>"logo_image")%>
                 </div>
               </td>
               <td>
