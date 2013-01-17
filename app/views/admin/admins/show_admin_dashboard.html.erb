@@ -8,7 +8,7 @@
       <br>
       <br>
       <br>
-      <table  class="table table-hover" id=" sfg_admin_manage_cause_table">
+      <table  class="table table-hover " id=" sfg_admin_manage_cause_table">
         <tr>
           <th>LOGOS</th>
           <th>CAUSES</th>
@@ -17,17 +17,17 @@
         <% @causes.each do |cause| %>
             <tr>
 
-              <td class ="td1">
+              <td class ="show_admin_dashboard_td1">
                 <div class="control-group">
                   <%= link_to image_tag(cause.logo,:class=>"img")%>
                 </div>
               </td>
-              <td class="td2">
+              <td class="show_admin_dashboard_td2">
                 <div class="control-group">
                   <%=  cause.cause_name %>
                 </div>
               </td>
-              <td class="td2">
+              <td>
                 <div class="control-group">
                   <span class="manage_cause_span "><%=  link_to "view"  ,cause_path(cause),:method => :get %></span>
                   <span class="manage_cause_span"> <%=  link_to "edit" , edit_cause_path(cause), :method => :get%></span>
