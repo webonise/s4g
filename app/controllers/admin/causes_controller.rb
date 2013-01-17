@@ -1,5 +1,5 @@
 class Admin::CausesController < ApplicationController
-  # before_filter :authenticate_person! , :only => [:create, :edit, :update, :destroy]
+   before_filter :authenticate_person! , :only => [:create, :edit, :update, :destroy, :show]
 
   def new
     @cause = Cause.new

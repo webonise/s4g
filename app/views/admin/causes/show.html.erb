@@ -1,23 +1,28 @@
-<%# provide(:title, @cause.cause_name) %>
 <div class="row">
   <div class="span5 offset2">
     <h1> </h1>
 
     <%= form_tag  :method => :get, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do %>
         <table>
-        <div width="100px">
+          <tr>
+            <td>
+        <div class="control-group">
           <%= label_tag  "Name: " %>
-          <div width="100px">
-            <span><%=  @cause.cause_name%> </span>
-          </div>
-        </div>
 
+            <span><%=  @cause.cause_name%> </span>
+
+        </div>
+          </td>  </tr>
+
+          <td>
         <div class="control-group">
           <%= label_tag  "About the cause: " %>
           <div>
             <span><%=  @cause.description  %></span>
           </div>
         </div>
+          </td>
+
         <div class="control-group">
           <%= label_tag "Office Location"  %>
           <span> <%=  @cause.location %> </span>
@@ -43,12 +48,13 @@
         </div>
         <div class="control-group">
           <div class="controls">
-            <%#= link_to "Ok" ,:class => "btn btn-large btn-primary" %>
+
             <%= link_to "Back", show_admin_dashboard_admins_path, :class => "btn btn-large btn-primary" %>
           </div>
         </div>
 
     <% end %>
+
     </table>
   </div>
 </div>
