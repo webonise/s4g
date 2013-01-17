@@ -36,6 +36,10 @@
     width: 150px;
 }
 
+.display_cause{
+    margin-top: -70px;
+}
+
 select{
     width: 149px;
     margin-left: 55px;
@@ -44,9 +48,10 @@ select{
 }
 
 #sfg_view_cause_btn{
-    margin-top: -12px;
+    margin-top: -2px;
     margin-right: -5px;
 }
+
 
 #sfg_select_cause_header{
     float: left;
