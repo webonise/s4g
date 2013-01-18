@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def check_url
     #logger.info "########################   inside before filter ###############"
-    if(request.url == "http://admin.s4g.com/")
+    if(request.url == "http://admin_s4g.weboapps.com/")
       redirect_to home_admins_path
     end
   end
