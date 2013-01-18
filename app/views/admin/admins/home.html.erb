@@ -1,3 +1,4 @@
+<%= javascript_include_tag "jquery.validate"%>
 <div class="span7 offset2 home_page_fields">
   <fieldset>
     <legend>SIGN-IN</legend>
@@ -44,3 +45,20 @@
 <!--</div>-->
 </fieldset>
 </div>
+<script>
+    $(document).ready(function(){
+        $("#new_person").validate({
+            rules: {
+                "person[email]": {
+                    required:true,
+                    email:true
+                },
+                "person[password]": {
+                    required:true,
+                    minlength: 6
+                }
+            }
+        });
+    });
+
+</script>

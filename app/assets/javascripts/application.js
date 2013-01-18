@@ -106,9 +106,6 @@ $(document).ready(function() {
             "cause[url]": {
                 url:true
             },
-            "cause[logo]":{
-                required:true
-            },
             "cause[contact_no]":{
                 required:true,
                 digits: true ,
