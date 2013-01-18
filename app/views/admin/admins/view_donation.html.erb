@@ -20,8 +20,9 @@
               <%=  cause.cause_name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Donation obtained[$<%= cfh["total_fund"] %>]
               <div>
                 <%= link_to "Businesses", get_businesses_admin_admins_path(:cause => cause), :method => :get,"data-toggle" => "modal", :remote => true%>
-                <span> ( <%= cause.business_companies.size %> ) </span> </div>
-              <div id="test">
+                <span> ( <%= cause.business_companies.size %> ) </span>
+              </div>
+              <div id="test_one">
 
               </div>
             </div>
