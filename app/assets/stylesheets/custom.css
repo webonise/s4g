@@ -482,3 +482,19 @@ table#show_table {
     width: 100px;
 }
 
+.sfg_hero_sign_in
+{
+    background-color: #EEEEEE;
+    border-radius: 6px 6px 6px 6px;
+    color: inherit;
+    font-size: 18px;
+    font-weight: 200;
+    margin-bottom: 5px;
+    padding: 28px;
+
+}
+.home_page_fields_two fieldset {
+    border: 1px solid black;
+    margin: 0;
+    padding: 16px;
+}
