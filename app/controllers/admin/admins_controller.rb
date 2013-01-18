@@ -21,14 +21,15 @@ class Admin::AdminsController < ApplicationController
 
   def view_donation
 
-    causes = Cause.includes(:business_companies).all
+    causes = Cause.all
     cost_count = Array.new
     @cause_list = Array.new
     cause_fund_hash = Hash
     causes.each do |cause|
       businesses = cause.business_companies
       business_post = Post.find_all_by_business_company_id(businesses.collect{|i| i.id})
-      cost_count.push( (Impression.find_all_by_post_id(business_post.collect{|j|j.id })).count)
+      imp_count = Impression.find_all_by_post_id(business_post.collect{|j|j.id })
+      cost_count.push(imp_count.count)
 
       cost_count.each{|c| sum = sum.to_f + c.to_f}
       sum = sum.to_f * FUND_SEND.to_f

@@ -52,7 +52,7 @@
       <div class="span6 offset1" id="sfg_select_cause_part">
         <div class="row">
           <h5 id="sfg_select_cause_header">Select a cause</h5>
-          <%= select_tag "cause", options_from_collection_for_select(@causes, "id", "cause_name"), :prompt => "Select cause", :id => "sf_cause_drop_down" %>
+          <%= select_tag "cause", options_from_collection_for_select(@causes, "id", "cause_name"), :prompt => "Select cause", :id => "sfg_cause_drop_down" %>
           <button type="button" class="btn" id="sfg_view_cause_btn">View Details</button>
 
         </div>
@@ -102,7 +102,7 @@
                     required: true
                 },
                 "business_user[business_company_attributes][description]": {
-                    minlength: 50
+                    minlength: 10
                 },
                 "cause":{
                     required: true
@@ -122,7 +122,7 @@
 
         //ajax call for display cause
         $("#sfg_view_cause_btn").click(function(){
-            var cause_id = $("#sf_cause_drop_down").val();
+            var cause_id = $("#sfg_cause_drop_down").val();
             $.ajax({
                 type: "get" ,
                 url: "../causes/display_cause_business_sign_up"   ,

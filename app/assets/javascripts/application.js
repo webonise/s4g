@@ -20,18 +20,18 @@
 
 /* VALIDATION*/
 $(document).ready(function() {
-    $("#new_person").validate({
-        rules: {
-            "person[email]": {
-                required:true,
-                email:true
-            },
-            "person[password]": {
-                required:true,
-                minlength: 6
-            }
-        }
-    });
+//    $("#new_person").validate({
+//        rules: {
+//            "person[email]": {
+//                required:true,
+//                email:true
+//            },
+//            "person[password]": {
+//                required:true,
+//                minlength: 6
+//            }
+//        }
+//    });
 
 //    $(".sfg_user_sign_up").validate({
 //        rules: {
