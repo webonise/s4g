@@ -12,7 +12,7 @@
           <td class="td2">
             <div class="control-group">
               <% cause = cfh["cause"] %>
-              <%= link_to image_tag(cause.logo,:class=>"img")%>
+              <%= link_to image_tag(cause.logo,:class=>"img1")%>
             </div>
           </td>
           <td>
@@ -20,7 +20,7 @@
               <%=  cause.cause_name %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-Donation obtained[$<%= cfh["total_fund"] %>]
               <div>
                 <%= link_to "Businesses", get_businesses_admin_admins_path(:cause => cause), :method => :get,"data-toggle" => "modal", :remote => true%>
-                <span> ( <%= count_businesses(cause) %> ) </span> </div>
+                <span> ( <%= cause.business_companies.size %> ) </span> </div>
               <div id="test">
 
               </div>

@@ -16,7 +16,7 @@
               </td>
               <td class="td2">
                 <div class="control-group">
-                  <%=  image_tag(cause.logo,:class => "logo_image")%>
+                  <%=  image_tag(cause.logo,:class => "img1")%>
                 </div>
               </td>
               <td>
@@ -24,7 +24,7 @@
                   <%=  cause.cause_name %>
                   <div>
                     <%= link_to "Businesses", get_businesses_user_path(@user, :cause => cause), :method => :get,"data-toggle" => "modal", :remote => true%>
-                    <span> ( <%= count_businesses(cause) %> ) </span> </div>
+                    <span> ( <%= cause.business_companies.size %> ) </span> </div>
                   <div id="test">
 
                   </div>
