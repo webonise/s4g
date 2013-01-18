@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user]
+  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user,:edit,:update]
 
   def index
     @users = User.all
@@ -7,8 +7,7 @@ class UsersController < ApplicationController
 
   def display_cause
     @user = User.find(params[:id])
-    @causes = Cause.includes(:business_companies).all
-    #@causes = Cause.paginate(page: params[:page])
+    @causes = Cause.all
   end
 
   def save_causes
