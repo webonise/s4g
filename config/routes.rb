@@ -66,13 +66,9 @@ S4g::Application.routes.draw do
     end
   end
 
-  #resource :static_pages do
-  #  member do
-  #    get :home
-  #  end
-  #end
 
-  match '/user_signup',  :to => 'users#new', :as => 'user_sign_up'
+
+  #match '/user_signup',  :to => 'users#new', :as => 'user_sign_up'
   match '/first', :to => 'users#display_cause'
 
   match '/business_user_signup', :to => 'business_users#new', :as => 'business_user_sign_up'
@@ -81,8 +77,6 @@ S4g::Application.routes.draw do
   #s match '/admins/causes/new' , :to => 'admin/causes#new ' , :as =>'/admins/causes/new'
 
   root :to => 'static_pages#home'
-
-  #match '/', :to => 'static_pages#home'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

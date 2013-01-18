@@ -8,7 +8,9 @@
 /*input[type=text], textarea { width: 250px; float: left; }*/
 /*textarea { height: 50px; }*/
 
-
+.legend_color{
+    color: #ffffff;
+}
 
 .s4g_container{
     margin-bottom: 80px;
@@ -482,19 +484,43 @@ table#show_table {
     width: 87px;
 }
 
-.sfg_hero_sign_in
-{
+/*.sfg_hero_sign_in*/
+/*{*/
+    /*background-color: #EEEEEE;*/
+    /*border-radius: 6px 6px 6px 6px;*/
+    /*color: inherit;*/
+    /*font-size: 18px;*/
+    /*font-weight: 200;*/
+    /*margin-bottom: 5px;*/
+    /*padding: 28px;*/
+
+/*}*/
+
+.sign_in_fieldset{
+    border: 1px solid black;
+    margin: 0;
+    padding: 16px;
+    height: 289px;
+}
+
+
+.sfg_hero_sign_in {
     background-color: #EEEEEE;
     border-radius: 6px 6px 6px 6px;
     color: inherit;
     font-size: 18px;
     font-weight: 200;
-    margin-bottom: 5px;
-    padding: 28px;
-
+    height: 165px;
+    margin-bottom: 4px;
+    padding: 29px;
 }
+
 .home_page_fields_two fieldset {
     border: 1px solid black;
     margin: 0;
     padding: 16px;
+}
+.skip_margin {
+    margin-left: 260px;
+    margin-top: -70px;
 }
