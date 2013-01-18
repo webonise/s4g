@@ -202,25 +202,32 @@ class UsersController < ApplicationController
                                            :token => token)
 
       @@client.authorize_url(:scope => 'publish_stream')
-      @@client.me.feed(:create, :message => post.content)
 
-      impression = Impression.new()
-      impression.post_id = post.id
-      impression.user_id = @user.id
-      impression.fund_raise = FUND_SEND
-      impression.save
-      flash[:success] = "Shared on facebook successfully"
-      redirect_to display_dash_board_user_user_path(@user)
+      begin
+        @@client.me.feed(:create, :message => post.content)
+        rescue OAuth2::Error
+         flash[:error] = "You cannot share same post twice within such a short span of time..."
+        else
+        impression = Impression.new()
+        impression.post_id = post.id
+        impression.user_id = @user.id
+        impression.fund_raise = 30
+        impression.save
+        flash[:success] = "Shared on facebook successfully"
+        ensure
+        redirect_to display_dash_board_user_user_path(@user)
+      end
+
     end
   end
 
-  #flash[:notice] = "You must be registered with Twitter to do that."
-  #respond_to do |format|
-  #  format.js { render(:update) { |page| page.redirect_to authentications_url } }
-  #
-  #end
-  #
-  #format.js { render :js => "window.location.href = '#{some_path}'" }
+#flash[:notice] = "You must be registered with Twitter to do that."
+#respond_to do |format|
+#  format.js { render(:update) { |page| page.redirect_to authentications_url } }
+#
+#end
+#
+#format.js { render :js => "window.location.href = '#{some_path}'" }
 
   def edit_user_causes
     @user = User.find(params[:id])
