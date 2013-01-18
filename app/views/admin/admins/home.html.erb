@@ -1,0 +1,64 @@
+<%= javascript_include_tag "jquery.validate"%>
+<div class="span7 offset2 home_page_fields">
+  <fieldset>
+    <legend>SIGN-IN</legend>
+    <div class='sfg_hero_sign_in'>
+      <div class='row'>
+        <div class="span5 offset0" id="lightbox ">
+
+          <%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => { :class => 'form-horizontal sfg_sign_in', :method => "POST" }) do |f| %>
+              <div class="control-group">
+                <%= f.label :email, "Email ID", :class => 'control-label'  %>
+                <div class="controls">
+                  <%= f.text_field :email , :class => 'text_field' %>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <%= f.label :password, "Password", :class => 'control-label'  %>
+                <div class="controls">
+                  <%= f.password_field :password, :class => 'text_field' %>
+                </div>
+              </div>
+
+
+              <div class="control-group" id="customText">
+                <div class="controls">
+                  <div><%= f.submit "SIGN IN", :class => "btn btn-primary" %></div>
+                </div>
+              </div>
+
+              <div class="control-group" id="customText">
+                <div class="controls">
+                  <%- if devise_mapping.recoverable? && controller_name != 'passwords' %>
+                      <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                  <% end -%>
+                </div>
+              </div>
+
+          <% end %>
+        </div>
+
+      </div>
+
+    </div>
+<!--</div>-->
+</fieldset>
+</div>
+<script>
+    $(document).ready(function(){
+        $("#new_person").validate({
+            rules: {
+                "person[email]": {
+                    required:true,
+                    email:true
+                },
+                "person[password]": {
+                    required:true,
+                    minlength: 6
+                }
+            }
+        });
+    });
+
+</script>
