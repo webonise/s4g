@@ -12,24 +12,28 @@
         <tr>
           <th>LOGOS</th>
           <th>BUSINESS NAME</th>
-          <th>ACTIONS</th>
+          <div class="action">
+          <th>ACTIONS</th></div>
         </tr>
         <% @business.each do |business_company| %>
             <tr>
 
-              <td class ="td1">
+              <td class ="show_admin_dashboard_td1">
                 <div class="control-group">
                   <%=image_tag(business_company.business_logo,:class=>"img1")%>
                 </div>
               </td>
-              <td class="td2">
+              <td class="show_admin_dashboard_td2">
                 <div class="control-group">
                   <%=  business_company.business_name %>
                 </div>
               </td>
-              <td class="td2">
+              <td>
                 <div class="control-group">
-                  <span class="manage_cause_span"><%=  link_to "view" , business_company_path(business_company),:method => :get, :id => 'sfg_view_popup' %></span>
+                  <span class="manage_cause_span"><%=  link_to "view" , business_company_path(business_company),:method => :get, "data-toggle" => "modal", :remote => true %></span>
+                  <div id="view_business">
+
+                  </div>
                   <span class="manage_cause_span"> <%=  link_to "edit", edit_business_company_path(business_company),:method => :get%></span>
                   <span class="manage_cause_span "> <%=  link_to "delete" ,business_company_path( business_company), :method => :delete,:confirm => "Are you sure you want to delete this business?" %></span>
 

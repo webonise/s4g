@@ -1,0 +1,47 @@
+<div id="mymodal1" class="modal hide fade in" aria-hidden="true" style = "display: none; ">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <fieldset>
+      <legend>Cause-Details</legend>
+      <table id="show_table" class="view_cause_table">
+
+        <tr>
+          <td>Name</td>
+          <td><%=  cause.cause_name%> </td>
+        </tr>
+
+        <tr>
+          <td>About the cause </td>
+          <td><%=  cause.description  %></td>
+        </tr>
+
+        <tr>
+          <td>Office Location</td>
+          <td><%=  cause.location %></td>
+        </tr>
+
+        <tr>
+          <td>Logo</td>
+          <td><%=  image_tag(cause.logo, :class => "img1") %></td>
+        </tr>
+
+        <tr>
+          <td>Website of the Cause </td>
+          <td><%=  cause.url %></td>
+        </tr>
+
+        <tr>
+          <td>Contact_no</td>
+          <td><%=  cause.contact_no %></td>
+        </tr>
+      </table>
+      <%#= link_to "Back", show_admin_dashboard_admins_path, :class => "btn btn-large btn-primary" ,id:"create_cause_btn" %>
+    </fieldset>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal" >Close</a>
+  </div>
+</div>
