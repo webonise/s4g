@@ -38,6 +38,7 @@ class BusinessUsersController < ApplicationController
     @causes = Cause.all
   end
 
+
   def create
     @business_user = BusinessUser.new(params[:business_user])
     if params[:cause].present?

@@ -3,9 +3,11 @@
 </div>
 <br>
 <div>
+  <%= will_paginate @causes %>
 
   <%= form_tag save_causes_user_path(@user), :method => :post ,:html => { :class => "bs-docs-example form-horizontal"} do %>
       <table  class="table table-hover" >
+
         <% @causes.each do |cause| %>
             <tr>
 
@@ -24,7 +26,7 @@
                   <%=  cause.cause_name %>
                   <div>
                     <%= link_to "Businesses", get_businesses_user_path(@user, :cause => cause), :method => :get,"data-toggle" => "modal", :remote => true%>
-                    <span> ( <%= cause.business_companies.size %> ) </span> </div>
+                    <span> ( <%=  count_businesses(cause) %> ) </span> </div>
                   <div id="test">
 
                   </div>
@@ -51,3 +53,4 @@
   <%end%>
 
 </div>
+

@@ -1,4 +1,6 @@
 
+<%= javascript_include_tag "jquery.validate"%>
+
 
 <% provide(:title, 'Sign up') %>
 
@@ -6,7 +8,7 @@
   <h1 class="user_signup"> <font color="#fff">User Sign up</font></h1>
 
 
-    <%= form_for @user, :method => :post, :html => { :class => 'form-horizontal sfg_user_sign_up colorbox', :id => "signup_colorbox" }  do |f| %>
+  <%= form_for @user, :method => :post, :html => { :class => 'form-horizontal sfg_user_sign_up colorbox', :id => "signup_colorbox" }  do |f| %>
 
 
       <%= render 'error_messages', :object => f.object %>
@@ -50,6 +52,33 @@
 
   <% end %>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".sfg_user_sign_up").validate({
+            rules: {
+                "user[first_name]": {
+                    required: true
+                },
+                "user[email]": {
+                    required: true,
+                    email: true
+                },
+                "user[password]": {
+                    required:true,
+                    minlength: 6
+                },
+                "user[password_confirmation]": {
+                    equalTo: "#user_password"
+                }
+            },
+            submitHandler: function(form) {
+                form.submit();
+            }
+        });
+    });
+
+</script>
 
 
 

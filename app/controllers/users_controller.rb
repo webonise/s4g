@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user,:edit,:update]
+  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user,:edit,:update, :sign_up]
 
  before_filter :unsign , :only => [:new]
   def index
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def display_cause
     @user = User.find(params[:id])
-    @causes = Cause.all
+    @causes = Cause.all.paginate(:page => params[:page], :per_page => 4)
   end
 
   def save_causes
@@ -29,8 +29,7 @@ class UsersController < ApplicationController
           flash[:success] = "Causes Submitted!"
         end
       end
-
-      redirect_to  display_businesses_of_causes_user_path(@user)
+     redirect_to  display_businesses_of_causes_user_path(@user)
     else
       flash[:error] = "Please select atleast one Cause"
       redirect_to display_cause_user_path(@user)

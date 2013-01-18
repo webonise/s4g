@@ -1,6 +1,9 @@
+<%= javascript_include_tag "jquery.validate"%>
+
+
 <div class="row">
   <div class="span5 offset2">
-    <h1>Update your profile</h1>
+    <h4>Update your profile</h4>
 
     <%= form_for @user, :method => :put, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do |f| %>
 
@@ -15,7 +18,14 @@
         <div class="control-group">
           <%= f.label :password, "Password", :class => 'control-label'  %>
           <div class="controls">
-            <%= f.password_field :password, :class => 'text_field' %>
+            <%= f.password_field :password, :placeholder => "Password", :class => 'text_field' %>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <%= f.label :password_confirmation, "Confirm Password", :class => 'control-label'  %>
+          <div class="controls">
+            <%= f.password_field :password_confirmation , :placeholder => "Password Confirmation",:class => 'text_field', :id => 'pass_confirm'%>
           </div>
         </div>
 
@@ -29,4 +39,28 @@
   </div>
 
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".sfg_user_sign_up").validate({
+            rules: {
+                "user[first_name]": {
+                    required: true
+                },
+                "user[email]": {
+                    required: true,
+                    email: true
+                },
+                "user[password]": {
+                    required:true,
+                    minlength: 6
+                },
+                "user[password_confirmation]": {
+                    equalTo: "#user_password"
+                }
+            }
+        });
+    });
+
+</script>
 

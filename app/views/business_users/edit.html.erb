@@ -1,8 +1,10 @@
-<legend><h5>Business User</h5></legend>
+<%= javascript_include_tag "jquery.validate"%>
+
+<legend>Business User</legend>
 
 <div class="row">
   <div class="span5">
-    <h3 class="general_details">Update your profile</h3>
+    <h4 class="general_details">Update your profile</h4>
     <%= form_for @business_user, :method => :put, :html => { :class => 'form-horizontal sfg_business_user_sign_up' } do |f| %>
 
         <%= render 'error_messages', object: f.object %>
@@ -26,7 +28,7 @@
         <div class="control-group">
           <%= f.label :password, "Password", :class => 'control-label'  %>
           <div class="controls">
-            <%= f.password_field :password, :class => 'text_field' %>
+            <%= f.password_field :password, :class => 'text_field', :id => 'business_user_password' %>
           </div>
         </div>
 
@@ -43,7 +45,7 @@
             <div class="control-group">
               <%= builder.label :business_website, "Company Website", :class => 'control-label' %>
               <div class="controls">
-                <%= builder.url_field :business_website , :class => 'url_field'%>
+                <%= builder.url_field :business_website , :class => 'url_field' , :value => 'http://'%>
               </div>
             </div>
 
@@ -75,7 +77,40 @@
             </div>
         <% end %>
 
-        <%= f.submit "Save changes", class: "btn btn-large btn-primary" %>
+        <%= f.submit "Save changes", class: "btn btn-large btn-primary", :id => 'sfg_edit_btn'%>
     <% end %>
   </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        //validation
+
+        $("#sfg_business_user_sign_up").validate({
+            rules: {
+                "business_user[first_name]": {
+                    required: true
+                },
+                "business_user[email]": {
+                    required: true,
+                    email: true
+                },
+                "business_user[password]":{
+                    required:true,
+                    minlength: 6
+                },
+                "business_user[password_confirmation]": {
+                    equalTo: "#business_user_password"
+                },
+                "business_user[business_company_attributes][description]": {
+                    minlength: 50
+                },
+                "business_user[business_company_attributes][business_website]": {
+                    required: true
+                }
+            }
+        });
+    });
+
+</script>
