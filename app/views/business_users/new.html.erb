@@ -43,7 +43,7 @@
           </div>
         </div>
 
-        <%= f.fields_for :business_company do |builder| %>
+        <%= fields_for :business_company do |builder| %>
             <%= render "get_business_detail", :f => builder %>
         <% end %>
 
@@ -102,7 +102,7 @@
                     required: true
                 },
                 "business_user[business_company_attributes][description]": {
-                    minlength: 10
+                    minlength: 50
                 },
                 "cause":{
                     required: true

@@ -24,11 +24,7 @@ class BusinessUsersController < ApplicationController
     else
       render 'edit'
     end
-    #
-    #if @business_user.save
-    #  flash[:success] = "Your Profile is updated."
-    #  redirect_to show_post_business_company_path(@business_company.id)
-    #end
+
   end
 
 
@@ -38,27 +34,27 @@ class BusinessUsersController < ApplicationController
     @causes = Cause.all
   end
 
-
   def create
-    @business_user = BusinessUser.new(params[:business_user])
-    if params[:cause].present?
-      @business_company = @business_user.business_company
-      @business_company.cause_id = params[:cause]
-      @business_company = params[:business_company_attributes]
+    @business_user = BusinessUser.create(params[:business_user])
+    @business_company = @business_user.build_business_company
+    @business_company.cause_id = params[:cause]
+    @business_company.attributes = params[:business_company]
 
-      @business_user.role = "business_user"
+    @business_user.role = "business_user"
+
+    if params[:cause].nil?
+      flash[:error] = "Please select at least one cause"
+      redirect_to new_business_user_path
+    else
       if @business_user.save
         UserMailer.registration_confirmation(@business_user).deliver
         sign_in @business_user
         flash[:success] = "Welcome!"
-        @business_company = BusinessCompany.find_by_business_user_id(@business_user.id)
+
         redirect_to show_post_business_company_path(@business_company.id)
       else
         render 'new'
       end
-    else
-      flash[:error] = "Please select at least one cause"
-      redirect_to new_business_user_path
     end
 
   end
