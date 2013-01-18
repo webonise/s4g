@@ -28,8 +28,7 @@ class UsersController < ApplicationController
           flash[:success] = "Causes Submitted!"
         end
       end
-
-      redirect_to  display_businesses_of_causes_user_path(@user)
+     redirect_to  display_businesses_of_causes_user_path(@user)
     else
       flash[:error] = "Please select atleast one Cause"
       redirect_to display_cause_user_path(@user)
