@@ -28,16 +28,16 @@
       </div>
 
       <div class="control-group">
-        <%= f.label :email, "Email ID", :class => 'control-label'  %>
+        <%= f.label :email, "Email ID",  :class => 'control-label'  %>
         <div class="controls">
-          <%= f.text_field :email , :class => 'text_field' %>
+          <%= f.text_field :email , :placeholder => "Email",:class => 'text_field' %>
         </div>
       </div>
 
       <div class="control-group">
         <%= f.label :password, "Password", :class => 'control-label'  %>
         <div class="controls">
-          <%= f.password_field :password, :class => 'text_field' %>
+          <%= f.password_field :password, :placeholder => "Password", :class => 'text_field' %>
         </div>
       </div>
 
@@ -45,7 +45,7 @@
       <div class="control-group">
         <%= f.label :password_confirmation, "Confirm Password", :class => 'control-label'  %>
         <div class="controls">
-          <%= f.password_field :password_confirmation , :class => 'text_field', :id => 'pass_confirm'%>
+          <%= f.password_field :password_confirmation , :placeholder => "Password Confirmation",:class => 'text_field', :id => 'pass_confirm'%>
         </div>
       </div>
 

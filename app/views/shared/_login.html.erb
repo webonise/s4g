@@ -1,11 +1,6 @@
 
-
-
-<!--<div class="row">-->
 <div class="span5 offset0" id="lightbox ">
-  <h1>   </h1>
 
-  <%#= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => { :class => 'form-horizontal sfg_sign_in' }) do |f| %>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => { :class => 'form-horizontal sfg_sign_in', :method => "POST" }) do |f| %>
       <div class="control-group">
         <%= f.label :email, "Email ID", :class => 'control-label'  %>
@@ -13,7 +8,6 @@
           <%= f.text_field :email , :class => 'text_field' %>
         </div>
       </div>
-
 
       <div class="control-group">
         <%= f.label :password, "Password", :class => 'control-label'  %>
@@ -25,7 +19,7 @@
 
       <div class="control-group" id="customText">
         <div class="controls">
-          <div><%= f.submit "SIGN IN" %></div>
+          <div><%= f.submit "SIGN IN", :class => "btn btn-primary" %></div>
         </div>
       </div>
 
@@ -36,9 +30,6 @@
           <% end -%>
         </div>
       </div>
-
-
-      <!--<br/>-->
 
   <% end %>
 </div>
