@@ -3,12 +3,12 @@
 
 <!--<div class="row">-->
 <div class="span5 offset0">
-  <h1>   </h1>
+  <h1> </h1>
 
   <%#= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => { :class => 'form-horizontal sfg_sign_in' }) do |f| %>
   <%= form_for(resource, :as => resource_name, :url => session_path(resource_name),:html => { :class => 'form-horizontal sfg_sign_in', :method => "POST" }) do |f| %>
       <div class="control-group">
-        <%= f.label :email, "Email ID", :class => 'control-label'  %>
+        <%= f.label :email, "Email ID", :class => 'control-label' %>
         <div class="controls">
           <%= f.text_field :email , :class => 'text_field' %>
         </div>
@@ -16,7 +16,7 @@
 
 
       <div class="control-group">
-        <%= f.label :password, "Password", :class => 'control-label'  %>
+        <%= f.label :password, "Password", :class => 'control-label' %>
         <div class="controls">
           <%= f.password_field :password, :class => 'text_field' %>
         </div>

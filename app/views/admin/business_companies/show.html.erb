@@ -1,62 +1,50 @@
 <div class="row">
-  <div class="span5 offset2">
-    <h1> </h1>
 
-    <%= form_tag  :method => :get, :html => { :class => 'form-horizontal sfg_user_sign_up' }  do %>
+  <div class="span5 offset2" id="cause_view">
+    <fieldset>
+      <legend> company Details </legend>
+    <%= form_tag  :method => :get, :html => { :class => 'form-horizontal form-inline' }  do  %>
 
-        <div class="control-group" id="customText">
-          <%= label_tag  "Name" %>
-          <div class="controls">
-            <%=  @business.business_name%>
-          </div>
-        </div>
+<table id="show_table">
 
-        <div class="control-group">
-          <%= label_tag  "About the cause" %>
-          <div class="controls">
-            <%=  @business.description  %>
-          </div>
-        </div>
-        <div class="control-group">
-          <%= label_tag "Office Location"  %>
-          <div class="controls">
-            <%=  @business.address %>
-          </div>
-        </div>
+  <tr>
+    <td>Name</td>
+    <td> <%=  @business.business_name%> </td>
+  </tr>
 
-        <div class="control-group">
-          <%= label_tag "Logo"  %>
-          <div class="controls">
-            <%=  @business.logo %>
-          </div>
-        </div>
+  <tr>
+    <td>About the Company </td>
+    <td><%=  @business.description  %>  </td>
+  </tr>
 
+  <tr>
+    <td> Office Location </td>
+    <td> <%=  @business.address %> </td>
+  </tr>
 
-        <!--<div class="control-group">-->
-          <!--<%#= label_tag "Website of the Business Company"  %>-->
-          <!--<div class="controls">-->
-            <!--<%#=  @business.url %>-->
-          <!--</div>-->
-        <!--</div>-->
+  <tr>
+    <td>Logo</td>
+    <td> <%=  @business.business_logo %> </td>
+  </tr>
 
-        <div class="control-group">
-          <%= label_tag  "Contact_no" %>
-          <div class="controls">
-            <%=  @business.contact %>
-          </div>
-        </div>
-        <div class="control-group">
-          <div class="controls">
-            <%= link_to "ok", show_admin_dashboard_business_admins_path, :class => "btn btn-large btn-primary" %>
-          </div>
-        </div>
+  <tr>
+    <td>Company Website </td>
+    <td> <%=  @business.contact %> </td>
+  </tr>
 
-    <% end %>
-  </div>
+  <tr>
+    <td>Contact_no</td>
+    <!--<td><%#=  @cause.contact_no %></td>-->
+  </tr>
+  <% end %>
+</table>
+<br>
+<br>
+<%= link_to "ok", show_admin_dashboard_business_admins_path, :class => "btn btn-large btn-primary" %>
+</fieldset>
 
 </div>
 
-
-
+</div>
 
 

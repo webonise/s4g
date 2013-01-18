@@ -1,0 +1,26 @@
+<div id="mymodal" class="modal hide fade in" aria-hidden="true" style = "display: none; ">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <h3>Businesses associated with Cause</h3>
+  </div>
+
+  <div class="modal-body">
+    <h5> Fund raised by Businesses supporting to Cause</h5>
+    <table>
+      <tr>
+        <td>Business Name</td>
+        <td>Fund Raised</td>
+      </tr>
+      <%  business_cause_money.each do |b|%>
+      <tr>
+        <td><%= b["business_name"]%></td>
+        <td><%= b["business_impression"] %></td>
+      </tr>
+      <%end %>
+    </table>
+  </div>
+
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal" >Close</a>
+  </div>
+</div>

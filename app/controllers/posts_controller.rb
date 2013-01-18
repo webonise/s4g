@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def create
     check_post_content = params[:post][:content]
     @post = Post.new
-        #logger.info("############################{check_post_content.inspect}");
+    #logger.info("############################{check_post_content.inspect}");
     if check_post_content==""
       flash[:error] = "Content can't be blank!"
       redirect_to show_post_business_company_path(@post.business_company_id)

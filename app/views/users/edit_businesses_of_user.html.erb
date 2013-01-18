@@ -21,21 +21,21 @@
             </td>
 
       <%end %>
-          <% @all_businesses.each do |business| %>
-              <tr>
+      <% @all_businesses.each do |business| %>
+          <tr>
 
-                <td class = "td1">
-                  <div class="control-group">
-                  <%= check_box_tag "business_select[]", business.id %>
-                  </div>
-                </td>
-                <td>
-                  <div class="control-group">
-                    <%=  business.business_name %>
-                  </div>
-                </td>
+            <td class = "td1">
+              <div class="control-group">
+                <%= check_box_tag "business_select[]", business.id %>
+              </div>
+            </td>
+            <td>
+              <div class="control-group">
+                <%=  business.business_name %>
+              </div>
+            </td>
 
-          <%end %>
+      <%end %>
 
       <tr>
         <td></td>
