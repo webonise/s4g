@@ -30,7 +30,10 @@
               </td>
               <td>
                 <div class="control-group">
-                  <span class="manage_cause_span"><%=  link_to "view" , business_company_path(business_company),:method => :get, :id => '' %></span>
+                  <span class="manage_cause_span"><%=  link_to "view" , business_company_path(business_company),:method => :get, "data-toggle" => "modal", :remote => true %></span>
+                  <div id="view_business">
+
+                  </div>
                   <span class="manage_cause_span"> <%=  link_to "edit", edit_business_company_path(business_company),:method => :get%></span>
                   <span class="manage_cause_span "> <%=  link_to "delete" ,business_company_path( business_company), :method => :delete,:confirm => "Are you sure you want to delete this business?" %></span>
 

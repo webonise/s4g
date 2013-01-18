@@ -1,0 +1,53 @@
+<div id="mymodal_business" class="modal hide fade in" aria-hidden="true" style = "display: none; ">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal">&times;</button>
+  </div>
+
+  <div class="modal-body">
+    <fieldset>
+      <legend> company Details </legend>
+      <%#= form_tag  :method => :get, :html => { :class => 'form-horizontal form-inline' }  do  %>
+
+          <table id="show_table">
+
+            <tr>
+              <td>Name</td>
+              <td> <%=  business.business_name%> </td>
+            </tr>
+
+            <tr>
+              <td>About the Company </td>
+              <td><%=  business.description  %>  </td>
+            </tr>
+
+            <tr>
+              <td> Office Location </td>
+              <td> <%=  business.address %> </td>
+            </tr>
+
+            <tr>
+              <td>Logo</td>
+              <td> <%=  image_tag(business.business_logo,:class =>"img1") %> </td>
+            </tr>
+
+            <tr>
+              <td>Company Website </td>
+              <td> <%=  business.contact %> </td>
+            </tr>
+
+            <tr>
+              <td>Contact_no</td>
+              <!--<td><%#=  @cause.contact_no %></td>-->
+            </tr>
+      <%# end %>
+      </table>
+      <br>
+      <br>
+      <%#= link_to "ok", show_admin_dashboard_business_admins_path, :class => "btn btn-large btn-primary" %>
+    </fieldset>
+
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn" data-dismiss="modal" >Close</a>
+  </div>
+</div>
