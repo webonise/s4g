@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user]
+  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user,:edit,:update]
 
   def index
     @users = User.all
@@ -7,8 +7,7 @@ class UsersController < ApplicationController
 
   def display_cause
     @user = User.find(params[:id])
-    @causes = Cause.includes(:business_companies).all
-    #@causes = Cause.paginate(page: params[:page])
+    @causes = Cause.all
   end
 
   def save_causes
@@ -120,19 +119,19 @@ class UsersController < ApplicationController
   end
 
   def display_dash_board_user
+    company_post = Hash.new
+    @company_post_list = Array.new
     @user = User.find(params[:id])
-    user_causes = @user.causes
-    @business_company = BusinessCompany.find_all_by_cause_id(user_causes)
+    business_company = @user.business_companies
+    posts = Post.order("created_at DESC").find_all_by_business_company_id(business_company.collect{|i| i.id})
 
-    #@user_causes = UserHasCause.find_all_by_user_id(@user.id)
-    #@user_causes.each do |user_cause|
-    #  @business_company = BusinessCompany.find_all_by_cause_id(user_cause.cause_id)
-    #@business_company.each do |business_company|
-    #  @posts = business_company.posts.order("created_at DESC")
-    #end
-    #end
-    #logger.info("#########################{@posts.inspect}")
-    #@posts = @business_company.posts.order("created_at DESC").paginate(:page =>1)
+    posts.each do |p|
+      bc = BusinessCompany.find(p.business_company_id)
+      company_post = {"company" => bc, "post" => p}
+      @company_post_list.push(company_post)
+    end
+    #@posts = @posts.paginate(:page => 5, :per_page => 7)
+    #@company_post_list = @company_post_list.paginate(:page => 5, :per_page => 7)
   end
 
   def sign_up_facebook
@@ -208,7 +207,7 @@ class UsersController < ApplicationController
       impression = Impression.new()
       impression.post_id = post.id
       impression.user_id = @user.id
-      impression.fund_raise = 30
+      impression.fund_raise = FUND_SEND
       impression.save
       flash[:success] = "Shared on facebook successfully"
       redirect_to display_dash_board_user_user_path(@user)

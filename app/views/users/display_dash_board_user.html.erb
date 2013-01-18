@@ -9,38 +9,39 @@
   </div>
   <div class="pagination">
 
-    <%@business_company.each do |business_company|  %>
-        <ol class="posts">
 
-          <% business_company.posts.order("created_at DESC").each do |post|  %>
+        <ol class="posts">
+          <%#= will_paginate @company_post_list %>
+          <%@company_post_list.each do |company_post|  %>
+
               <li>
 
                 <span class="content">
-                  <%= link_to image_tag(business_company.business_logo, :size => "30x50",:class=>"img")%>
+                  <%= link_to image_tag(company_post["company"].business_logo, :size => "30x50",:class=>"img")%>
 
-                  <%= link_to business_company.business_name, show_business_user_path(:business_company => business_company), :method => :get,"data-toggle" => "modal", :remote => true %>
+                  <%= link_to company_post["company"].business_name, show_business_user_path(:business_company => company_post["company"]), :method => :get,"data-toggle" => "modal", :remote => true %>
 
                   <div class="">
-                    <%= link_to image_tag('http://i.stack.imgur.com/L8rHf.png', :size => "35x50" ) + "Share", share_on_facebook_user_path(@user.id,:post => post), :method => 'get', :class => 'sponsor-tag-img' %>
+                    <%= link_to image_tag('http://i.stack.imgur.com/L8rHf.png', :size => "35x50" ) + "Share", share_on_facebook_user_path(@user.id,:post => company_post["post"]), :method => 'get', :class => 'sponsor-tag-img' %>
                   </div>
                 </span>
 
-                <% if (post.content =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]).nil?  %>
-                    <span class="content "><%= post.content %></span>
+                <% if (company_post["post"].content =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]).nil?  %>
+                    <span class="content "><%= company_post["post"].content %></span>
                 <% else %>
-                    <span class="content"><%=link_to post.content, post.content, :target => '_blank', :id => 'sfg_post_link'%></span>
+                    <span class="content"><%=link_to company_post["post"].content, company_post["post"].content, :target => '_blank', :id => 'sfg_post_link'%></span>
                 <% end %>
 
                 <span class="timestamp">
-                    Posted <%= time_ago_in_words(post.created_at) %> ago.
+                    Posted <%= time_ago_in_words(company_post["post"].created_at) %> ago.
                   </span>
 
               </li>
           <% end %>
         </ol>
-    <% end %>
 
-    <%#= will_paginate @business_company %>
+
+    <%#= will_paginate @company_post_list %>
   </div>
 </div>
 
