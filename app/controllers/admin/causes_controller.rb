@@ -33,7 +33,11 @@ class Admin::CausesController < ApplicationController
 
   def show
     @cause = Cause.find(params[:id])
+    respond_to do |format|
+      format.js
+    end
   end
+
   def destroy
     @cause = Cause.find(params[:id])
     if @cause.business_companies.any? and UserHasCause.find_by_cause_id(@cause.id)
