@@ -26,7 +26,7 @@
                   <%=  user_cause.cause_name %>
                   <div>
                     <%= link_to "Businesses", get_businesses_user_path(@user, :cause => user_cause), :method => :get,"data-toggle" => "modal", :remote => true%>
-                    <span> ( <%= user_cause.business_companies.size %> ) </span> </div>
+                    <span> ( <%= count_businesses(user_cause) %> ) </span> </div>
                   <div id="test">
 
                   </div>

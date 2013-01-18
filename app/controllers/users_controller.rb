@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user,:edit,:update]
+  before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user,:edit,:update, :sign_up]
 
+ #before_filter :unsign , :only => [:new]
   def index
     @users = User.all
   end
@@ -28,8 +29,7 @@ class UsersController < ApplicationController
           flash[:success] = "Causes Submitted!"
         end
       end
-
-      redirect_to  display_businesses_of_causes_user_path(@user)
+     redirect_to  display_businesses_of_causes_user_path(@user)
     else
       flash[:error] = "Please select atleast one Cause"
       redirect_to display_cause_user_path(@user)
@@ -251,5 +251,17 @@ class UsersController < ApplicationController
     @all_businesses = cause_businesses.flatten - @user_businesses
 
   end
+
+
+ #def unsign
+ #  if current_person.present?
+ #
+ #    #flash[:error] = "Session already present"
+ #    render 'home'
+ #  else
+ #    logger.info("##########Else")
+ #      redirect_to new_user_path
+ #    end
+ #end
 
 end

@@ -16,13 +16,16 @@ S4g::Application.routes.draw do
           get :show_admin_dashboard_business
           get :view_donation
           get :get_businesses_admin
+          get :home
           resources :causes
           resources :business_companies
         end
+        #root :to => 'admins#home'
       end
     end
   end
 
+  root :to => 'static_pages#home'
 
   resources :users do
     member do
@@ -76,7 +79,7 @@ S4g::Application.routes.draw do
   match '/index' ,  :to => 'causes#index'
   #s match '/admins/causes/new' , :to => 'admin/causes#new ' , :as =>'/admins/causes/new'
 
-  root :to => 'static_pages#home'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

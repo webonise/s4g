@@ -1,5 +1,9 @@
 class Admin::AdminsController < ApplicationController
   before_filter :authenticate_person! , :only => [:show_admin_dashboard, :show_admin_dashboard_business ]
+  def home
+
+  end
+
   def show_admin_dashboard
     if current_person.admin?
       @admin=Person.find(current_person.id)
@@ -24,11 +28,13 @@ class Admin::AdminsController < ApplicationController
     causes.each do |cause|
       businesses = cause.business_companies
       business_post = Post.find_all_by_business_company_id(businesses.collect{|i| i.id})
-      imp_count = Impression.find_all_by_post_id(business_post.collect{|j|j.id })
-      cost_count.push(imp_count.count)
-
-      cost_count.each{|c| sum = sum.to_f + c.to_f}
-      sum = sum.to_f * FUND_SEND.to_f
+      imp_count = Impression.find_all_by_post_id(business_post.collect{|j| j.id })
+      #logger.info("######################{imp_count.inspect}")
+      #cost_count.push(imp_count.size)
+      #logger.info("######################{imp_count.size.inspect}")
+      #cost_count.each{|c| sum = sum.to_f + c.to_f}
+      #sum = sum.to_f * FUND_SEND.to_f
+      sum = imp_count.size * FUND_SEND.to_f
       cause_fund_hash = {"cause" => cause, "total_fund" => sum}
       @cause_list.push(cause_fund_hash)
     end
