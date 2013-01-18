@@ -13,8 +13,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.validate.js
-//= require jquery.colorbox.js
+//= require jquery.validate
+//= require jquery.colorbox
 //= require bootstrap
 //= require_tree .
 
