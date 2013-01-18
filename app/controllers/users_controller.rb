@@ -145,7 +145,7 @@ class UsersController < ApplicationController
 
     @@client = FacebookOAuth::Client.new(:application_id => APP_ID,
                                          :application_secret => APP_SECRET_KEY,
-                                         :callback => 'http://local.s4g.com/users/'+@user.id.to_s+'/callback')
+                                         :callback => 'http://s4g.weboapps.com/users/'+@user.id.to_s+'/callback')
     url = @@client.authorize_url
     redirect_to url
   end
