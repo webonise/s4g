@@ -72,3 +72,4 @@ S4g::Application.configure do
   # Fixed share value for each share
   FUND_SEND = 0.30
 end
+ADMIN_SUBDOMAIN = "admin"

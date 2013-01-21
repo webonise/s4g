@@ -8,7 +8,7 @@ S4g::Application.routes.draw do
 
   #resources :causes
 
-  constraints(:subdomain => :admin) do
+  constraints(:subdomain => ADMIN_SUBDOMAIN) do
     scope :module => "admin" do
       resources :admins  do
         collection  do
@@ -20,8 +20,9 @@ S4g::Application.routes.draw do
           resources :causes
           resources :business_companies
         end
-        #root :to => 'admins#home'
+
       end
+      root :to => 'admins#home'
     end
   end
 

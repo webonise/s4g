@@ -56,3 +56,4 @@ S4g::Application.configure do
   #config.routes.Admin = :admin
 
 end
+ADMIN_SUBDOMAIN = "admin"
