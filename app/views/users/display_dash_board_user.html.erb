@@ -17,7 +17,7 @@
               <li>
 
                 <span class="content">
-                  <%= image_tag(company_post["company"].business_logo, :size => "30x50", :alt => "Business Logo") %>
+                  <%= image_tag(company_post["company"].business_logo, :size => "30x50", :alt => "Business Logo", :class => 'img') %>
 
                   <%= link_to company_post["company"].business_name, show_business_user_path(:business_company => company_post["company"]), :method => :get, "data-toggle" => "modal", :remote => true %>
 
@@ -29,7 +29,7 @@
                 <% if (company_post["post"].content =~ URI::DEFAULT_PARSER.regexp[:ABS_URI]).nil?  %>
                     <span class="content "><%= company_post["post"].content %></span>
                 <% else %>
-                    <span class="content"><%=link_to company_post["post"].content, company_post["post"].content, :target => '_blank', :id => 'sfg_post_link'%></span>
+                    <span class="content"><%= link_to company_post["post"].content, company_post["post"].content, :target => '_blank', :id => 'sfg_post_link'%></span>
                 <% end %>
 
                 <span class="timestamp">
