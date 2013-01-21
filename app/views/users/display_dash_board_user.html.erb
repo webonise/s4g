@@ -22,7 +22,7 @@
                   <%= link_to company_post["company"].business_name, show_business_user_path(:business_company => company_post["company"]), :method => :get, "data-toggle" => "modal", :remote => true %>
 
                   <div class="">
-                    <%= link_to image_tag('assets/fb.png', :size => "35x50" ) + "Share", share_on_facebook_user_path(@user.id,:post => company_post["post"]), :method => 'get', :class => 'sponsor-tag-img' %>
+                    <%= link_to image_tag('http://i.stack.imgur.com/L8rHf.png', :size => "35x50" ) + "Share", share_on_facebook_user_path(@user.id,:post => company_post["post"]), :method => 'get', :class => 'sponsor-tag-img' %>
                   </div>
                 </span>
 
