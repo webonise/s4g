@@ -4,7 +4,7 @@
 
 <legend><h5>Business User</h5></legend>
 
-<%= form_for @business_user, :method => "post", :html => { :class => 'form-horizontal', :id => 'sfg_business_user_sign_up' } do |f| %>
+<%= form_for @business_user, :method => "post", :html => {:multipart => true, :class => 'form-horizontal', :id => 'sfg_business_user_sign_up',  } do |f| %>
     <div class="row">
       <div class="span5">
         <h4 class="general_details">General Details</h4>

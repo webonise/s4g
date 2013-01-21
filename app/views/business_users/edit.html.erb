@@ -5,7 +5,7 @@
 <div class="row">
   <div class="span5">
     <h4 class="general_details">Update your profile</h4>
-    <%= form_for @business_user, :method => :put, :html => { :class => 'form-horizontal sfg_business_user_sign_up' } do |f| %>
+    <%= form_for @business_user, :method => :put, :html => {:multipart => true, :class => 'form-horizontal sfg_business_user_sign_up' } do |f| %>
 
         <%= render 'error_messages', object: f.object %>
 
