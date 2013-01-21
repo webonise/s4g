@@ -18,7 +18,7 @@ class BusinessUsersController < ApplicationController
     @business_user = BusinessUser.find(params[:id])
     @business_company = @business_user.business_company
 
-    if (@business_user.update_attributes(params[:business_user]) || @business_company.update_attributes(params[:business_company_attributes]))
+    if (@business_user.update_attributes(params[:business_user]) || @business_company.update_attributes(params[:business_company]))
       flash[:success] = "Your Profile is updated"
       redirect_to root_path
     else

@@ -103,10 +103,10 @@
                 "business_user[password_confirmation]": {
                     equalTo: "#business_user_password"
                 },
-                "business_user[business_company_attributes][description]": {
-                    minlength: 50
+                "business_company[description]": {
+                    minlength: 10
                 },
-                "business_user[business_company_attributes][business_website]": {
+                "business_company[business_website]": {
                     required: true
                 }
             }
