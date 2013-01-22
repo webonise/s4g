@@ -13,3 +13,5 @@ application.js: application-599cde7bb2e9c27cda19f57e71c70bc9.js
 application/index.js: application-599cde7bb2e9c27cda19f57e71c70bc9.js
 application.css: application-5f4a9a3ac5248b7e02761be94b30e609.css
 application/index.css: application-5f4a9a3ac5248b7e02761be94b30e609.css
+jquery.min.map: jquery.min-959a5819c76e1508f5a8655c289c0de8.map
+jquery/index.min.map: jquery.min-959a5819c76e1508f5a8655c289c0de8.map

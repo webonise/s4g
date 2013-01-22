@@ -107,7 +107,6 @@ ActiveRecord::Schema.define(:version => 20130116124547) do
     t.integer  "person_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "fb_token"
   end
 
 end
