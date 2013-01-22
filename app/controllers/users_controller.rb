@@ -181,7 +181,7 @@ class UsersController < ApplicationController
       #logger.info("############################{params[:error_reason].inspect}")
       if(params[:error_reason].eql? "user_denied")
         flash[:error] = "Please click on 'Go To App' button, after you login to facebook."
-        redirect_to sign_up_facebook_user_path(@user)
+        redirect_to sign_up_user_path(@user)
       end
     else
       token = access_token.token
