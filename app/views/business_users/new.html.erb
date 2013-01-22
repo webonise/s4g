@@ -128,7 +128,6 @@
 
             if(cause_id != "")
             {
-             $('#sfg_see_cause').hide();
              $('#preloader').show();
             }
             $.ajax({
@@ -136,7 +135,6 @@
                 url: "../causes/display_cause_business_sign_up"   ,
                 data: { id :cause_id}
             }).done(function(response){
-                        $('#sfg_see_cause').show();
                         $('#sfg_about_cause_b_sign_up').html(response);
                         $('#preloader').hide();
                     });
