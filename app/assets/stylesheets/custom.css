@@ -7,7 +7,10 @@
 /*label.error { width: 250px; display: block; float: left; color: red; padding-left: 10px; }*/
 /*input[type=text], textarea { width: 250px; float: left; }*/
 /*textarea { height: 50px; }*/
-
+/*progress bar for ajax call*/
+#preloader{
+    display: none;
+}
 .legend_color{
     color: #ffffff;
 }
@@ -20,7 +23,9 @@
 #sfg_select_cause_part{
     margin-top: 32px;
 }
+#sfg_select_cause_div{
 
+}
 .sfg_select_cause {
     border: 1px solid #BBBBBB;
     margin-left: 30px;

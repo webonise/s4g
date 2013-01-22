@@ -54,7 +54,9 @@
           <h5 id="sfg_select_cause_header">Select a cause</h5>
           <%= select_tag "cause", options_from_collection_for_select(@causes, "id", "cause_name"), :prompt => "Select cause", :id => "sfg_cause_drop_down" %>
           <button type="button" class="btn" id="sfg_view_cause_btn">View Details</button>
-
+          <div id="preloader">
+            <img src="http://preloaders.net/images/ajax-loader.gif" alt="AJAX loader" title="AJAX loader" />
+          </div>
         </div>
 
         <div id="sfg_see_cause">
@@ -79,7 +81,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-
+        $('#preloader').hide();
         //validation
         $("#sfg_business_user_sign_up").validate({
             rules: {
@@ -123,12 +125,20 @@
         //ajax call for display cause
         $("#sfg_view_cause_btn").click(function(){
             var cause_id = $("#sfg_cause_drop_down").val();
+
+            if(cause_id != "")
+            {
+             $('#sfg_see_cause').hide();
+             $('#preloader').show();
+            }
             $.ajax({
                 type: "get" ,
                 url: "../causes/display_cause_business_sign_up"   ,
                 data: { id :cause_id}
             }).done(function(response){
+                        $('#sfg_see_cause').show();
                         $('#sfg_about_cause_b_sign_up').html(response);
+                        $('#preloader').hide();
                     });
         });
 
