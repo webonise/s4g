@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :authenticate_person! , :only => [:edit,:display_cause, :display_businesses_of_causes, :display_dash_board_user,:sign_up_facebook, :share_on_facebook, :edit_user_causes, :edit_businesses_of_user,:edit,:update, :sign_up]
 
- #before_filter :unsign , :only => [:new]
+  #before_filter :unsign , :only => [:new]
   def index
     @users = User.all
   end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
           flash[:success] = "Causes Submitted!"
         end
       end
-     redirect_to  display_businesses_of_causes_user_path(@user)
+      redirect_to  display_businesses_of_causes_user_path(@user)
     else
       flash[:error] = "Please select atleast one Cause"
       redirect_to display_cause_user_path(@user)
@@ -145,7 +145,7 @@ class UsersController < ApplicationController
 
     @@client = FacebookOAuth::Client.new(:application_id => APP_ID,
                                          :application_secret => APP_SECRET_KEY,
-                                         :callback => 'http://s4g.weboapps.com/users/'+@user.id.to_s+'/callback')
+                                         :callback => 'http://local.s4g.com/users/'+@user.id.to_s+'/callback')
     url = @@client.authorize_url
     redirect_to url
   end
@@ -172,20 +172,46 @@ class UsersController < ApplicationController
   end
 
   def callback
-    @user = User.find(params[:id])
-    access_token = @@client.authorize(:code => params[:code])
-    token = access_token.token
-    @user.fb_token = token
-    if @user.save
-      flash[:success] = "Facebook Authenticated Successfully"
+
+    begin
+      @user = User.find(params[:id])
+
+      access_token = @@client.authorize(:code => params[:code])
+    rescue
+      #logger.info("############################{params[:error_reason].inspect}")
+      if(params[:error_reason].eql? "user_denied")
+        flash[:error] = "Please click on 'Go To App' button, after you login to facebook."
+        redirect_to sign_up_user_path(@user)
+      end
     else
-      flash[:error] = "Facebook Authentication Failed"
+      token = access_token.token
+      @user.fb_token = token
+      if @user.save
+        flash[:success] = "Facebook Authenticated Successfully"
+      else
+        flash[:error] = "Facebook Authentication Failed"
+      end
+
+      if @@old_user
+        redirect_to share_on_facebook_user_path(@user, :post => @@post)
+      else
+        redirect_to display_cause_user_path(@user)
+      end
+
     end
-    if @@old_user
-      redirect_to share_on_facebook_user_path(@user, :post => @@post)
-    else
-      redirect_to display_cause_user_path(@user)
-    end
+
+    #token = access_token.token
+    #@user.fb_token = token
+    #if @user.save
+    #  flash[:success] = "Facebook Authenticated Successfully"
+    #else
+    #  flash[:error] = "Facebook Authentication Failed"
+    #end
+    #if @@old_user
+    #  redirect_to share_on_facebook_user_path(@user, :post => @@post)
+    #else
+    #  redirect_to display_cause_user_path(@user)
+    #end
   end
 
 
@@ -205,16 +231,16 @@ class UsersController < ApplicationController
 
       begin
         @@client.me.feed(:create, :message => post.content)
-        rescue OAuth2::Error
-         flash[:error] = "You cannot share same post twice within such a short span of time..."
-        else
+      rescue OAuth2::Error
+        flash[:error] = "You cannot share same post twice within such a short span of time..."
+      else
         impression = Impression.new()
         impression.post_id = post.id
         impression.user_id = @user.id
         impression.fund_raise = 30
         impression.save
         flash[:success] = "Shared on facebook successfully"
-        ensure
+      ensure
         redirect_to display_dash_board_user_user_path(@user)
       end
 
@@ -253,15 +279,15 @@ class UsersController < ApplicationController
   end
 
 
- #def unsign
- #  if current_person.present?
- #
- #    #flash[:error] = "Session already present"
- #    render 'home'
- #  else
- #    logger.info("##########Else")
- #      redirect_to new_user_path
- #    end
- #end
+  #def unsign
+  #  if current_person.present?
+  #
+  #    #flash[:error] = "Session already present"
+  #    render 'home'
+  #  else
+  #    logger.info("##########Else")
+  #      redirect_to new_user_path
+  #    end
+  #end
 
 end
