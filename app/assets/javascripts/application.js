@@ -49,9 +49,7 @@ $(document).ready(function() {
             "business_company[business_website]": {
                 url:true
             },
-            "business_company[business_logo]":{
-                required:true
-            },
+
             "business_company[contact]":{
                 required:true,
                 digits: true ,
